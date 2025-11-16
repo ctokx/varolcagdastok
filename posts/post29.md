@@ -2,11 +2,11 @@
 
 ## Matrix-Vector Multiplication
 
-Given a matrix **A** ∈ ℝᵐˣⁿ and a vector **x** ∈ ℝⁿ, the product **A****x** ∈ ℝᵐ is defined as:
+Given a matrix $A \in \mathbb{R}^{m \times n}$ and a vector $x \in \mathbb{R}^n$, the product $Ax \in \mathbb{R}^m$ is defined as:
 
-(**A****x**)ᵢ = Σⱼ₌₁ⁿ aᵢⱼxⱼ
+$$(Ax)_i = \sum_{j=1}^{n} a_{ij}x_j$$
 
-Each entry of the result is the dot product of a row of **A** with **x**.
+Each entry of the result is the dot product of a row of $A$ with $x$.
 
 ### Example
 
@@ -21,18 +21,18 @@ Ax = [(1)(1) + (2)(2) + (3)(3)]   [1+4+9 ]   [14]
 
 ### Dimensional Compatibility
 
-For **A****x** to be defined:
-- **A** must have dimensions m × n
-- **x** must have dimension n (number of columns of **A**)
-- Result **A****x** has dimension m (number of rows of **A**)
+For $Ax$ to be defined:
+- $A$ must have dimensions $m \times n$
+- $x$ must have dimension $n$ (number of columns of $A$)
+- Result $Ax$ has dimension $m$ (number of rows of $A$)
 
 ## Column Perspective
 
 Matrix-vector multiplication can be viewed as a linear combination of columns:
 
-If **A** = [**a**₁ **a**₂ ... **aₙ**] (columns) and **x** = [x₁, x₂, ..., xₙ]ᵀ, then:
+If $A = [a_1 \; a_2 \; \ldots \; a_n]$ (columns) and $x = [x_1, x_2, \ldots, x_n]^T$, then:
 
-**A****x** = x₁**a**₁ + x₂**a**₂ + ... + xₙ**aₙ**
+$$Ax = x_1 a_1 + x_2 a_2 + \cdots + x_n a_n$$
 
 ### Example
 
@@ -46,11 +46,11 @@ Ax = 2[1] + 1[3] = [2] + [3] = [5]
 
 ## Matrix-Matrix Multiplication
 
-Given **A** ∈ ℝᵐˣⁿ and **B** ∈ ℝⁿˣᵖ, the product **C** = **AB** ∈ ℝᵐˣᵖ is:
+Given $A \in \mathbb{R}^{m \times n}$ and $B \in \mathbb{R}^{n \times p}$, the product $C = AB \in \mathbb{R}^{m \times p}$ is:
 
-cᵢⱼ = Σₖ₌₁ⁿ aᵢₖbₖⱼ
+$$c_{ij} = \sum_{k=1}^{n} a_{ik}b_{kj}$$
 
-The (i,j)-th entry of **C** is the dot product of the i-th row of **A** with the j-th column of **B**.
+The (i,j)-th entry of $C$ is the dot product of the i-th row of $A$ with the j-th column of $B$.
 
 ### Example
 
@@ -63,25 +63,25 @@ C = AB = [(1)(5)+(2)(7)  (1)(6)+(2)(8)]   [19  22]
 ```
 
 Calculation:
-- c₁₁ = (1)(5) + (2)(7) = 5 + 14 = 19
-- c₁₂ = (1)(6) + (2)(8) = 6 + 16 = 22
-- c₂₁ = (3)(5) + (4)(7) = 15 + 28 = 43
-- c₂₂ = (3)(6) + (4)(8) = 18 + 32 = 50
+- $c_{11} = (1)(5) + (2)(7) = 5 + 14 = 19$
+- $c_{12} = (1)(6) + (2)(8) = 6 + 16 = 22$
+- $c_{21} = (3)(5) + (4)(7) = 15 + 28 = 43$
+- $c_{22} = (3)(6) + (4)(8) = 18 + 32 = 50$
 
 ### Dimensional Compatibility
 
-For **AB** to be defined:
-- **A** must be m × n
-- **B** must be n × p (columns of **A** = rows of **B**)
-- Result **AB** is m × p
+For $AB$ to be defined:
+- $A$ must be $m \times n$
+- $B$ must be $n \times p$ (columns of $A$ = rows of $B$)
+- Result $AB$ is $m \times p$
 
 ## Properties of Matrix Multiplication
 
-1. **Associativity**: (**AB**)**C** = **A**(**BC**)
-2. **Distributivity**: **A**(**B** + **C**) = **AB** + **AC**
-3. **NOT commutative**: Generally **AB** ≠ **BA**
-4. **Identity**: **AI** = **IA** = **A**
-5. **Transpose**: (**AB**)ᵀ = **B**ᵀ**A**ᵀ (order reverses)
+1. **Associativity**: $(AB)C = A(BC)$
+2. **Distributivity**: $A(B + C) = AB + AC$
+3. **NOT commutative**: Generally $AB \neq BA$
+4. **Identity**: $AI = IA = A$
+5. **Transpose**: $(AB)^T = B^T A^T$ (order reverses)
 
 ### Non-Commutativity Example
 
@@ -97,37 +97,37 @@ AB ≠ BA
 
 ## Computational Complexity
 
-Multiplying an m × n matrix by an n × p matrix requires:
-- O(mnp) scalar multiplications
-- O(mnp) scalar additions
+Multiplying an $m \times n$ matrix by an $n \times p$ matrix requires:
+- $O(mnp)$ scalar multiplications
+- $O(mnp)$ scalar additions
 
-For square matrices (n × n), this is O(n³).
+For square matrices ($n \times n$), this is $O(n^3)$.
 
-For matrix-vector multiplication (n × n matrix, n-dimensional vector): O(n²).
+For matrix-vector multiplication ($n \times n$ matrix, n-dimensional vector): $O(n^2)$.
 
 ## Linear Transformations
 
-A function T: ℝⁿ → ℝᵐ is a linear transformation if:
+A function $T: \mathbb{R}^n \to \mathbb{R}^m$ is a linear transformation if:
 
-1. T(**u** + **v**) = T(**u**) + T(**v**) (additivity)
-2. T(α**v**) = αT(**v**) (homogeneity)
+1. $T(u + v) = T(u) + T(v)$ (additivity)
+2. $T(\alpha v) = \alpha T(v)$ (homogeneity)
 
 Every linear transformation can be represented as matrix multiplication:
 
-T(**x**) = **A****x**
+$$T(x) = Ax$$
 
-for some matrix **A** ∈ ℝᵐˣⁿ.
+for some matrix $A \in \mathbb{R}^{m \times n}$.
 
 ### Example: Rotation
 
-A 2D rotation by angle θ counterclockwise is:
+A 2D rotation by angle $\theta$ counterclockwise is:
 
 ```
 R(θ) = [cos(θ)  -sin(θ)]
        [sin(θ)   cos(θ)]
 ```
 
-Rotating **x** = [1, 0]ᵀ by 90° (θ = π/2):
+Rotating $x = [1, 0]^T$ by 90° ($\theta = \pi/2$):
 
 ```
 R(π/2) = [0  -1]
@@ -139,14 +139,14 @@ R(π/2)[1] = [0]
 
 ### Example: Scaling
 
-Scaling by factors sₓ and sᵧ:
+Scaling by factors $s_x$ and $s_y$:
 
 ```
 S = [sₓ   0]
     [0   sᵧ]
 ```
 
-For sₓ = 2, sᵧ = 3:
+For $s_x = 2$, $s_y = 3$:
 
 ```
 S[1] = [2]
@@ -167,11 +167,11 @@ P[3] = [3]
 
 ## Composition of Transformations
 
-Applying transformation **B** followed by **A** is:
+Applying transformation $B$ followed by $A$ is:
 
-T(**x**) = **A**(**B****x**) = (**AB**)**x**
+$$T(x) = A(Bx) = (AB)x$$
 
-The composition is represented by the product **AB**.
+The composition is represented by the product $AB$.
 
 ### Example
 
@@ -189,32 +189,32 @@ SR = [2  0][0  -1]   [0  -2]
 
 **Neural Network Layers**: A fully connected layer computes:
 
-**h** = σ(**W****x** + **b**)
+$$h = \sigma(Wx + b)$$
 
-where **W** is the weight matrix and σ is an activation function. The linear part **W****x** is matrix-vector multiplication.
+where $W$ is the weight matrix and $\sigma$ is an activation function. The linear part $Wx$ is matrix-vector multiplication.
 
-**Batch Processing**: Processing n samples **X** ∈ ℝⁿˣᵈ through a layer with weights **W** ∈ ℝᵈˣᵏ:
+**Batch Processing**: Processing n samples $X \in \mathbb{R}^{n \times d}$ through a layer with weights $W \in \mathbb{R}^{d \times k}$:
 
-**H** = **XW**
+$$H = XW$$
 
-Each row of **H** is the transformed feature vector for one sample.
+Each row of $H$ is the transformed feature vector for one sample.
 
 **Convolutional Layers**: Though typically described using convolution, can be represented as matrix multiplication by constructing a Toeplitz matrix from the kernel.
 
 **Chain Rule in Backpropagation**: Gradients propagate backward through layers using the chain rule, which corresponds to multiplying Jacobian matrices:
 
-∂L/∂**W**₁ = (∂L/∂**h**₂)(∂**h**₂/∂**h**₁)(∂**h**₁/∂**W**₁)
+$$\frac{\partial L}{\partial W_1} = \left(\frac{\partial L}{\partial h_2}\right)\left(\frac{\partial h_2}{\partial h_1}\right)\left(\frac{\partial h_1}{\partial W_1}\right)$$
 
 **Data Transformations**: Standardizing features (mean 0, variance 1) can be written as:
 
-**X**_std = (**X** - **μ**)**D**⁻¹
+$$X_{\text{std}} = (X - \mu)D^{-1}$$
 
-where **D** is a diagonal matrix of standard deviations.
+where $D$ is a diagonal matrix of standard deviations.
 
 **Dimensionality Reduction**: PCA projects data onto principal components:
 
-**X**_reduced = **XW**_pca
+$$X_{\text{reduced}} = XW_{\text{pca}}$$
 
-where **W**_pca contains the top k eigenvectors as columns.
+where $W_{\text{pca}}$ contains the top k eigenvectors as columns.
 
-**Recommendation Systems**: Matrix factorization decomposes a user-item matrix **R** ≈ **UV**ᵀ, where **U** contains user embeddings and **V** contains item embeddings.
+**Recommendation Systems**: Matrix factorization decomposes a user-item matrix $R \approx UV^T$, where $U$ contains user embeddings and $V$ contains item embeddings.

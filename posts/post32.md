@@ -2,40 +2,40 @@
 
 ## Definition
 
-For a square matrix **A** ∈ ℝⁿˣⁿ, a non-zero vector **v** ∈ ℝⁿ is an **eigenvector** with corresponding **eigenvalue** λ ∈ ℝ if:
+For a square matrix $A \in \mathbb{R}^{n \times n}$, a non-zero vector $v \in \mathbb{R}^{n}$ is an **eigenvector** with corresponding **eigenvalue** $\lambda \in \mathbb{R}$ if:
 
-**A****v** = λ**v**
+$Av = \lambda$v$
 
-This equation states that applying **A** to **v** only scales **v** by λ, without changing its direction (unless λ < 0, which reverses direction).
+This equation states that applying $A$ to $v$ only scales $v$ by $\lambda$, without changing its direction (unless $\lambda$ < 0, which reverses direction).
 
 ## Geometric Intuition
 
-Most vectors change direction when transformed by **A**. Eigenvectors are special: they only get stretched (λ > 1), shrunk (0 < λ < 1), reversed (λ < 0), or annihilated (λ = 0).
+Most vectors change direction when transformed by $A$. Eigenvectors are special: they only get stretched ($\lambda$ > 1), shrunk (0 < $\lambda$ < 1), reversed ($\lambda$ < 0), or annihilated ($\lambda$ = 0).
 
-### Example: 2×2 Matrix
+### Example: $2 \times 2$ Matrix
 
 ```
 A = [3  0]
     [0  2]
 ```
 
-Test **v**₁ = [1, 0]ᵀ:
+Test $$v_{1}$ = $[1, 0]^T$:
 
-**A****v**₁ = [3, 0]ᵀ = 3[1, 0]ᵀ = 3**v**₁
+$$A$v_{1}$ = $[3, 0]^T$ = 3$[1, 0]^T$ = 3$$v_{1}$$
 
-So **v**₁ is an eigenvector with eigenvalue λ₁ = 3.
+So $$v_{1}$ is an eigenvector with eigenvalue $\lambd$a_{1}$ = 3.
 
-Test **v**₂ = [0, 1]ᵀ:
+Test $$v_{2}$ = $[0, 1]^T$:
 
-**A****v**₂ = [0, 2]ᵀ = 2[0, 1]ᵀ = 2**v**₂
+$$A$v_{2}$ = $[0, 2]^T$ = 2$[0, 1]^T$ = 2$$v_{2}$$
 
-So **v**₂ is an eigenvector with eigenvalue λ₂ = 2.
+So $$v_{2}$ is an eigenvector with eigenvalue $\lambd$a_{2}$ = 2.
 
 ## Characteristic Equation
 
 To find eigenvalues, solve:
 
-det(**A** - λ**I**) = 0
+det($A - \lambda$I$) = 0
 
 This is the **characteristic equation**. The solutions are the eigenvalues.
 
@@ -54,13 +54,13 @@ det(A - λI) = (4-λ)(3-λ) - (1)(2)
             = (λ - 5)(λ - 2)
 ```
 
-Eigenvalues: λ₁ = 5, λ₂ = 2.
+Eigenvalues: $\lambd$a_{1}$ = 5, $\lambd$a_{2}$ = 2.
 
 ## Finding Eigenvectors
 
-For each eigenvalue λ, solve (**A** - λ**I**)**v** = **0** to find corresponding eigenvectors.
+For each eigenvalue $\lambda$, solve ($A - \lambda$I$)$v$ = **0** to find corresponding eigenvectors.
 
-### Example: Eigenvector for λ₁ = 5
+### Example: Eigenvector for $\lambd$a_{1}$ = 5
 
 ```
 (A - 5I)v = [4-5   1 ][v₁]   [-1  1][v₁]   [0]
@@ -69,11 +69,11 @@ For each eigenvalue λ, solve (**A** - λ**I**)**v** = **0** to find correspondi
 -v₁ + v₂ = 0  →  v₂ = v₁
 ```
 
-Eigenvector: **v**₁ = [1, 1]ᵀ (or any scalar multiple: [c, c]ᵀ for c ≠ 0)
+Eigenvector: $$v_{1}$ = $[1, 1]^T$ (or any scalar multiple: $[c, c]^T$ for c $\neq$ 0)
 
-Verify: **A****v**₁ = [4, 1; 2, 3][1; 1] = [5; 5] = 5[1; 1] ✓
+Verify: $A$v_{1}$ = [4, 1; 2, 3][1; 1] = [5; 5] = 5[1; 1] ✓
 
-### Example: Eigenvector for λ₂ = 2
+### Example: Eigenvector for $\lambd$a_{2}$ = 2
 
 ```
 (A - 2I)v = [4-2   1 ][v₁]   [2  1][v₁]   [0]
@@ -82,27 +82,27 @@ Verify: **A****v**₁ = [4, 1; 2, 3][1; 1] = [5; 5] = 5[1; 1] ✓
 2v₁ + v₂ = 0  →  v₂ = -2v₁
 ```
 
-Eigenvector: **v**₂ = [1, -2]ᵀ
+Eigenvector: $$v_{2}$ = $[1, -2]^T$
 
-Verify: **A****v**₂ = [4, 1; 2, 3][1; -2] = [4-2; 2-6] = [2; -4] = 2[1; -2] ✓
+Verify: $A$v_{2}$ = [4, 1; 2, 3][1; -2] = [4-2; 2-6] = [2; -4] = 2[1; -2] ✓
 
 ## Properties of Eigenvalues
 
-For a matrix **A** ∈ ℝⁿˣⁿ:
+For a matrix $A \in \mathbb{R}^{n \times n}$:
 
-1. **Trace**: tr(**A**) = Σλᵢ (sum of eigenvalues)
-2. **Determinant**: det(**A**) = ∏λᵢ (product of eigenvalues)
-3. If **A** is invertible, eigenvalues of **A**⁻¹ are 1/λᵢ
-4. Eigenvalues of **A**ᵀ equal eigenvalues of **A**
-5. Eigenvalues of α**A** are αλᵢ
-6. Eigenvalues of **A**ᵏ are λᵢᵏ
+1. **Trace**: tr($A$) = $\Sigma$\lambd$a_{i}$ (sum of eigenvalues)
+2. **Determinant**: det($A$) = ∏$\lambd$a_{i}$ (product of eigenvalues)
+3. If $A$ is invertible, eigenvalues of $A$^{-1}$ are 1/$\lambd$a_{i}$
+4. Eigenvalues of $A$^T$ equal eigenvalues of $A$
+5. Eigenvalues of $\alpha$A$ are $\alpha$\lambd$a_{i}$
+6. Eigenvalues of $$A^{k}$ are $\lambd$a_{i}$^k$
 
 ## Symmetric Matrices
 
-If **A** = **A**ᵀ (symmetric), then:
+If $A = A$^T$ (symmetric), then:
 1. All eigenvalues are real
 2. Eigenvectors corresponding to distinct eigenvalues are orthogonal
-3. **A** can be diagonalized by an orthogonal matrix
+3. $A$ can be diagonalized by an orthogonal matrix
 
 ### Example
 
@@ -111,7 +111,7 @@ A = [2  1]
     [1  2]
 ```
 
-**A** is symmetric. Find eigenvalues:
+$A$ is symmetric. Find eigenvalues:
 
 ```
 det(A - λI) = det([2-λ   1 ])
@@ -122,20 +122,20 @@ det(A - λI) = det([2-λ   1 ])
             = (λ - 3)(λ - 1)
 ```
 
-Eigenvalues: λ₁ = 3, λ₂ = 1 (both real ✓)
+Eigenvalues: $\lambd$a_{1}$ = 3, $\lambd$a_{2}$ = 1 (both real ✓)
 
-For λ₁ = 3: **v**₁ = [1, 1]ᵀ (normalized: [1/√2, 1/√2]ᵀ)
-For λ₂ = 1: **v**₂ = [1, -1]ᵀ (normalized: [1/√2, -1/√2]ᵀ)
+For $\lambd$a_{1}$ = 3: $$v_{1}$ = $[1, 1]^T$ (normalized: $[1/$\sqrt$2, 1/$\sqrt$2]^T$)
+For $\lambd$a_{2}$ = 1: $$v_{2}$ = $[1, -1]^T$ (normalized: $[1/$\sqrt$2, -1/$\sqrt$2]^T$)
 
-Check orthogonality: **v**₁ · **v**₂ = (1)(1) + (1)(-1) = 0 ✓
+Check orthogonality: $v$_1 \cdot $v_{2}$ = (1)(1) + (1)(-1) = 0 ✓
 
 ## Multiplicity
 
 The **algebraic multiplicity** of an eigenvalue is its multiplicity as a root of the characteristic polynomial.
 
-The **geometric multiplicity** is the dimension of the eigenspace (null space of **A** - λ**I**).
+The **geometric multiplicity** is the dimension of the eigenspace (null space of $A - \lambda$I$).
 
-Always: geometric multiplicity ≤ algebraic multiplicity.
+Always: geometric multiplicity $\leq$ algebraic multiplicity.
 
 ### Example
 
@@ -145,34 +145,34 @@ A = [2  0  0]
     [0  0  3]
 ```
 
-Characteristic equation: (2 - λ)²(3 - λ) = 0
+Characteristic equation: (2 - $\lambda$)$^2$(3 - $\lambda$) = 0
 
-Eigenvalues: λ₁ = 2 (algebraic multiplicity 2), λ₂ = 3 (algebraic multiplicity 1)
+Eigenvalues: $\lambd$a_{1}$ = 2 (algebraic multiplicity 2), $\lambd$a_{2}$ = 3 (algebraic multiplicity 1)
 
-For λ₁ = 2:
+For $\lambd$a_{1}$ = 2:
 ```
 (A - 2I)v = [0  0  0][v₁]   [0]
             [0  0  0][v₂] = [0]
             [0  0  1][v₃]   [0]
 ```
 
-This gives v₃ = 0, with v₁ and v₂ free. Eigenspace: span{[1, 0, 0]ᵀ, [0, 1, 0]ᵀ}
+This gives $v_{3}$ = 0, with $v_{1}$ and $v_{2}$ free. Eigenspace: span{$[1, 0, 0]^T$, $[0, 1, 0]^T$}
 
-Geometric multiplicity of λ₁ = 2 (matches algebraic multiplicity ✓)
+Geometric multiplicity of $\lambd$a_{1}$ = 2 (matches algebraic multiplicity ✓)
 
 ## Diagonalization
 
-A matrix **A** is **diagonalizable** if it can be written as:
+A matrix $A$ is **diagonalizable** if it can be written as:
 
-**A** = **P****D****P**⁻¹
+$A = PD$P$^{-1}$
 
-where **D** is diagonal (containing eigenvalues) and **P** has eigenvectors as columns.
+where $D$ is diagonal (containing eigenvalues) and $P$ has eigenvectors as columns.
 
-**A** is diagonalizable if and only if it has n linearly independent eigenvectors.
+$A$ is diagonalizable if and only if it has n linearly independent eigenvectors.
 
 ### Example
 
-For **A** = [4, 1; 2, 3] with eigenvalues 5, 2 and eigenvectors [1, 1]ᵀ, [1, -2]ᵀ:
+For $A$ = [4, 1; 2, 3] with eigenvalues 5, 2 and eigenvectors $[1, 1]^T$, $[1, -2]^T$:
 
 ```
 P = [1   1]     D = [5  0]
@@ -195,15 +195,15 @@ PDP⁻¹ = [1   1][5  0][2/3   1/3]
 
 ## Relevance for Machine Learning
 
-**Covariance Matrix Analysis**: In PCA, the covariance matrix **C** is symmetric. Its eigenvectors are the principal components (directions of maximum variance), and eigenvalues indicate the variance along each component.
+**Covariance Matrix Analysis**: In PCA, the covariance matrix $C$ is symmetric. Its eigenvectors are the principal components (directions of maximum variance), and eigenvalues indicate the variance along each component.
 
-**Power Iteration**: The largest eigenvalue and corresponding eigenvector can be found iteratively by repeatedly applying **A**: **v**(k+1) = **A****v**(k) / ||**A****v**(k)||. Used in PageRank and spectral methods.
+**Power Iteration**: The largest eigenvalue and corresponding eigenvector can be found iteratively by repeatedly applying $A$: $v$(k+1) = $Av$(k) / \|\1\|. Used in PageRank and spectral methods.
 
-**Stability of Dynamical Systems**: In recurrent neural networks (RNNs), eigenvalues of the recurrence weight matrix determine stability. If max|λᵢ| > 1, gradients explode; if max|λᵢ| < 1, gradients vanish.
+**Stability of Dynamical Systems**: In recurrent neural networks (RNNs), eigenvalues of the recurrence weight matrix determine stability. If max|$\lambd$a_{i}$| > 1, gradients explode; if max|$\lambd$a_{i}$| < 1, gradients vanish.
 
-**Spectral Clustering**: Construct a graph Laplacian matrix **L**. Its eigenvectors reveal cluster structure. The k smallest eigenvalues' eigenvectors are used for clustering.
+**Spectral Clustering**: Construct a graph Laplacian matrix $L$. Its eigenvectors reveal cluster structure. The k smallest eigenvalues' eigenvectors are used for clustering.
 
-**Matrix Functions**: Computing **A**ᵏ or exp(**A**) is efficient via diagonalization: **A**ᵏ = **P****D**ᵏ**P**⁻¹, where **D**ᵏ is trivial to compute (raise diagonal entries to power k).
+**Matrix Functions**: Computing $$A^{k}$ or exp($A$) is efficient via diagonalization: $A$^k = P$D^{k}$P$^{-1}$, where $$D^{k}$ is trivial to compute (raise diagonal entries to power k).
 
 **Graph Neural Networks**: Eigenvalues of the adjacency or Laplacian matrix characterize graph properties like connectivity and diameter, informing architecture design.
 

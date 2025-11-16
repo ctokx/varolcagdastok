@@ -2,34 +2,34 @@
 
 ## Definition
 
-The Singular Value Decomposition (SVD) of a matrix **A** ∈ ℝᵐˣⁿ is:
+The Singular Value Decomposition (SVD) of a matrix $A \in \mathbb{R}^{m \times n}$ is:
 
-**A** = **U****Σ****V**ᵀ
+$A = U$**$\Sigma$**$V$^T$
 
 where:
-- **U** ∈ ℝᵐˣᵐ is orthogonal (columns are orthonormal left singular vectors)
-- **Σ** ∈ ℝᵐˣⁿ is diagonal (entries σ₁ ≥ σ₂ ≥ ... ≥ σᵣ ≥ 0 are singular values)
-- **V** ∈ ℝⁿˣⁿ is orthogonal (columns are orthonormal right singular vectors)
+- $U \in \mathbb{R}^{m \times m}$ is orthogonal (columns are orthonormal left singular vectors)
+- **$\Sigma$** $\in \mathbb{R}$^m$ˣ$^n$ is diagonal (entries $\sigma$_1 \geq \sigma$_2 \geq$ ... $\geq \sigma$ᵣ $\geq$ 0 are singular values)
+- $V \in \mathbb{R}^{n \times n}$ is orthogonal (columns are orthonormal right singular vectors)
 
 Unlike eigendecomposition, SVD applies to any matrix (not just square).
 
 ## Singular Values
 
-The singular values σᵢ are the square roots of the eigenvalues of **A**ᵀ**A** (or **AA**ᵀ):
+The singular values $\sigm$a_{i}$ are the square roots of the eigenvalues of $A$^T$A$ (or **AA**$^T$):
 
-σᵢ = √λᵢ(**A**ᵀ**A**)
+$\sigma$_i = \sqrt$\lambd$a_{i}$($A$^T$A$)
 
-The number of non-zero singular values equals rank(**A**).
+The number of non-zero singular values equals rank($A$).
 
 ## Computing SVD
 
-To find **U**, **Σ**, **V**:
+To find $U$, **$\Sigma$**, $V$:
 
-1. Compute **A**ᵀ**A** ∈ ℝⁿˣⁿ (symmetric, positive semi-definite)
-2. Find eigenvalues and eigenvectors of **A**ᵀ**A**
-3. Singular values: σᵢ = √λᵢ
-4. Right singular vectors: columns of **V** are eigenvectors of **A**ᵀ**A**
-5. Left singular vectors: **u**ᵢ = (1/σᵢ)**A****v**ᵢ for i = 1, ..., r
+1. Compute $A$^T$A \in \mathbb{R}^{n \times n}$ (symmetric, positive semi-definite)
+2. Find eigenvalues and eigenvectors of $A$^T$A$
+3. Singular values: $\sigma$_i = \sqrt$\lambd$a_{i}$
+4. Right singular vectors: columns of $V$ are eigenvectors of $A$^T$A$
+5. Left singular vectors: $$u_{i}$ = (1/$\sigm$a_{i}$)$A$v_{i}$ for i = 1, ..., r
 
 ### Example
 
@@ -39,16 +39,16 @@ A = [3  1]
     [0  0]
 ```
 
-**A** is 3×2.
+$A$ is $3 \times 2$.
 
-Step 1: Compute **A**ᵀ**A**:
+Step 1: Compute $A$^T$A$:
 ```
 AᵀA = [3  1  0][3  1]   [9+1+0   3+3+0]   [10  6]
       [1  3  0][1  3] = [3+3+0   1+9+0] = [6  10]
               [0  0]
 ```
 
-Step 2: Find eigenvalues of **A**ᵀ**A**:
+Step 2: Find eigenvalues of $A$^T$A$:
 ```
 det(AᵀA - λI) = det([10-λ    6  ])
                     [6     10-λ]
@@ -58,10 +58,10 @@ det(AᵀA - λI) = det([10-λ    6  ])
               = (λ - 16)(λ - 4)
 ```
 
-Eigenvalues: λ₁ = 16, λ₂ = 4
+Eigenvalues: $\lambd$a_{1}$ = 16, $\lambd$a_{2}$ = 4
 
 Step 3: Singular values:
-σ₁ = √16 = 4, σ₂ = √4 = 2
+$\sigma$_1 = \sqrt$16 = 4, $\sigma$_2 = \sqrt$4 = 2
 
 ```
 Σ = [4  0]
@@ -69,9 +69,9 @@ Step 3: Singular values:
     [0  0]
 ```
 
-Step 4: Find eigenvectors of **A**ᵀ**A**:
+Step 4: Find eigenvectors of $A$^T$A$:
 
-For λ₁ = 16:
+For $\lambd$a_{1}$ = 16:
 ```
 (AᵀA - 16I)v = [-6  6][v₁]   [0]
                [6  -6][v₂] = [0]
@@ -79,9 +79,9 @@ For λ₁ = 16:
 -v₁ + v₂ = 0  →  v₁ = v₂
 ```
 
-Normalized: **v**₁ = [1/√2, 1/√2]ᵀ
+Normalized: $$v_{1}$ = $[1/$\sqrt$2, 1/$\sqrt$2]^T$
 
-For λ₂ = 4:
+For $\lambd$a_{2}$ = 4:
 ```
 (AᵀA - 4I)v = [6  6][v₁]   [0]
               [6  6][v₂] = [0]
@@ -89,7 +89,7 @@ For λ₂ = 4:
 v₁ + v₂ = 0  →  v₂ = -v₁
 ```
 
-Normalized: **v**₂ = [1/√2, -1/√2]ᵀ
+Normalized: $$v_{2}$ = $[1/$\sqrt$2, -1/$\sqrt$2]^T$
 
 ```
 V = [1/√2   1/√2]
@@ -108,9 +108,9 @@ u₂ = (1/σ₂)Av₂ = (1/2)[3  1][ 1/√2]   (1/2)[2/√2]   [1/√2 ]
                        [0  0]          (1/2)[0    ]   [0    ]
 ```
 
-Need a third vector orthogonal to **u**₁ and **u**₂:
+Need a third vector orthogonal to $$u_{1}$ and $$u_{2}$:
 
-**u**₃ = [0, 0, 1]ᵀ (perpendicular to span{**u**₁, **u**₂})
+$$u_{3}$ = $[0, 0, 1]^T$ (perpendicular to span{$$u_{1}$, $$u_{2}$})
 
 ```
 U = [1/√2   1/√2   0]
@@ -135,14 +135,14 @@ UΣVᵀ = [1/√2   1/√2   0][4  0][1/√2   1/√2]
 
 ## Reduced SVD
 
-For **A** ∈ ℝᵐˣⁿ with rank r ≤ min(m, n), the **reduced SVD** uses only the r non-zero singular values:
+For $A \in \mathbb{R}^{m \times n}$ with rank r $\leq$ min(m, n), the **reduced SVD** uses only the r non-zero singular values:
 
-**A** = **U**ᵣ**Σ**ᵣ**V**ᵣᵀ
+$A = U$ᵣ**$\Sigma$**ᵣ$V$ᵣ$^T$
 
 where:
-- **U**ᵣ ∈ ℝᵐˣʳ (first r columns of **U**)
-- **Σ**ᵣ ∈ ℝʳˣʳ (r×r diagonal matrix)
-- **V**ᵣ ∈ ℝⁿˣʳ (first r columns of **V**)
+- $U$ᵣ $\in \mathbb{R}$^m$ˣʳ (first r columns of $U$)
+- **$\Sigma$**ᵣ $\in \mathbb{R}$ʳˣʳ (r$\times$r diagonal matrix)
+- $V$ᵣ $\in \mathbb{R}$^n$ˣʳ (first r columns of $V$)
 
 This is more memory-efficient for low-rank matrices.
 
@@ -150,73 +150,73 @@ This is more memory-efficient for low-rank matrices.
 
 SVD can be written as a sum of rank-1 matrices:
 
-**A** = Σᵢ₌₁ʳ σᵢ **u**ᵢ**v**ᵢᵀ
+$$A = \Sigm$a_{i}$₌$_1$ʳ $\sigma$_i $u_{i} v_{i}$^T$$
 
-Each term σᵢ **u**ᵢ**v**ᵢᵀ captures a "mode" or "pattern" in the data.
+Each term $\sigma$_i $u_{i} v_{i}$^T$ captures a "mode" or "pattern" in the data.
 
 ## Low-Rank Approximation
 
-The best rank-k approximation to **A** (minimizing Frobenius norm) is:
+The best rank-k approximation to $A$ (minimizing Frobenius norm) is:
 
-**A**ₖ = Σᵢ₌₁ᵏ σᵢ **u**ᵢ**v**ᵢᵀ = **U**ₖ**Σ**ₖ**V**ₖᵀ
+$$A$_k = \Sigm$a_{i}$₌$_1$^k \sigma$_i $u_{i} v_{i}$^T = $U_{k}$**$\Sigma$**$_k V_{k}$^T$$
 
-where **U**ₖ, **Σ**ₖ, **V**ₖ use only the first k singular values/vectors.
+where $$U_{k}$, **$\Sigma$**$_k$, $$V_{k}$ use only the first k singular values/vectors.
 
 The approximation error is:
 
-||**A** - **A**ₖ||_F = √(σ²ₖ₊₁ + σ²ₖ₊₂ + ... + σ²ᵣ)
+\|\1\|_F = $\sqrt$($\sigm$a^{2}$_k$₊$_1 + \sigm$a^{2}$_k$₊$_2$ + ... + $\sigm$a^{2}$ᵣ)
 
 ## Moore-Penrose Pseudo-Inverse
 
-The pseudo-inverse of **A** is:
+The pseudo-inverse of $A$ is:
 
-**A**⁺ = **V****Σ**⁺**U**ᵀ
+$A$⁺ = $V$**$\Sigma$**⁺$U$^T$
 
-where **Σ**⁺ has 1/σᵢ on the diagonal for non-zero σᵢ, and 0 elsewhere.
+where **$\Sigma$**⁺ has 1/$\sigm$a_{i}$ on the diagonal for non-zero $\sigm$a_{i}$, and 0 elsewhere.
 
-For overdetermined systems **A****x** = **b** (m > n), the least squares solution is:
+For overdetermined systems $Ax = b$ (m > n), the least squares solution is:
 
-**x** = **A**⁺**b**
+$x = A$⁺$b$
 
 ## Properties of SVD
 
-1. rank(**A**) = number of non-zero singular values
-2. ||**A**||₂ = σ₁ (largest singular value)
-3. ||**A**||_F = √(σ₁² + σ₂² + ... + σᵣ²)
-4. det(**A**) = ∏σᵢ (for square **A**)
-5. **A**ᵀ**A** = **V****Σ**ᵀ**Σ****V**ᵀ
-6. **AA**ᵀ = **U****Σ****Σ**ᵀ**U**ᵀ
+1. rank($A$) = number of non-zero singular values
+2. \|\1\|$_2 = \sigm$a_{1}$ (largest singular value)
+3. \|\1\|_F = $\sqrt$($\sigm$a_{1}$^2 + \sigm$a_{2}$^2$ + ... + $\sigma$ᵣ$^2$)
+4. det($A$) = ∏$\sigm$a_{i}$ (for square $A$)
+5. $A$^T$A = V$**$\Sigma$**$^T$**$\Sigma$**$V$^T$
+6. **AA**$^T = U$**$\Sigma$****$\Sigma$**$^T$U$^T$
 
 ## Relationship to Eigendecomposition
 
-For symmetric **A** = **A**ᵀ:
-- Singular values are absolute values of eigenvalues: σᵢ = |λᵢ|
+For symmetric $A = A$^T$:
+- Singular values are absolute values of eigenvalues: $\sigm$a_{i}$ = |$\lambd$a_{i}$|
 - Singular vectors are eigenvectors (up to sign)
-- SVD: **A** = **U****Σ****U**ᵀ (since **U** = **V** for symmetric matrices)
+- SVD: $A = U$**$\Sigma$**$U$^T$ (since $U = V$ for symmetric matrices)
 
 ## Relevance for Machine Learning
 
-**Principal Component Analysis (PCA)**: Instead of eigendecomposing the covariance matrix, apply SVD directly to the centered data matrix **X**:
+**Principal Component Analysis (PCA)**: Instead of eigendecomposing the covariance matrix, apply SVD directly to the centered data matrix $X$:
 
-**X** = **U****Σ****V**ᵀ
+$X = U$**$\Sigma$**$V$^T$
 
-Principal components: columns of **V**
-Variance explained: σᵢ²/(m-1)
-Reduced data: **X****V**ₖ (project onto top k components)
+Principal components: columns of $V$
+Variance explained: $\sigm$a_{i}$^2$/(m-1)
+Reduced data: $X$V_{k}$ (project onto top k components)
 
-**Latent Semantic Analysis (LSA)**: In text mining, create a term-document matrix **A** (rows = words, columns = documents). SVD decomposes **A** into:
-- **U**: word-topic relationships
-- **Σ**: topic strengths
-- **V**: document-topic relationships
+**Latent Semantic Analysis (LSA)**: In text mining, create a term-document matrix $A$ (rows = words, columns = documents). SVD decomposes $A$ into:
+- $U$: word-topic relationships
+- **$\Sigma$**: topic strengths
+- $V$: document-topic relationships
 
-**Recommender Systems**: Matrix factorization for collaborative filtering. User-item matrix **R** ≈ **U****Σ****V**ᵀ, where **U** contains user embeddings and **V** contains item embeddings.
+**Recommender Systems**: Matrix factorization for collaborative filtering. User-item matrix $R \approx U$**$\Sigma$**$V$^T$, where $U$ contains user embeddings and $V$ contains item embeddings.
 
-**Image Compression**: Represent an image matrix **A** with low-rank approximation **A**ₖ. Keep only k largest singular values/vectors, reducing storage from mn to k(m+n+1).
+**Image Compression**: Represent an image matrix $A$ with low-rank approximation $$A_{k}$. Keep only k largest singular values/vectors, reducing storage from mn to k(m+n+1).
 
 **Denoising**: If signal is low-rank and noise is full-rank, truncated SVD removes noise by discarding small singular values.
 
-**Least Squares Regression**: Solve **X****w** = **y** using pseudo-inverse: **w** = **X**⁺**y**. More numerically stable than (**X**ᵀ**X**)⁻¹**X**ᵀ**y**.
+**Least Squares Regression**: Solve $Xw = y$ using pseudo-inverse: $w = X$⁺$y$. More numerically stable than ($X$^T$X$)$^{-1}$X$^T$y$.
 
-**Condition Number**: cond(**A**) = σ₁/σᵣ quantifies numerical stability. Large condition numbers indicate ill-conditioned problems requiring regularization.
+**Condition Number**: cond($A$) = $\sigm$a_{1}$/$\sigma$ᵣ quantifies numerical stability. Large condition numbers indicate ill-conditioned problems requiring regularization.
 
 **Tensor Decomposition**: Higher-order SVD (HOSVD) extends SVD to tensors, used in multiway data analysis and deep learning.

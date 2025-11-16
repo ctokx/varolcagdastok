@@ -6,239 +6,239 @@ Machine learning optimization requires computing derivatives of scalar loss func
 
 ## Scalar-by-Vector Derivative
 
-Given a scalar function f: ℝⁿ → ℝ and vector **x** ∈ ℝⁿ, the gradient is:
+Given a scalar function f: $\mathbb{R}^{n}$ → $\mathbb{R}$ and vector $x \in \mathbb{R}^{n}$, the gradient is:
 
-∇_x f = ∂f/∂**x** = [∂f/∂x₁, ∂f/∂x₂, ..., ∂f/∂xₙ]ᵀ
+∇_x f = $\partial$f/$\partial$x = [$\partial$f/$\partial x_{1}$, $\partial$f/$\partial x_{2}$, ..., $\partial$f/$\partial x_{n}$]^T$
 
-The gradient is a column vector in ℝⁿ.
+The gradient is a column vector in $\mathbb{R}^{n}$.
 
 ### Example: Quadratic Function
 
-f(**x**) = **x**ᵀ**x** = Σᵢ₌₁ⁿ xᵢ²
+f($x$) = $x$^T$x = \Sigm$a_{i}$₌$_1$^n x_{i}$^2$
 
-∂f/∂xᵢ = 2xᵢ
+$\partial$f/$\partial x_{i}$ = 2$x_{i}$
 
-∇_x f = 2**x**
+∇_x f = 2$x$
 
 ## Linear Function
 
-f(**x**) = **a**ᵀ**x** = Σᵢ₌₁ⁿ aᵢxᵢ
+f($x$) = $a$^T$x = \Sigm$a_{i}$₌$_1$^n a_{i}$$x_{i}$
 
-∂f/∂xᵢ = aᵢ
+$\partial$f/$\partial x_{i}$ = $a_{i}$
 
-∇_x f = **a**
+∇_x f = $a$
 
 ## Quadratic Form
 
-f(**x**) = **x**ᵀ**A****x** where **A** ∈ ℝⁿˣⁿ is symmetric
+f($x$) = $x$^T$Ax$ where $A \in \mathbb{R}^{n \times n}$ is symmetric
 
-∇_x f = 2**A****x**
+∇_x f = 2$Ax$
 
 ### Derivation
 
-Expand: f(**x**) = Σᵢ₌₁ⁿ Σⱼ₌₁ⁿ aᵢⱼxᵢxⱼ
+Expand: f($x$) = $\Sigm$a_{i}$₌$_1$^n \Sigm$a_{j}$₌$_1$^n a_{i}$_j$$x_{i} x_{j}$
 
-∂f/∂xₖ = Σⱼ₌₁ⁿ aₖⱼxⱼ + Σᵢ₌₁ⁿ aᵢₖxᵢ
+$$\partial$f/$\partial$x$_k = \Sigm$a_{j}$₌$_1$^n a_{k}$_j$x$_j + \Sigm$a_{i}$₌$_1$^n a_{i}$_k$$x_{i}$$
 
-Since **A** is symmetric (aᵢⱼ = aⱼᵢ):
+Since $A$ is symmetric ($a_{i}$_j$ = $a_{j}$_i$):
 
-∂f/∂xₖ = 2Σⱼ₌₁ⁿ aₖⱼxⱼ = 2(**A****x**)ₖ
+$$\partial$f/$\partial x_{k}$ = 2$\Sigm$a_{j}$₌$_1$^n a_{k}$_j$$x_{j}$ = 2($Ax$)$_k$$
 
-Thus ∇_x f = 2**A****x**.
+Thus ∇_x f = 2$Ax$.
 
 ### Example
 
-**A** = [2, 1; 1, 3], **x** = [x₁, x₂]ᵀ
+$$A$ = [2, 1; 1, 3], $x = [$x_{1}$, $x_{2}$]^T$$
 
-f(**x**) = [x₁, x₂][2  1][x₁]
-                    [1  3][x₂]
-         = [x₁, x₂][2x₁ + x₂  ]
-                    [x₁ + 3x₂]
-         = 2x₁² + x₁x₂ + x₁x₂ + 3x₂²
-         = 2x₁² + 2x₁x₂ + 3x₂²
+f($x$) = [$x_{1}$, $x_{2}$][2  1][$x_{1}$]
+                    [1  3][$x_{2}$]
+         = [$x_{1}$, $x_{2}$][$2x_1$ + $x_{2}$  ]
+                    [$x_{1}$ + $3x_2$]
+         = $2x_1$^2$ + $x_{1} x_{2}$ + $x_{1} x_{2}$ + $3x_2$^2$
+         = $2x_1$^2$ + 2$x_{1} x_{2}$ + $3x_2$^2$
 
-∇_x f = [4x₁ + 2x₂, 2x₁ + 6x₂]ᵀ = 2[2, 1; 1, 3][x₁, x₂]ᵀ = 2**A****x** ✓
+∇_x f = $[$4x_1$ + $2x_2$, $2x_1$ + $6x_2$]^T$ = 2[2, 1; 1, 3]$[$x_{1}$, $x_{2}$]^T$ = 2$Ax$ ✓
 
 ## Affine Function Squared Norm
 
-f(**x**) = ||**A****x** - **b**||₂²
+f($x$) = \|\1\|$_2$^2$
 
 Expand:
-f(**x**) = (**A****x** - **b**)ᵀ(**A****x** - **b**)
-         = **x**ᵀ**A**ᵀ**A****x** - 2**b**ᵀ**A****x** + **b**ᵀ**b**
+f($x$) = ($Ax - b$)$^T$($Ax - b$)
+         = $x$^T$A$^T$Ax$ - 2$b$^T$Ax + b$^T$b$
 
-∇_x f = 2**A**ᵀ**A****x** - 2**A**ᵀ**b** = 2**A**ᵀ(**A****x** - **b**)
+∇_x f = 2$A$^T$Ax$ - 2$A$^T$b$ = 2$A$^T$($Ax - b$)
 
-This is used in linear regression: f(**w**) = ||**X****w** - **y**||₂²
+This is used in linear regression: f($w$) = \|\1\|$_2$^2$
 
-∇_w f = 2**X**ᵀ(**X****w** - **y**)
+∇_w f = 2$X$^T$($Xw - y$)
 
 ## Scalar-by-Matrix Derivative
 
-Given f: ℝᵐˣⁿ → ℝ and matrix **X** ∈ ℝᵐˣⁿ, the gradient is:
+Given f: $\mathbb{R}^{m \times n}$ → $\mathbb{R}$ and matrix $X \in \mathbb{R}^{m \times n}$, the gradient is:
 
-∂f/∂**X** = [∂f/∂xᵢⱼ]
+$\partial$f/$\partial$X$ = [$\partial$f/$\partial x_{i}$_j$]
 
-This is an m×n matrix where each entry is the partial derivative with respect to that element.
+This is an m$\times$n matrix where each entry is the partial derivative with respect to that element.
 
 ### Example: Frobenius Norm Squared
 
-f(**X**) = ||**X**||_F² = Σᵢ₌₁ᵐ Σⱼ₌₁ⁿ xᵢⱼ²
+f($X$) = \|\1\|_F$^2 = \Sigm$a_{i}$₌$_1$^m \Sigm$a_{j}$₌$_1$^n x_{i}$_$j^{2}$
 
-∂f/∂xᵢⱼ = 2xᵢⱼ
+$$\partial$f/$\partial x_{i}$_j$ = 2$x_{i}$_j$$
 
-∂f/∂**X** = 2**X**
+$\partial$f/$\partial$X$ = 2$X$
 
 ### Example: Trace
 
-For square **X** ∈ ℝⁿˣⁿ:
+For square $X \in \mathbb{R}^{n \times n}$:
 
-f(**X**) = tr(**X**) = Σᵢ₌₁ⁿ xᵢᵢ
+f($X$) = tr($X$) = $\Sigm$a_{i}$₌$_1$^n x_{i}$_i$
 
-∂f/∂xᵢⱼ = {1 if i = j; 0 otherwise}
+$\partial$f/$\partial x_{i}$_j$ = {1 if i = j; 0 otherwise}
 
-∂f/∂**X** = **I**
+$\partial$f/$\partial$X = I$
 
 ## Matrix-Matrix Product
 
-f(**X**) = tr(**A****X****B**)
+f($X$) = tr($AX$B$)
 
-∂f/∂**X** = **A**ᵀ**B**ᵀ
+$\partial$f/$\partial$X = A$^T$B$^T$
 
-Special case: f(**X**) = tr(**A****X**) gives ∂f/∂**X** = **A**ᵀ
+Special case: f($X$) = tr($AX$) gives $\partial$f/$\partial$X = A$^T$
 
 ## Chain Rule for Vectors
 
-If **y** = g(**x**) and z = f(**y**), then:
+If $y$ = g($x$) and z = f($y$), then:
 
-∂z/∂**x** = (∂**y**/∂**x**)ᵀ (∂z/∂**y**)
+$\partial$z/$\partial$x$ = ($\partial$y$/$\partial$x$)$^T$ ($\partial$z/$\partial$y$)
 
-where ∂**y**/∂**x** is the Jacobian matrix:
+where $\partial$y$/$\partial$x$ is the Jacobian matrix:
 
-**J** = [∂yᵢ/∂xⱼ] ∈ ℝᵐˣⁿ
+$$J$ = [$\partial y_{i}$/$\partial x_{j}$] $\in \mathbb{R}$^m$ˣ$^n$$
 
 ### Example: Composition
 
-**y** = **A****x** (linear transformation)
-z = ||**y**||₂²
+$y = Ax$ (linear transformation)
+z = \|\1\|$_2$^2$
 
-∂**y**/∂**x** = **A** (Jacobian)
+$\partial$y$/$\partial$x = A$ (Jacobian)
 
-∂z/∂**y** = 2**y**
+$\partial$z/$\partial$y$ = 2$y$
 
-∂z/∂**x** = **A**ᵀ(2**y**) = 2**A**ᵀ**y** = 2**A**ᵀ**A****x**
+$$\partial$z/$\partial$x = A$^T$(2$y$) = 2$A$^T$y$ = 2$A$^T$Ax$$
 
-Verify directly: z = **x**ᵀ**A**ᵀ**A****x**, so ∇_x z = 2**A**ᵀ**A****x** ✓
+Verify directly: z = $x$^T$A$^T$Ax$, so ∇_x z = 2$A$^T$Ax$ ✓
 
 ## Denominator Layout vs. Numerator Layout
 
 There are two conventions:
 
-**Numerator layout** (used here): ∂f/∂**x** is a column vector if **x** is a column vector.
+**Numerator layout** (used here): $\partial$f/$\partial$x$ is a column vector if $x$ is a column vector.
 
-**Denominator layout**: ∂f/∂**x** is a row vector if **x** is a column vector.
+**Denominator layout**: $\partial$f/$\partial$x$ is a row vector if $x$ is a column vector.
 
 Always verify which convention is used. We use numerator layout throughout.
 
 ## Common Derivatives
 
-| Function f(**x**) | Gradient ∇_x f |
+| Function f($x$) | Gradient ∇_x f |
 |------------------|----------------|
-| **a**ᵀ**x** | **a** |
-| **x**ᵀ**A****x** (symmetric **A**) | 2**A****x** |
-| **x**ᵀ**x** | 2**x** |
-| ||**x**||₂ | **x**/||**x**||₂ |
-| ||**A****x** - **b**||₂² | 2**A**ᵀ(**A****x** - **b**) |
-| log(exp(**x**)ᵀ**1**) | softmax(**x**) |
+| $a$^T$x$ | $a$ |
+| $x$^T$Ax$ (symmetric $A$) | 2$Ax$ |
+| $x$^T$x$ | 2$x$ |
+| \|\1\|$_2$ | $x$/\|\1\|$_2$ |
+| \|\1\|$_2$^2$ | 2$A$^T$($Ax - b$) |
+| log(exp($x$)$^T$**1**) | softmax($x$) |
 
 ## Softmax Function
 
-For **x** ∈ ℝⁿ, the softmax is:
+For $x \in \mathbb{R}^{n}$, the softmax is:
 
-softmax(**x**)ᵢ = exp(xᵢ) / Σⱼ₌₁ⁿ exp(xⱼ)
+softmax($x$)$_i$ = exp($x_{i}$) / $\Sigm$a_{j}$₌$_1$^n$ exp($x_{j}$)
 
 The Jacobian is:
 
-∂softmax(**x**)ᵢ/∂xⱼ = softmax(**x**)ᵢ(δᵢⱼ - softmax(**x**)ⱼ)
+$\partial$softmax($x$)$_i$/$\partial x_{j}$ = softmax($x$)$_i$($\delt$a_{i}$_j$ - softmax($x$)$_j$)
 
 In matrix form:
 
-**J** = diag(**s**) - **s****s**ᵀ
+$J$ = diag($s$) - $ss$^T$
 
-where **s** = softmax(**x**).
+where $s$ = softmax($x$).
 
 ## Logistic Loss
 
-f(**w**) = log(1 + exp(-y**w**ᵀ**x**))
+f($w$) = log(1 + exp(-y$w$^T$x$))
 
-where y ∈ {-1, 1} is the label.
+where y $\in$ {-1, 1} is the label.
 
-∇_w f = -y**x** σ(-y**w**ᵀ**x**)
+∇_w f = -y$x \sigma$(-y$w$^T$x$)
 
-where σ(z) = 1/(1 + exp(-z)) is the sigmoid function.
+where $\sigma$(z) = 1/(1 + exp(-z)) is the sigmoid function.
 
 ## Cross-Entropy Loss
 
 For classification with softmax:
 
-L = -Σₖ₌₁ᴷ yₖ log(ŷₖ)
+L = -$\Sigm$a_{k}$₌$_1$ᴷ $y_{k}$ log(ŷ$_k$)
 
-where **y** is one-hot encoded and **ŷ** = softmax(**z**) with **z** = **W**ᵀ**x**.
+where $y$ is one-hot encoded and **ŷ** = softmax($z$) with $z = W$^T$x$.
 
-∂L/∂**z** = **ŷ** - **y**
+$\partial$L/$\partial$z$ = **ŷ** - $y$
 
 This clean derivative is why softmax + cross-entropy is used together.
 
 ## Backpropagation
 
-In a neural network with layers **h**₁ = σ₁(**W**₁**x**), **h**₂ = σ₂(**W**₂**h**₁), ..., the gradient of loss L with respect to **W**₁ is computed via the chain rule:
+In a neural network with layers $h$_1 = \sigm$a_{1}$($$W_{1}$x$), $h$_2 = \sigm$a_{2}$($$W_{2} h_{1}$), ..., the gradient of loss L with respect to $$W_{1}$ is computed via the chain rule:
 
-∂L/∂**W**₁ = (∂L/∂**h**₂)(∂**h**₂/∂**h**₁)(∂**h**₁/∂**W**₁)
+$\partial$L/$\partial W_{1}$ = ($\partial$L/$\partial h_{2}$)($\partial h_{2}$/$\partial h_{1}$)($\partial h_{1}$/$\partial W_{1}$)
 
 Backpropagation efficiently computes these gradients by caching intermediate results.
 
 ## Hessian Matrix
 
-The Hessian of f: ℝⁿ → ℝ is the matrix of second derivatives:
+The Hessian of f: $\mathbb{R}^{n}$ → $\mathbb{R}$ is the matrix of second derivatives:
 
-**H** = [∂²f/(∂xᵢ∂xⱼ)] ∈ ℝⁿˣⁿ
+$$H$ = [$\partia$l^{2}$f/($\partial x_{i}$\partial$$x_{j}$)] $\in \mathbb{R}$^n$ˣ$^n$$
 
-If f is twice differentiable, **H** is symmetric.
+If f is twice differentiable, $H$ is symmetric.
 
 ### Example
 
-f(**x**) = **x**ᵀ**A****x** (symmetric **A**)
+f($x$) = $x$^T$Ax$ (symmetric $A$)
 
-∇_x f = 2**A****x**
+∇_x f = 2$Ax$
 
-**H** = 2**A**
+$H$ = 2$A$
 
 ## Positive Definite Hessian
 
-If **H** is positive definite at a critical point (∇f = **0**), the point is a local minimum.
+If $H$ is positive definite at a critical point (∇f = **0**), the point is a local minimum.
 
 Newton's method uses the Hessian to find minima:
 
-**x** ← **x** - **H**⁻¹∇f
+$x$ ← $x - H$^{-1}$∇f
 
 ## Relevance for Machine Learning
 
-**Gradient Descent**: Updates parameters via **w** ← **w** - α∇_w L. Computing ∇_w L requires matrix calculus.
+**Gradient Descent**: Updates parameters via $w$ ← $w - \alpha$∇_w L. Computing ∇_w L requires matrix calculus.
 
 **Backpropagation**: Efficiently computes gradients in neural networks using the chain rule.
 
 **Second-Order Optimization**: Methods like Newton's method and L-BFGS use Hessian information for faster convergence.
 
-**Regularization Gradients**: Ridge (L₂) adds λ||**w**||₂² to the loss, contributing 2λ**w** to the gradient. Lasso (L₁) adds λ||**w**||₁, contributing λ sign(**w**) (subgradient).
+**Regularization Gradients**: Ridge ($L_{2}$) adds $\lambda$\|\1\|$_2$^2$ to the loss, contributing 2$\lambda$w$ to the gradient. Lasso ($L_{1}$) adds $\lambda$\|\1\|$_1$, contributing $\lambda$ sign($w$) (subgradient).
 
 **Batch Normalization**: Gradients through normalization layers involve matrix derivatives.
 
-**Attention Mechanisms**: Computing gradients of attention scores (softmax of **QK**ᵀ) uses matrix calculus.
+**Attention Mechanisms**: Computing gradients of attention scores (softmax of **QK**$^T$) uses matrix calculus.
 
 **Variational Inference**: Reparameterization trick requires gradients through sampling operations.
 
-**Adversarial Training**: Computing adversarial perturbations uses gradients: **δ** = ε sign(∇_x L).
+**Adversarial Training**: Computing adversarial perturbations uses gradients: **$\delta$** = $\epsilon$ sign(∇_x L).
 
-**Jacobian Regularization**: Penalizing ||∂f/∂**x**||_F² encourages smooth functions, used in robust models.
+**Jacobian Regularization**: Penalizing \|\1\|_$F^{2}$ encourages smooth functions, used in robust models.
 
 **Eigenvalue Gradient**: Differentiating eigenvalues/eigenvectors (e.g., for spectral normalization) uses advanced matrix calculus.

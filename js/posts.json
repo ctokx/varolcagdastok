@@ -164,13 +164,13 @@
     },
     {
       "name": "Linear Algebra for Machine Learning",
-      "description": "A comprehensive university-level course covering the foundational linear algebra concepts required for understanding and implementing modern machine learning algorithms.",
+      "description": "Personal notes covering foundational linear algebra concepts for machine learning. These notes aim to help others understand the mathematical foundations of modern ML algorithms.",
       "articles": [
         {
-          "title": "Linear Algebra for Machine Learning: Course Overview",
+          "title": "Linear Algebra for Machine Learning: Introduction",
           "date": "2025-01-15",
           "url": "post.html?name=post25",
-          "summary": "An introduction to the course structure, prerequisites, and the fundamental role of linear algebra in machine learning algorithms."
+          "summary": "An introduction to these notes, prerequisites, and the fundamental role of linear algebra in machine learning algorithms."
         },
         {
           "title": "Vectors and Vector Spaces",
@@ -251,10 +251,10 @@
           "summary": "Computing gradients of scalar functions with respect to vectors and matrices, chain rule for backpropagation, common derivatives, and applications in optimization."
         },
         {
-          "title": "Course Review and Next Steps",
+          "title": "Review and Next Steps",
           "date": "2025-01-29",
           "url": "post.html?name=post39",
-          "summary": "Summarizing the course material, connecting concepts to machine learning algorithms, recommendations for further study, and practical implementation resources."
+          "summary": "Summarizing the key concepts from these notes, connecting linear algebra to machine learning algorithms, and providing recommendations for further study and practical implementation."
         }
       ]
     }

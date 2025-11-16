@@ -1,21 +1,21 @@
 # Linear Algebra for Machine Learning: Course Overview
 
-## Purpose of This Course
+## Purpose of These Notes
 
-Machine learning algorithms operate on numerical data structures. The mathematical framework that describes operations on vectors, matrices, and higher-dimensional arrays is linear algebra. This course provides the foundational concepts required to understand how modern machine learning algorithms function at a computational level.
+Machine learning algorithms operate on numerical data structures. The mathematical framework that describes operations on vectors, matrices, and higher-dimensional arrays is linear algebra. These notes provide the foundational concepts required to understand how modern machine learning algorithms function at a computational level.
 
 ## Prerequisites
 
-This course assumes:
+These notes assume:
 - Proficiency in at least one programming language
 - Familiarity with basic algebra and functions
 - Ability to read and interpret mathematical notation
 
 No recent formal mathematics training is required. All concepts are introduced with definitions and illustrated with concrete examples.
 
-## Course Structure
+## Notes Structure
 
-The course consists of 15 modules organized into four thematic units:
+These notes consist of 15 modules organized into four thematic units:
 
 ### Unit 1: Foundational Structures (Modules 1-3)
 - Vectors and vector spaces
@@ -37,11 +37,11 @@ The course consists of 15 modules organized into four thematic units:
 - Vector projections and orthogonality
 - Linear regression and the normal equation
 - Matrix calculus for gradient computation
-- Course review and next steps
+- Review and next steps
 
 ## What You Will Learn
 
-By the end of this course, you will be able to:
+By working through these notes, you will be able to:
 
 1. Represent datasets as matrices and understand their geometric interpretation
 2. Perform matrix operations and understand their computational complexity
@@ -55,7 +55,7 @@ By the end of this course, you will be able to:
 
 Linear algebra is the computational backbone of machine learning. Consider the following examples:
 
-**Neural Networks**: A feedforward neural network layer computes `y = σ(Wx + b)`, where `W` is a weight matrix, `x` is an input vector, `b` is a bias vector, and `σ` is an activation function. Understanding matrix-vector multiplication is essential.
+**Neural Networks**: A feedforward neural network layer computes $y = \sigma(Wx + b)$, where $W$ is a weight matrix, $x$ is an input vector, $b$ is a bias vector, and $\sigma$ is an activation function. Understanding matrix-vector multiplication is essential.
 
 **Dimensionality Reduction**: Principal Component Analysis (PCA) uses eigendecomposition to identify the directions of maximum variance in high-dimensional data, enabling compression and visualization.
 
@@ -63,20 +63,20 @@ Linear algebra is the computational backbone of machine learning. Consider the f
 
 **Gradient Descent**: Optimization algorithms compute gradients of loss functions with respect to weight matrices. Matrix calculus provides the notation and rules for these computations.
 
-**Data Representation**: A dataset with `n` samples and `d` features is naturally represented as an `n × d` matrix, where each row is a sample and each column is a feature.
+**Data Representation**: A dataset with $n$ samples and $d$ features is naturally represented as an $n \times d$ matrix, where each row is a sample and each column is a feature.
 
 ## Mathematical Notation
 
-This course uses standard mathematical notation:
+These notes use standard mathematical notation:
 
-- Scalars: lowercase letters (e.g., `x`, `α`)
-- Vectors: lowercase bold letters (e.g., **v**, **x**)
-- Matrices: uppercase bold letters (e.g., **A**, **X**)
-- Sets: uppercase letters (e.g., `V`, `ℝ`)
-- Transpose: superscript `T` (e.g., **A**ᵀ)
-- Inverse: superscript `-1` (e.g., **A**⁻¹)
+- Scalars: lowercase letters (e.g., $x$, $\alpha$)
+- Vectors: lowercase letters (e.g., $v$, $x$)
+- Matrices: uppercase letters (e.g., $A$, $X$)
+- Sets: uppercase letters (e.g., $V$, $\mathbb{R}$)
+- Transpose: superscript $T$ (e.g., $A^T$)
+- Inverse: superscript $-1$ (e.g., $A^{-1}$)
 
-## How to Use This Course
+## How to Use These Notes
 
 Each module is self-contained but builds on previous concepts. It is recommended to proceed sequentially. Each module includes:
 
@@ -89,4 +89,4 @@ Work through examples manually to solidify understanding. Implement concepts in 
 
 ## Next Steps
 
-Proceed to Module 1: Vectors and Vector Spaces to begin the course.
+Proceed to Module 1: Vectors and Vector Spaces to begin.

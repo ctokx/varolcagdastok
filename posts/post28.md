@@ -2,137 +2,137 @@
 
 ## Dot Product Definition
 
-The dot product (also called inner product or scalar product) of two vectors **u**, **v** ∈ ℝⁿ is:
+The dot product (also called inner product or scalar product) of two vectors $u, v \in \mathbb{R}^n$ is:
 
-**u** · **v** = u₁v₁ + u₂v₂ + ... + uₙvₙ = Σᵢ₌₁ⁿ uᵢvᵢ
+$$u \cdot v = u_1 v_1 + u_2 v_2 + \cdots + u_n v_n = \sum_{i=1}^{n} u_i v_i$$
 
 The result is a scalar, not a vector.
 
 ### Example
 
-Let **u** = [1, 2, 3]ᵀ and **v** = [4, 5, 6]ᵀ. Then:
+Let $u = [1, 2, 3]^T$ and $v = [4, 5, 6]^T$. Then:
 
-**u** · **v** = (1)(4) + (2)(5) + (3)(6) = 4 + 10 + 18 = 32
+$$u \cdot v = (1)(4) + (2)(5) + (3)(6) = 4 + 10 + 18 = 32$$
 
 ## Matrix Notation
 
 The dot product can be written as matrix multiplication:
 
-**u** · **v** = **u**ᵀ**v**
+$$u \cdot v = u^T v$$
 
-where **u**ᵀ is a row vector and **v** is a column vector.
+where $u^T$ is a row vector and $v$ is a column vector.
 
 ## Properties of the Dot Product
 
-1. **Commutativity**: **u** · **v** = **v** · **u**
-2. **Distributivity**: **u** · (**v** + **w**) = **u** · **v** + **u** · **w**
-3. **Scalar multiplication**: (α**u**) · **v** = α(**u** · **v**)
-4. **Positive definiteness**: **v** · **v** ≥ 0, with equality if and only if **v** = **0**
+1. **Commutativity**: $u \cdot v = v \cdot u$
+2. **Distributivity**: $u \cdot (v + w) = u \cdot v + u \cdot w$
+3. **Scalar multiplication**: $(\alpha u) \cdot v = \alpha(u \cdot v)$
+4. **Positive definiteness**: $v \cdot v \geq 0$, with equality if and only if $v = \mathbf{0}$
 
 ## Geometric Interpretation
 
-For vectors **u** and **v** in ℝⁿ:
+For vectors $u$ and $v$ in $\mathbb{R}^n$:
 
-**u** · **v** = ||**u**|| ||**v**|| cos(θ)
+$$u \cdot v = \|u\| \|v\| \cos(\theta)$$
 
-where θ is the angle between **u** and **v**, and ||·|| denotes the Euclidean norm (defined below).
+where $\theta$ is the angle between $u$ and $v$, and $\|\cdot\|$ denotes the Euclidean norm (defined below).
 
 ### Implications
 
-- If **u** · **v** > 0, then θ < 90° (vectors point in similar directions)
-- If **u** · **v** = 0, then θ = 90° (vectors are orthogonal/perpendicular)
-- If **u** · **v** < 0, then θ > 90° (vectors point in opposite directions)
+- If $u \cdot v > 0$, then $\theta < 90°$ (vectors point in similar directions)
+- If $u \cdot v = 0$, then $\theta = 90°$ (vectors are orthogonal/perpendicular)
+- If $u \cdot v < 0$, then $\theta > 90°$ (vectors point in opposite directions)
 
 ### Example
 
-Let **u** = [1, 0]ᵀ and **v** = [0, 1]ᵀ. Then:
+Let $u = [1, 0]^T$ and $v = [0, 1]^T$. Then:
 
-**u** · **v** = (1)(0) + (0)(1) = 0
+$$u \cdot v = (1)(0) + (0)(1) = 0$$
 
 These vectors are orthogonal.
 
 ## Vector Norms
 
-A norm is a function that assigns a non-negative length to vectors. A norm ||·|| must satisfy:
+A norm is a function that assigns a non-negative length to vectors. A norm $\|\cdot\|$ must satisfy:
 
-1. **Non-negativity**: ||**v**|| ≥ 0, with ||**v**|| = 0 if and only if **v** = **0**
-2. **Homogeneity**: ||α**v**|| = |α| ||**v**||
-3. **Triangle inequality**: ||**u** + **v**|| ≤ ||**u**|| + ||**v**||
+1. **Non-negativity**: $\|v\| \geq 0$, with $\|v\| = 0$ if and only if $v = \mathbf{0}$
+2. **Homogeneity**: $\|\alpha v\| = |\alpha| \|v\|$
+3. **Triangle inequality**: $\|u + v\| \leq \|u\| + \|v\|$
 
 ## Euclidean Norm (L₂ Norm)
 
 The Euclidean norm or L₂ norm is:
 
-||**v**||₂ = √(v₁² + v₂² + ... + vₙ²) = √(**v** · **v**)
+$$\|v\|_2 = \sqrt{v_1^2 + v_2^2 + \cdots + v_n^2} = \sqrt{v \cdot v}$$
 
-This measures the straight-line distance from the origin to the point represented by **v**.
+This measures the straight-line distance from the origin to the point represented by $v$.
 
 ### Example
 
-For **v** = [3, 4]ᵀ:
+For $v = [3, 4]^T$:
 
-||**v**||₂ = √(3² + 4²) = √(9 + 16) = √25 = 5
+$$\|v\|_2 = \sqrt{3^2 + 4^2} = \sqrt{9 + 16} = \sqrt{25} = 5$$
 
 ## Manhattan Norm (L₁ Norm)
 
 The L₁ norm is the sum of absolute values:
 
-||**v**||₁ = |v₁| + |v₂| + ... + |vₙ|
+$$\|v\|_1 = |v_1| + |v_2| + \cdots + |v_n|$$
 
 This measures the distance traveling along axes (grid distance).
 
 ### Example
 
-For **v** = [3, -4]ᵀ:
+For $v = [3, -4]^T$:
 
-||**v**||₁ = |3| + |-4| = 3 + 4 = 7
+$$\|v\|_1 = |3| + |-4| = 3 + 4 = 7$$
 
 ## Maximum Norm (L∞ Norm)
 
 The L∞ norm is the maximum absolute value:
 
-||**v**||∞ = max{|v₁|, |v₂|, ..., |vₙ|}
+$$\|v\|_\infty = \max\{|v_1|, |v_2|, \ldots, |v_n|\}$$
 
 ### Example
 
-For **v** = [3, -7, 2]ᵀ:
+For $v = [3, -7, 2]^T$:
 
-||**v**||∞ = max{3, 7, 2} = 7
+$$\|v\|_\infty = \max\{3, 7, 2\} = 7$$
 
 ## General Lₚ Norm
 
-The Lₚ norm for p ≥ 1 is:
+The Lₚ norm for $p \geq 1$ is:
 
-||**v**||ₚ = (|v₁|ᵖ + |v₂|ᵖ + ... + |vₙ|ᵖ)^(1/p)
+$$\|v\|_p = (|v_1|^p + |v_2|^p + \cdots + |v_n|^p)^{1/p}$$
 
 - L₁, L₂, and L∞ are special cases
-- As p → ∞, Lₚ approaches L∞
+- As $p \to \infty$, Lₚ approaches L∞
 
 ## Unit Vectors and Normalization
 
-A unit vector has norm equal to 1. Any non-zero vector **v** can be normalized:
+A unit vector has norm equal to 1. Any non-zero vector $v$ can be normalized:
 
-**û** = **v** / ||**v**||
+$$\hat{u} = \frac{v}{\|v\|}$$
 
-This produces a unit vector in the same direction as **v**.
+This produces a unit vector in the same direction as $v$.
 
 ### Example
 
-For **v** = [3, 4]ᵀ with ||**v**||₂ = 5:
+For $v = [3, 4]^T$ with $\|v\|_2 = 5$:
 
-**û** = [3/5, 4/5]ᵀ = [0.6, 0.8]ᵀ
+$$\hat{u} = [3/5, 4/5]^T = [0.6, 0.8]^T$$
 
-Verify: ||**û**||₂ = √(0.6² + 0.8²) = √(0.36 + 0.64) = 1
+Verify: $\|\hat{u}\|_2 = \sqrt{0.6^2 + 0.8^2} = \sqrt{0.36 + 0.64} = 1$
 
 ## Distance Between Vectors
 
-The distance between **u** and **v** using the Lₚ norm is:
+The distance between $u$ and $v$ using the Lₚ norm is:
 
-d(**u**, **v**) = ||**u** - **v**||ₚ
+$$d(u, v) = \|u - v\|_p$$
 
 For L₂ (Euclidean distance):
 
-d(**u**, **v**) = √(Σᵢ₌₁ⁿ (uᵢ - vᵢ)²)
+$$d(u, v) = \sqrt{\sum_{i=1}^{n} (u_i - v_i)^2}$$
 
 ## Relevance for Machine Learning
 
@@ -140,7 +140,7 @@ d(**u**, **v**) = √(Σᵢ₌₁ⁿ (uᵢ - vᵢ)²)
 
 **Cosine Similarity**: Normalized dot product measures angular similarity:
 
-sim(**u**, **v**) = (**u** · **v**) / (||**u**||₂ ||**v**||₂)
+$$\text{sim}(u, v) = \frac{u \cdot v}{\|u\|_2 \|v\|_2}$$
 
 This is used in document similarity, image retrieval, and clustering.
 
@@ -148,18 +148,18 @@ This is used in document similarity, image retrieval, and clustering.
 
 **Loss Functions**: Mean squared error (MSE) for regression is the squared L₂ norm:
 
-L(**y**, **ŷ**) = (1/n)||**y** - **ŷ**||₂²
+$$L(y, \hat{y}) = \frac{1}{n}\|y - \hat{y}\|_2^2$$
 
 Mean absolute error (MAE) uses L₁:
 
-L(**y**, **ŷ**) = (1/n)||**y** - **ŷ**||₁
+$$L(y, \hat{y}) = \frac{1}{n}\|y - \hat{y}\|_1$$
 
-**Regularization**: Ridge regression (L₂ regularization) adds ||**w**||₂² to penalize large weights. Lasso regression (L₁ regularization) adds ||**w**||₁ to encourage sparsity (many weights become exactly zero).
+**Regularization**: Ridge regression (L₂ regularization) adds $\|w\|_2^2$ to penalize large weights. Lasso regression (L₁ regularization) adds $\|w\|_1$ to encourage sparsity (many weights become exactly zero).
 
-**Gradient Computation**: The gradient of ||**w**||₂² is 2**w**, used in weight decay. The subgradient of ||**w**||₁ is sign(**w**), used in sparse optimization.
+**Gradient Computation**: The gradient of $\|w\|_2^2$ is $2w$, used in weight decay. The subgradient of $\|w\|_1$ is $\text{sign}(w)$, used in sparse optimization.
 
 **Attention Mechanisms**: In transformers, attention scores are computed using scaled dot products:
 
-attention(**q**, **k**) = exp(**q** · **k** / √d) / Z
+$$\text{attention}(q, k) = \frac{\exp(q \cdot k / \sqrt{d})}{Z}$$
 
-where **q** is a query vector, **k** is a key vector, and d is dimensionality.
+where $q$ is a query vector, $k$ is a key vector, and $d$ is dimensionality.

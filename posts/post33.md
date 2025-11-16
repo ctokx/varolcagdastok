@@ -2,28 +2,28 @@
 
 ## Definition
 
-The eigendecomposition (or spectral decomposition) of a square matrix **A** ∈ ℝⁿˣⁿ expresses **A** as:
+The eigendecomposition (or spectral decomposition) of a square matrix $A \in \mathbb{R}^{n \times n}$ expresses $A$ as:
 
-**A** = **Q****Λ****Q**⁻¹
+$A = Q$**Λ**$Q$^{-1}$
 
 where:
-- **Q** ∈ ℝⁿˣⁿ has eigenvectors as columns: **Q** = [**q**₁ **q**₂ ... **qₙ**]
-- **Λ** ∈ ℝⁿˣⁿ is diagonal with eigenvalues: **Λ** = diag(λ₁, λ₂, ..., λₙ)
+- $Q \in \mathbb{R}^{n \times n}$ has eigenvectors as columns: $Q$ = [$q$_1 $q_{2}$ ... **$q_{n}$**]
+- **Λ** $\in \mathbb{R}$^n$ˣ$^n$ is diagonal with eigenvalues: **Λ** = diag($\lambd$a_{1}$, $\lambd$a_{2}$, ..., $\lambd$a_{n}$)
 
 ## Requirements
 
-Not all matrices can be eigendecomposed. **A** must be diagonalizable, which requires:
-- **A** has n linearly independent eigenvectors
+Not all matrices can be eigendecomposed. $A$ must be diagonalizable, which requires:
+- $A$ has n linearly independent eigenvectors
 
-All symmetric matrices (**A** = **A**ᵀ) are diagonalizable.
+All symmetric matrices ($A = A$^T$) are diagonalizable.
 
 ## Spectral Decomposition for Symmetric Matrices
 
-If **A** is symmetric, the eigendecomposition simplifies to:
+If $A$ is symmetric, the eigendecomposition simplifies to:
 
-**A** = **Q****Λ****Q**ᵀ
+$A = Q$**Λ**$Q$^T$
 
-where **Q** is orthogonal (**Q**ᵀ**Q** = **I**), meaning its columns are orthonormal eigenvectors.
+where $Q$ is orthogonal ($Q$^T$Q = I$), meaning its columns are orthonormal eigenvectors.
 
 ### Example
 
@@ -42,11 +42,11 @@ det(A - λI) = det([3-λ   1 ])
             = (λ - 4)(λ - 2)
 ```
 
-Eigenvalues: λ₁ = 4, λ₂ = 2
+Eigenvalues: $\lambd$a_{1}$ = 4, $\lambd$a_{2}$ = 2
 
 Find eigenvectors:
 
-For λ₁ = 4:
+For $\lambd$a_{1}$ = 4:
 ```
 (A - 4I)v = [-1  1][v₁]   [0]
             [1  -1][v₂] = [0]
@@ -54,9 +54,9 @@ For λ₁ = 4:
 -v₁ + v₂ = 0  →  v₁ = v₂
 ```
 
-Unnormalized: [1, 1]ᵀ. Normalized: **q**₁ = [1/√2, 1/√2]ᵀ
+Unnormalized: $[1, 1]^T$. Normalized: $$q_{1}$ = $[1/$\sqrt$2, 1/$\sqrt$2]^T$
 
-For λ₂ = 2:
+For $\lambd$a_{2}$ = 2:
 ```
 (A - 2I)v = [1  1][v₁]   [0]
             [1  1][v₂] = [0]
@@ -64,7 +64,7 @@ For λ₂ = 2:
 v₁ + v₂ = 0  →  v₂ = -v₁
 ```
 
-Unnormalized: [1, -1]ᵀ. Normalized: **q**₂ = [1/√2, -1/√2]ᵀ
+Unnormalized: $[1, -1]^T$. Normalized: $$q_{2}$ = $[1/$\sqrt$2, -1/$\sqrt$2]^T$
 
 Eigendecomposition:
 ```
@@ -90,9 +90,9 @@ QΛQᵀ = [1/√2   1/√2][4  0][1/√2   1/√2]
 
 The eigendecomposition can be written as a sum of outer products:
 
-**A** = Σᵢ₌₁ⁿ λᵢ **q**ᵢ**q**ᵢᵀ
+$$A = \Sigm$a_{i}$₌$_1$^n \lambda$_i $q_{i} q_{i}$^T$$
 
-Each term λᵢ **q**ᵢ**q**ᵢᵀ is a rank-1 matrix.
+Each term $\lambda$_i $q_{i} q_{i}$^T$ is a rank-1 matrix.
 
 ### Example (continued)
 
@@ -109,15 +109,15 @@ A = 4[1/√2][1/√2  1/√2] + 2[1/√2 ][ 1/√2  -1/√2]
 
 ## Matrix Powers
 
-Eigendecomposition simplifies computing powers of **A**:
+Eigendecomposition simplifies computing powers of $A$:
 
-**A**ᵏ = **Q****Λ**ᵏ**Q**⁻¹
+$A$^k = Q$**Λ**$^k$Q$^{-1}$
 
-where **Λ**ᵏ = diag(λ₁ᵏ, λ₂ᵏ, ..., λₙᵏ) is trivial to compute.
+where **Λ**$^k$ = diag($\lambd$a_{1}$^k$, $\lambd$a_{2}$^k$, ..., $\lambd$a_{n}$^k$) is trivial to compute.
 
 ### Example
 
-Compute **A**³ for **A** = [3, 1; 1, 3]:
+Compute $$A^{3}$ for $A$ = [3, 1; 1, 3]:
 
 ```
 Λ³ = [4³  0 ]   [64  0]
@@ -133,21 +133,21 @@ A³ = QΛ³Qᵀ = [1/√2   1/√2][64  0][1/√2   1/√2]
      [32-4   32+4] = [28  36]
 ```
 
-Verify directly: **A**² = [3, 1; 1, 3]² = [10, 6; 6, 10], then **A**³ = **A**·**A**² = [36, 28; 28, 36] ✓
+Verify directly: $$A^{2}$ = [3, 1; 1, 3]$^2$ = [10, 6; 6, 10], then $A$^3 = A$\cdot A^{2}$ = [36, 28; 28, 36] ✓
 
 ## Matrix Functions
 
-For functions f, the matrix function f(**A**) can be computed as:
+For functions f, the matrix function f($A$) can be computed as:
 
-f(**A**) = **Q** f(**Λ**) **Q**⁻¹
+f($A$) = $Q$ f(**Λ**) $Q$^{-1}$
 
-where f(**Λ**) = diag(f(λ₁), f(λ₂), ..., f(λₙ)).
+where f(**Λ**) = diag(f($\lambd$a_{1}$), f($\lambd$a_{2}$), ..., f($\lambd$a_{n}$)).
 
 ### Example: Matrix Exponential
 
-exp(**A**) = **Q** diag(e^λ₁, e^λ₂, ..., e^λₙ) **Q**⁻¹
+exp($A$) = $Q$ diag(e^$\lambd$a_{1}$, e^$\lambd$a_{2}$, ..., e^$\lambd$a_{n}$) $Q$^{-1}$
 
-For **A** = [3, 1; 1, 3] with eigenvalues 4, 2:
+For $A$ = [3, 1; 1, 3] with eigenvalues 4, 2:
 
 ```
 exp(Λ) = [e⁴  0 ]
@@ -160,7 +160,7 @@ exp(A) = Q exp(Λ) Qᵀ = [1/√2   1/√2][e⁴  0 ][1/√2   1/√2]
          [(e⁴-e²)/2   (e⁴+e²)/2]
 ```
 
-Numerically: e⁴ ≈ 54.6, e² ≈ 7.39
+Numerically: e$^4 \approx$ 54.6, e$^2 \approx$ 7.39
 
 ```
 exp(A) ≈ [31.0  23.6]
@@ -169,51 +169,51 @@ exp(A) ≈ [31.0  23.6]
 
 ## Positive Definite Matrices
 
-A symmetric matrix **A** is **positive definite** if all eigenvalues are positive: λᵢ > 0 for all i.
+A symmetric matrix $A$ is **positive definite** if all eigenvalues are positive: $\lambd$a_{i}$ > 0 for all i.
 
-Equivalently: **x**ᵀ**A****x** > 0 for all non-zero **x**.
+Equivalently: $x$^T$Ax$ > 0 for all non-zero $x$.
 
 ### Example
 
-**A** = [3, 1; 1, 3] has eigenvalues 4 and 2 (both > 0), so **A** is positive definite.
+$A$ = [3, 1; 1, 3] has eigenvalues 4 and 2 (both > 0), so $A$ is positive definite.
 
 ## Positive Semi-Definite Matrices
 
-**A** is **positive semi-definite** if all eigenvalues are non-negative: λᵢ ≥ 0.
+$A$ is **positive semi-definite** if all eigenvalues are non-negative: $\lambda$_i \geq$ 0.
 
-Equivalently: **x**ᵀ**A****x** ≥ 0 for all **x**.
+Equivalently: $x$^T$Ax \geq$ 0 for all $x$.
 
 Covariance matrices are always positive semi-definite.
 
 ## Rank from Eigenvalues
 
-For a matrix **A**:
+For a matrix $A$:
 
-rank(**A**) = number of non-zero eigenvalues
+rank($A$) = number of non-zero eigenvalues
 
 ## Relevance for Machine Learning
 
-**Principal Component Analysis (PCA)**: The covariance matrix **C** = (1/n)**X**ᵀ**X** is symmetric and positive semi-definite. Its eigendecomposition **C** = **Q****Λ****Q**ᵀ provides:
-- Eigenvectors **Q**: principal directions (principal components)
+**Principal Component Analysis (PCA)**: The covariance matrix $C$ = (1/n)$X$^T$X$ is symmetric and positive semi-definite. Its eigendecomposition $C = Q$**Λ**$Q$^T$ provides:
+- Eigenvectors $Q$: principal directions (principal components)
 - Eigenvalues **Λ**: variance explained by each component
 - Dimensionality reduction: keep eigenvectors with largest eigenvalues
 
 **Whitening Transformation**: Transform data to have identity covariance:
 
-**X**_white = **X****C**⁻¹/² = **X****Q****Λ**⁻¹/²**Q**ᵀ
+$$X$_white = $XC$^{-1}$/$^2 = XQ$**Λ**$^{-1}$/$^2$Q$^T$$
 
-where **Λ**⁻¹/² = diag(1/√λ₁, 1/√λ₂, ..., 1/√λₙ).
+where **Λ**$^{-1}$/$^2$ = diag(1/$\sqrt$\lambd$a_{1}$, 1/$\sqrt$\lambd$a_{2}$, ..., 1/$\sqrt$\lambd$a_{n}$).
 
-**Quadratic Forms**: Optimization problems involving **x**ᵀ**A****x** use eigendecomposition to understand the loss landscape. Positive definite **A** indicates a convex quadratic (bowl shape); eigenvalues quantify curvature.
+**Quadratic Forms**: Optimization problems involving $x$^T$Ax$ use eigendecomposition to understand the loss landscape. Positive definite $A$ indicates a convex quadratic (bowl shape); eigenvalues quantify curvature.
 
-**Spectral Clustering**: Compute the graph Laplacian **L** = **D** - **A** (degree matrix minus adjacency matrix). Eigendecomposition of **L** reveals community structure. The k smallest eigenvalues' eigenvectors are used for k-means clustering.
+**Spectral Clustering**: Compute the graph Laplacian $L = D - A$ (degree matrix minus adjacency matrix). Eigendecomposition of $L$ reveals community structure. The k smallest eigenvalues' eigenvectors are used for k-means clustering.
 
-**Matrix Square Root**: Computing **A**¹/² = **Q****Λ**¹/²**Q**ᵀ is used in Mahalanobis distance and Gaussian process kernels.
+**Matrix Square Root**: Computing $$A^{1}$/$^2 = Q$**Λ**$^1$/$^2$Q$^T$ is used in Mahalanobis distance and Gaussian process kernels.
 
-**Gaussian Distributions**: The multivariate Gaussian density involves det(**C**) and **C**⁻¹. Eigendecomposition simplifies:
-- det(**C**) = ∏λᵢ (product of eigenvalues)
-- **C**⁻¹ = **Q****Λ**⁻¹**Q**ᵀ
+**Gaussian Distributions**: The multivariate Gaussian density involves det($C$) and $C$^{-1}$. Eigendecomposition simplifies:
+- det($C$) = ∏$\lambd$a_{i}$ (product of eigenvalues)
+- $C$^{-1} = Q$**Λ**$^{-1}$Q$^T$
 
 **Recurrent Neural Networks**: The recurrence matrix's eigenvalues determine long-term behavior. Eigenvalues with magnitude > 1 cause exploding gradients; magnitude < 1 causes vanishing gradients.
 
-**Graph Neural Networks**: Message passing on graphs uses powers of the adjacency matrix **A**ᵏ, which computes k-hop neighborhoods. Eigendecomposition accelerates this computation.
+**Graph Neural Networks**: Message passing on graphs uses powers of the adjacency matrix $$A^{k}$, which computes k-hop neighborhoods. Eigendecomposition accelerates this computation.
