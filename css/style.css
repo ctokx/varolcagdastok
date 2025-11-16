@@ -1,0 +1,233 @@
+/* --- Basic Setup --- */
+body {
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 1.6;
+    background-color: #ffffff;
+    color: #000000;
+    max-width: 900px; /* Limits width for readability */
+    margin: 0 auto;   /* Centers the content */
+    padding: 20px;
+    border: 1px solid #ccc; /* Oldschool page border */
+}
+
+/* --- Header & Footer --- */
+header {
+    border-bottom: 2px solid #000;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+header p {
+    margin: 0;
+    font-size: 1.1em;
+    font-style: italic;
+    color: #333;
+}
+
+footer {
+    border-top: 1px solid #ccc;
+    margin-top: 40px;
+    padding-top: 10px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* --- Navigation --- */
+nav {
+    margin-bottom: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #0000ee; /* Classic blue link */
+    font-weight: bold;
+    margin-right: 15px;
+    font-size: 1.1em;
+}
+
+nav a:hover,
+nav a:focus {
+    text-decoration: underline;
+}
+
+/* --- Main Content & Typography --- */
+main h1, main h2, main h3 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+main h2 {
+    font-size: 1.8em;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+main h3 {
+    font-size: 1.4em;
+}
+
+main p {
+    margin-bottom: 1em;
+}
+
+main a {
+    color: #0000ee;
+    text-decoration: none;
+}
+
+main a:hover,
+main a:focus {
+    text-decoration: underline;
+}
+
+main ul {
+    padding-left: 40px; /* Standard indentation for lists */
+}
+
+main table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+    margin-bottom: 1em;
+}
+
+main th, main td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+main thead {
+    background-color: #f4f4f4;
+}
+
+/* --- Code Blocks --- */
+/* Inline code */
+code {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 2px 4px;
+    font-size: 0.95em;
+    border-radius: 3px;
+}
+
+/* Block of code */
+pre {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 15px;
+    overflow-x: auto; /* Allows horizontal scrolling for long code lines */
+    font-size: 0.95em;
+    line-height: 1.4;
+}
+
+pre code {
+    border: none;
+    padding: 0;
+    background-color: transparent;
+}
+
+/* --- Article & List Styling --- */
+.article-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.article-list li {
+    margin-bottom: 20px;
+}
+
+.article-list h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.2em; /* Slightly smaller for lists */
+}
+
+.article-list h3 a {
+    font-weight: bold;
+}
+
+.post-date {
+    font-style: italic;
+    color: #555;
+    margin-top: 0;
+    margin-bottom: 10px;
+    display: block; /* Makes it sit on its own line */
+}
+
+.category {
+    margin-bottom: 30px;
+}
+
+.category .article-list li {
+    margin-bottom: 10px;
+}
+
+/* --- About Page Styles --- */
+.about-intro {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.about-text {
+    flex: 3; /* Takes up 3/4 of the space */
+    min-width: 300px;
+    padding-right: 20px;
+}
+
+.about-image {
+    flex: 1; /* Takes up 1/4 of the space */
+    min-width: 150px;
+    text-align: right;
+}
+
+.profile-img {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    border: 1px solid #ccc;
+}
+
+.about-section {
+    margin-top: 20px;
+}
+
+.about-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.about-section li {
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.about-section li strong {
+    font-size: 1.1em;
+    color: #000;
+}
+/* ... (at the end of your existing css/style.css file) ... */
+
+.category {
+    margin-bottom: 30px;
+}
+
+.category-description {
+    font-style: italic;
+    color: #555;
+    border-left: 3px solid #ccc;
+    padding-left: 15px;
+    margin-top: -5px; /* Pulls it closer to the heading */
+}
+
+.category .article-list li {
+    margin-bottom: 10px;
+}

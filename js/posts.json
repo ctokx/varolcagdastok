@@ -1,0 +1,58 @@
+{
+  "categories": [
+    {
+      "name": "Software Engineering & Testing",
+      "description": "These articles serve as my understanding of software testing. They are based on the slides from the software testing lecture when I was a student at LMU.",
+      "articles": [
+        {
+          "title": "A Guide to Black-Box Testing: Equivalence, Boundary, and Decision Table Techniques",
+          "date": "2025-11-17",
+          "url": "post.html?name=post1",
+          "summary": "A look at black-box testing, a method where test cases are derived from the external specification without considering the internal code structure."
+        },
+        {
+          "title": "The Test Oracle Problem: How Do You Know Your Test *Really* Passed?",
+          "date": "2025-11-16",
+          "url": "post.html?name=post2",
+          "summary": "A test input is only half of a test case. The other half is the oracle. This post explores the challenge of determining the correct output for a given test."
+        },
+        {
+          "title": "Measuring Test Suite Quality: A Guide to Coverage Criteria and Mutation Testing",
+          "date": "2025-11-15",
+          "url": "post.html?name=post3",
+          "summary": "How do you assess the quality of a test suite? This post covers adequacy criteria, from statement and branch coverage to mutation testing."
+        },
+        {
+          "title": "An Introduction to White-Box Testing: Symbolic Execution and Search-Based Testing",
+          "date": "2025-11-14",
+          "url": "post.html?name=post4",
+          "summary": "An exploration of white-box testing, where the internal structure of the program is used to derive test inputs, focusing on symbolic execution and SBST."
+        },
+        {
+          "title": "Managing Evolving Code: A Guide to Regression Testing",
+          "date": "2025-11-13",
+          "url": "post.html?name=post5",
+          "summary": "Software is not static. This post covers the techniques for regression testing: minimization, selection, and prioritization."
+        },
+        {
+          "title": "A Look at Concolic Execution: The Hybrid of Concrete and Symbolic Testing",
+          "date": "2025-11-12",
+          "url": "post.html?name=post6",
+          "summary": "Concolic execution (CONCrete + symbOLIC) is a hybrid approach that addresses the practical limitations of pure symbolic execution."
+        }
+      ]
+    },
+    {
+      "name": "Cybersecurity & Machine Learning",
+      "description": "Explorations into cybersecurity concepts and machine learning applications.",
+      "articles": [
+        {
+          "title": "From Random Guesses to Intelligent Grammars: A Look at Fuzzing and Random Testing",
+          "date": "2025-11-11",
+          "url": "post.html?name=post7",
+          "summary": "A look at random testing and fuzzing, from simple mutational fuzzers to advanced grammar-based fuzzing for generating syntactically valid inputs."
+        }
+      ]
+    }
+  ]
+}
