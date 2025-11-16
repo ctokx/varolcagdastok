@@ -53,6 +53,114 @@
           "summary": "A look at random testing and fuzzing, from simple mutational fuzzers to advanced grammar-based fuzzing for generating syntactically valid inputs."
         }
       ]
+    },
+    {
+      "name": "Machine Learning",
+      "description": "This category reflects my understanding of Machine Learning based on the lecture I attended at LMU.",
+      "articles": [
+        {
+          "title": "An Introduction to Machine Learning: A Journey Through Its History and Ideas",
+          "date": "2025-12-17",
+          "url": "post.html?name=post16",
+          "summary": "A high-level introduction to machine learning, its philosophical underpinnings, and its historical development from early statistical methods to modern deep learning."
+        },
+        {
+          "title": "The Perceptron: A Glimpse into the Dawn of Machine Learning",
+          "date": "2025-12-16",
+          "url": "post.html?name=post21",
+          "summary": "An introduction to the Perceptron algorithm, one of the earliest and most foundational models in machine learning, covering its architecture, learning rule, and historical significance."
+        },
+        {
+          "title": "A Refresher on Linear Algebra: The Language of Machine Learning",
+          "date": "2025-12-15",
+          "url": "post.html?name=post17",
+          "summary": "A review of the fundamental concepts of linear algebra—vectors, matrices, and their operations—that form the mathematical language of machine learning."
+        },
+        {
+          "title": "Linear Regression: The Workhorse of Machine Learning",
+          "date": "2025-12-14",
+          "url": "post.html?name=post19",
+          "summary": "An in-depth look at linear regression, from the method of least squares to the importance of regularization and its role in understanding causality."
+        },
+        {
+          "title": "Basis Functions: Transforming Non-Linear Problems into Linear Ones",
+          "date": "2025-12-13",
+          "url": "post.html?name=post14",
+          "summary": "An exploration of basis functions and their role in transforming non-linear problems into linear ones, enabling the use of linear models for complex tasks."
+        },
+        {
+          "title": "Understanding Function Approximation and the Curse of Dimensionality in Machine Learning",
+          "date": "2025-12-12",
+          "url": "post.html?name=post8",
+          "summary": "An exploration of function approximation as a framework for understanding machine learning and the critical challenge of the Curse of Dimensionality."
+        },
+        {
+          "title": "Kernel Methods: The Power of Infinite Dimensions and the Kernel Trick",
+          "date": "2025-12-11",
+          "url": "post.html?name=post10",
+          "summary": "An exploration of kernel methods, their relationship to basis functions, and their ability to handle high-dimensional data through the kernel trick."
+        },
+        {
+          "title": "A Refresher on Probability: The Foundation of Uncertainty in Machine Learning",
+          "date": "2025-12-10",
+          "url": "post.html?name=post22",
+          "summary": "A review of the fundamental concepts of probability theory—from random variables to Bayes' theorem—that are essential for understanding machine learning."
+        },
+        {
+          "title": "Frequentist vs. Bayesian Statistics: Two Perspectives on Inference and Learning",
+          "date": "2025-12-09",
+          "url": "post.html?name=post15",
+          "summary": "An exploration of the philosophical and practical differences between Frequentist and Bayesian statistics, and their implications for machine learning."
+        },
+        {
+          "title": "An Introduction to Neural Networks: The Power of Learned Representations",
+          "date": "2025-12-08",
+          "url": "post.html?name=post12",
+          "summary": "An introduction to neural networks, covering their architecture, the backpropagation algorithm, and key concepts like regularization."
+        },
+        {
+          "title": "An Introduction to Linear Classifiers: Drawing the Line in Data",
+          "date": "2025-12-07",
+          "url": "post.html?name=post18",
+          "summary": "An exploration of linear classifiers and the different approaches to building them, including generative models, logistic regression, and classification via regression."
+        },
+        {
+          "title": "Support Vector Machines: Finding the Optimal Margin",
+          "date": "2025-12-06",
+          "url": "post.html?name=post23",
+          "summary": "An introduction to the Support Vector Machine (SVM), a powerful classification algorithm based on the principle of maximizing the margin between classes."
+        },
+        {
+          "title": "Model Selection and Estimating Generalization Performance",
+          "date": "2025-12-05",
+          "url": "post.html?name=post20",
+          "summary": "An overview of model selection, the estimation of generalization error, and the theoretical frameworks that guide the process."
+        },
+        {
+          "title": "An Introduction to Deep Learning: From Revival to Revolution",
+          "date": "2025-12-04",
+          "url": "post.html?name=post9",
+          "summary": "An overview of the fundamental principles of deep learning, exploring the key ingredients that contribute to its success and the theoretical concepts that explain its power."
+        },
+        {
+          "title": "Modeling Sequential Data: From Recurrent Neural Networks to the Attention Revolution",
+          "date": "2025-12-03",
+          "url": "post.html?name=post13",
+          "summary": "An exploration of architectures designed for sequential data, from Recurrent Neural Networks (RNNs) to the powerful attention mechanisms that underpin modern models like the Transformer."
+        },
+        {
+          "title": "Modeling Sequential Data: From Recurrent Neural Networks to the Attention Revolution",
+          "date": "2025-12-02",
+          "url": "post.html?name=post24",
+          "summary": "An exploration of architectures designed for sequential data, from Recurrent Neural Networks (RNNs) to the powerful attention mechanisms that underpin modern models like the Transformer."
+        },
+        {
+          "title": "Manifold Learning, Autoencoders, and Generative Models: Uncovering the Intrinsic Structure of Data",
+          "date": "2025-12-01",
+          "url": "post.html?name=post11",
+          "summary": "An exploration of manifold learning, autoencoders, and generative models, and how they are used to uncover the intrinsic structure of data."
+        }
+      ]
     }
   ]
 }
