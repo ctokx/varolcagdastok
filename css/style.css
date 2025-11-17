@@ -286,3 +286,64 @@ pre code {
 .map-item p {
     margin-top: 0;
 }
+
+/* --- Collapsible Category Sections --- */
+.category-section {
+    margin-bottom: 25px;
+    border: 1px solid #000;
+}
+
+.category-header {
+    background-color: #d3d3d3;
+    padding: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.category-header:hover {
+    background-color: #c0c0c0;
+}
+
+.category-header h3 {
+    margin: 0;
+    font-size: 1.3em;
+}
+
+.category-toggle {
+    display: inline-block;
+    width: 15px;
+}
+
+.category-count {
+    font-size: 0.9em;
+    color: #555;
+    font-weight: normal;
+}
+
+.category-content {
+    padding: 15px;
+}
+
+.category-content .category-description {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Hide articles after the first 7 initially */
+.hidden-article {
+    display: none;
+}
+
+/* Show More/Less Button */
+.show-more-btn {
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #d3d3d3;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+
+.show-more-btn:hover {
+    background-color: #c0c0c0;
+}
