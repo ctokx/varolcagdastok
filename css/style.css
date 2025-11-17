@@ -55,6 +55,19 @@ nav a:focus {
     text-decoration: underline;
 }
 
+/* Classic RSS link styling */
+nav a.rss-link {
+    color: #ff6600; /* Classic RSS orange */
+}
+
+nav a.rss-link::before {
+    content: "📡 ";
+}
+
+nav a.rss-link:hover {
+    color: #cc5200;
+}
+
 /* --- Main Content & Typography --- */
 main h1, main h2, main h3 {
     margin-top: 1.5em;
