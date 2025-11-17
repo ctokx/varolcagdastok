@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     allHtml += `
                         <li>
                             <a href="${article.url}">${article.title}</a>
-                            <span class="post-date">(${displayDate})</span>
+                            <span class="article-date">(${displayDate})</span>
                         </li>
                     `;
                 }

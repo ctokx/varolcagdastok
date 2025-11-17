@@ -1,0 +1,236 @@
+[
+  {
+    "old": "post.html?name=post1",
+    "new": "articles/a-guide-to-black-box-testing-equivalence-boundary-and-decision-table-techniques/",
+    "slug": "a-guide-to-black-box-testing-equivalence-boundary-and-decision-table-techniques",
+    "post": "post1"
+  },
+  {
+    "old": "post.html?name=post2",
+    "new": "articles/the-test-oracle-problem-how-do-you-know-your-test-really-passed/",
+    "slug": "the-test-oracle-problem-how-do-you-know-your-test-really-passed",
+    "post": "post2"
+  },
+  {
+    "old": "post.html?name=post3",
+    "new": "articles/measuring-test-suite-quality-a-guide-to-coverage-criteria-and-mutation-testing/",
+    "slug": "measuring-test-suite-quality-a-guide-to-coverage-criteria-and-mutation-testing",
+    "post": "post3"
+  },
+  {
+    "old": "post.html?name=post4",
+    "new": "articles/an-introduction-to-white-box-testing-symbolic-execution-and-search-based-testing/",
+    "slug": "an-introduction-to-white-box-testing-symbolic-execution-and-search-based-testing",
+    "post": "post4"
+  },
+  {
+    "old": "post.html?name=post5",
+    "new": "articles/managing-evolving-code-a-guide-to-regression-testing/",
+    "slug": "managing-evolving-code-a-guide-to-regression-testing",
+    "post": "post5"
+  },
+  {
+    "old": "post.html?name=post6",
+    "new": "articles/a-look-at-concolic-execution-the-hybrid-of-concrete-and-symbolic-testing/",
+    "slug": "a-look-at-concolic-execution-the-hybrid-of-concrete-and-symbolic-testing",
+    "post": "post6"
+  },
+  {
+    "old": "post.html?name=post7",
+    "new": "articles/from-random-guesses-to-intelligent-grammars-a-look-at-fuzzing-and-random-testing/",
+    "slug": "from-random-guesses-to-intelligent-grammars-a-look-at-fuzzing-and-random-testing",
+    "post": "post7"
+  },
+  {
+    "old": "post.html?name=post16",
+    "new": "articles/an-introduction-to-machine-learning-a-journey-through-its-history-and-ideas/",
+    "slug": "an-introduction-to-machine-learning-a-journey-through-its-history-and-ideas",
+    "post": "post16"
+  },
+  {
+    "old": "post.html?name=post21",
+    "new": "articles/the-perceptron-a-glimpse-into-the-dawn-of-machine-learning/",
+    "slug": "the-perceptron-a-glimpse-into-the-dawn-of-machine-learning",
+    "post": "post21"
+  },
+  {
+    "old": "post.html?name=post17",
+    "new": "articles/a-refresher-on-linear-algebra-the-language-of-machine-learning/",
+    "slug": "a-refresher-on-linear-algebra-the-language-of-machine-learning",
+    "post": "post17"
+  },
+  {
+    "old": "post.html?name=post19",
+    "new": "articles/linear-regression-the-workhorse-of-machine-learning/",
+    "slug": "linear-regression-the-workhorse-of-machine-learning",
+    "post": "post19"
+  },
+  {
+    "old": "post.html?name=post14",
+    "new": "articles/basis-functions-transforming-non-linear-problems-into-linear-ones/",
+    "slug": "basis-functions-transforming-non-linear-problems-into-linear-ones",
+    "post": "post14"
+  },
+  {
+    "old": "post.html?name=post8",
+    "new": "articles/understanding-function-approximation-and-the-curse-of-dimensionality-in-machine-learning/",
+    "slug": "understanding-function-approximation-and-the-curse-of-dimensionality-in-machine-learning",
+    "post": "post8"
+  },
+  {
+    "old": "post.html?name=post10",
+    "new": "articles/kernel-methods-the-power-of-infinite-dimensions-and-the-kernel-trick/",
+    "slug": "kernel-methods-the-power-of-infinite-dimensions-and-the-kernel-trick",
+    "post": "post10"
+  },
+  {
+    "old": "post.html?name=post22",
+    "new": "articles/a-refresher-on-probability-the-foundation-of-uncertainty-in-machine-learning/",
+    "slug": "a-refresher-on-probability-the-foundation-of-uncertainty-in-machine-learning",
+    "post": "post22"
+  },
+  {
+    "old": "post.html?name=post15",
+    "new": "articles/frequentist-vs-bayesian-statistics-two-perspectives-on-inference-and-learning/",
+    "slug": "frequentist-vs-bayesian-statistics-two-perspectives-on-inference-and-learning",
+    "post": "post15"
+  },
+  {
+    "old": "post.html?name=post12",
+    "new": "articles/an-introduction-to-neural-networks-the-power-of-learned-representations/",
+    "slug": "an-introduction-to-neural-networks-the-power-of-learned-representations",
+    "post": "post12"
+  },
+  {
+    "old": "post.html?name=post18",
+    "new": "articles/an-introduction-to-linear-classifiers-drawing-the-line-in-data/",
+    "slug": "an-introduction-to-linear-classifiers-drawing-the-line-in-data",
+    "post": "post18"
+  },
+  {
+    "old": "post.html?name=post23",
+    "new": "articles/support-vector-machines-finding-the-optimal-margin/",
+    "slug": "support-vector-machines-finding-the-optimal-margin",
+    "post": "post23"
+  },
+  {
+    "old": "post.html?name=post20",
+    "new": "articles/model-selection-and-estimating-generalization-performance/",
+    "slug": "model-selection-and-estimating-generalization-performance",
+    "post": "post20"
+  },
+  {
+    "old": "post.html?name=post9",
+    "new": "articles/an-introduction-to-deep-learning-from-revival-to-revolution/",
+    "slug": "an-introduction-to-deep-learning-from-revival-to-revolution",
+    "post": "post9"
+  },
+  {
+    "old": "post.html?name=post13",
+    "new": "articles/modeling-sequential-data-from-recurrent-neural-networks-to-the-attention-revolution/",
+    "slug": "modeling-sequential-data-from-recurrent-neural-networks-to-the-attention-revolution",
+    "post": "post13"
+  },
+  {
+    "old": "post.html?name=post24",
+    "new": "articles/modeling-sequential-data-from-recurrent-neural-networks-to-the-attention-revolution/",
+    "slug": "modeling-sequential-data-from-recurrent-neural-networks-to-the-attention-revolution",
+    "post": "post24"
+  },
+  {
+    "old": "post.html?name=post11",
+    "new": "articles/manifold-learning-autoencoders-and-generative-models-uncovering-the-intrinsic-structure-of-data/",
+    "slug": "manifold-learning-autoencoders-and-generative-models-uncovering-the-intrinsic-structure-of-data",
+    "post": "post11"
+  },
+  {
+    "old": "post.html?name=post25",
+    "new": "articles/linear-algebra-for-machine-learning-introduction/",
+    "slug": "linear-algebra-for-machine-learning-introduction",
+    "post": "post25"
+  },
+  {
+    "old": "post.html?name=post26",
+    "new": "articles/vectors-and-vector-spaces/",
+    "slug": "vectors-and-vector-spaces",
+    "post": "post26"
+  },
+  {
+    "old": "post.html?name=post27",
+    "new": "articles/matrices-and-data-representation/",
+    "slug": "matrices-and-data-representation",
+    "post": "post27"
+  },
+  {
+    "old": "post.html?name=post28",
+    "new": "articles/dot-products-and-vector-norms/",
+    "slug": "dot-products-and-vector-norms",
+    "post": "post28"
+  },
+  {
+    "old": "post.html?name=post29",
+    "new": "articles/matrix-multiplication-and-linear-transformations/",
+    "slug": "matrix-multiplication-and-linear-transformations",
+    "post": "post29"
+  },
+  {
+    "old": "post.html?name=post30",
+    "new": "articles/systems-of-linear-equations/",
+    "slug": "systems-of-linear-equations",
+    "post": "post30"
+  },
+  {
+    "old": "post.html?name=post31",
+    "new": "articles/matrix-inverse-linear-independence-and-rank/",
+    "slug": "matrix-inverse-linear-independence-and-rank",
+    "post": "post31"
+  },
+  {
+    "old": "post.html?name=post32",
+    "new": "articles/eigenvectors-and-eigenvalues/",
+    "slug": "eigenvectors-and-eigenvalues",
+    "post": "post32"
+  },
+  {
+    "old": "post.html?name=post33",
+    "new": "articles/eigendecomposition-of-a-matrix/",
+    "slug": "eigendecomposition-of-a-matrix",
+    "post": "post33"
+  },
+  {
+    "old": "post.html?name=post34",
+    "new": "articles/singular-value-decomposition-svd/",
+    "slug": "singular-value-decomposition-svd",
+    "post": "post34"
+  },
+  {
+    "old": "post.html?name=post35",
+    "new": "articles/application-principal-component-analysis-pca/",
+    "slug": "application-principal-component-analysis-pca",
+    "post": "post35"
+  },
+  {
+    "old": "post.html?name=post36",
+    "new": "articles/vector-projections-and-orthogonality/",
+    "slug": "vector-projections-and-orthogonality",
+    "post": "post36"
+  },
+  {
+    "old": "post.html?name=post37",
+    "new": "articles/application-linear-regression-and-the-normal-equation/",
+    "slug": "application-linear-regression-and-the-normal-equation",
+    "post": "post37"
+  },
+  {
+    "old": "post.html?name=post38",
+    "new": "articles/matrix-calculus-gradients-with-vectors-and-matrices/",
+    "slug": "matrix-calculus-gradients-with-vectors-and-matrices",
+    "post": "post38"
+  },
+  {
+    "old": "post.html?name=post39",
+    "new": "articles/review-and-next-steps/",
+    "slug": "review-and-next-steps",
+    "post": "post39"
+  }
+]

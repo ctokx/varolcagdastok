@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Post - Varol Cagdas Tok</title>
+    <title>Redirecting... - Varol Cagdas Tok</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -20,8 +20,10 @@
     </nav>
 
     <main>
-        <article id="article-content">
-            <p>Loading article...</p>
+        <article id="article-content" style="text-align: center; padding: 3rem 0;">
+            <h2>🔄 Redirecting to SEO-friendly URL...</h2>
+            <p>This site now uses clean, SEO-friendly URLs.</p>
+            <p>If you are not redirected automatically, <a id="new-url" href="#">click here</a>.</p>
         </article>
     </main>
 
@@ -29,22 +31,55 @@
         <p>© 2025 Varol Cagdas Tok.</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
-        window.MathJax = {
-            tex: {
-                inlineMath: [['$', '$']],
-                displayMath: [['$$', '$$']],
-                processEscapes: true,
-                processEnvironments: true
-            },
-            options: {
-                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-            }
-        };
+        // Redirect old post.html?name=postX URLs to new SEO-friendly structure
+        (function() {
+            // Load URL mapping
+            fetch('url_mapping.json')
+                .then(response => response.json())
+                .then(mappings => {
+                    const params = new URLSearchParams(window.location.search);
+                    const postName = params.get('name');
+
+                    if (postName) {
+                        const mapping = mappings.find(m => m.post === postName);
+                        if (mapping) {
+                            const newUrl = '/' + mapping.new;
+                            document.getElementById('new-url').href = newUrl;
+
+                            // Redirect after 2 seconds
+                            setTimeout(() => {
+                                window.location.href = newUrl;
+                            }, 2000);
+
+                            document.getElementById('article-content').innerHTML = `
+                                <h2>🔄 Redirecting...</h2>
+                                <p>This article has moved to a new SEO-friendly URL:</p>
+                                <p><strong><a href="${newUrl}">${newUrl}</a></strong></p>
+                                <p>You will be redirected automatically in 2 seconds...</p>
+                            `;
+                        } else {
+                            document.getElementById('article-content').innerHTML = `
+                                <h2>❌ Article Not Found</h2>
+                                <p>The article "${postName}" could not be found.</p>
+                                <p><a href="articles.html">Browse all articles</a></p>
+                            `;
+                        }
+                    } else {
+                        document.getElementById('article-content').innerHTML = `
+                            <h2>⚠️ No Article Specified</h2>
+                            <p>Please select an article from the <a href="articles.html">articles page</a>.</p>
+                        `;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading URL mappings:', error);
+                    document.getElementById('article-content').innerHTML = `
+                        <h2>Error</h2>
+                        <p>Please visit the <a href="articles.html">articles page</a>.</p>
+                    `;
+                });
+        })();
     </script>
-    <script src="js/post.js"></script>
 </body>
 </html>

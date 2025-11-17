@@ -153,12 +153,21 @@ pre code {
     font-weight: bold;
 }
 
-.post-date {
+.article-date {
     font-style: italic;
     color: #555;
     margin-top: 0;
     margin-bottom: 10px;
     display: block; /* Makes it sit on its own line */
+}
+
+/* Legacy support for old class name */
+.post-date {
+    font-style: italic;
+    color: #555;
+    margin-top: 0;
+    margin-bottom: 10px;
+    display: block;
 }
 
 .category {
