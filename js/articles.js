@@ -42,29 +42,26 @@ document.addEventListener("DOMContentLoaded", () => {
                         <div class="category-content" id="content-${categoryId}" style="display: none;">
                             <p class="category-description">${category.description || ''}</p>
 
-                            <div class="articles-grid" id="grid-${categoryId}">
+                            <ul class="article-list" id="list-${categoryId}">
                 `;
 
-                // Add articles to grid (all of them, control visibility with CSS)
+                // Add articles to list (all of them, control visibility with CSS)
                 for (let i = 0; i < articles.length; i++) {
                     const article = articles[i];
-                    const isInitiallyHidden = i >= 6; // Hide after first 6
+                    const isInitiallyHidden = i >= 7; // Hide after first 7
 
                     allHtml += `
-                        <div class="article-card ${isInitiallyHidden ? 'hidden-article' : ''}">
-                            <a href="${article.url}">
-                                <div class="article-number">${article.order || i + 1}</div>
-                                <div class="article-title">${article.title}</div>
-                                ${article.author ? `<div class="article-author">by ${article.author}</div>` : ''}
-                            </a>
-                        </div>
+                        <li class="${isInitiallyHidden ? 'hidden-article' : ''}">
+                            <h3><a href="${article.url}">${article.title}</a></h3>
+                            <span class="article-date">by ${article.author || 'Tok Varol Cagdas'}</span>
+                        </li>
                     `;
                 }
 
                 allHtml += `
-                            </div>
+                            </ul>
 
-                            ${totalArticles > 6 ? `
+                            ${totalArticles > 7 ? `
                                 <button class="show-more-btn" id="btn-${categoryId}" onclick="toggleShowMore('${categoryId}', ${totalArticles})">
                                     Show All ${totalArticles} Articles ▼
                                 </button>
@@ -99,12 +96,12 @@ function toggleCategory(categoryId) {
 
 // Toggle show more/less articles
 function toggleShowMore(categoryId, totalArticles) {
-    const grid = document.getElementById(`grid-${categoryId}`);
+    const list = document.getElementById(`list-${categoryId}`);
     const button = document.getElementById(`btn-${categoryId}`);
-    const hiddenArticles = grid.querySelectorAll('.hidden-article');
+    const hiddenArticles = list.querySelectorAll('.hidden-article');
 
     if (button.classList.contains('showing-all')) {
-        // Collapse back to showing 6
+        // Collapse back to showing 7
         hiddenArticles.forEach(article => {
             article.style.display = 'none';
         });
@@ -113,7 +110,7 @@ function toggleShowMore(categoryId, totalArticles) {
     } else {
         // Expand to show all
         hiddenArticles.forEach(article => {
-            article.style.display = 'block';
+            article.style.display = 'list-item';
         });
         button.textContent = `Show Less ▲`;
         button.classList.add('showing-all');
