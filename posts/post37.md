@@ -2,21 +2,21 @@
 
 ## Problem Formulation
 
-Given n training samples {($$x_{1}$, $y_{1}$), ($$x_{2}$, $y_{2}$), ..., ($$x_{n}$, $y_{n}$)} where $x$_i \in \mathbb{R}^{d}$ are feature vectors and y$_i \in \mathbb{R}$ are targets, find a linear function:
+Given n training samples {($x_{1}$, $y_{1}$), ($x_{2}$, $y_{2}$), ..., ($x_{n}$, $y_{n}$)} where $x_i$ \in \mathbb{R}^{d}$ are feature vectors and $y_i$ \in \mathbb{R}$ are targets, find a linear function:
 
-f($x$) = $w$^T$x$ + b
+f($x$) = $w^Tx$ + b
 
 that best predicts y from $x$.
 
-Equivalently, augment $x$ with a bias term: $x$_aug = [1, $x_{1}$, $x_{2}$, ..., $x^{d}$]$^T \in \mathbb{R}^{d}$⁺$^1$, and learn:
+Equivalently, augment $x$ with a bias term: $x_{aug} = [1, x_{1}, x_{2}, \ldots, x^{d}]^T \in \mathbb{R}^{d+1}$, and learn:
 
-f($x$) = $w$^T$x$_aug
+f($x$) = $w^Tx_{aug}$
 
-where $w = [b, $w_{1}$, $w_{2}$, ..., $w^{d}$]^T$ includes the bias.
+where $w = [b, w_{1}, w_{2}, \ldots, w^{d}]^T$ includes the bias.
 
 ## Matrix Formulation
 
-Organize data into a matrix $X \in \mathbb{R}^{n \times d}$ (or $\mathbb{R}^{n}$ˣ⁽$^d$⁺$^1$⁾ if augmented) and vector $y \in \mathbb{R}^{n}$:
+Organize data into a matrix $X \in \mathbb{R}^{n \times d}$ (or $\mathbb{R}^{n \times (d+1)}$ if augmented) and vector $y \in \mathbb{R}^{n}$:
 
 ```
 X = [— x₁ᵀ —]     y = [y₁]
@@ -33,7 +33,7 @@ The predictions for all samples are:
 
 Use mean squared error (MSE):
 
-L($w$) = (1/n)\|\1\|$_2$^2$ = (1/n)$\Sigm$a_{i}$₌$_1$^n$ (y$_i - w$^T x_{i}$)$^2$
+L($w$) = (1/n)$\|y - Xw\|_2^2 = (1/n)\sum_{i=1}^n (y_i - w^Tx_i)^2$
 
 Goal: find $w$ that minimizes L($w$).
 
@@ -41,32 +41,31 @@ Goal: find $w$ that minimizes L($w$).
 
 Expand the squared norm:
 
-L($w$) = (1/n)($y - Xw$)$^T$($y - Xw$)
-         = (1/n)($y$^T$y - y$^T$Xw - w$^T$X$^T$y + w$^T$X$^T$Xw$)
+L($w$) = (1/n)$(y - Xw)^T(y - Xw) = (1/n)(y^Ty - y^TXw - w^TX^Ty + w^TX^TXw)$
 
-Since $w$^T$X$^T$y$ is a scalar, it equals its transpose $y$^T$Xw$:
+Since $w^TX^Ty$ is a scalar, it equals its transpose $y^TXw$:
 
-L($w$) = (1/n)($y$^T$y$ - 2$y$^T$Xw + w$^T$X$^T$Xw$)
+L($w$) = (1/n)$(y^Ty - 2y^TXw + w^TX^TXw)$
 
 Take the gradient with respect to $w$:
 
-∇_w L($w$) = (1/n)(-2$X$^T$y$ + 2$X$^T$Xw$)
+∇_w L($w$) = (1/n)$(-2X^Ty + 2X^TXw)$
 
 Set the gradient to zero for a minimum:
 
--2$X$^T$y$ + 2$X$^T$Xw$ = **0**
+$-2X^Ty + 2X^TXw = 0$
 
-$X$^T$Xw = X$^T$y$
+$X^TXw = X^Ty$
 
 This is the **normal equation**.
 
 ## Solving the Normal Equation
 
-If $X$^T$X$ is invertible (full column rank), the unique solution is:
+If $X^TX$ is invertible (full column rank), the unique solution is:
 
-$w$ = ($X$^T$X$)$^{-1}$X$^T$y$
+$w = (X^TX)^{-1}X^Ty$
 
-The matrix ($X$^T$X$)$^{-1}$X$^T$ is the **pseudo-inverse** of $X$ (for full column rank).
+The matrix $(X^TX)^{-1}X^T$ is the **pseudo-inverse** of $X$ (for full column rank).
 
 ## Example
 
@@ -85,27 +84,27 @@ X = [1  1]     y = [2]
     [1  3]         [5]
 ```
 
-Compute $X$^T$X$:
+Compute $X^TX$:
 ```
 XᵀX = [1  1  1][1  1]   [3   6]
       [1  2  3][1  2] = [6  14]
                 [1  3]
 ```
 
-Compute $X$^T$y$:
+Compute $X^Ty$:
 ```
 Xᵀy = [1  1  1][2]   [11]
       [1  2  3][4] = [26]
                 [5]
 ```
 
-Solve $X$^T$Xw = X$^T$y$:
+Solve $X^TXw = X^Ty$:
 ```
 [3   6][w₀]   [11]
 [6  14][w₁] = [26]
 ```
 
-Find the inverse of $X$^T$X$:
+Find the inverse of $X^TX$:
 ```
 det(XᵀX) = (3)(14) - (6)(6) = 42 - 36 = 6
 
@@ -119,7 +118,7 @@ w = (XᵀX)⁻¹Xᵀy = [ 7/3  -1][11]   [(7/3)(11) + (-1)(26)]   [77/3 - 26]   
                   [-1    1/2][26] = [(-1)(11) + (1/2)(26)] = [-11 + 13 ] = [2/3 ]
 ```
 
-Solution: $w$ = [25/3, 2/3]$^T \approx$ $[8.33, 0.67]^T$
+Solution: $w = [25/3, 2/3]^T \approx [8.33, 0.67]^T$
 
 Wait, let me recalculate:
 ```
@@ -148,7 +147,7 @@ Wait: 7/3 * 11 = 77/3
 
 Solution: $w = [-1/3, 2]^T$
 
-Hmm, this doesn't look right. Let me recalculate $X$^T$X$ and $X$^T$y$ more carefully:
+Hmm, this doesn't look right. Let me recalculate $X^TX$ and $X^Ty$ more carefully:
 
 ```
 XᵀX = [1  1  1][1  1]   [1+1+1       1+2+3]   [3   6]
@@ -173,7 +172,7 @@ Xᵀy = [1  1  1][2]   [2+4+5]   [11]
                 [5]
 ```
 
-So $X$^T$y = [11, 25]^T$
+So $X^Ty = [11, 25]^T$
 
 Now solve:
 ```
@@ -192,58 +191,58 @@ Verify predictions:
 
 ## Geometric Interpretation
 
-The normal equation $X$^T$Xw = X$^T$y$ states that the residual $r = y - Xw$ is orthogonal to the column space of $X$:
+The normal equation $X^TXw = X^Ty$ states that the residual $r = y - Xw$ is orthogonal to the column space of $X$:
 
-$X$^T$r = X$^T$($y - Xw$) = $X$^T$y - X$^T$Xw$ = **0**
+$X^Tr = X^T(y - Xw) = X^Ty - X^TXw = 0$
 
 The prediction **ŷ** = $Xw$ is the orthogonal projection of $y$ onto the column space of $X$.
 
 ## Computational Considerations
 
 ### Method 1: Direct Inversion
-Compute $w$ = ($X$^T$X$)$^{-1}$X$^T$y$
-- Time: O($d^{3}$ + n$d^{2}$)
-- Requires $X$^T$X$ to be invertible
+Compute $w = (X^TX)^{-1}X^Ty$
+- Time: O($d^{3} + nd^{2}$)
+- Requires $X^TX$ to be invertible
 - Can be numerically unstable
 
 ### Method 2: Cholesky Decomposition
-Since $X$^T$X$ is positive semi-definite, use Cholesky decomposition $X$^T$X = LL$^T$.
+Since $X^TX$ is positive semi-definite, use Cholesky decomposition $X^TX = LL^T$.
 - Faster than direct inversion: O($d^{3}$/3)
 - More stable
 
 ### Method 3: QR Decomposition
-Decompose $X$ = **QR** (orthogonal $Q$, upper triangular $R$).
-Then $w = R$^{-1}$Q$^T$y$.
-- Time: O(n$d^{2}$)
+Decompose $X = QR$ (orthogonal $Q$, upper triangular $R$).
+Then $w = R^{-1}Q^Ty$.
+- Time: O($nd^{2}$)
 - More numerically stable
 
 ### Method 4: SVD
-Decompose $X = U$**$\Sigma$**$V$^T$.
-Then $w = V$**$\Sigma$**⁺$U$^T$y$ (pseudo-inverse).
+Decompose $X = U\Sigma V^T$.
+Then $w = V\Sigma^+U^Ty$ (pseudo-inverse).
 - Most stable
 - Handles rank-deficient $X$
 
 ### Method 5: Gradient Descent
-Iteratively update: $w$ ← $w - \alpha$∇_w L($w$)
+Iteratively update: $w \leftarrow w - \alpha\nabla_w L(w)$
 - Time: depends on convergence
 - Scalable to large n and d
 - Does not require matrix inversion
 
 ## Ridge Regression
 
-If $X$^T$X$ is singular or ill-conditioned, add regularization:
+If $X^TX$ is singular or ill-conditioned, add regularization:
 
-L($w$) = (1/n)\|\1\|$_2$^2 + \lambda$\|\1\|$_2$^2$
+L($w$) = (1/n)$\|y - Xw\|_2^2 + \lambda\|w\|_2^2$
 
 The regularized normal equation:
 
-($X$^T$X$ + n$\lambda$I$)$w = X$^T$y$
+$(X^TX + n\lambda I)w = X^Ty$
 
 Solution:
 
-$$w$ = ($X$^T$X$ + n$\lambda$I$)$^{-1}$X$^T$y$$
+$w = (X^TX + n\lambda I)^{-1}X^Ty$
 
-The term n$\lambda$I$ ensures invertibility and improves numerical stability.
+The term $n\lambda I$ ensures invertibility and improves numerical stability.
 
 ## Relevance for Machine Learning
 

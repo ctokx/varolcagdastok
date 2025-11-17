@@ -19,17 +19,17 @@ A = [3  0]
     [0  2]
 ```
 
-Test $$v_{1}$ = $[1, 0]^T$:
+Test $v_{1}$ = $[1, 0]^T$:
 
-$$A$v_{1}$ = $[3, 0]^T$ = 3$[1, 0]^T$ = 3$$v_{1}$$
+$A$v_{1}$ = $[3, 0]^T$ = 3$[1, 0]^T$ = 3v_{1}$$
 
-So $$v_{1}$ is an eigenvector with eigenvalue $\lambd$a_{1}$ = 3.
+So $v_{1}$ is an eigenvector with eigenvalue $\lambd$a_{1}$ = 3.
 
-Test $$v_{2}$ = $[0, 1]^T$:
+Test $v_{2}$ = $[0, 1]^T$:
 
-$$A$v_{2}$ = $[0, 2]^T$ = 2$[0, 1]^T$ = 2$$v_{2}$$
+$A$v_{2}$ = $[0, 2]^T$ = 2$[0, 1]^T$ = 2v_{2}$$
 
-So $$v_{2}$ is an eigenvector with eigenvalue $\lambd$a_{2}$ = 2.
+So $v_{2}$ is an eigenvector with eigenvalue $\lambd$a_{2}$ = 2.
 
 ## Characteristic Equation
 
@@ -69,7 +69,7 @@ For each eigenvalue $\lambda$, solve ($A - \lambda$I$)$v$ = **0** to find corres
 -v₁ + v₂ = 0  →  v₂ = v₁
 ```
 
-Eigenvector: $$v_{1}$ = $[1, 1]^T$ (or any scalar multiple: $[c, c]^T$ for c $\neq$ 0)
+Eigenvector: $v_{1}$ = $[1, 1]^T$ (or any scalar multiple: $[c, c]^T$ for c $\neq$ 0)
 
 Verify: $A$v_{1}$ = [4, 1; 2, 3][1; 1] = [5; 5] = 5[1; 1] ✓
 
@@ -82,7 +82,7 @@ Verify: $A$v_{1}$ = [4, 1; 2, 3][1; 1] = [5; 5] = 5[1; 1] ✓
 2v₁ + v₂ = 0  →  v₂ = -2v₁
 ```
 
-Eigenvector: $$v_{2}$ = $[1, -2]^T$
+Eigenvector: $v_{2}$ = $[1, -2]^T$
 
 Verify: $A$v_{2}$ = [4, 1; 2, 3][1; -2] = [4-2; 2-6] = [2; -4] = 2[1; -2] ✓
 
@@ -92,10 +92,10 @@ For a matrix $A \in \mathbb{R}^{n \times n}$:
 
 1. **Trace**: tr($A$) = $\Sigma$\lambd$a_{i}$ (sum of eigenvalues)
 2. **Determinant**: det($A$) = ∏$\lambd$a_{i}$ (product of eigenvalues)
-3. If $A$ is invertible, eigenvalues of $A$^{-1}$ are 1/$\lambd$a_{i}$
-4. Eigenvalues of $A$^T$ equal eigenvalues of $A$
+3. If $A$ is invertible, eigenvalues of $A^{-1} are 1/$\lambd$a_{i}$
+4. Eigenvalues of $A^T equal eigenvalues of $A$
 5. Eigenvalues of $\alpha$A$ are $\alpha$\lambd$a_{i}$
-6. Eigenvalues of $$A^{k}$ are $\lambd$a_{i}$^k$
+6. Eigenvalues of $A^{k}$ are $\lambd$a_{i}^k$$
 
 ## Symmetric Matrices
 
@@ -124,10 +124,10 @@ det(A - λI) = det([2-λ   1 ])
 
 Eigenvalues: $\lambd$a_{1}$ = 3, $\lambd$a_{2}$ = 1 (both real ✓)
 
-For $\lambd$a_{1}$ = 3: $$v_{1}$ = $[1, 1]^T$ (normalized: $[1/$\sqrt$2, 1/$\sqrt$2]^T$)
-For $\lambd$a_{2}$ = 1: $$v_{2}$ = $[1, -1]^T$ (normalized: $[1/$\sqrt$2, -1/$\sqrt$2]^T$)
+For $\lambd$a_{1}$ = 3: $v_{1}$ = $[1, 1]^T$ (normalized: $[1/$\sqrt$2, 1/$\sqrt$2]^T$)
+For $\lambd$a_{2}$ = 1: $v_{2}$ = $[1, -1]^T$ (normalized: $[1/$\sqrt$2, -1/$\sqrt$2]^T$)
 
-Check orthogonality: $v$_1 \cdot $v_{2}$ = (1)(1) + (1)(-1) = 0 ✓
+Check orthogonality: $v_1$ \cdot $v_{2}$ = (1)(1) + (1)(-1) = 0 ✓
 
 ## Multiplicity
 
@@ -145,7 +145,7 @@ A = [2  0  0]
     [0  0  3]
 ```
 
-Characteristic equation: (2 - $\lambda$)$^2$(3 - $\lambda$) = 0
+Characteristic equation: (2 - $\lambda)^$^2$(3 - $\lambda$) = 0
 
 Eigenvalues: $\lambd$a_{1}$ = 2 (algebraic multiplicity 2), $\lambd$a_{2}$ = 3 (algebraic multiplicity 1)
 
@@ -164,7 +164,7 @@ Geometric multiplicity of $\lambd$a_{1}$ = 2 (matches algebraic multiplicity ✓
 
 A matrix $A$ is **diagonalizable** if it can be written as:
 
-$A = PD$P$^{-1}$
+$A = PD$P^{-1}$$
 
 where $D$ is diagonal (containing eigenvalues) and $P$ has eigenvectors as columns.
 
@@ -203,7 +203,7 @@ PDP⁻¹ = [1   1][5  0][2/3   1/3]
 
 **Spectral Clustering**: Construct a graph Laplacian matrix $L$. Its eigenvectors reveal cluster structure. The k smallest eigenvalues' eigenvectors are used for clustering.
 
-**Matrix Functions**: Computing $$A^{k}$ or exp($A$) is efficient via diagonalization: $A$^k = P$D^{k}$P$^{-1}$, where $$D^{k}$ is trivial to compute (raise diagonal entries to power k).
+**Matrix Functions**: Computing $A^{k}$ or exp($A$) is efficient via diagonalization: $A^k$ = P$D^{k}$P^{-1}, where $D^{k}$ is trivial to compute (raise diagonal entries to power k).
 
 **Graph Neural Networks**: Eigenvalues of the adjacency or Laplacian matrix characterize graph properties like connectivity and diameter, informing architecture design.
 
