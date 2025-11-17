@@ -1,7 +1,7 @@
 # Understanding Function Approximation and the Curse of Dimensionality in Machine Learning
 
 **Author:** Tok Varol Cagdas
-**Order:** 32
+**Order:** 7
 **Date:**
 **Summary:** No summary available.
 

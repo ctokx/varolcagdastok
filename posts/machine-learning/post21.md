@@ -1,7 +1,7 @@
 # The Perceptron: A Glimpse into the Dawn of Machine Learning
 
 **Author:** Tok Varol Cagdas
-**Order:** 13
+**Order:** 3
 **Date:**
 **Summary:** No summary available.
 

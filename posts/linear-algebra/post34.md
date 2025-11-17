@@ -1,7 +1,7 @@
 # Singular Value Decomposition (SVD)
 
 **Author:** Tok Varol Cagdas
-**Order:** 26
+**Order:** 10
 **Date:**
 **Summary:** No summary available.
 

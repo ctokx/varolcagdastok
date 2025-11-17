@@ -1,7 +1,7 @@
 # Eigendecomposition of a Matrix
 
 **Author:** Tok Varol Cagdas
-**Order:** 25
+**Order:** 9
 **Date:**
 **Summary:** No summary available.
 

@@ -1,7 +1,7 @@
 # Modeling Sequential Data: From Recurrent Neural Networks to the Attention Revolution
 
 **Author:** Tok Varol Cagdas
-**Order:** 16
+**Order:** 999
 **Date:**
 **Summary:** No summary available.
 

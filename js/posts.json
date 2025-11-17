@@ -29,6 +29,18 @@
           "md_path": "software-engineering-testing/post3.md"
         },
         {
+          "title": "The Test Oracle Problem: How Do You Know Your Test *Really* Passed?",
+          "author": "Tok Varol Cagdas",
+          "order": 3,
+          "date": "",
+          "url": "posts/the-test-oracle-problem-how-do-you-know-your-test-really-passed.html",
+          "slug": "the-test-oracle-problem-how-do-you-know-your-test-really-passed",
+          "filename": "post2",
+          "summary": "No summary available.",
+          "category_folder": "software-engineering-testing",
+          "md_path": "software-engineering-testing/post2.md"
+        },
+        {
           "title": "An Introduction to White-Box Testing: Symbolic Execution and Search-Based Testing",
           "author": "Tok Varol Cagdas",
           "order": 4,
@@ -83,52 +95,52 @@
       "description": "This category reflects my understanding of Machine Learning based on the lecture I attended at LMU.",
       "articles": [
         {
-          "title": "Kernel Methods: The Power of Infinite Dimensions and the Kernel Trick",
+          "title": "An Introduction to Machine Learning: A Journey Through Its History and Ideas",
           "author": "Tok Varol Cagdas",
           "order": 1,
           "date": "",
-          "url": "posts/kernel-methods-the-power-of-infinite-dimensions-and-the-kernel-trick.html",
-          "slug": "kernel-methods-the-power-of-infinite-dimensions-and-the-kernel-trick",
-          "filename": "post10",
+          "url": "posts/an-introduction-to-machine-learning-a-journey-through-its-history-and-ideas.html",
+          "slug": "an-introduction-to-machine-learning-a-journey-through-its-history-and-ideas",
+          "filename": "post16",
           "summary": "No summary available.",
           "category_folder": "machine-learning",
-          "md_path": "machine-learning/post10.md"
+          "md_path": "machine-learning/post16.md"
         },
         {
-          "title": "Manifold Learning, Autoencoders, and Generative Models: Uncovering the Intrinsic Structure of Data",
+          "title": "A Refresher on Linear Algebra: The Language of Machine Learning",
           "author": "Tok Varol Cagdas",
           "order": 2,
           "date": "",
-          "url": "posts/manifold-learning-autoencoders-and-generative-models-uncovering-the-intrinsic-structure-of-data.html",
-          "slug": "manifold-learning-autoencoders-and-generative-models-uncovering-the-intrinsic-structure-of-data",
-          "filename": "post11",
+          "url": "posts/a-refresher-on-linear-algebra-the-language-of-machine-learning.html",
+          "slug": "a-refresher-on-linear-algebra-the-language-of-machine-learning",
+          "filename": "post17",
           "summary": "No summary available.",
           "category_folder": "machine-learning",
-          "md_path": "machine-learning/post11.md"
+          "md_path": "machine-learning/post17.md"
         },
         {
-          "title": "An Introduction to Neural Networks: The Power of Learned Representations",
+          "title": "The Perceptron: A Glimpse into the Dawn of Machine Learning",
           "author": "Tok Varol Cagdas",
           "order": 3,
           "date": "",
-          "url": "posts/an-introduction-to-neural-networks-the-power-of-learned-representations.html",
-          "slug": "an-introduction-to-neural-networks-the-power-of-learned-representations",
-          "filename": "post12",
+          "url": "posts/the-perceptron-a-glimpse-into-the-dawn-of-machine-learning.html",
+          "slug": "the-perceptron-a-glimpse-into-the-dawn-of-machine-learning",
+          "filename": "post21",
           "summary": "No summary available.",
           "category_folder": "machine-learning",
-          "md_path": "machine-learning/post12.md"
+          "md_path": "machine-learning/post21.md"
         },
         {
-          "title": "Modeling Sequential Data: From Recurrent Neural Networks to the Attention Revolution",
+          "title": "Linear Regression: The Workhorse of Machine Learning",
           "author": "Tok Varol Cagdas",
           "order": 4,
           "date": "",
-          "url": "posts/modeling-sequential-data-from-recurrent-neural-networks-to-the-attention-revolution.html",
-          "slug": "modeling-sequential-data-from-recurrent-neural-networks-to-the-attention-revolution",
-          "filename": "post13",
+          "url": "posts/linear-regression-the-workhorse-of-machine-learning.html",
+          "slug": "linear-regression-the-workhorse-of-machine-learning",
+          "filename": "post19",
           "summary": "No summary available.",
           "category_folder": "machine-learning",
-          "md_path": "machine-learning/post13.md"
+          "md_path": "machine-learning/post19.md"
         },
         {
           "title": "Basis Functions: Transforming Non-Linear Problems into Linear Ones",
@@ -143,9 +155,93 @@
           "md_path": "machine-learning/post14.md"
         },
         {
-          "title": "Frequentist vs. Bayesian Statistics: Two Perspectives on Inference and Learning",
+          "title": "An Introduction to Neural Networks: The Power of Learned Representations",
           "author": "Tok Varol Cagdas",
           "order": 6,
+          "date": "",
+          "url": "posts/an-introduction-to-neural-networks-the-power-of-learned-representations.html",
+          "slug": "an-introduction-to-neural-networks-the-power-of-learned-representations",
+          "filename": "post12",
+          "summary": "No summary available.",
+          "category_folder": "machine-learning",
+          "md_path": "machine-learning/post12.md"
+        },
+        {
+          "title": "Understanding Function Approximation and the Curse of Dimensionality in Machine Learning",
+          "author": "Tok Varol Cagdas",
+          "order": 7,
+          "date": "",
+          "url": "posts/understanding-function-approximation-and-the-curse-of-dimensionality-in-machine-learning.html",
+          "slug": "understanding-function-approximation-and-the-curse-of-dimensionality-in-machine-learning",
+          "filename": "post8",
+          "summary": "No summary available.",
+          "category_folder": "machine-learning",
+          "md_path": "machine-learning/post8.md"
+        },
+        {
+          "title": "An Introduction to Deep Learning: From Revival to Revolution",
+          "author": "Tok Varol Cagdas",
+          "order": 8,
+          "date": "",
+          "url": "posts/an-introduction-to-deep-learning-from-revival-to-revolution.html",
+          "slug": "an-introduction-to-deep-learning-from-revival-to-revolution",
+          "filename": "post9",
+          "summary": "No summary available.",
+          "category_folder": "machine-learning",
+          "md_path": "machine-learning/post9.md"
+        },
+        {
+          "title": "Modeling Sequential Data: From Recurrent Neural Networks to the Attention Revolution",
+          "author": "Tok Varol Cagdas",
+          "order": 9,
+          "date": "",
+          "url": "posts/modeling-sequential-data-from-recurrent-neural-networks-to-the-attention-revolution.html",
+          "slug": "modeling-sequential-data-from-recurrent-neural-networks-to-the-attention-revolution",
+          "filename": "post13",
+          "summary": "No summary available.",
+          "category_folder": "machine-learning",
+          "md_path": "machine-learning/post13.md"
+        },
+        {
+          "title": "Manifold Learning, Autoencoders, and Generative Models: Uncovering the Intrinsic Structure of Data",
+          "author": "Tok Varol Cagdas",
+          "order": 10,
+          "date": "",
+          "url": "posts/manifold-learning-autoencoders-and-generative-models-uncovering-the-intrinsic-structure-of-data.html",
+          "slug": "manifold-learning-autoencoders-and-generative-models-uncovering-the-intrinsic-structure-of-data",
+          "filename": "post11",
+          "summary": "No summary available.",
+          "category_folder": "machine-learning",
+          "md_path": "machine-learning/post11.md"
+        },
+        {
+          "title": "Kernel Methods: The Power of Infinite Dimensions and the Kernel Trick",
+          "author": "Tok Varol Cagdas",
+          "order": 11,
+          "date": "",
+          "url": "posts/kernel-methods-the-power-of-infinite-dimensions-and-the-kernel-trick.html",
+          "slug": "kernel-methods-the-power-of-infinite-dimensions-and-the-kernel-trick",
+          "filename": "post10",
+          "summary": "No summary available.",
+          "category_folder": "machine-learning",
+          "md_path": "machine-learning/post10.md"
+        },
+        {
+          "title": "A Refresher on Probability: The Foundation of Uncertainty in Machine Learning",
+          "author": "Tok Varol Cagdas",
+          "order": 12,
+          "date": "",
+          "url": "posts/a-refresher-on-probability-the-foundation-of-uncertainty-in-machine-learning.html",
+          "slug": "a-refresher-on-probability-the-foundation-of-uncertainty-in-machine-learning",
+          "filename": "post22",
+          "summary": "No summary available.",
+          "category_folder": "machine-learning",
+          "md_path": "machine-learning/post22.md"
+        },
+        {
+          "title": "Frequentist vs. Bayesian Statistics: Two Perspectives on Inference and Learning",
+          "author": "Tok Varol Cagdas",
+          "order": 13,
           "date": "",
           "url": "posts/frequentist-vs-bayesian-statistics-two-perspectives-on-inference-and-learning.html",
           "slug": "frequentist-vs-bayesian-statistics-two-perspectives-on-inference-and-learning",
@@ -155,33 +251,9 @@
           "md_path": "machine-learning/post15.md"
         },
         {
-          "title": "An Introduction to Machine Learning: A Journey Through Its History and Ideas",
-          "author": "Tok Varol Cagdas",
-          "order": 7,
-          "date": "",
-          "url": "posts/an-introduction-to-machine-learning-a-journey-through-its-history-and-ideas.html",
-          "slug": "an-introduction-to-machine-learning-a-journey-through-its-history-and-ideas",
-          "filename": "post16",
-          "summary": "No summary available.",
-          "category_folder": "machine-learning",
-          "md_path": "machine-learning/post16.md"
-        },
-        {
-          "title": "A Refresher on Linear Algebra: The Language of Machine Learning",
-          "author": "Tok Varol Cagdas",
-          "order": 8,
-          "date": "",
-          "url": "posts/a-refresher-on-linear-algebra-the-language-of-machine-learning.html",
-          "slug": "a-refresher-on-linear-algebra-the-language-of-machine-learning",
-          "filename": "post17",
-          "summary": "No summary available.",
-          "category_folder": "machine-learning",
-          "md_path": "machine-learning/post17.md"
-        },
-        {
           "title": "An Introduction to Linear Classifiers: Drawing the Line in Data",
           "author": "Tok Varol Cagdas",
-          "order": 9,
+          "order": 14,
           "date": "",
           "url": "posts/an-introduction-to-linear-classifiers-drawing-the-line-in-data.html",
           "slug": "an-introduction-to-linear-classifiers-drawing-the-line-in-data",
@@ -189,66 +261,6 @@
           "summary": "No summary available.",
           "category_folder": "machine-learning",
           "md_path": "machine-learning/post18.md"
-        },
-        {
-          "title": "Linear Regression: The Workhorse of Machine Learning",
-          "author": "Tok Varol Cagdas",
-          "order": 10,
-          "date": "",
-          "url": "posts/linear-regression-the-workhorse-of-machine-learning.html",
-          "slug": "linear-regression-the-workhorse-of-machine-learning",
-          "filename": "post19",
-          "summary": "No summary available.",
-          "category_folder": "machine-learning",
-          "md_path": "machine-learning/post19.md"
-        },
-        {
-          "title": "The Test Oracle Problem: How Do You Know Your Test *Really* Passed?",
-          "author": "Tok Varol Cagdas",
-          "order": 11,
-          "date": "",
-          "url": "posts/the-test-oracle-problem-how-do-you-know-your-test-really-passed.html",
-          "slug": "the-test-oracle-problem-how-do-you-know-your-test-really-passed",
-          "filename": "post2",
-          "summary": "No summary available.",
-          "category_folder": "machine-learning",
-          "md_path": "machine-learning/post2.md"
-        },
-        {
-          "title": "Model Selection and Estimating Generalization Performance",
-          "author": "Tok Varol Cagdas",
-          "order": 12,
-          "date": "",
-          "url": "posts/model-selection-and-estimating-generalization-performance.html",
-          "slug": "model-selection-and-estimating-generalization-performance",
-          "filename": "post20",
-          "summary": "No summary available.",
-          "category_folder": "machine-learning",
-          "md_path": "machine-learning/post20.md"
-        },
-        {
-          "title": "The Perceptron: A Glimpse into the Dawn of Machine Learning",
-          "author": "Tok Varol Cagdas",
-          "order": 13,
-          "date": "",
-          "url": "posts/the-perceptron-a-glimpse-into-the-dawn-of-machine-learning.html",
-          "slug": "the-perceptron-a-glimpse-into-the-dawn-of-machine-learning",
-          "filename": "post21",
-          "summary": "No summary available.",
-          "category_folder": "machine-learning",
-          "md_path": "machine-learning/post21.md"
-        },
-        {
-          "title": "A Refresher on Probability: The Foundation of Uncertainty in Machine Learning",
-          "author": "Tok Varol Cagdas",
-          "order": 14,
-          "date": "",
-          "url": "posts/a-refresher-on-probability-the-foundation-of-uncertainty-in-machine-learning.html",
-          "slug": "a-refresher-on-probability-the-foundation-of-uncertainty-in-machine-learning",
-          "filename": "post22",
-          "summary": "No summary available.",
-          "category_folder": "machine-learning",
-          "md_path": "machine-learning/post22.md"
         },
         {
           "title": "Support Vector Machines: Finding the Optimal Margin",
@@ -263,9 +275,21 @@
           "md_path": "machine-learning/post23.md"
         },
         {
-          "title": "Modeling Sequential Data: From Recurrent Neural Networks to the Attention Revolution",
+          "title": "Model Selection and Estimating Generalization Performance",
           "author": "Tok Varol Cagdas",
           "order": 16,
+          "date": "",
+          "url": "posts/model-selection-and-estimating-generalization-performance.html",
+          "slug": "model-selection-and-estimating-generalization-performance",
+          "filename": "post20",
+          "summary": "No summary available.",
+          "category_folder": "machine-learning",
+          "md_path": "machine-learning/post20.md"
+        },
+        {
+          "title": "Modeling Sequential Data: From Recurrent Neural Networks to the Attention Revolution",
+          "author": "Tok Varol Cagdas",
+          "order": 999,
           "date": "",
           "url": "posts/modeling-sequential-data-from-recurrent-neural-networks-to-the-attention-revolution.html",
           "slug": "modeling-sequential-data-from-recurrent-neural-networks-to-the-attention-revolution",
@@ -273,210 +297,192 @@
           "summary": "No summary available.",
           "category_folder": "machine-learning",
           "md_path": "machine-learning/post24.md"
-        },
+        }
+      ]
+    },
+    {
+      "name": "Linear Algebra for Machine Learning",
+      "description": "Personal notes covering foundational linear algebra concepts for machine learning. These notes aim to help others understand the mathematical foundations of modern ML algorithms.",
+      "articles": [
         {
           "title": "Linear Algebra for Machine Learning: Course Overview",
           "author": "Tok Varol Cagdas",
-          "order": 17,
+          "order": 1,
           "date": "",
           "url": "posts/linear-algebra-for-machine-learning-course-overview.html",
           "slug": "linear-algebra-for-machine-learning-course-overview",
           "filename": "post25",
           "summary": "No summary available.",
-          "category_folder": "machine-learning",
-          "md_path": "machine-learning/post25.md"
+          "category_folder": "linear-algebra",
+          "md_path": "linear-algebra/post25.md"
         },
         {
           "title": "Vectors and Vector Spaces",
           "author": "Tok Varol Cagdas",
-          "order": 18,
+          "order": 2,
           "date": "",
           "url": "posts/vectors-and-vector-spaces.html",
           "slug": "vectors-and-vector-spaces",
           "filename": "post26",
           "summary": "No summary available.",
-          "category_folder": "machine-learning",
-          "md_path": "machine-learning/post26.md"
+          "category_folder": "linear-algebra",
+          "md_path": "linear-algebra/post26.md"
         },
         {
           "title": "Matrices and Data Representation",
           "author": "Tok Varol Cagdas",
-          "order": 19,
+          "order": 3,
           "date": "",
           "url": "posts/matrices-and-data-representation.html",
           "slug": "matrices-and-data-representation",
           "filename": "post27",
           "summary": "No summary available.",
-          "category_folder": "machine-learning",
-          "md_path": "machine-learning/post27.md"
+          "category_folder": "linear-algebra",
+          "md_path": "linear-algebra/post27.md"
         },
         {
           "title": "Dot Products and Vector Norms",
           "author": "Tok Varol Cagdas",
-          "order": 20,
+          "order": 4,
           "date": "",
           "url": "posts/dot-products-and-vector-norms.html",
           "slug": "dot-products-and-vector-norms",
           "filename": "post28",
           "summary": "No summary available.",
-          "category_folder": "machine-learning",
-          "md_path": "machine-learning/post28.md"
+          "category_folder": "linear-algebra",
+          "md_path": "linear-algebra/post28.md"
         },
         {
           "title": "Matrix Multiplication and Linear Transformations",
           "author": "Tok Varol Cagdas",
-          "order": 21,
+          "order": 5,
           "date": "",
           "url": "posts/matrix-multiplication-and-linear-transformations.html",
           "slug": "matrix-multiplication-and-linear-transformations",
           "filename": "post29",
           "summary": "No summary available.",
-          "category_folder": "machine-learning",
-          "md_path": "machine-learning/post29.md"
+          "category_folder": "linear-algebra",
+          "md_path": "linear-algebra/post29.md"
         },
         {
           "title": "Systems of Linear Equations",
           "author": "Tok Varol Cagdas",
-          "order": 22,
+          "order": 6,
           "date": "",
           "url": "posts/systems-of-linear-equations.html",
           "slug": "systems-of-linear-equations",
           "filename": "post30",
           "summary": "No summary available.",
-          "category_folder": "machine-learning",
-          "md_path": "machine-learning/post30.md"
+          "category_folder": "linear-algebra",
+          "md_path": "linear-algebra/post30.md"
         },
         {
           "title": "Matrix Inverse, Linear Independence, and Rank",
           "author": "Tok Varol Cagdas",
-          "order": 23,
+          "order": 7,
           "date": "",
           "url": "posts/matrix-inverse-linear-independence-and-rank.html",
           "slug": "matrix-inverse-linear-independence-and-rank",
           "filename": "post31",
           "summary": "No summary available.",
-          "category_folder": "machine-learning",
-          "md_path": "machine-learning/post31.md"
+          "category_folder": "linear-algebra",
+          "md_path": "linear-algebra/post31.md"
         },
         {
           "title": "Eigenvectors and Eigenvalues",
           "author": "Tok Varol Cagdas",
-          "order": 24,
+          "order": 8,
           "date": "",
           "url": "posts/eigenvectors-and-eigenvalues.html",
           "slug": "eigenvectors-and-eigenvalues",
           "filename": "post32",
           "summary": "No summary available.",
-          "category_folder": "machine-learning",
-          "md_path": "machine-learning/post32.md"
+          "category_folder": "linear-algebra",
+          "md_path": "linear-algebra/post32.md"
         },
         {
           "title": "Eigendecomposition of a Matrix",
           "author": "Tok Varol Cagdas",
-          "order": 25,
+          "order": 9,
           "date": "",
           "url": "posts/eigendecomposition-of-a-matrix.html",
           "slug": "eigendecomposition-of-a-matrix",
           "filename": "post33",
           "summary": "No summary available.",
-          "category_folder": "machine-learning",
-          "md_path": "machine-learning/post33.md"
+          "category_folder": "linear-algebra",
+          "md_path": "linear-algebra/post33.md"
         },
         {
           "title": "Singular Value Decomposition (SVD)",
           "author": "Tok Varol Cagdas",
-          "order": 26,
+          "order": 10,
           "date": "",
           "url": "posts/singular-value-decomposition-svd.html",
           "slug": "singular-value-decomposition-svd",
           "filename": "post34",
           "summary": "No summary available.",
-          "category_folder": "machine-learning",
-          "md_path": "machine-learning/post34.md"
+          "category_folder": "linear-algebra",
+          "md_path": "linear-algebra/post34.md"
         },
         {
           "title": "Application: Principal Component Analysis (PCA)",
           "author": "Tok Varol Cagdas",
-          "order": 27,
+          "order": 11,
           "date": "",
           "url": "posts/application-principal-component-analysis-pca.html",
           "slug": "application-principal-component-analysis-pca",
           "filename": "post35",
           "summary": "No summary available.",
-          "category_folder": "machine-learning",
-          "md_path": "machine-learning/post35.md"
+          "category_folder": "linear-algebra",
+          "md_path": "linear-algebra/post35.md"
         },
         {
           "title": "Vector Projections and Orthogonality",
           "author": "Tok Varol Cagdas",
-          "order": 28,
+          "order": 12,
           "date": "",
           "url": "posts/vector-projections-and-orthogonality.html",
           "slug": "vector-projections-and-orthogonality",
           "filename": "post36",
           "summary": "No summary available.",
-          "category_folder": "machine-learning",
-          "md_path": "machine-learning/post36.md"
+          "category_folder": "linear-algebra",
+          "md_path": "linear-algebra/post36.md"
         },
         {
           "title": "Application: Linear Regression and the Normal Equation",
           "author": "Tok Varol Cagdas",
-          "order": 29,
+          "order": 13,
           "date": "",
           "url": "posts/application-linear-regression-and-the-normal-equation.html",
           "slug": "application-linear-regression-and-the-normal-equation",
           "filename": "post37",
           "summary": "No summary available.",
-          "category_folder": "machine-learning",
-          "md_path": "machine-learning/post37.md"
+          "category_folder": "linear-algebra",
+          "md_path": "linear-algebra/post37.md"
         },
         {
           "title": "Matrix Calculus: Gradients with Vectors and Matrices",
           "author": "Tok Varol Cagdas",
-          "order": 30,
+          "order": 14,
           "date": "",
           "url": "posts/matrix-calculus-gradients-with-vectors-and-matrices.html",
           "slug": "matrix-calculus-gradients-with-vectors-and-matrices",
           "filename": "post38",
           "summary": "No summary available.",
-          "category_folder": "machine-learning",
-          "md_path": "machine-learning/post38.md"
+          "category_folder": "linear-algebra",
+          "md_path": "linear-algebra/post38.md"
         },
         {
           "title": "Course Review and Next Steps",
           "author": "Tok Varol Cagdas",
-          "order": 31,
+          "order": 15,
           "date": "",
           "url": "posts/course-review-and-next-steps.html",
           "slug": "course-review-and-next-steps",
           "filename": "post39",
           "summary": "No summary available.",
-          "category_folder": "machine-learning",
-          "md_path": "machine-learning/post39.md"
-        },
-        {
-          "title": "Understanding Function Approximation and the Curse of Dimensionality in Machine Learning",
-          "author": "Tok Varol Cagdas",
-          "order": 32,
-          "date": "",
-          "url": "posts/understanding-function-approximation-and-the-curse-of-dimensionality-in-machine-learning.html",
-          "slug": "understanding-function-approximation-and-the-curse-of-dimensionality-in-machine-learning",
-          "filename": "post8",
-          "summary": "No summary available.",
-          "category_folder": "machine-learning",
-          "md_path": "machine-learning/post8.md"
-        },
-        {
-          "title": "An Introduction to Deep Learning: From Revival to Revolution",
-          "author": "Tok Varol Cagdas",
-          "order": 33,
-          "date": "",
-          "url": "posts/an-introduction-to-deep-learning-from-revival-to-revolution.html",
-          "slug": "an-introduction-to-deep-learning-from-revival-to-revolution",
-          "filename": "post9",
-          "summary": "No summary available.",
-          "category_folder": "machine-learning",
-          "md_path": "machine-learning/post9.md"
+          "category_folder": "linear-algebra",
+          "md_path": "linear-algebra/post39.md"
         }
       ]
     },

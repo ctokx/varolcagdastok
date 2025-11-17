@@ -1,7 +1,7 @@
 # An Introduction to Deep Learning: From Revival to Revolution
 
 **Author:** Tok Varol Cagdas
-**Order:** 33
+**Order:** 8
 **Date:**
 **Summary:** No summary available.
 

@@ -1,7 +1,7 @@
 # Vector Projections and Orthogonality
 
 **Author:** Tok Varol Cagdas
-**Order:** 28
+**Order:** 12
 **Date:**
 **Summary:** No summary available.
 

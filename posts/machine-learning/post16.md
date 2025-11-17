@@ -1,7 +1,7 @@
 # An Introduction to Machine Learning: A Journey Through Its History and Ideas
 
 **Author:** Tok Varol Cagdas
-**Order:** 7
+**Order:** 1
 **Date:**
 **Summary:** No summary available.
 

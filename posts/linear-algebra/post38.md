@@ -1,7 +1,7 @@
 # Matrix Calculus: Gradients with Vectors and Matrices
 
 **Author:** Tok Varol Cagdas
-**Order:** 30
+**Order:** 14
 **Date:**
 **Summary:** No summary available.
 

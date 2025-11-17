@@ -1,7 +1,7 @@
 # Matrices and Data Representation
 
 **Author:** Tok Varol Cagdas
-**Order:** 19
+**Order:** 3
 **Date:**
 **Summary:** No summary available.
 

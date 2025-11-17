@@ -1,7 +1,7 @@
 # Dot Products and Vector Norms
 
 **Author:** Tok Varol Cagdas
-**Order:** 20
+**Order:** 4
 **Date:**
 **Summary:** No summary available.
 

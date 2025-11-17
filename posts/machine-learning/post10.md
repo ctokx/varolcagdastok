@@ -1,7 +1,7 @@
 # Kernel Methods: The Power of Infinite Dimensions and the Kernel Trick
 
 **Author:** Tok Varol Cagdas
-**Order:** 1
+**Order:** 11
 **Date:**
 **Summary:** No summary available.
 

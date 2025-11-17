@@ -1,7 +1,7 @@
 # Frequentist vs. Bayesian Statistics: Two Perspectives on Inference and Learning
 
 **Author:** Tok Varol Cagdas
-**Order:** 6
+**Order:** 13
 **Date:**
 **Summary:** No summary available.
 

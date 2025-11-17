@@ -1,7 +1,7 @@
 # Application: Linear Regression and the Normal Equation
 
 **Author:** Tok Varol Cagdas
-**Order:** 29
+**Order:** 13
 **Date:**
 **Summary:** No summary available.
 

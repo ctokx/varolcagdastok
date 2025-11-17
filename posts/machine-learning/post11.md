@@ -1,7 +1,7 @@
 # Manifold Learning, Autoencoders, and Generative Models: Uncovering the Intrinsic Structure of Data
 
 **Author:** Tok Varol Cagdas
-**Order:** 2
+**Order:** 10
 **Date:**
 **Summary:** No summary available.
 

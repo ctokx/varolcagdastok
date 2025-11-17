@@ -1,7 +1,7 @@
 # A Refresher on Linear Algebra: The Language of Machine Learning
 
 **Author:** Tok Varol Cagdas
-**Order:** 8
+**Order:** 2
 **Date:**
 **Summary:** No summary available.
 

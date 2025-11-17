@@ -1,7 +1,7 @@
 # Matrix Inverse, Linear Independence, and Rank
 
 **Author:** Tok Varol Cagdas
-**Order:** 23
+**Order:** 7
 **Date:**
 **Summary:** No summary available.
 

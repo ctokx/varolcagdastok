@@ -1,7 +1,7 @@
 # An Introduction to Neural Networks: The Power of Learned Representations
 
 **Author:** Tok Varol Cagdas
-**Order:** 3
+**Order:** 6
 **Date:**
 **Summary:** No summary available.
 

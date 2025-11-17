@@ -1,7 +1,7 @@
 # A Refresher on Probability: The Foundation of Uncertainty in Machine Learning
 
 **Author:** Tok Varol Cagdas
-**Order:** 14
+**Order:** 12
 **Date:**
 **Summary:** No summary available.
 

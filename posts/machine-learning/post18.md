@@ -1,7 +1,7 @@
 # An Introduction to Linear Classifiers: Drawing the Line in Data
 
 **Author:** Tok Varol Cagdas
-**Order:** 9
+**Order:** 14
 **Date:**
 **Summary:** No summary available.
 

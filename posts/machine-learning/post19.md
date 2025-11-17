@@ -1,7 +1,7 @@
 # Linear Regression: The Workhorse of Machine Learning
 
 **Author:** Tok Varol Cagdas
-**Order:** 10
+**Order:** 4
 **Date:**
 **Summary:** No summary available.
 
