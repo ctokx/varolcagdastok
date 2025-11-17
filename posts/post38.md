@@ -14,7 +14,7 @@ The gradient is a column vector in $\mathbb{R}^{n}$.
 
 ### Example: Quadratic Function
 
-f($x$) = $x$^T$x = \Sigm$a_{i}$₌$_1$^n x_{i}$^2$
+f($x$) = $x^Tx = \Sigm$a_{i}$=$_1^n$ x_{i}$^2$
 
 $\partial$f/$\partial x_{i}$ = 2$x_{i}$
 
@@ -22,7 +22,7 @@ $\partial$f/$\partial x_{i}$ = 2$x_{i}$
 
 ## Linear Function
 
-f($x$) = $a$^T$x = \Sigm$a_{i}$₌$_1$^n a_{i}$$x_{i}$
+f($x$) = $a^Tx = \Sigm$a_{i}$=$_1^n$ a_{i}x_{i}$
 
 $\partial$f/$\partial x_{i}$ = $a_{i}$
 
@@ -30,48 +30,48 @@ $\partial$f/$\partial x_{i}$ = $a_{i}$
 
 ## Quadratic Form
 
-f($x$) = $x$^T$Ax$ where $A \in \mathbb{R}^{n \times n}$ is symmetric
+f($x$) = $x^TAx$ where $A \in \mathbb{R}^{n \times n}$ is symmetric
 
 ∇_x f = 2$Ax$
 
 ### Derivation
 
-Expand: f($x$) = $\Sigm$a_{i}$₌$_1$^n \Sigm$a_{j}$₌$_1$^n a_{i}$_j$$x_{i} x_{j}$
+Expand: f($x$) = $\Sigm$a_{i}$=$_1^n$ \Sigm$a_{j}$=$_1^n$ a_{i}$_jx_{i} x_{j}$
 
-$$\partial$f/$\partial$x$_k = \Sigm$a_{j}$₌$_1$^n a_{k}$_j$x$_j + \Sigm$a_{i}$₌$_1$^n a_{i}$_k$$x_{i}$$
+$\partial$f/$\partial$x_k$ = \Sigm$a_{j}$=$_1^n$ a_{k}$_j$x_j$ + \Sigm$a_{i}$=$_1^n$ a_{i}$_kx_{i}$$
 
-Since $A$ is symmetric ($a_{i}$_j$ = $a_{j}$_i$):
+Since $A$ is symmetric ($a_{i}_j = $a_{j}_i$$):
 
-$$\partial$f/$\partial x_{k}$ = 2$\Sigm$a_{j}$₌$_1$^n a_{k}$_j$$x_{j}$ = 2($Ax$)$_k$$
+$\partial$f/$\partial x_{k}$ = 2$\Sigm$a_{j}$=$_1^n$ a_{k}$_j$x_{j}$ = 2($Ax$)$_k$$
 
 Thus ∇_x f = 2$Ax$.
 
 ### Example
 
-$$A$ = [2, 1; 1, 3], $x = [$x_{1}$, $x_{2}$]^T$$
+$A$ = [2, 1; 1, 3], $x = [$x_{1}$, $x_{2}$]^T$$
 
 f($x$) = [$x_{1}$, $x_{2}$][2  1][$x_{1}$]
                     [1  3][$x_{2}$]
          = [$x_{1}$, $x_{2}$][$2x_1$ + $x_{2}$  ]
                     [$x_{1}$ + $3x_2$]
-         = $2x_1$^2$ + $x_{1} x_{2}$ + $x_{1} x_{2}$ + $3x_2$^2$
-         = $2x_1$^2$ + 2$x_{1} x_{2}$ + $3x_2$^2$
+         = $2x_1^2 + $x_{1} x_{2}$ + $x_{1} x_{2}$ + $3x_2^2$$
+         = $2x_1^2 + 2$x_{1} x_{2}$ + $3x_2^2$$
 
 ∇_x f = $[$4x_1$ + $2x_2$, $2x_1$ + $6x_2$]^T$ = 2[2, 1; 1, 3]$[$x_{1}$, $x_{2}$]^T$ = 2$Ax$ ✓
 
 ## Affine Function Squared Norm
 
-f($x$) = \|\1\|$_2$^2$
+f($x$) = \|\1\|$_2^2$$
 
 Expand:
-f($x$) = ($Ax - b$)$^T$($Ax - b$)
-         = $x$^T$A$^T$Ax$ - 2$b$^T$Ax + b$^T$b$
+f($x$) = ($Ax - b)^$^T$($Ax - b$)
+         = $x^TA^TAx$ - 2$b^TAx + b$^T$b$
 
-∇_x f = 2$A$^T$Ax$ - 2$A$^T$b$ = 2$A$^T$($Ax - b$)
+∇_x f = 2$A^TAx$ - 2$A^Tb$ = 2$A^T($Ax - b$)
 
-This is used in linear regression: f($w$) = \|\1\|$_2$^2$
+This is used in linear regression: f($w$) = \|\1\|$_2^2$$
 
-∇_w f = 2$X$^T$($Xw - y$)
+∇_w f = 2$X^T($Xw - y$)
 
 ## Scalar-by-Matrix Derivative
 
@@ -83,9 +83,9 @@ This is an m$\times$n matrix where each entry is the partial derivative with res
 
 ### Example: Frobenius Norm Squared
 
-f($X$) = \|\1\|_F$^2 = \Sigm$a_{i}$₌$_1$^m \Sigm$a_{j}$₌$_1$^n x_{i}$_$j^{2}$
+f($X$) = \|\1\|_F$^2 = \Sigm$a_{i}$=$_1^m$ \Sigm$a_{j}$=$_1^n$ x_{i}$_$j^{2}$
 
-$$\partial$f/$\partial x_{i}$_j$ = 2$x_{i}$_j$$
+$\partial$f/$\partial x_{i}$_j$ = 2$x_{i}_j$$$
 
 $\partial$f/$\partial$X$ = 2$X$
 
@@ -93,7 +93,7 @@ $\partial$f/$\partial$X$ = 2$X$
 
 For square $X \in \mathbb{R}^{n \times n}$:
 
-f($X$) = tr($X$) = $\Sigm$a_{i}$₌$_1$^n x_{i}$_i$
+f($X$) = tr($X$) = $\Sigm$a_{i}$=$_1^n$ x_{i}$_i$
 
 $\partial$f/$\partial x_{i}$_j$ = {1 if i = j; 0 otherwise}
 
@@ -103,7 +103,7 @@ $\partial$f/$\partial$X = I$
 
 f($X$) = tr($AX$B$)
 
-$\partial$f/$\partial$X = A$^T$B$^T$
+$\partial$f/$\partial$X = A$^T$B^T$$
 
 Special case: f($X$) = tr($AX$) gives $\partial$f/$\partial$X = A$^T$
 
@@ -115,20 +115,20 @@ $\partial$z/$\partial$x$ = ($\partial$y$/$\partial$x$)$^T$ ($\partial$z/$\partia
 
 where $\partial$y$/$\partial$x$ is the Jacobian matrix:
 
-$$J$ = [$\partial y_{i}$/$\partial x_{j}$] $\in \mathbb{R}$^m$ˣ$^n$$
+$J$ = [$\partial y_{i}$/$\partial x_{j}$] $\in \mathbb{R}$^m$x$^n$$
 
 ### Example: Composition
 
 $y = Ax$ (linear transformation)
-z = \|\1\|$_2$^2$
+z = \|\1\|$_2^2$$
 
 $\partial$y$/$\partial$x = A$ (Jacobian)
 
 $\partial$z/$\partial$y$ = 2$y$
 
-$$\partial$z/$\partial$x = A$^T$(2$y$) = 2$A$^T$y$ = 2$A$^T$Ax$$
+$\partial$z/$\partial$x = A$^T$(2$y$) = 2$A^Ty$ = 2$A^TAx$$
 
-Verify directly: z = $x$^T$A$^T$Ax$, so ∇_x z = 2$A$^T$Ax$ ✓
+Verify directly: z = $x^TA^TAx$, so ∇_x z = 2$A^TAx$ ✓
 
 ## Denominator Layout vs. Numerator Layout
 
@@ -144,44 +144,44 @@ Always verify which convention is used. We use numerator layout throughout.
 
 | Function f($x$) | Gradient ∇_x f |
 |------------------|----------------|
-| $a$^T$x$ | $a$ |
-| $x$^T$Ax$ (symmetric $A$) | 2$Ax$ |
-| $x$^T$x$ | 2$x$ |
+| $a^Tx$ | $a$ |
+| $x^TAx$ (symmetric $A$) | 2$Ax$ |
+| $x^Tx$ | 2$x$ |
 | \|\1\|$_2$ | $x$/\|\1\|$_2$ |
-| \|\1\|$_2$^2$ | 2$A$^T$($Ax - b$) |
+| \|\1\|$_2^2 | 2$A^T$$($Ax - b$) |
 | log(exp($x$)$^T$**1**) | softmax($x$) |
 
 ## Softmax Function
 
 For $x \in \mathbb{R}^{n}$, the softmax is:
 
-softmax($x$)$_i$ = exp($x_{i}$) / $\Sigm$a_{j}$₌$_1$^n$ exp($x_{j}$)
+$\text{softmax}(x)_i = \frac{\exp(x_i)}{\sum_{j=1}^n \exp(x_j)}$
 
 The Jacobian is:
 
-$\partial$softmax($x$)$_i$/$\partial x_{j}$ = softmax($x$)$_i$($\delt$a_{i}$_j$ - softmax($x$)$_j$)
+$\frac{\partial \text{softmax}(x)_i}{\partial x_j} = \text{softmax}(x)_i(\delta_{ij} - \text{softmax}(x)_j)$
 
 In matrix form:
 
-$J$ = diag($s$) - $ss$^T$
+$J = \text{diag}(s) - ss^T$
 
-where $s$ = softmax($x$).
+where $s = \text{softmax}(x)$.
 
 ## Logistic Loss
 
-f($w$) = log(1 + exp(-y$w$^T$x$))
+f($w$) = $\log(1 + \exp(-yw^Tx))$
 
 where y $\in$ {-1, 1} is the label.
 
-∇_w f = -y$x \sigma$(-y$w$^T$x$)
+$\nabla_w f = -yx\sigma(-yw^Tx)$
 
-where $\sigma$(z) = 1/(1 + exp(-z)) is the sigmoid function.
+where $\sigma(z) = \frac{1}{1 + \exp(-z)}$ is the sigmoid function.
 
 ## Cross-Entropy Loss
 
 For classification with softmax:
 
-L = -$\Sigm$a_{k}$₌$_1$ᴷ $y_{k}$ log(ŷ$_k$)
+$L = -\sum_{k=1}^K y_k \log(\hat{y}_k)$
 
 where $y$ is one-hot encoded and **ŷ** = softmax($z$) with $z = W$^T$x$.
 
@@ -191,7 +191,7 @@ This clean derivative is why softmax + cross-entropy is used together.
 
 ## Backpropagation
 
-In a neural network with layers $h$_1 = \sigm$a_{1}$($$W_{1}$x$), $h$_2 = \sigm$a_{2}$($$W_{2} h_{1}$), ..., the gradient of loss L with respect to $$W_{1}$ is computed via the chain rule:
+In a neural network with layers $h_1$ = \sigm$a_{1}$($W_{1}$x$), $h_2$ = \sigm$a_{2}$(W_{2} h_{1}$), ..., the gradient of loss L with respect to $W_{1}$ is computed via the chain rule:
 
 $\partial$L/$\partial W_{1}$ = ($\partial$L/$\partial h_{2}$)($\partial h_{2}$/$\partial h_{1}$)($\partial h_{1}$/$\partial W_{1}$)
 
@@ -201,13 +201,13 @@ Backpropagation efficiently computes these gradients by caching intermediate res
 
 The Hessian of f: $\mathbb{R}^{n}$ → $\mathbb{R}$ is the matrix of second derivatives:
 
-$$H$ = [$\partia$l^{2}$f/($\partial x_{i}$\partial$$x_{j}$)] $\in \mathbb{R}$^n$ˣ$^n$$
+$H$ = [$\partia$l^{2}$f/($\partial x_{i}$\partial$x_{j}$)] $\in \mathbb{R}$^n$x$^n$$
 
 If f is twice differentiable, $H$ is symmetric.
 
 ### Example
 
-f($x$) = $x$^T$Ax$ (symmetric $A$)
+f($x$) = $x^TAx$ (symmetric $A$)
 
 ∇_x f = 2$Ax$
 
@@ -229,7 +229,7 @@ $x$ ← $x - H$^{-1}$∇f
 
 **Second-Order Optimization**: Methods like Newton's method and L-BFGS use Hessian information for faster convergence.
 
-**Regularization Gradients**: Ridge ($L_{2}$) adds $\lambda$\|\1\|$_2$^2$ to the loss, contributing 2$\lambda$w$ to the gradient. Lasso ($L_{1}$) adds $\lambda$\|\1\|$_1$, contributing $\lambda$ sign($w$) (subgradient).
+**Regularization Gradients**: Ridge ($L_{2}$) adds $\lambda$\|\1\|$_2^2 to the loss, contributing 2$\lambda$w$ to the gradient. Lasso ($L_{1}$) adds $\lambda$\|\1\|$_1$, contributing $\lambda$ sign($w$) (subgradient).
 
 **Batch Normalization**: Gradients through normalization layers involve matrix derivatives.
 

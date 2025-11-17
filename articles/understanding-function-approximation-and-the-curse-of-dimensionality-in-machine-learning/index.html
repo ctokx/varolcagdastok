@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Function Approximation and the Curse of Dimensionality in Machine Learning - Varol Cagdas Tok</title>
+    <meta name="description" content="An exploration of function approximation as a framework for understanding machine learning and the critical challenge of the Curse of Dimensionality.">
+    <meta name="author" content="Varol Cagdas Tok">
+    <meta property="og:title" content="Understanding Function Approximation and the Curse of Dimensionality in Machine Learning">
+    <meta property="og:description" content="An exploration of function approximation as a framework for understanding machine learning and the critical challenge of the Curse of Dimensionality.">
+    <meta property="og:type" content="article">
+    <link rel="canonical" href="/articles/understanding-function-approximation-and-the-curse-of-dimensionality-in-machine-learning/">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Varol Cagdas Tok</h1>
+        <p>Focusing on cybersecurity, software development, and machine learning.</p>
+    </header>
+
+    <nav>
+        <a href="../../index.html">Home</a>
+        <a href="../../articles.html">All Articles</a>
+        <a href="../../about.html">About Me</a>
+    </nav>
+
+    <main>
+        <article id="article-content">
+            <p>Loading article...</p>
+        </article>
+    </main>
+
+    <footer>
+        <p>© 2025 Varol Cagdas Tok.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$']],
+                displayMath: [['$$', '$$']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script>
+        // Load the specific article
+        document.addEventListener("DOMContentLoaded", () => {
+            const articleContent = document.getElementById("article-content");
+            const postPath = '../../posts/post8.md';
+
+            fetch(postPath)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Could not load article.");
+                    }
+                    return response.text();
+                })
+                .then(markdownText => {
+                    const htmlContent = marked.parse(markdownText);
+                    articleContent.innerHTML = htmlContent;
+
+                    // Trigger MathJax rendering
+                    if (window.MathJax) {
+                        MathJax.typesetPromise([articleContent]).catch((err) => console.log('MathJax error:', err));
+                    }
+
+                    const firstHeading = articleContent.querySelector("h1");
+                    if (firstHeading) {
+                        document.title = firstHeading.textContent + " - Varol Cagdas Tok";
+                    }
+                })
+                .catch(error => {
+                    console.error("Error fetching article:", error);
+                    articleContent.innerHTML = "<h1>Error 404</h1><p>Article not found. Please check the URL and try again.</p>";
+                });
+        });
+    </script>
+</body>
+</html>

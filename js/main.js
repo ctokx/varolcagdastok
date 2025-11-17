@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Only run this code if we are on a page that HAS the "articles-list" element
     if (articlesList) {
         
-        // Fetch the list of posts from our JSON file
+        // Fetch the list of articles from our JSON file
         fetch("js/posts.json")
             .then(response => {
                 if (!response.ok) {
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 // 1. Flatten all articles from all categories into one list
                 const allArticles = data.categories.flatMap(category => category.articles || []);
                 
-                // You can change this number to show more or fewer "latest" posts
+                // You can change this number to show more or fewer "latest" articles
                 const articlesToShow = 3;
                 
                 // 2. Sort all articles by date, newest first.
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     return `
                         <li>
                             <h3><a href="${article.url}">${article.title}</a></h3>
-                            <p class="post-date">${displayDate}</p>
+                            <p class="article-date">${displayDate}</p>
                             <p>${article.summary}</p>
                         </li>
                     `;

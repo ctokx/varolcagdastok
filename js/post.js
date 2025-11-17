@@ -24,11 +24,16 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(markdownText => {
             // 4. Convert Markdown to HTML using marked.js
             const htmlContent = marked.parse(markdownText);
-            
+
             // 5. Inject the HTML into the page
             articleContent.innerHTML = htmlContent;
-            
-            // 6. (Optional) Set the page title from the first <h1>
+
+            // 6. Trigger MathJax to render LaTeX expressions
+            if (window.MathJax) {
+                MathJax.typesetPromise([articleContent]).catch((err) => console.log('MathJax error:', err));
+            }
+
+            // 7. (Optional) Set the page title from the first <h1>
             const firstHeading = articleContent.querySelector("h1");
             if (firstHeading) {
                 document.title = firstHeading.textContent + " - Varol Cagdas Tok";

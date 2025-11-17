@@ -1,0 +1,171 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>Varol Cagdas Tok - Technical Articles</title>
+    <link>https://ctokx.github.io/personalblog/</link>
+    <description>Technical articles on cybersecurity, software development, and machine learning</description>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 17 Nov 2025 10:35:30 GMT</lastBuildDate>
+    <atom:link href="https://ctokx.github.io/personalblog/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>An Introduction to Machine Learning: A Journey Through Its History and Ideas</title>
+      <link>https://ctokx.github.io/personalblog/articles/an-introduction-to-machine-learning-a-journey-through-its-history-and-ideas/</link>
+      <description>A high-level introduction to machine learning, its philosophical underpinnings, and its historical development from early statistical methods to modern deep learning.</description>
+      <category>Machine Learning</category>
+      <guid isPermaLink="true">https://ctokx.github.io/personalblog/articles/an-introduction-to-machine-learning-a-journey-through-its-history-and-ideas/</guid>
+      <pubDate>Wed, 17 Dec 2025 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>The Perceptron: A Glimpse into the Dawn of Machine Learning</title>
+      <link>https://ctokx.github.io/personalblog/articles/the-perceptron-a-glimpse-into-the-dawn-of-machine-learning/</link>
+      <description>An introduction to the Perceptron algorithm, one of the earliest and most foundational models in machine learning, covering its architecture, learning rule, and historical significance.</description>
+      <category>Machine Learning</category>
+      <guid isPermaLink="true">https://ctokx.github.io/personalblog/articles/the-perceptron-a-glimpse-into-the-dawn-of-machine-learning/</guid>
+      <pubDate>Tue, 16 Dec 2025 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>A Refresher on Linear Algebra: The Language of Machine Learning</title>
+      <link>https://ctokx.github.io/personalblog/articles/a-refresher-on-linear-algebra-the-language-of-machine-learning/</link>
+      <description>A review of the fundamental concepts of linear algebra—vectors, matrices, and their operations—that form the mathematical language of machine learning.</description>
+      <category>Machine Learning</category>
+      <guid isPermaLink="true">https://ctokx.github.io/personalblog/articles/a-refresher-on-linear-algebra-the-language-of-machine-learning/</guid>
+      <pubDate>Mon, 15 Dec 2025 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Linear Regression: The Workhorse of Machine Learning</title>
+      <link>https://ctokx.github.io/personalblog/articles/linear-regression-the-workhorse-of-machine-learning/</link>
+      <description>An in-depth look at linear regression, from the method of least squares to the importance of regularization and its role in understanding causality.</description>
+      <category>Machine Learning</category>
+      <guid isPermaLink="true">https://ctokx.github.io/personalblog/articles/linear-regression-the-workhorse-of-machine-learning/</guid>
+      <pubDate>Sun, 14 Dec 2025 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Basis Functions: Transforming Non-Linear Problems into Linear Ones</title>
+      <link>https://ctokx.github.io/personalblog/articles/basis-functions-transforming-non-linear-problems-into-linear-ones/</link>
+      <description>An exploration of basis functions and their role in transforming non-linear problems into linear ones, enabling the use of linear models for complex tasks.</description>
+      <category>Machine Learning</category>
+      <guid isPermaLink="true">https://ctokx.github.io/personalblog/articles/basis-functions-transforming-non-linear-problems-into-linear-ones/</guid>
+      <pubDate>Sat, 13 Dec 2025 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Understanding Function Approximation and the Curse of Dimensionality in Machine Learning</title>
+      <link>https://ctokx.github.io/personalblog/articles/understanding-function-approximation-and-the-curse-of-dimensionality-in-machine-learning/</link>
+      <description>An exploration of function approximation as a framework for understanding machine learning and the critical challenge of the Curse of Dimensionality.</description>
+      <category>Machine Learning</category>
+      <guid isPermaLink="true">https://ctokx.github.io/personalblog/articles/understanding-function-approximation-and-the-curse-of-dimensionality-in-machine-learning/</guid>
+      <pubDate>Fri, 12 Dec 2025 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Kernel Methods: The Power of Infinite Dimensions and the Kernel Trick</title>
+      <link>https://ctokx.github.io/personalblog/articles/kernel-methods-the-power-of-infinite-dimensions-and-the-kernel-trick/</link>
+      <description>An exploration of kernel methods, their relationship to basis functions, and their ability to handle high-dimensional data through the kernel trick.</description>
+      <category>Machine Learning</category>
+      <guid isPermaLink="true">https://ctokx.github.io/personalblog/articles/kernel-methods-the-power-of-infinite-dimensions-and-the-kernel-trick/</guid>
+      <pubDate>Thu, 11 Dec 2025 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>A Refresher on Probability: The Foundation of Uncertainty in Machine Learning</title>
+      <link>https://ctokx.github.io/personalblog/articles/a-refresher-on-probability-the-foundation-of-uncertainty-in-machine-learning/</link>
+      <description>A review of the fundamental concepts of probability theory—from random variables to Bayes' theorem—that are essential for understanding machine learning.</description>
+      <category>Machine Learning</category>
+      <guid isPermaLink="true">https://ctokx.github.io/personalblog/articles/a-refresher-on-probability-the-foundation-of-uncertainty-in-machine-learning/</guid>
+      <pubDate>Wed, 10 Dec 2025 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Frequentist vs. Bayesian Statistics: Two Perspectives on Inference and Learning</title>
+      <link>https://ctokx.github.io/personalblog/articles/frequentist-vs-bayesian-statistics-two-perspectives-on-inference-and-learning/</link>
+      <description>An exploration of the philosophical and practical differences between Frequentist and Bayesian statistics, and their implications for machine learning.</description>
+      <category>Machine Learning</category>
+      <guid isPermaLink="true">https://ctokx.github.io/personalblog/articles/frequentist-vs-bayesian-statistics-two-perspectives-on-inference-and-learning/</guid>
+      <pubDate>Tue, 09 Dec 2025 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>An Introduction to Neural Networks: The Power of Learned Representations</title>
+      <link>https://ctokx.github.io/personalblog/articles/an-introduction-to-neural-networks-the-power-of-learned-representations/</link>
+      <description>An introduction to neural networks, covering their architecture, the backpropagation algorithm, and key concepts like regularization.</description>
+      <category>Machine Learning</category>
+      <guid isPermaLink="true">https://ctokx.github.io/personalblog/articles/an-introduction-to-neural-networks-the-power-of-learned-representations/</guid>
+      <pubDate>Mon, 08 Dec 2025 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>An Introduction to Linear Classifiers: Drawing the Line in Data</title>
+      <link>https://ctokx.github.io/personalblog/articles/an-introduction-to-linear-classifiers-drawing-the-line-in-data/</link>
+      <description>An exploration of linear classifiers and the different approaches to building them, including generative models, logistic regression, and classification via regression.</description>
+      <category>Machine Learning</category>
+      <guid isPermaLink="true">https://ctokx.github.io/personalblog/articles/an-introduction-to-linear-classifiers-drawing-the-line-in-data/</guid>
+      <pubDate>Sun, 07 Dec 2025 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Support Vector Machines: Finding the Optimal Margin</title>
+      <link>https://ctokx.github.io/personalblog/articles/support-vector-machines-finding-the-optimal-margin/</link>
+      <description>An introduction to the Support Vector Machine (SVM), a powerful classification algorithm based on the principle of maximizing the margin between classes.</description>
+      <category>Machine Learning</category>
+      <guid isPermaLink="true">https://ctokx.github.io/personalblog/articles/support-vector-machines-finding-the-optimal-margin/</guid>
+      <pubDate>Sat, 06 Dec 2025 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Model Selection and Estimating Generalization Performance</title>
+      <link>https://ctokx.github.io/personalblog/articles/model-selection-and-estimating-generalization-performance/</link>
+      <description>An overview of model selection, the estimation of generalization error, and the theoretical frameworks that guide the process.</description>
+      <category>Machine Learning</category>
+      <guid isPermaLink="true">https://ctokx.github.io/personalblog/articles/model-selection-and-estimating-generalization-performance/</guid>
+      <pubDate>Fri, 05 Dec 2025 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>An Introduction to Deep Learning: From Revival to Revolution</title>
+      <link>https://ctokx.github.io/personalblog/articles/an-introduction-to-deep-learning-from-revival-to-revolution/</link>
+      <description>An overview of the fundamental principles of deep learning, exploring the key ingredients that contribute to its success and the theoretical concepts that explain its power.</description>
+      <category>Machine Learning</category>
+      <guid isPermaLink="true">https://ctokx.github.io/personalblog/articles/an-introduction-to-deep-learning-from-revival-to-revolution/</guid>
+      <pubDate>Thu, 04 Dec 2025 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Modeling Sequential Data: From Recurrent Neural Networks to the Attention Revolution</title>
+      <link>https://ctokx.github.io/personalblog/articles/modeling-sequential-data-from-recurrent-neural-networks-to-the-attention-revolution/</link>
+      <description>An exploration of architectures designed for sequential data, from Recurrent Neural Networks (RNNs) to the powerful attention mechanisms that underpin modern models like the Transformer.</description>
+      <category>Machine Learning</category>
+      <guid isPermaLink="true">https://ctokx.github.io/personalblog/articles/modeling-sequential-data-from-recurrent-neural-networks-to-the-attention-revolution/</guid>
+      <pubDate>Wed, 03 Dec 2025 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Modeling Sequential Data: From Recurrent Neural Networks to the Attention Revolution</title>
+      <link>https://ctokx.github.io/personalblog/articles/modeling-sequential-data-from-recurrent-neural-networks-to-the-attention-revolution/</link>
+      <description>An exploration of architectures designed for sequential data, from Recurrent Neural Networks (RNNs) to the powerful attention mechanisms that underpin modern models like the Transformer.</description>
+      <category>Machine Learning</category>
+      <guid isPermaLink="true">https://ctokx.github.io/personalblog/articles/modeling-sequential-data-from-recurrent-neural-networks-to-the-attention-revolution/</guid>
+      <pubDate>Tue, 02 Dec 2025 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Manifold Learning, Autoencoders, and Generative Models: Uncovering the Intrinsic Structure of Data</title>
+      <link>https://ctokx.github.io/personalblog/articles/manifold-learning-autoencoders-and-generative-models-uncovering-the-intrinsic-structure-of-data/</link>
+      <description>An exploration of manifold learning, autoencoders, and generative models, and how they are used to uncover the intrinsic structure of data.</description>
+      <category>Machine Learning</category>
+      <guid isPermaLink="true">https://ctokx.github.io/personalblog/articles/manifold-learning-autoencoders-and-generative-models-uncovering-the-intrinsic-structure-of-data/</guid>
+      <pubDate>Mon, 01 Dec 2025 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>A Guide to Black-Box Testing: Equivalence, Boundary, and Decision Table Techniques</title>
+      <link>https://ctokx.github.io/personalblog/articles/a-guide-to-black-box-testing-equivalence-boundary-and-decision-table-techniques/</link>
+      <description>A look at black-box testing, a method where test cases are derived from the external specification without considering the internal code structure.</description>
+      <category>Software Engineering &amp; Testing</category>
+      <guid isPermaLink="true">https://ctokx.github.io/personalblog/articles/a-guide-to-black-box-testing-equivalence-boundary-and-decision-table-techniques/</guid>
+      <pubDate>Mon, 17 Nov 2025 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>The Test Oracle Problem: How Do You Know Your Test *Really* Passed?</title>
+      <link>https://ctokx.github.io/personalblog/articles/the-test-oracle-problem-how-do-you-know-your-test-really-passed/</link>
+      <description>A test input is only half of a test case. The other half is the oracle. This post explores the challenge of determining the correct output for a given test.</description>
+      <category>Software Engineering &amp; Testing</category>
+      <guid isPermaLink="true">https://ctokx.github.io/personalblog/articles/the-test-oracle-problem-how-do-you-know-your-test-really-passed/</guid>
+      <pubDate>Sun, 16 Nov 2025 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Measuring Test Suite Quality: A Guide to Coverage Criteria and Mutation Testing</title>
+      <link>https://ctokx.github.io/personalblog/articles/measuring-test-suite-quality-a-guide-to-coverage-criteria-and-mutation-testing/</link>
+      <description>How do you assess the quality of a test suite? This post covers adequacy criteria, from statement and branch coverage to mutation testing.</description>
+      <category>Software Engineering &amp; Testing</category>
+      <guid isPermaLink="true">https://ctokx.github.io/personalblog/articles/measuring-test-suite-quality-a-guide-to-coverage-criteria-and-mutation-testing/</guid>
+      <pubDate>Sat, 15 Nov 2025 00:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>
