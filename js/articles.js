@@ -33,13 +33,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     <div class="category-section">
                         <div class="category-header" onclick="toggleCategory('${categoryId}')">
                             <h3>
-                                <span class="category-toggle" id="toggle-${categoryId}">▶</span>
+                                <span class="category-toggle" id="toggle-${categoryId}">▼</span>
                                 ${category.name}
                                 <span class="category-count">(${totalArticles} article${totalArticles !== 1 ? 's' : ''})</span>
                             </h3>
                         </div>
 
-                        <div class="category-content" id="content-${categoryId}" style="display: none;">
+                        <div class="category-content" id="content-${categoryId}">
                             <p class="category-description">${category.description || ''}</p>
 
                             <ul class="article-list" id="list-${categoryId}">
