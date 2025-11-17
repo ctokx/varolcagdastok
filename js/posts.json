@@ -5,66 +5,52 @@
       "description": "These articles serve as my understanding of software testing. They are based on the slides from the software testing lecture when I was a student at LMU.",
       "articles": [
         {
-          "title": "A Guide to Black-Box Testing: Equivalence, Boundary, and Decision Table Techniques",
-          "date": "2025-11-17",
-          "url": "articles/a-guide-to-black-box-testing-equivalence-boundary-and-decision-table-techniques/",
-          "summary": "A look at black-box testing, a method where test cases are derived from the external specification without considering the internal code structure.",
-          "slug": "a-guide-to-black-box-testing-equivalence-boundary-and-decision-table-techniques",
-          "old_url": "post.html?name=post1"
-        },
-        {
-          "title": "The Test Oracle Problem: How Do You Know Your Test *Really* Passed?",
-          "date": "2025-11-16",
-          "url": "articles/the-test-oracle-problem-how-do-you-know-your-test-really-passed/",
-          "summary": "A test input is only half of a test case. The other half is the oracle. This post explores the challenge of determining the correct output for a given test.",
-          "slug": "the-test-oracle-problem-how-do-you-know-your-test-really-passed",
-          "old_url": "post.html?name=post2"
-        },
-        {
-          "title": "Measuring Test Suite Quality: A Guide to Coverage Criteria and Mutation Testing",
-          "date": "2025-11-15",
-          "url": "articles/measuring-test-suite-quality-a-guide-to-coverage-criteria-and-mutation-testing/",
-          "summary": "How do you assess the quality of a test suite? This post covers adequacy criteria, from statement and branch coverage to mutation testing.",
-          "slug": "measuring-test-suite-quality-a-guide-to-coverage-criteria-and-mutation-testing",
-          "old_url": "post.html?name=post3"
-        },
-        {
-          "title": "An Introduction to White-Box Testing: Symbolic Execution and Search-Based Testing",
-          "date": "2025-11-14",
-          "url": "articles/an-introduction-to-white-box-testing-symbolic-execution-and-search-based-testing/",
-          "summary": "An exploration of white-box testing, where the internal structure of the program is used to derive test inputs, focusing on symbolic execution and SBST.",
-          "slug": "an-introduction-to-white-box-testing-symbolic-execution-and-search-based-testing",
-          "old_url": "post.html?name=post4"
-        },
-        {
           "title": "Managing Evolving Code: A Guide to Regression Testing",
-          "date": "2025-11-13",
-          "url": "articles/managing-evolving-code-a-guide-to-regression-testing/",
-          "summary": "Software is not static. This post covers the techniques for regression testing: minimization, selection, and prioritization.",
+          "date": "2025-11-17",
+          "url": "posts/managing-evolving-code-a-guide-to-regression-testing.html",
           "slug": "managing-evolving-code-a-guide-to-regression-testing",
-          "old_url": "post.html?name=post5"
+          "filename": "post5",
+          "summary": "No summary available."
         },
         {
           "title": "A Look at Concolic Execution: The Hybrid of Concrete and Symbolic Testing",
-          "date": "2025-11-12",
-          "url": "articles/a-look-at-concolic-execution-the-hybrid-of-concrete-and-symbolic-testing/",
-          "summary": "Concolic execution (CONCrete + symbOLIC) is a hybrid approach that addresses the practical limitations of pure symbolic execution.",
+          "date": "2025-11-17",
+          "url": "posts/a-look-at-concolic-execution-the-hybrid-of-concrete-and-symbolic-testing.html",
           "slug": "a-look-at-concolic-execution-the-hybrid-of-concrete-and-symbolic-testing",
-          "old_url": "post.html?name=post6"
-        }
-      ]
-    },
-    {
-      "name": "Cybersecurity & Machine Learning",
-      "description": "Explorations into cybersecurity concepts and machine learning applications.",
-      "articles": [
+          "filename": "post6",
+          "summary": "No summary available."
+        },
         {
           "title": "From Random Guesses to Intelligent Grammars: A Look at Fuzzing and Random Testing",
-          "date": "2025-11-11",
-          "url": "articles/from-random-guesses-to-intelligent-grammars-a-look-at-fuzzing-and-random-testing/",
-          "summary": "A look at random testing and fuzzing, from simple mutational fuzzers to advanced grammar-based fuzzing for generating syntactically valid inputs.",
+          "date": "2025-11-17",
+          "url": "posts/from-random-guesses-to-intelligent-grammars-a-look-at-fuzzing-and-random-testing.html",
           "slug": "from-random-guesses-to-intelligent-grammars-a-look-at-fuzzing-and-random-testing",
-          "old_url": "post.html?name=post7"
+          "filename": "post7",
+          "summary": "No summary available."
+        },
+        {
+          "title": "A Guide to Black-Box Testing: Equivalence, Boundary, and Decision Table Techniques",
+          "date": "2025-11-17",
+          "url": "posts/a-guide-to-black-box-testing-equivalence-boundary-and-decision-table-techniques.html",
+          "slug": "a-guide-to-black-box-testing-equivalence-boundary-and-decision-table-techniques",
+          "filename": "post1",
+          "summary": "No summary available."
+        },
+        {
+          "title": "Measuring Test Suite Quality: A Guide to Coverage Criteria and Mutation Testing",
+          "date": "2025-11-17",
+          "url": "posts/measuring-test-suite-quality-a-guide-to-coverage-criteria-and-mutation-testing.html",
+          "slug": "measuring-test-suite-quality-a-guide-to-coverage-criteria-and-mutation-testing",
+          "filename": "post3",
+          "summary": "No summary available."
+        },
+        {
+          "title": "An Introduction to White-Box Testing: Symbolic Execution and Search-Based Testing",
+          "date": "2025-11-17",
+          "url": "posts/an-introduction-to-white-box-testing-symbolic-execution-and-search-based-testing.html",
+          "slug": "an-introduction-to-white-box-testing-symbolic-execution-and-search-based-testing",
+          "filename": "post4",
+          "summary": "No summary available."
         }
       ]
     },
@@ -73,266 +59,306 @@
       "description": "This category reflects my understanding of Machine Learning based on the lecture I attended at LMU.",
       "articles": [
         {
-          "title": "An Introduction to Machine Learning: A Journey Through Its History and Ideas",
-          "date": "2025-12-17",
-          "url": "articles/an-introduction-to-machine-learning-a-journey-through-its-history-and-ideas/",
-          "summary": "A high-level introduction to machine learning, its philosophical underpinnings, and its historical development from early statistical methods to modern deep learning.",
-          "slug": "an-introduction-to-machine-learning-a-journey-through-its-history-and-ideas",
-          "old_url": "post.html?name=post16"
+          "title": "The Test Oracle Problem: How Do You Know Your Test *Really* Passed?",
+          "date": "2025-11-17",
+          "url": "posts/the-test-oracle-problem-how-do-you-know-your-test-really-passed.html",
+          "slug": "the-test-oracle-problem-how-do-you-know-your-test-really-passed",
+          "filename": "post2",
+          "summary": "No summary available."
         },
         {
-          "title": "The Perceptron: A Glimpse into the Dawn of Machine Learning",
-          "date": "2025-12-16",
-          "url": "articles/the-perceptron-a-glimpse-into-the-dawn-of-machine-learning/",
-          "summary": "An introduction to the Perceptron algorithm, one of the earliest and most foundational models in machine learning, covering its architecture, learning rule, and historical significance.",
-          "slug": "the-perceptron-a-glimpse-into-the-dawn-of-machine-learning",
-          "old_url": "post.html?name=post21"
-        },
-        {
-          "title": "A Refresher on Linear Algebra: The Language of Machine Learning",
-          "date": "2025-12-15",
-          "url": "articles/a-refresher-on-linear-algebra-the-language-of-machine-learning/",
-          "summary": "A review of the fundamental concepts of linear algebra\u2014vectors, matrices, and their operations\u2014that form the mathematical language of machine learning.",
-          "slug": "a-refresher-on-linear-algebra-the-language-of-machine-learning",
-          "old_url": "post.html?name=post17"
-        },
-        {
-          "title": "Linear Regression: The Workhorse of Machine Learning",
-          "date": "2025-12-14",
-          "url": "articles/linear-regression-the-workhorse-of-machine-learning/",
-          "summary": "An in-depth look at linear regression, from the method of least squares to the importance of regularization and its role in understanding causality.",
-          "slug": "linear-regression-the-workhorse-of-machine-learning",
-          "old_url": "post.html?name=post19"
-        },
-        {
-          "title": "Basis Functions: Transforming Non-Linear Problems into Linear Ones",
-          "date": "2025-12-13",
-          "url": "articles/basis-functions-transforming-non-linear-problems-into-linear-ones/",
-          "summary": "An exploration of basis functions and their role in transforming non-linear problems into linear ones, enabling the use of linear models for complex tasks.",
-          "slug": "basis-functions-transforming-non-linear-problems-into-linear-ones",
-          "old_url": "post.html?name=post14"
+          "title": "Application: Principal Component Analysis (PCA)",
+          "date": "2025-11-17",
+          "url": "posts/application-principal-component-analysis-pca.html",
+          "slug": "application-principal-component-analysis-pca",
+          "filename": "post35",
+          "summary": "No summary available."
         },
         {
           "title": "Understanding Function Approximation and the Curse of Dimensionality in Machine Learning",
-          "date": "2025-12-12",
-          "url": "articles/understanding-function-approximation-and-the-curse-of-dimensionality-in-machine-learning/",
-          "summary": "An exploration of function approximation as a framework for understanding machine learning and the critical challenge of the Curse of Dimensionality.",
+          "date": "2025-11-17",
+          "url": "posts/understanding-function-approximation-and-the-curse-of-dimensionality-in-machine-learning.html",
           "slug": "understanding-function-approximation-and-the-curse-of-dimensionality-in-machine-learning",
-          "old_url": "post.html?name=post8"
+          "filename": "post8",
+          "summary": "No summary available."
         },
         {
-          "title": "Kernel Methods: The Power of Infinite Dimensions and the Kernel Trick",
-          "date": "2025-12-11",
-          "url": "articles/kernel-methods-the-power-of-infinite-dimensions-and-the-kernel-trick/",
-          "summary": "An exploration of kernel methods, their relationship to basis functions, and their ability to handle high-dimensional data through the kernel trick.",
-          "slug": "kernel-methods-the-power-of-infinite-dimensions-and-the-kernel-trick",
-          "old_url": "post.html?name=post10"
+          "title": "Systems of Linear Equations",
+          "date": "2025-11-17",
+          "url": "posts/systems-of-linear-equations.html",
+          "slug": "systems-of-linear-equations",
+          "filename": "post30",
+          "summary": "No summary available."
         },
         {
           "title": "A Refresher on Probability: The Foundation of Uncertainty in Machine Learning",
-          "date": "2025-12-10",
-          "url": "articles/a-refresher-on-probability-the-foundation-of-uncertainty-in-machine-learning/",
-          "summary": "A review of the fundamental concepts of probability theory\u2014from random variables to Bayes' theorem\u2014that are essential for understanding machine learning.",
+          "date": "2025-11-17",
+          "url": "posts/a-refresher-on-probability-the-foundation-of-uncertainty-in-machine-learning.html",
           "slug": "a-refresher-on-probability-the-foundation-of-uncertainty-in-machine-learning",
-          "old_url": "post.html?name=post22"
+          "filename": "post22",
+          "summary": "No summary available."
         },
         {
-          "title": "Frequentist vs. Bayesian Statistics: Two Perspectives on Inference and Learning",
-          "date": "2025-12-09",
-          "url": "articles/frequentist-vs-bayesian-statistics-two-perspectives-on-inference-and-learning/",
-          "summary": "An exploration of the philosophical and practical differences between Frequentist and Bayesian statistics, and their implications for machine learning.",
-          "slug": "frequentist-vs-bayesian-statistics-two-perspectives-on-inference-and-learning",
-          "old_url": "post.html?name=post15"
+          "title": "Eigenvectors and Eigenvalues",
+          "date": "2025-11-17",
+          "url": "posts/eigenvectors-and-eigenvalues.html",
+          "slug": "eigenvectors-and-eigenvalues",
+          "filename": "post32",
+          "summary": "No summary available."
+        },
+        {
+          "title": "Eigendecomposition of a Matrix",
+          "date": "2025-11-17",
+          "url": "posts/eigendecomposition-of-a-matrix.html",
+          "slug": "eigendecomposition-of-a-matrix",
+          "filename": "post33",
+          "summary": "No summary available."
+        },
+        {
+          "title": "Application: Linear Regression and the Normal Equation",
+          "date": "2025-11-17",
+          "url": "posts/application-linear-regression-and-the-normal-equation.html",
+          "slug": "application-linear-regression-and-the-normal-equation",
+          "filename": "post37",
+          "summary": "No summary available."
+        },
+        {
+          "title": "Basis Functions: Transforming Non-Linear Problems into Linear Ones",
+          "date": "2025-11-17",
+          "url": "posts/basis-functions-transforming-non-linear-problems-into-linear-ones.html",
+          "slug": "basis-functions-transforming-non-linear-problems-into-linear-ones",
+          "filename": "post14",
+          "summary": "No summary available."
+        },
+        {
+          "title": "A Refresher on Linear Algebra: The Language of Machine Learning",
+          "date": "2025-11-17",
+          "url": "posts/a-refresher-on-linear-algebra-the-language-of-machine-learning.html",
+          "slug": "a-refresher-on-linear-algebra-the-language-of-machine-learning",
+          "filename": "post17",
+          "summary": "No summary available."
         },
         {
           "title": "An Introduction to Neural Networks: The Power of Learned Representations",
-          "date": "2025-12-08",
-          "url": "articles/an-introduction-to-neural-networks-the-power-of-learned-representations/",
-          "summary": "An introduction to neural networks, covering their architecture, the backpropagation algorithm, and key concepts like regularization.",
+          "date": "2025-11-17",
+          "url": "posts/an-introduction-to-neural-networks-the-power-of-learned-representations.html",
           "slug": "an-introduction-to-neural-networks-the-power-of-learned-representations",
-          "old_url": "post.html?name=post12"
+          "filename": "post12",
+          "summary": "No summary available."
         },
         {
-          "title": "An Introduction to Linear Classifiers: Drawing the Line in Data",
-          "date": "2025-12-07",
-          "url": "articles/an-introduction-to-linear-classifiers-drawing-the-line-in-data/",
-          "summary": "An exploration of linear classifiers and the different approaches to building them, including generative models, logistic regression, and classification via regression.",
-          "slug": "an-introduction-to-linear-classifiers-drawing-the-line-in-data",
-          "old_url": "post.html?name=post18"
+          "title": "Modeling Sequential Data: From Recurrent Neural Networks to the Attention Revolution",
+          "date": "2025-11-17",
+          "url": "posts/modeling-sequential-data-from-recurrent-neural-networks-to-the-attention-revolution.html",
+          "slug": "modeling-sequential-data-from-recurrent-neural-networks-to-the-attention-revolution",
+          "filename": "post24",
+          "summary": "No summary available."
+        },
+        {
+          "title": "Matrices and Data Representation",
+          "date": "2025-11-17",
+          "url": "posts/matrices-and-data-representation.html",
+          "slug": "matrices-and-data-representation",
+          "filename": "post27",
+          "summary": "No summary available."
+        },
+        {
+          "title": "Matrix Inverse, Linear Independence, and Rank",
+          "date": "2025-11-17",
+          "url": "posts/matrix-inverse-linear-independence-and-rank.html",
+          "slug": "matrix-inverse-linear-independence-and-rank",
+          "filename": "post31",
+          "summary": "No summary available."
+        },
+        {
+          "title": "Vector Projections and Orthogonality",
+          "date": "2025-11-17",
+          "url": "posts/vector-projections-and-orthogonality.html",
+          "slug": "vector-projections-and-orthogonality",
+          "filename": "post36",
+          "summary": "No summary available."
+        },
+        {
+          "title": "Matrix Multiplication and Linear Transformations",
+          "date": "2025-11-17",
+          "url": "posts/matrix-multiplication-and-linear-transformations.html",
+          "slug": "matrix-multiplication-and-linear-transformations",
+          "filename": "post29",
+          "summary": "No summary available."
         },
         {
           "title": "Support Vector Machines: Finding the Optimal Margin",
-          "date": "2025-12-06",
-          "url": "articles/support-vector-machines-finding-the-optimal-margin/",
-          "summary": "An introduction to the Support Vector Machine (SVM), a powerful classification algorithm based on the principle of maximizing the margin between classes.",
+          "date": "2025-11-17",
+          "url": "posts/support-vector-machines-finding-the-optimal-margin.html",
           "slug": "support-vector-machines-finding-the-optimal-margin",
-          "old_url": "post.html?name=post23"
+          "filename": "post23",
+          "summary": "No summary available."
         },
         {
-          "title": "Model Selection and Estimating Generalization Performance",
-          "date": "2025-12-05",
-          "url": "articles/model-selection-and-estimating-generalization-performance/",
-          "summary": "An overview of model selection, the estimation of generalization error, and the theoretical frameworks that guide the process.",
-          "slug": "model-selection-and-estimating-generalization-performance",
-          "old_url": "post.html?name=post20"
+          "title": "Singular Value Decomposition (SVD)",
+          "date": "2025-11-17",
+          "url": "posts/singular-value-decomposition-svd.html",
+          "slug": "singular-value-decomposition-svd",
+          "filename": "post34",
+          "summary": "No summary available."
         },
         {
-          "title": "An Introduction to Deep Learning: From Revival to Revolution",
-          "date": "2025-12-04",
-          "url": "articles/an-introduction-to-deep-learning-from-revival-to-revolution/",
-          "summary": "An overview of the fundamental principles of deep learning, exploring the key ingredients that contribute to its success and the theoretical concepts that explain its power.",
-          "slug": "an-introduction-to-deep-learning-from-revival-to-revolution",
-          "old_url": "post.html?name=post9"
+          "title": "Linear Algebra for Machine Learning: Course Overview",
+          "date": "2025-11-17",
+          "url": "posts/linear-algebra-for-machine-learning-course-overview.html",
+          "slug": "linear-algebra-for-machine-learning-course-overview",
+          "filename": "post25",
+          "summary": "No summary available."
         },
         {
-          "title": "Modeling Sequential Data: From Recurrent Neural Networks to the Attention Revolution",
-          "date": "2025-12-03",
-          "url": "articles/modeling-sequential-data-from-recurrent-neural-networks-to-the-attention-revolution/",
-          "summary": "An exploration of architectures designed for sequential data, from Recurrent Neural Networks (RNNs) to the powerful attention mechanisms that underpin modern models like the Transformer.",
-          "slug": "modeling-sequential-data-from-recurrent-neural-networks-to-the-attention-revolution",
-          "old_url": "post.html?name=post13"
+          "title": "An Introduction to Linear Classifiers: Drawing the Line in Data",
+          "date": "2025-11-17",
+          "url": "posts/an-introduction-to-linear-classifiers-drawing-the-line-in-data.html",
+          "slug": "an-introduction-to-linear-classifiers-drawing-the-line-in-data",
+          "filename": "post18",
+          "summary": "No summary available."
         },
         {
-          "title": "Modeling Sequential Data: From Recurrent Neural Networks to the Attention Revolution",
-          "date": "2025-12-02",
-          "url": "articles/modeling-sequential-data-from-recurrent-neural-networks-to-the-attention-revolution/",
-          "summary": "An exploration of architectures designed for sequential data, from Recurrent Neural Networks (RNNs) to the powerful attention mechanisms that underpin modern models like the Transformer.",
-          "slug": "modeling-sequential-data-from-recurrent-neural-networks-to-the-attention-revolution",
-          "old_url": "post.html?name=post24"
+          "title": "Dot Products and Vector Norms",
+          "date": "2025-11-17",
+          "url": "posts/dot-products-and-vector-norms.html",
+          "slug": "dot-products-and-vector-norms",
+          "filename": "post28",
+          "summary": "No summary available."
+        },
+        {
+          "title": "Course Review and Next Steps",
+          "date": "2025-11-17",
+          "url": "posts/course-review-and-next-steps.html",
+          "slug": "course-review-and-next-steps",
+          "filename": "post39",
+          "summary": "No summary available."
         },
         {
           "title": "Manifold Learning, Autoencoders, and Generative Models: Uncovering the Intrinsic Structure of Data",
-          "date": "2025-12-01",
-          "url": "articles/manifold-learning-autoencoders-and-generative-models-uncovering-the-intrinsic-structure-of-data/",
-          "summary": "An exploration of manifold learning, autoencoders, and generative models, and how they are used to uncover the intrinsic structure of data.",
+          "date": "2025-11-17",
+          "url": "posts/manifold-learning-autoencoders-and-generative-models-uncovering-the-intrinsic-structure-of-data.html",
           "slug": "manifold-learning-autoencoders-and-generative-models-uncovering-the-intrinsic-structure-of-data",
-          "old_url": "post.html?name=post11"
+          "filename": "post11",
+          "summary": "No summary available."
+        },
+        {
+          "title": "Linear Regression: The Workhorse of Machine Learning",
+          "date": "2025-11-17",
+          "url": "posts/linear-regression-the-workhorse-of-machine-learning.html",
+          "slug": "linear-regression-the-workhorse-of-machine-learning",
+          "filename": "post19",
+          "summary": "No summary available."
+        },
+        {
+          "title": "An Introduction to Deep Learning: From Revival to Revolution",
+          "date": "2025-11-17",
+          "url": "posts/an-introduction-to-deep-learning-from-revival-to-revolution.html",
+          "slug": "an-introduction-to-deep-learning-from-revival-to-revolution",
+          "filename": "post9",
+          "summary": "No summary available."
+        },
+        {
+          "title": "Matrix Calculus: Gradients with Vectors and Matrices",
+          "date": "2025-11-17",
+          "url": "posts/matrix-calculus-gradients-with-vectors-and-matrices.html",
+          "slug": "matrix-calculus-gradients-with-vectors-and-matrices",
+          "filename": "post38",
+          "summary": "No summary available."
+        },
+        {
+          "title": "Model Selection and Estimating Generalization Performance",
+          "date": "2025-11-17",
+          "url": "posts/model-selection-and-estimating-generalization-performance.html",
+          "slug": "model-selection-and-estimating-generalization-performance",
+          "filename": "post20",
+          "summary": "No summary available."
+        },
+        {
+          "title": "The Perceptron: A Glimpse into the Dawn of Machine Learning",
+          "date": "2025-11-17",
+          "url": "posts/the-perceptron-a-glimpse-into-the-dawn-of-machine-learning.html",
+          "slug": "the-perceptron-a-glimpse-into-the-dawn-of-machine-learning",
+          "filename": "post21",
+          "summary": "No summary available."
+        },
+        {
+          "title": "Frequentist vs. Bayesian Statistics: Two Perspectives on Inference and Learning",
+          "date": "2025-11-17",
+          "url": "posts/frequentist-vs-bayesian-statistics-two-perspectives-on-inference-and-learning.html",
+          "slug": "frequentist-vs-bayesian-statistics-two-perspectives-on-inference-and-learning",
+          "filename": "post15",
+          "summary": "No summary available."
+        },
+        {
+          "title": "Kernel Methods: The Power of Infinite Dimensions and the Kernel Trick",
+          "date": "2025-11-17",
+          "url": "posts/kernel-methods-the-power-of-infinite-dimensions-and-the-kernel-trick.html",
+          "slug": "kernel-methods-the-power-of-infinite-dimensions-and-the-kernel-trick",
+          "filename": "post10",
+          "summary": "No summary available."
+        },
+        {
+          "title": "Vectors and Vector Spaces",
+          "date": "2025-11-17",
+          "url": "posts/vectors-and-vector-spaces.html",
+          "slug": "vectors-and-vector-spaces",
+          "filename": "post26",
+          "summary": "No summary available."
+        },
+        {
+          "title": "An Introduction to Machine Learning: A Journey Through Its History and Ideas",
+          "date": "2025-11-17",
+          "url": "posts/an-introduction-to-machine-learning-a-journey-through-its-history-and-ideas.html",
+          "slug": "an-introduction-to-machine-learning-a-journey-through-its-history-and-ideas",
+          "filename": "post16",
+          "summary": "No summary available."
+        },
+        {
+          "title": "Modeling Sequential Data: From Recurrent Neural Networks to the Attention Revolution",
+          "date": "2025-11-17",
+          "url": "posts/modeling-sequential-data-from-recurrent-neural-networks-to-the-attention-revolution.html",
+          "slug": "modeling-sequential-data-from-recurrent-neural-networks-to-the-attention-revolution",
+          "filename": "post13",
+          "summary": "No summary available."
         }
       ]
     },
     {
-      "name": "Linear Algebra for Machine Learning",
-      "description": "Personal notes covering foundational linear algebra concepts for machine learning. These notes aim to help others understand the mathematical foundations of modern ML algorithms.",
+      "name": "Reinforcement Learning",
+      "description": "Deep dive into offline reinforcement learning algorithms, exploring how AI agents learn from pre-collected data. Based on a project comparing BC, TD3+BC, IQL, and CQL on continuous control tasks.",
       "articles": [
         {
-          "title": "Linear Algebra for Machine Learning: Introduction",
-          "date": "2025-01-15",
-          "url": "articles/linear-algebra-for-machine-learning-introduction/",
-          "summary": "An introduction to these notes, prerequisites, and the fundamental role of linear algebra in machine learning algorithms.",
-          "slug": "linear-algebra-for-machine-learning-introduction",
-          "old_url": "post.html?name=post25"
+          "title": "Conservative Approaches in Offline RL: When Pessimism Becomes a Virtue",
+          "date": "2025-11-17",
+          "url": "posts/conservative-approaches-in-offline-rl-when-pessimism-becomes-a-virtue.html",
+          "slug": "conservative-approaches-in-offline-rl-when-pessimism-becomes-a-virtue",
+          "filename": "post42",
+          "summary": "Exploring Conservative Q-Learning (CQL) and Implicit Q-Learning (IQL), two value-based approaches that tackle offline RL's distributional shift problem through pessimistic value estimation and implicit policy constraints."
         },
         {
-          "title": "Vectors and Vector Spaces",
-          "date": "2025-01-16",
-          "url": "articles/vectors-and-vector-spaces/",
-          "summary": "Exploring vectors as ordered lists of numbers, vector space axioms, linear combinations, and their applications in feature representation and embeddings.",
-          "slug": "vectors-and-vector-spaces",
-          "old_url": "post.html?name=post26"
+          "title": "Lessons from Benchmarking Offline RL: What Really Matters in Practice",
+          "date": "2025-11-17",
+          "url": "posts/lessons-from-benchmarking-offline-rl-what-really-matters-in-practice.html",
+          "slug": "lessons-from-benchmarking-offline-rl-what-really-matters-in-practice",
+          "filename": "post43",
+          "summary": "Synthesizing insights from extensive experimentation with BC, TD3+BC, IQL, and CQL across MuJoCo tasks\u2014what we learned about algorithm selection, hyperparameter tuning, and the practical art of offline reinforcement learning."
         },
         {
-          "title": "Matrices and Data Representation",
-          "date": "2025-01-17",
-          "url": "articles/matrices-and-data-representation/",
-          "summary": "Understanding matrices as rectangular arrays of numbers, matrix operations, special matrices, and their use in representing datasets and transformations.",
-          "slug": "matrices-and-data-representation",
-          "old_url": "post.html?name=post27"
+          "title": "What is Offline Reinforcement Learning? A Journey from Interaction to Pure Learning",
+          "date": "2025-11-17",
+          "url": "posts/what-is-offline-reinforcement-learning-a-journey-from-interaction-to-pure-learning.html",
+          "slug": "what-is-offline-reinforcement-learning-a-journey-from-interaction-to-pure-learning",
+          "filename": "post40",
+          "summary": "An introduction to offline reinforcement learning, exploring how AI agents can learn optimal decision-making strategies from pre-collected data without ever interacting with the environment."
         },
         {
-          "title": "Dot Products and Vector Norms",
-          "date": "2025-01-18",
-          "url": "articles/dot-products-and-vector-norms/",
-          "summary": "Examining inner products for measuring similarity, vector norms (L1, L2, L-infinity) for quantifying magnitude, and their roles in distance metrics and regularization.",
-          "slug": "dot-products-and-vector-norms",
-          "old_url": "post.html?name=post28"
-        },
-        {
-          "title": "Matrix Multiplication and Linear Transformations",
-          "date": "2025-01-19",
-          "url": "articles/matrix-multiplication-and-linear-transformations/",
-          "summary": "Covering matrix-vector and matrix-matrix multiplication, geometric interpretations as linear transformations, and applications in neural network layers.",
-          "slug": "matrix-multiplication-and-linear-transformations",
-          "old_url": "post.html?name=post29"
-        },
-        {
-          "title": "Systems of Linear Equations",
-          "date": "2025-01-20",
-          "url": "articles/systems-of-linear-equations/",
-          "summary": "Formulating and solving systems of linear equations using Gaussian elimination, understanding solution types, and applications to regression problems.",
-          "slug": "systems-of-linear-equations",
-          "old_url": "post.html?name=post30"
-        },
-        {
-          "title": "Matrix Inverse, Linear Independence, and Rank",
-          "date": "2025-01-21",
-          "url": "articles/matrix-inverse-linear-independence-and-rank/",
-          "summary": "Defining matrix inverses and their computation, exploring linear independence and rank, and their implications for multicollinearity and matrix factorization.",
-          "slug": "matrix-inverse-linear-independence-and-rank",
-          "old_url": "post.html?name=post31"
-        },
-        {
-          "title": "Eigenvectors and Eigenvalues",
-          "date": "2025-01-22",
-          "url": "articles/eigenvectors-and-eigenvalues/",
-          "summary": "Understanding eigenvectors as special directions preserved under transformation, computing eigenvalues via the characteristic equation, and applications in stability analysis.",
-          "slug": "eigenvectors-and-eigenvalues",
-          "old_url": "post.html?name=post32"
-        },
-        {
-          "title": "Eigendecomposition of a Matrix",
-          "date": "2025-01-23",
-          "url": "articles/eigendecomposition-of-a-matrix/",
-          "summary": "Decomposing matrices into eigenvalues and eigenvectors, computing matrix powers and functions efficiently, and applications in PCA and spectral methods.",
-          "slug": "eigendecomposition-of-a-matrix",
-          "old_url": "post.html?name=post33"
-        },
-        {
-          "title": "Singular Value Decomposition (SVD)",
-          "date": "2025-01-24",
-          "url": "articles/singular-value-decomposition-svd/",
-          "summary": "Factorizing any matrix into orthogonal and diagonal components, low-rank approximations, pseudo-inverse computation, and applications in recommender systems.",
-          "slug": "singular-value-decomposition-svd",
-          "old_url": "post.html?name=post34"
-        },
-        {
-          "title": "Application: Principal Component Analysis (PCA)",
-          "date": "2025-01-25",
-          "url": "articles/application-principal-component-analysis-pca/",
-          "summary": "Applying eigendecomposition to reduce dimensionality while preserving variance, implementing PCA via covariance matrices and SVD, and use cases in visualization and feature extraction.",
-          "slug": "application-principal-component-analysis-pca",
-          "old_url": "post.html?name=post35"
-        },
-        {
-          "title": "Vector Projections and Orthogonality",
-          "date": "2025-01-26",
-          "url": "articles/vector-projections-and-orthogonality/",
-          "summary": "Projecting vectors onto subspaces, understanding orthogonal and orthonormal bases, Gram-Schmidt orthogonalization, and applications in QR decomposition.",
-          "slug": "vector-projections-and-orthogonality",
-          "old_url": "post.html?name=post36"
-        },
-        {
-          "title": "Application: Linear Regression and the Normal Equation",
-          "date": "2025-01-27",
-          "url": "articles/application-linear-regression-and-the-normal-equation/",
-          "summary": "Deriving the closed-form solution for linear regression, geometric interpretation as projection, computational methods, and ridge regularization.",
-          "slug": "application-linear-regression-and-the-normal-equation",
-          "old_url": "post.html?name=post37"
-        },
-        {
-          "title": "Matrix Calculus: Gradients with Vectors and Matrices",
-          "date": "2025-01-28",
-          "url": "articles/matrix-calculus-gradients-with-vectors-and-matrices/",
-          "summary": "Computing gradients of scalar functions with respect to vectors and matrices, chain rule for backpropagation, common derivatives, and applications in optimization.",
-          "slug": "matrix-calculus-gradients-with-vectors-and-matrices",
-          "old_url": "post.html?name=post38"
-        },
-        {
-          "title": "Review and Next Steps",
-          "date": "2025-01-29",
-          "url": "articles/review-and-next-steps/",
-          "summary": "Summarizing the key concepts from these notes, connecting linear algebra to machine learning algorithms, and providing recommendations for further study and practical implementation.",
-          "slug": "review-and-next-steps",
-          "old_url": "post.html?name=post39"
+          "title": "TD3+BC: Bridging Imitation and Reinforcement Learning in the Offline World",
+          "date": "2025-11-17",
+          "url": "posts/td3bc-bridging-imitation-and-reinforcement-learning-in-the-offline-world.html",
+          "slug": "td3bc-bridging-imitation-and-reinforcement-learning-in-the-offline-world",
+          "filename": "post41",
+          "summary": "Exploring TD3+BC, a minimalist yet powerful approach to offline RL that combines the best of imitation learning and value-based reinforcement learning through a simple but effective regularization strategy."
         }
       ]
     }

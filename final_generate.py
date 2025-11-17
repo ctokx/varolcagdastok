@@ -46,7 +46,8 @@ def generate_all():
         "Software Engineering & Testing": {"description": "These articles serve as my understanding of software testing. They are based on the slides from the software testing lecture when I was a student at LMU.", "articles": []},
         "Cybersecurity & Machine Learning": {"description": "Explorations into cybersecurity concepts and machine learning applications.", "articles": []},
         "Machine Learning": {"description": "This category reflects my understanding of Machine Learning based on the lecture I attended at LMU.", "articles": []},
-        "Linear Algebra for Machine Learning": {"description": "Personal notes covering foundational linear algebra concepts for machine learning. These notes aim to help others understand the mathematical foundations of modern ML algorithms.", "articles": []}
+        "Linear Algebra for Machine Learning": {"description": "Personal notes covering foundational linear algebra concepts for machine learning. These notes aim to help others understand the mathematical foundations of modern ML algorithms.", "articles": []},
+        "Reinforcement Learning": {"description": "Deep dive into offline reinforcement learning algorithms, exploring how AI agents learn from pre-collected data. Based on a project comparing BC, TD3+BC, IQL, and CQL on continuous control tasks.", "articles": []}
     }
     
     linear_algebra_files = [
@@ -79,6 +80,8 @@ def generate_all():
                 categories["Software Engineering & Testing"]["articles"].append(article_data)
             elif any(keyword in title.lower() for keyword in ['cybersecurity', 'fuzzing']):
                 categories["Cybersecurity & Machine Learning"]["articles"].append(article_data)
+            elif any(keyword in title.lower() for keyword in ['reinforcement learning', 'offline rl', 'td3+bc', 'iql', 'cql', 'behavioral cloning', 'benchmarking offline']):
+                categories["Reinforcement Learning"]["articles"].append(article_data)
             else:
                 categories["Machine Learning"]["articles"].append(article_data)
             
