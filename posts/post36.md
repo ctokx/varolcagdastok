@@ -18,13 +18,13 @@ $u$ and $v$ are orthogonal.
 
 ## Orthonormal Vectors
 
-A set of vectors {$$q_{1}$, $$q_{2}$, ..., $$q_{k}$} is **orthonormal** if:
-1. Each vector has unit length: \|\1\|$_2$ = 1
-2. Vectors are pairwise orthogonal: $q$_i \cdot $q_{j}$ = 0 for i $\neq$ j
+A set of vectors {$q_{1}, q_{2}, \ldots, q_{k}$} is **orthonormal** if:
+1. Each vector has unit length: $\|q_i\|_2 = 1$
+2. Vectors are pairwise orthogonal: $q_i \cdot q_{j} = 0$ for $i \neq j$
 
-Equivalently, $q$_i \cdot q$_j = \delt$a_{i}$_j$ where $\delt$a_{i}$_j$ is the Kronecker delta:
+Equivalently, $q_i \cdot q_j = \delta_{ij}$ where $\delta_{ij}$ is the Kronecker delta:
 
-$\delt$a_{i}$_j$ = {1 if i = j; 0 if i $\neq$ j}
+$\delta_{ij} = \begin{cases} 1 & \text{if } i = j \\ 0 & \text{if } i \neq j \end{cases}$
 
 ### Example
 
@@ -40,14 +40,14 @@ These are orthonormal (standard basis vectors in $\mathbb{R}^{3}$).
 
 A square matrix $Q \in \mathbb{R}^{n \times n}$ is **orthogonal** if its columns are orthonormal:
 
-$Q$^T$Q = I$
+$Q^TQ = I$
 
-Equivalently, $Q$^T = Q$^{-1}$.
+Equivalently, $Q^T = Q^{-1}$.
 
 ### Properties
 
-1. $QQ$^T = I$ (rows are also orthonormal)
-2. Preserves lengths: \|\1\|$_2$ = \|\1\|$_2$
+1. $QQ^T = I$ (rows are also orthonormal)
+2. Preserves lengths: $\|Qv\|_2 = \|v\|_2$
 3. Preserves dot products: ($Qu$) $\cdot$ ($Qv$) = $u \cdot v$
 4. det($Q$) = ±1
 
@@ -84,7 +84,7 @@ comp_u($v$) = ((3)(2) + (0)(2)) / $\sqrt$(3$^2$ + 0$^2$) = 6 / 3 = 2
 
 The **vector projection** of $v$ onto $u$ is:
 
-proj_u($v$) = (($u \cdot v$) / ($u \cdot u$)) $u$ = (($u \cdot v$) / \|\1\|$_2$^2$) $u$
+proj_u($v$) = (($u \cdot v$) / ($u \cdot u$)) $u$ = (($u \cdot v$) / \|\1\|$_2^2) $u$
 
 This is a vector in the direction of $u$.
 
@@ -102,23 +102,21 @@ Interpretation: The projection of $[3, 4]^T$ onto the x-axis is $[3, 0]^T$.
 
 ## Projection onto a Subspace
 
-Given an orthonormal basis {$$q_{1}$, $$q_{2}$, ..., $$q_{k}$} for a subspace S, the projection of $v$ onto S is:
+Given an orthonormal basis {$q_{1}, q_{2}, \ldots, q_{k}$} for a subspace S, the projection of $v$ onto S is:
 
-proj_S($v$) = ($q$_1 \cdot v$)$$q_{1}$ + ($q$_2 \cdot v$)$$q_{2}$ + ... + ($q$_k \cdot v$)$$q_{k}$
+$\text{proj}_S(v) = (q_1 \cdot v)q_{1} + (q_2 \cdot v)q_{2} + \cdots + (q_k \cdot v)q_{k}$
 
-In matrix form, if $Q$ = [$q$_1 $q_{2}$ ... $$q_{k}$] $\in \mathbb{R}$^n$ˣ$^k$:
+In matrix form, if $Q = [q_1\, q_{2}\, \cdots\, q_{k}] \in \mathbb{R}^{n \times k}$:
 
-proj_S($v$) = $QQ$^T$v$
+$\text{proj}_S(v) = QQ^Tv$
 
-The matrix $P = QQ$^T$ is the **projection matrix** onto S.
+The matrix $P = QQ^T$ is the **projection matrix** onto S.
 
 ### Example
 
-Project $v = [1, 2, 3]^T$ onto the plane spanned by $$q_{1}$ = $[1, 0, 0]^T$ and $$q_{2}$ = $[0, 1, 0]^T$ (the xy-plane):
+Project $v = [1, 2, 3]^T$ onto the plane spanned by $q_{1} = [1, 0, 0]^T$ and $q_{2} = [0, 1, 0]^T$ (the xy-plane):
 
-proj_S($v$) = ($q$_1 \cdot v$)$$q_{1}$ + ($q$_2 \cdot v$)$$q_{2}$
-              = (1)$[1, 0, 0]^T$ + (2)$[0, 1, 0]^T$
-              = $[1, 2, 0]^T$
+$\text{proj}_S(v) = (q_1 \cdot v)q_{1} + (q_2 \cdot v)q_{2} = (1)[1, 0, 0]^T + (2)[0, 1, 0]^T = [1, 2, 0]^T$
 
 The z-component is removed.
 
@@ -130,18 +128,18 @@ S⊥ = {$w$ : $w \cdot v$ = 0 for all $v \in$ S}
 
 Every vector $v$ can be uniquely decomposed:
 
-$v = v$_parallel + $v$_perpendicular
+$v = $v_parallel$ + $v_perpendicular$
 
-where $v$_parallel $\in$ S and $v$_perpendicular $\in$ S⊥.
+where $v_parallel$ $\in$ S and $v_perpendicular$ $\in$ S⊥.
 
-$v$_parallel = proj_S($v$)
-$v$_perpendicular = $v$ - proj_S($v$)
+$v_parallel$ = proj_S($v$)
+$v_perpendicular$ = $v$ - proj_S($v$)
 
 ## Projection Matrix Properties
 
 A projection matrix $P$ satisfies:
-1. $P$^2 = P$ (idempotent: projecting twice is the same as once)
-2. $P$^T = P$ (symmetric, for orthogonal projections)
+1. $P^2$ = P$ (idempotent: projecting twice is the same as once)
+2. $P^T$ = P$ (symmetric, for orthogonal projections)
 3. Eigenvalues are 0 or 1
 
 The matrix $I - P$ projects onto the orthogonal complement.
@@ -170,17 +168,17 @@ I - P = [0  0]
 
 ## Gram-Schmidt Orthogonalization
 
-Given linearly independent vectors {$$v_{1}$, $$v_{2}$, ..., $$v_{k}$}, construct orthonormal vectors {$$q_{1}$, $$q_{2}$, ..., $$q_{k}$} spanning the same subspace:
+Given linearly independent vectors {$v_{1}$, $v_{2}$, ..., $v_{k}$}, construct orthonormal vectors {$q_{1}$, $q_{2}$, ..., $q_{k}$} spanning the same subspace:
 
-1. $u$_1 = $v_{1}$
-2. $u$_2 = $v_{2}$ - proj_$u_{1}$($$v_{2}$)
-3. $u$_3 = $v_{3}$ - proj_$u_{1}$($$v_{3}$) - proj_$u_{2}$($$v_{3}$)
+1. $u_1$ = $v_{1}$
+2. $u_2$ = $v_{2}$ - proj_$u_{1}$($v_{2}$)
+3. $u_3$ = $v_{3}$ - proj_$u_{1}$($v_{3}$) - proj_$u_{2}$($v_{3}$)
 4. ...
-5. $q$_i = $u_{i}$ / \|\1\|$_2$ (normalize)
+5. $q_i$ = $u_{i}$ / \|\1\|$_2$ (normalize)
 
 ### Example
 
-Orthogonalize $$v_{1}$ = $[1, 1, 0]^T$, $$v_{2}$ = $[1, 0, 1]^T$:
+Orthogonalize $v_{1}$ = $[1, 1, 0]^T$, $v_{2}$ = $[1, 0, 1]^T$:
 
 Step 1:
 ```
@@ -208,7 +206,7 @@ q₁ = [1/√2, 1/√2, 0]ᵀ
 q₂ = [1/√6, -1/√6, 2/√6]ᵀ
 ```
 
-Verify orthogonality: $q$_1 \cdot $q_{2}$ = (1/$\sqrt$2)(1/$\sqrt$6) + (1/$\sqrt$2)(-1/$\sqrt$6) + (0)(2/$\sqrt$6) = 0 ✓
+Verify orthogonality: $q_1$ \cdot $q_{2}$ = (1/$\sqrt$2)(1/$\sqrt$6) + (1/$\sqrt$2)(-1/$\sqrt$6) + (0)(2/$\sqrt$6) = 0 ✓
 
 ## Relevance for Machine Learning
 
@@ -220,7 +218,7 @@ Verify orthogonality: $q$_1 \cdot $q_{2}$ = (1/$\sqrt$2)(1/$\sqrt$6) + (1/$\sqrt
 
 **Residual Connections**: In ResNets, skip connections can be viewed as orthogonal complements to learned transformations, enabling easier optimization.
 
-**Least Squares Regression**: The solution $w$ = ($X$^T$X$)$^{-1}$X$^T$y$ can be interpreted as projecting $y$ onto the column space of $X$. The residual $y - Xw$ is orthogonal to the column space.
+**Least Squares Regression**: The solution $w$ = ($X^TX$)$^{-1}$X^Ty$ can be interpreted as projecting $y$ onto the column space of $X$. The residual $y - Xw$ is orthogonal to the column space.
 
 **Kernel Methods**: Kernel ridge regression finds the solution in the span of training samples. The projection onto this space is computed using the kernel matrix.
 

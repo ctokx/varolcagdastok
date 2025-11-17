@@ -2,9 +2,9 @@
 
 ## Matrix Inverse
 
-For a square matrix $A \in \mathbb{R}^{n \times n}$, the inverse $A$^{-1}$ (if it exists) satisfies:
+For a square matrix $A \in \mathbb{R}^{n \times n}$, the inverse $A^{-1}$$ (if it exists) satisfies:
 
-$AA$^{-1} = A$^{-1}$A = I$
+$AA^{-1}$ = A$^{-1}$A = I$
 
 where $I$ is the identity matrix.
 
@@ -21,7 +21,7 @@ If $A$ is not invertible, it is called **singular**.
 
 For $A$ = [a b; c d], the inverse is:
 
-$A$^{-1}$ = (1/(ad - bc)) [d  -b; -c  a]
+$A^{-1}$$ = (1/(ad - bc)) [d  -b; -c  a]
 
 provided ad - bc $\neq$ 0.
 
@@ -47,10 +47,10 @@ AA⁻¹ = [4  7][0.6  -0.7]   [(4)(0.6)+(7)(-0.2)  (4)(-0.7)+(7)(0.4)]
 
 ## Properties of Matrix Inverse
 
-1. ($A$^{-1}$)$^{-1} = A$
-2. (**AB**)$^{-1} = B$^{-1}$A$^{-1}$ (order reverses)
-3. ($A$^T$)$^{-1}$ = ($A$^{-1}$)$^T$
-4. ($\alpha$A$)$^{-1}$ = (1/$\alpha$)$A$^{-1}$ for $\alpha \neq$ 0
+1. ($A^{-1})$^{-1} = A$
+2. (**AB**)$^{-1} = B$^{-1}$A^{-1}$$ (order reverses)
+3. ($A^T)$^{-1}$ = ($A^{-1})$^T$
+4. ($\alpha$A$)$^{-1}$ = (1/$\alpha$)$A^{-1} for $\alpha \neq$ 0
 
 ## Solving Linear Systems with Inverses
 
@@ -66,7 +66,7 @@ Solve:
 [2  6][x₂] = [4]
 ```
 
-Using $A$^{-1}$ from above:
+Using $A^{-1}$$ from above:
 ```
 [x₁]     [0.6  -0.7][3]   [(0.6)(3)+(−0.7)(4)]   [1.8-2.8]   [-1]
 [x₂] =   [-0.2  0.4][4] = [(−0.2)(3)+(0.4)(4)] = [-0.6+1.6] = [1]
@@ -74,31 +74,31 @@ Using $A$^{-1}$ from above:
 
 Solution: $x = [-1, 1]^T$
 
-Verify: [4, 7]$\cdot$$[-1, 1]^T$ = -4 + 7 = 3 ✓ and [2, 6]$\cdot$$[-1, 1]^T$ = -2 + 6 = 4 ✓
+Verify: [4, 7]$\cdot[-1, 1]^T$ = -4 + 7 = 3 ✓ and [2, 6]$\cdot[-1, 1]^T$ = -2 + 6 = 4 ✓
 
 ## Linear Independence
 
-A set of vectors {$$v_{1}$, $$v_{2}$, ..., $$v_{k}$} is **linearly independent** if the only solution to:
+A set of vectors {$v_{1}$, $v_{2}$, ..., $v_{k}$} is **linearly independent** if the only solution to:
 
 $c_{1} v_{1}$ + $c_{2} v_{2}$ + ... + $c_{k} v_{k}$ = **0**
 
 is $c_{1}$ = $c_{2}$ = ... = $c_{k}$ = 0 (trivial solution).
 
-If a non-trivial solution exists (some c$_i \neq$ 0), the vectors are **linearly dependent**.
+If a non-trivial solution exists (some $c_i$ \neq$ 0), the vectors are **linearly dependent**.
 
 ### Example: Independent Vectors
 
-$$v_{1}$ = $[1, 0]^T$ and $$v_{2}$ = $[0, 1]^T$ are linearly independent because:
+$v_{1}$ = $[1, 0]^T$ and $v_{2}$ = $[0, 1]^T$ are linearly independent because:
 
-$$c_{1}$$[1, 0]^T$ + $c_{2}$$[0, 1]^T$ = $[0, 0]^T$ implies $[$c_{1}$, $c_{2}$]^T$ = $[0, 0]^T$$
+$$c_{1}[1, 0]^T$ + $c_{2}[0, 1]^T$ = $[0, 0]^T$ implies $[$c_{1}$, $c_{2}$]^T$ = $[0, 0]^T$$
 
 Thus $c_{1}$ = $c_{2}$ = 0.
 
 ### Example: Dependent Vectors
 
-$$v_{1}$ = $[1, 2]^T$, $$v_{2}$ = $[2, 4]^T$ are linearly dependent because:
+$v_{1}$ = $[1, 2]^T$, $v_{2}$ = $[2, 4]^T$ are linearly dependent because:
 
--2$$v_{1}$ + 1$$v_{2}$ = -2$[1, 2]^T$ + $[2, 4]^T$ = $[-2, -4]^T$ + $[2, 4]^T$ = $[0, 0]^T$
+-2$v_{1}$ + 1$v_{2}$ = -2$[1, 2]^T$ + $[2, 4]^T$ = $[-2, -4]^T$ + $[2, 4]^T$ = $[0, 0]^T$
 
 Non-trivial coefficients: $c_{1}$ = -2, $c_{2}$ = 1.
 
@@ -180,13 +180,13 @@ Verify: rank($A$) + nullity($A$) = 1 + 2 = 3 = n ✓
 
 ## Relevance for Machine Learning
 
-**Invertibility in Linear Regression**: The normal equation $X$^T$Xw = X$^T$y$ has a unique solution $w$ = ($X$^T$X$)$^{-1}$X$^T$y$ if $X$ has full column rank (features are linearly independent). If rank($X$) < number of features, regularization (ridge regression) is needed.
+**Invertibility in Linear Regression**: The normal equation $X^TXw = X$^T$y$ has a unique solution $w$ = ($X^TX$)$^{-1}$X^Ty$ if $X$ has full column rank (features are linearly independent). If rank($X$) < number of features, regularization (ridge regression) is needed.
 
-**Multicollinearity**: When features are linearly dependent (rank deficiency), $X$^T$X$ is singular. This makes the solution unstable. Feature selection or regularization addresses this.
+**Multicollinearity**: When features are linearly dependent (rank deficiency), $X^TX$ is singular. This makes the solution unstable. Feature selection or regularization addresses this.
 
 **Dimensionality**: rank($X$) indicates the effective dimensionality of the data. If rank($X$) << n, the data lies in a lower-dimensional subspace, motivating dimensionality reduction.
 
-**Pseudo-Inverse**: For non-square or singular matrices, the Moore-Penrose pseudo-inverse $A$⁺ generalizes the inverse. Used in least squares: $w = X$⁺$y$.
+**Pseudo-Inverse**: For non-square or singular matrices, the Moore-Penrose pseudo-inverse $A$+ generalizes the inverse. Used in least squares: $w = X$+$y$.
 
 **Singular Value Decomposition**: rank($A$) equals the number of non-zero singular values. SVD provides a numerically stable way to compute rank and pseudo-inverse.
 
