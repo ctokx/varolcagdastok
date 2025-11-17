@@ -286,3 +286,150 @@ pre code {
 .map-item p {
     margin-top: 0;
 }
+
+/* --- Collapsible Category Sections --- */
+.category-section {
+    margin-bottom: 25px;
+    border: 2px solid #000;
+    background-color: #fff;
+}
+
+.category-header {
+    background-color: #d3d3d3;
+    padding: 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #000;
+    user-select: none;
+}
+
+.category-header:hover {
+    background-color: #c0c0c0;
+}
+
+.category-header h3 {
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.category-toggle {
+    display: inline-block;
+    width: 20px;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+.category-count {
+    font-size: 0.9em;
+    color: #555;
+    font-weight: normal;
+    margin-left: 10px;
+}
+
+.category-content {
+    padding: 20px;
+}
+
+.category-content .category-description {
+    font-style: italic;
+    color: #555;
+    border-left: 3px solid #ccc;
+    padding-left: 15px;
+    margin-bottom: 20px;
+}
+
+/* --- Articles Grid Layout (Old-School 3x2 = 6 articles) --- */
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+/* Responsive: 2 columns on medium screens */
+@media (max-width: 768px) {
+    .articles-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Responsive: 1 column on small screens */
+@media (max-width: 480px) {
+    .articles-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.article-card {
+    border: 1px solid #000;
+    background-color: #f9f9f9;
+    padding: 15px;
+    text-align: center;
+    transition: all 0.2s;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.article-card:hover {
+    background-color: #e0e0e0;
+    border-width: 2px;
+}
+
+.article-card a {
+    text-decoration: none;
+    color: #000;
+    display: block;
+}
+
+.article-number {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #666;
+    margin-bottom: 8px;
+    font-family: 'Times New Roman', serif;
+}
+
+.article-title {
+    font-size: 1em;
+    font-weight: bold;
+    color: #0000ee;
+    line-height: 1.3;
+    margin-bottom: 5px;
+}
+
+.article-author {
+    font-size: 0.85em;
+    color: #555;
+    font-style: italic;
+    margin-top: 5px;
+}
+
+/* Hide articles after the first 6 initially */
+.hidden-article {
+    display: none;
+}
+
+/* Show More/Less Button */
+.show-more-btn {
+    display: block;
+    margin: 15px auto;
+    padding: 12px 25px;
+    background-color: #d3d3d3;
+    border: 2px solid #000;
+    font-family: 'Times New Roman', serif;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.show-more-btn:hover {
+    background-color: #c0c0c0;
+    border-width: 3px;
+}
+
+.show-more-btn:active {
+    background-color: #a0a0a0;
+}

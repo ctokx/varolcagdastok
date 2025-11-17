@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const container = document.getElementById("all-articles-container");
     if (!container) {
-        // Failsafe in case the ID is wrong
         console.error("Error: Could not find element #all-articles-container.");
         return;
     }
@@ -21,48 +20,60 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            // 1. Sort categories alphabetically for a consistent order
-            categories.sort((a, b) => a.name.localeCompare(b.name));
-
-            // 2. Build the HTML
+            // Keep categories in their original order from posts.json
             let allHtml = "";
-            
+
             for (const category of categories) {
-                allHtml += `<section class="category">`;
-                allHtml += `<h3>${category.name}</h3>`;
-                
-                // Add the new description
-                if (category.description) {
-                    allHtml += `<p class="category-description">${category.description}</p>`;
-                }
-                
-                allHtml += `<ul class="article-list">`;
-                
                 const articles = category.articles || [];
-                
-                // 3. Sort articles within each category by date (newest first)
-                articles.sort((a, b) => new Date(b.date) - new Date(a.date));
-                
-                for (const article of articles) {
-                    // Format the date for display
-                    const displayDate = new Date(article.date).toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric'
-                    });
-                    
+                const totalArticles = articles.length;
+                const categoryId = category.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+
+                // Build category section with collapsible functionality
+                allHtml += `
+                    <div class="category-section">
+                        <div class="category-header" onclick="toggleCategory('${categoryId}')">
+                            <h3>
+                                <span class="category-toggle" id="toggle-${categoryId}">▶</span>
+                                ${category.name}
+                                <span class="category-count">(${totalArticles} article${totalArticles !== 1 ? 's' : ''})</span>
+                            </h3>
+                        </div>
+
+                        <div class="category-content" id="content-${categoryId}" style="display: none;">
+                            <p class="category-description">${category.description || ''}</p>
+
+                            <div class="articles-grid" id="grid-${categoryId}">
+                `;
+
+                // Add articles to grid (all of them, control visibility with CSS)
+                for (let i = 0; i < articles.length; i++) {
+                    const article = articles[i];
+                    const isInitiallyHidden = i >= 6; // Hide after first 6
+
                     allHtml += `
-                        <li>
-                            <a href="${article.url}">${article.title}</a>
-                            <span class="article-date">(${displayDate})</span>
-                        </li>
+                        <div class="article-card ${isInitiallyHidden ? 'hidden-article' : ''}">
+                            <a href="${article.url}">
+                                <div class="article-number">${article.order || i + 1}</div>
+                                <div class="article-title">${article.title}</div>
+                                ${article.author ? `<div class="article-author">by ${article.author}</div>` : ''}
+                            </a>
+                        </div>
                     `;
                 }
-                
-                allHtml += `</ul></section>`;
+
+                allHtml += `
+                            </div>
+
+                            ${totalArticles > 6 ? `
+                                <button class="show-more-btn" id="btn-${categoryId}" onclick="toggleShowMore('${categoryId}', ${totalArticles})">
+                                    Show All ${totalArticles} Articles ▼
+                                </button>
+                            ` : ''}
+                        </div>
+                    </div>
+                `;
             }
 
-            // 4. Inject the final HTML into the page
             container.innerHTML = allHtml;
 
         })
@@ -71,3 +82,40 @@ document.addEventListener("DOMContentLoaded", () => {
             container.innerHTML = "<p>Error loading articles. Please check the `js/posts.json` file and make sure it is valid.</p>";
         });
 });
+
+// Toggle category collapse/expand
+function toggleCategory(categoryId) {
+    const content = document.getElementById(`content-${categoryId}`);
+    const toggle = document.getElementById(`toggle-${categoryId}`);
+
+    if (content.style.display === "none") {
+        content.style.display = "block";
+        toggle.textContent = "▼";
+    } else {
+        content.style.display = "none";
+        toggle.textContent = "▶";
+    }
+}
+
+// Toggle show more/less articles
+function toggleShowMore(categoryId, totalArticles) {
+    const grid = document.getElementById(`grid-${categoryId}`);
+    const button = document.getElementById(`btn-${categoryId}`);
+    const hiddenArticles = grid.querySelectorAll('.hidden-article');
+
+    if (button.classList.contains('showing-all')) {
+        // Collapse back to showing 6
+        hiddenArticles.forEach(article => {
+            article.style.display = 'none';
+        });
+        button.textContent = `Show All ${totalArticles} Articles ▼`;
+        button.classList.remove('showing-all');
+    } else {
+        // Expand to show all
+        hiddenArticles.forEach(article => {
+            article.style.display = 'block';
+        });
+        button.textContent = `Show Less ▲`;
+        button.classList.add('showing-all');
+    }
+}
