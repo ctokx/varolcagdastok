@@ -1,5 +1,10 @@
 # Dot Products and Vector Norms
 
+**Author:** Tok Varol Cagdas
+**Order:** 20
+**Date:**
+**Summary:** No summary available.
+
 ## Dot Product Definition
 
 The dot product (also called inner product or scalar product) of two vectors $u, v \in \mathbb{R}^n$ is:

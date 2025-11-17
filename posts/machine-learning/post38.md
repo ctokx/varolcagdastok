@@ -1,5 +1,10 @@
 # Matrix Calculus: Gradients with Vectors and Matrices
 
+**Author:** Tok Varol Cagdas
+**Order:** 30
+**Date:**
+**Summary:** No summary available.
+
 ## Motivation
 
 Machine learning optimization requires computing derivatives of scalar loss functions with respect to vector or matrix parameters. Matrix calculus provides notation and rules for these computations.

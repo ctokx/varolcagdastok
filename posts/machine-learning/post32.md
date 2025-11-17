@@ -1,5 +1,10 @@
 # Eigenvectors and Eigenvalues
 
+**Author:** Tok Varol Cagdas
+**Order:** 24
+**Date:**
+**Summary:** No summary available.
+
 ## Definition
 
 For a square matrix $A \in \mathbb{R}^{n \times n}$, a non-zero vector $v \in \mathbb{R}^{n}$ is an **eigenvector** with corresponding **eigenvalue** $\lambda \in \mathbb{R}$ if:

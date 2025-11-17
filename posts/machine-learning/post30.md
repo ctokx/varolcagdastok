@@ -1,5 +1,10 @@
 # Systems of Linear Equations
 
+**Author:** Tok Varol Cagdas
+**Order:** 22
+**Date:**
+**Summary:** No summary available.
+
 ## Definition
 
 A system of m linear equations in n unknowns has the form:

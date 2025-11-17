@@ -1,5 +1,10 @@
 # Matrix Multiplication and Linear Transformations
 
+**Author:** Tok Varol Cagdas
+**Order:** 21
+**Date:**
+**Summary:** No summary available.
+
 ## Matrix-Vector Multiplication
 
 Given a matrix $A \in \mathbb{R}^{m \times n}$ and a vector $x \in \mathbb{R}^n$, the product $Ax \in \mathbb{R}^m$ is defined as:

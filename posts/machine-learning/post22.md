@@ -1,5 +1,10 @@
 # A Refresher on Probability: The Foundation of Uncertainty in Machine Learning
 
+**Author:** Tok Varol Cagdas
+**Order:** 14
+**Date:**
+**Summary:** No summary available.
+
 Probability theory is the mathematical framework for reasoning about uncertainty, and as such, it is an indispensable foundation for machine learning. Nearly every machine learning algorithm is built upon implicit or explicit probabilistic assumptions, from the noise in our data to the uncertainty in our model's parameters. This article provides a high-level review of the core concepts of probability that are most relevant to the field.
 
 ## The Basics: Random Variables and Probability Distributions

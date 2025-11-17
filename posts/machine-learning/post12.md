@@ -1,5 +1,10 @@
 # An Introduction to Neural Networks: The Power of Learned Representations
 
+**Author:** Tok Varol Cagdas
+**Order:** 3
+**Date:**
+**Summary:** No summary available.
+
 While methods using fixed basis functions can be powerful, they often struggle with problems where the complexity of the underlying function is not uniform across the input space. For instance, a function might be simple and smooth in most regions but exhibit complex, high-frequency behavior in specific areas. A fixed, uniform grid of basis functions would be inefficient, requiring a dense placement everywhere to capture the localized complexity. Neural networks, specifically the Multilayer Perceptron (MLP), offer a powerful alternative by learning the basis functions themselves, allowing them to adapt to the specific structure of the problem.
 
 ## The Core Component: The Sigmoidal Neuron

@@ -1,6 +1,8 @@
 # Conservative Approaches in Offline RL: When Pessimism Becomes a Virtue
 
-**Date:** November 17, 2025
+**Author:** Tok Varol Cagdas
+**Order:** 3
+**Date:**
 **Summary:** Exploring Conservative Q-Learning (CQL) and Implicit Q-Learning (IQL), two value-based approaches that tackle offline RL's distributional shift problem through pessimistic value estimation and implicit policy constraints.
 
 In our journey through offline reinforcement learning, we've seen how TD3+BC addresses distributional shift through explicit behavioral cloning regularization. Today, we explore two alternative philosophies that take fundamentally different approaches to the same problem: **Conservative Q-Learning (CQL)** and **Implicit Q-Learning (IQL)**.

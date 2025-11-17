@@ -5,33 +5,39 @@ from datetime import datetime
 from pathlib import Path
 
 def get_post_details(filepath):
-    """Extracts title, date, and summary from a markdown file."""
+    """Extracts title, author, order, date, and summary from a markdown file."""
     with open(filepath, 'r', encoding='utf-8') as f:
         content = f.read()
 
     title_match = re.search(r'^#\s+(.*)', content)
+    author_match = re.search(r'^\*\*Author:\*\*\s+(.*)', content, re.MULTILINE)
+    order_match = re.search(r'^\*\*Order:\*\*\s+(\d+)', content, re.MULTILINE)
     date_match = re.search(r'^\*\*Date:\*\*\s+(.*)', content, re.MULTILINE)
     summary_match = re.search(r'^\*\*Summary:\*\*\s+(.*)', content, re.MULTILINE)
 
     title = title_match.group(1).strip() if title_match else "Untitled"
-    date_str = date_match.group(1).strip() if date_match else None
+    author = author_match.group(1).strip() if author_match else "Tok Varol Cagdas"
+    order = int(order_match.group(1)) if order_match else 999  # Default to end if no order
     summary = summary_match.group(1).strip() if summary_match else "No summary available."
 
-    if not date_str:
+    # Date is optional - only use if provided and not empty
+    date_str = None
+    if date_match:
+        date_str = date_match.group(1).strip()
+        if not date_str or date_str == "":
+            date_str = None
+
+    # Format date if provided, otherwise leave empty
+    formatted_date = ""
+    if date_str:
         try:
-            creation_time = os.path.getctime(filepath)
-            date_obj = datetime.fromtimestamp(creation_time)
-            date_str = date_obj.strftime('%B %d, %Y')
-        except Exception:
-            date_str = "January 1, 1970"
+            date_obj = datetime.strptime(date_str, '%B %d, %Y')
+            formatted_date = date_obj.strftime('%Y-%m-%d')
+        except ValueError:
+            # Invalid date format, leave empty
+            formatted_date = ""
 
-    try:
-        date_obj = datetime.strptime(date_str, '%B %d, %Y')
-        formatted_date = date_obj.strftime('%Y-%m-%d')
-    except ValueError:
-        formatted_date = "1970-01-01"
-
-    return title, formatted_date, summary
+    return title, author, order, formatted_date, summary
 
 def create_category_slug(category_name):
     """Convert category name to folder slug"""
@@ -97,7 +103,7 @@ def generate_all():
 
         # Find all markdown files in this category folder
         for md_file in category_folder.glob("*.md"):
-            title, date, summary = get_post_details(md_file)
+            title, author, order, date, summary = get_post_details(md_file)
 
             post_name = md_file.stem  # filename without extension
             slug = re.sub(r'[^a-z0-9-]+', '', title.lower().replace(' ', '-'))
@@ -107,6 +113,8 @@ def generate_all():
 
             article_data = {
                 "title": title,
+                "author": author,
+                "order": order,
                 "date": date,
                 "url": f"posts/{slug}.html",
                 "slug": slug,
@@ -120,11 +128,11 @@ def generate_all():
             category_data["articles"].append(article_data)
             all_articles.append(article_data)
 
-            print(f"Found: {category_name}/{md_file.name}")
+            print(f"Found: {category_name}/{md_file.name} (order: {order})")
 
-    # Sort articles within each category by date (newest first)
+    # Sort articles within each category by order (logical sequence)
     for category_data in categories.values():
-        category_data["articles"].sort(key=lambda x: x["date"], reverse=True)
+        category_data["articles"].sort(key=lambda x: x["order"])
 
     # Format the final JSON data
     output_data = {"categories": []}

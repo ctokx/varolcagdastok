@@ -1,6 +1,8 @@
 # TD3+BC: Bridging Imitation and Reinforcement Learning in the Offline World
 
-**Date:** November 17, 2025
+**Author:** Tok Varol Cagdas
+**Order:** 2
+**Date:**
 **Summary:** Exploring TD3+BC, a minimalist yet powerful approach to offline RL that combines the best of imitation learning and value-based reinforcement learning through a simple but effective regularization strategy.
 
 In our previous exploration of offline reinforcement learning, we encountered the fundamental challenge of distributional shift—the problem of learning when you can't interact with the environment to correct errors. Today, we're diving deep into one of the most elegant solutions to this problem: **TD3+BC** (Twin Delayed Deep Deterministic Policy Gradient + Behavioral Cloning).

@@ -1,4 +1,9 @@
 # A Guide to Black-Box Testing: Equivalence, Boundary, and Decision Table Techniques
+
+**Author:** Tok Varol Cagdas
+**Order:** 1
+**Date:**
+**Summary:** No summary available.
 <p class="post-date">Published: November 17, 2025</p>
 
 Black-box testing is a method of software testing that does not consider the internal structure of the system. Instead, test cases are derived from the external specification, which describes what the system is supposed to do. This approach is often used in system and integration testing.

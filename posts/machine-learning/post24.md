@@ -1,5 +1,10 @@
 # Modeling Sequential Data: From Recurrent Neural Networks to the Attention Revolution
 
+**Author:** Tok Varol Cagdas
+**Order:** 16
+**Date:**
+**Summary:** No summary available.
+
 Many of the most important and challenging problems in machine learning involve sequential data—data where the order of elements is crucial. Examples are everywhere: time series like stock prices, sentences in natural language, audio waveforms, and DNA sequences. Standard feedforward neural networks, which assume that data points are independent and identically distributed (i.i.d.), are not well-suited for these tasks. This article explores the evolution of architectures designed specifically for sequential data, from the foundational Recurrent Neural Networks (RNNs) to the powerful attention mechanisms that underpin modern models like the Transformer.
 
 ## The Challenge of Memory: Recurrent Neural Networks (RNNs)

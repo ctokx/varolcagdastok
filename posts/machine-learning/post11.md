@@ -1,5 +1,10 @@
 # Manifold Learning, Autoencoders, and Generative Models: Uncovering the Intrinsic Structure of Data
 
+**Author:** Tok Varol Cagdas
+**Order:** 2
+**Date:**
+**Summary:** No summary available.
+
 In many real-world machine learning problems, the data we observe, despite being represented in a very high-dimensional space (e.g., the thousands of pixels in an image), does not actually fill that space. Instead, it often lies on or near a much lower-dimensional, non-linear structure known as a **manifold**. The core idea of manifold learning is to discover and model this intrinsic, low-dimensional structure. This article explores the concept of data manifolds and introduces two powerful classes of models—autoencoders and generative models—that are designed to learn and exploit them.
 
 ## The Manifold Hypothesis

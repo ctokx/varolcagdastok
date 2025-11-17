@@ -1,5 +1,10 @@
 # Application: Linear Regression and the Normal Equation
 
+**Author:** Tok Varol Cagdas
+**Order:** 29
+**Date:**
+**Summary:** No summary available.
+
 ## Problem Formulation
 
 Given n training samples {($x_{1}$, $y_{1}$), ($x_{2}$, $y_{2}$), ..., ($x_{n}$, $y_{n}$)} where $x_i$ \in \mathbb{R}^{d}$ are feature vectors and $y_i$ \in \mathbb{R}$ are targets, find a linear function:

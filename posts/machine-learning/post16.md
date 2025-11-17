@@ -1,5 +1,10 @@
 # An Introduction to Machine Learning: A Journey Through Its History and Ideas
 
+**Author:** Tok Varol Cagdas
+**Order:** 7
+**Date:**
+**Summary:** No summary available.
+
 Machine learning has become one of the most transformative technologies of the 21st century, yet the core ideas behind it are rooted in centuries of human inquiry into the nature of knowledge, intelligence, and learning itself. This article provides a high-level introduction to the field, placing it in the context of other fundamental mechanisms for creating complex systems and tracing its intellectual lineage from philosophy to modern artificial intelligence.
 
 ## Three Paradigms of System Improvement

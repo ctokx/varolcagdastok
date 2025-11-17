@@ -1,5 +1,10 @@
 # Eigendecomposition of a Matrix
 
+**Author:** Tok Varol Cagdas
+**Order:** 25
+**Date:**
+**Summary:** No summary available.
+
 ## Definition
 
 The eigendecomposition (or spectral decomposition) of a square matrix $A \in \mathbb{R}^{n \times n}$ expresses $A$ as:

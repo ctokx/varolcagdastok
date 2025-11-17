@@ -1,5 +1,10 @@
 # Frequentist vs. Bayesian Statistics: Two Perspectives on Inference and Learning
 
+**Author:** Tok Varol Cagdas
+**Order:** 6
+**Date:**
+**Summary:** No summary available.
+
 In the world of statistics and machine learning, there are two dominant schools of thought that provide the philosophical and mathematical foundations for how we learn from data: the Frequentist and the Bayesian perspectives. While they often lead to similar practical results, especially with large amounts of data, their core assumptions about the nature of probability and parameters are fundamentally different. Understanding these two approaches provides a deeper insight into the principles behind many machine learning models and methods.
 
 ## The Frequentist Perspective: Parameters are Fixed, Data is Random

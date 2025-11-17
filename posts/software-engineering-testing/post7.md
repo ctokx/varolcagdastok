@@ -1,4 +1,9 @@
 # From Random Guesses to Intelligent Grammars: A Look at Fuzzing and Random Testing
+
+**Author:** Tok Varol Cagdas
+**Order:** 6
+**Date:**
+**Summary:** No summary available.
 <p class="post-date">Published: November 11, 2025</p>
 
 While techniques like equivalence partitioning are systematic, another set of black-box techniques relies on a different approach: **randomness**. These methods are effective for finding unexpected bugs and testing system robustness.

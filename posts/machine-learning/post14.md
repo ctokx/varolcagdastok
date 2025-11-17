@@ -1,5 +1,10 @@
 # Basis Functions: Transforming Non-Linear Problems into Linear Ones
 
+**Author:** Tok Varol Cagdas
+**Order:** 5
+**Date:**
+**Summary:** No summary available.
+
 Many of the foundational models in machine learning, such as linear regression and the Perceptron, are fundamentally linear. They assume that the relationship between inputs and outputs, or the boundary between classes, can be described by a simple line or hyperplane. While this assumption is powerful and often works surprisingly well, many real-world problems are inherently non-linear. A clever and widely used technique to bridge this gap is the use of **basis functions**. The core idea is to transform the input data into a new, higher-dimensional feature space where the problem becomes linear.
 
 ## The Fundamental Trick: From Input Space to Feature Space

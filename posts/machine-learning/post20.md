@@ -1,5 +1,10 @@
 # Model Selection and Estimating Generalization Performance
 
+**Author:** Tok Varol Cagdas
+**Order:** 12
+**Date:**
+**Summary:** No summary available.
+
 In machine learning, our primary goal is not to build a model that performs perfectly on the data it was trained on, but to build a model that **generalizes** well to new, unseen data. The ability to accurately estimate this future performance is one of the most critical skills in the practical application of machine learning. This process, known as model selection, involves choosing the best model from a set of candidates and tuning its hyperparameters to achieve the best possible generalization.
 
 ## The Gap Between Training and Generalization

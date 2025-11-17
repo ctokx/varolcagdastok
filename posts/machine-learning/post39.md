@@ -1,5 +1,10 @@
 # Course Review and Next Steps
 
+**Author:** Tok Varol Cagdas
+**Order:** 31
+**Date:**
+**Summary:** No summary available.
+
 ## Course Summary
 
 This course covered the foundational linear algebra concepts required for understanding and implementing machine learning algorithms. The material was organized into four thematic units:

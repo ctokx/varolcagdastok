@@ -1,4 +1,9 @@
 # Measuring Test Suite Quality: A Guide to Coverage Criteria and Mutation Testing
+
+**Author:** Tok Varol Cagdas
+**Order:** 2
+**Date:**
+**Summary:** No summary available.
 <p class="post-date">Published: November 15, 2025</p>
 
 After writing a large test suite, how do you assess its quality? How do you know if you are "done testing"? To answer this, we need **adequacy criteria**, which are metrics for measuring the quality and thoroughness of a test suite.

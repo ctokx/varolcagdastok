@@ -1,4 +1,9 @@
 # An Introduction to White-Box Testing: Symbolic Execution and Search-Based Testing
+
+**Author:** Tok Varol Cagdas
+**Order:** 4
+**Date:**
+**Summary:** No summary available.
 <p class="post-date">Published: November 14, 2025</p>
 
 **White-box testing** is a testing approach that derives test inputs from the internal structure of the program. Unlike black-box testing, which uses only the specification, this method uses the code itself to generate tests. The goal is often to automatically generate a test suite that achieves high structural coverage.

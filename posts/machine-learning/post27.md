@@ -1,5 +1,10 @@
 # Matrices and Data Representation
 
+**Author:** Tok Varol Cagdas
+**Order:** 19
+**Date:**
+**Summary:** No summary available.
+
 ## Definition of a Matrix
 
 A matrix is a rectangular array of numbers arranged in rows and columns. A matrix $A$ with m rows and n columns is denoted $A \in \mathbb{R}^{m \times n}$:

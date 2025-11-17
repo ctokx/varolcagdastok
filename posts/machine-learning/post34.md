@@ -1,5 +1,10 @@
 # Singular Value Decomposition (SVD)
 
+**Author:** Tok Varol Cagdas
+**Order:** 26
+**Date:**
+**Summary:** No summary available.
+
 ## Definition
 
 The Singular Value Decomposition (SVD) of a matrix $A \in \mathbb{R}^{m \times n}$ is:

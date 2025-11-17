@@ -1,5 +1,10 @@
 # Application: Principal Component Analysis (PCA)
 
+**Author:** Tok Varol Cagdas
+**Order:** 27
+**Date:**
+**Summary:** No summary available.
+
 ## Problem Statement
 
 Given a dataset $X \in \mathbb{R}^{n \times d}$ with n samples and d features, PCA finds a lower-dimensional representation that maximally preserves variance.

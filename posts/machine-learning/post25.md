@@ -1,5 +1,10 @@
 # Linear Algebra for Machine Learning: Course Overview
 
+**Author:** Tok Varol Cagdas
+**Order:** 17
+**Date:**
+**Summary:** No summary available.
+
 ## Purpose of These Notes
 
 Machine learning algorithms operate on numerical data structures. The mathematical framework that describes operations on vectors, matrices, and higher-dimensional arrays is linear algebra. These notes provide the foundational concepts required to understand how modern machine learning algorithms function at a computational level.

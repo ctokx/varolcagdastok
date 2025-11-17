@@ -1,5 +1,10 @@
 # The Perceptron: A Glimpse into the Dawn of Machine Learning
 
+**Author:** Tok Varol Cagdas
+**Order:** 13
+**Date:**
+**Summary:** No summary available.
+
 The Perceptron, invented by Frank Rosenblatt in 1957, stands as one of the earliest and most influential learning machines. Inspired by the basic workings of a biological neuron, it was the first algorithm that could learn to make classifications from data. While simple by modern standards, the Perceptron introduced many of the fundamental concepts that underpin supervised learning today, including the ideas of a model, a cost function, and a learning rule.
 
 ## The Model: A Formalized Neuron

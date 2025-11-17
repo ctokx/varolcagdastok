@@ -1,5 +1,10 @@
 # An Introduction to Deep Learning: From Revival to Revolution
 
+**Author:** Tok Varol Cagdas
+**Order:** 33
+**Date:**
+**Summary:** No summary available.
+
 After a period often referred to as the "AI winter," neural networks experienced a dramatic resurgence in the late 2000s, sparking the deep learning revolution that continues to shape technology today. Pioneers like Geoffrey Hinton, Yann LeCun, and Yoshua Bengio revisited and advanced earlier concepts, leveraging increased computational power and vast datasets to unlock unprecedented capabilities. This article provides an overview of the fundamental principles of deep learning, exploring the key ingredients that contribute to its success and the theoretical concepts that explain its power.
 
 ## The Deep Learning Recipe: Key Ingredients for Success

@@ -1,6 +1,8 @@
 # Lessons from Benchmarking Offline RL: What Really Matters in Practice
 
-**Date:** November 17, 2025
+**Author:** Tok Varol Cagdas
+**Order:** 4
+**Date:**
 **Summary:** Synthesizing insights from extensive experimentation with BC, TD3+BC, IQL, and CQL across MuJoCo tasks—what we learned about algorithm selection, hyperparameter tuning, and the practical art of offline reinforcement learning.
 
 After exploring the theory behind offline reinforcement learning algorithms, it's time to discuss what we learned from actually implementing and benchmarking them. Theory provides intuition and guarantees, but practice reveals the messy reality: hyperparameters matter enormously, small implementation details can make or break performance, and the "best" algorithm is always context-dependent.

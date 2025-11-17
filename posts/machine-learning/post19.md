@@ -1,5 +1,10 @@
 # Linear Regression: The Workhorse of Machine Learning
 
+**Author:** Tok Varol Cagdas
+**Order:** 10
+**Date:**
+**Summary:** No summary available.
+
 Linear regression is arguably the most fundamental and widely used algorithm in machine learning and statistics. It serves as a foundational building block for many more complex models and provides a clear, interpretable starting point for a vast range of predictive modeling problems. The core idea is simple: to model the relationship between a dependent (target) variable and one or more independent (input) variables by fitting a linear equation to the observed data.
 
 ## The Linear Model

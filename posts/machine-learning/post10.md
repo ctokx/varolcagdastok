@@ -1,5 +1,10 @@
 # Kernel Methods: The Power of Infinite Dimensions and the Kernel Trick
 
+**Author:** Tok Varol Cagdas
+**Order:** 1
+**Date:**
+**Summary:** No summary available.
+
 In machine learning, a common approach to modeling complex, non-linear relationships is to transform the input data into a higher-dimensional feature space using a set of basis functions. In this new space, a simple linear model might be sufficient to solve the problem. However, this approach faces a significant challenge: the number of basis functions required can grow exponentially with the dimensionality of the input space, a phenomenon known as the curse of dimensionality. Kernel methods offer an elegant and powerful solution to this problem, allowing us to work implicitly in feature spaces of incredibly high—even infinite—dimensions without ever having to compute the transformations explicitly.
 
 ## The Core Idea: From Basis Functions to Smoothness

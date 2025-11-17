@@ -1,6 +1,8 @@
 # What is Offline Reinforcement Learning? A Journey from Interaction to Pure Learning
 
-**Date:** November 17, 2025
+**Author:** Tok Varol Cagdas
+**Order:** 1
+**Date:**
 **Summary:** An introduction to offline reinforcement learning, exploring how AI agents can learn optimal decision-making strategies from pre-collected data without ever interacting with the environment.
 
 Imagine you want to train a robot to perform surgery, pilot an airplane, or manage a nuclear power plant. In these scenarios, trial-and-error learning through direct interaction with the environment isn't just impractical—it's dangerous, expensive, or potentially catastrophic. This is where **Offline Reinforcement Learning** (Offline RL) comes to the rescue.

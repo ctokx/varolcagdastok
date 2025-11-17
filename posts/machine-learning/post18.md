@@ -1,5 +1,10 @@
 # An Introduction to Linear Classifiers: Drawing the Line in Data
 
+**Author:** Tok Varol Cagdas
+**Order:** 9
+**Date:**
+**Summary:** No summary available.
+
 Classification is a cornerstone of machine learning, concerned with the task of assigning a class label to an object based on its features. One of the simplest yet most powerful and widely used tools for this task is the **linear classifier**. The core principle of a linear classifier is to separate classes using a linear decision boundary—a line in two dimensions, a plane in three, and a hyperplane in higher dimensions.
 
 While they cannot solve inherently non-linear problems like the classic XOR puzzle on their own, linear classifiers are often surprisingly effective, especially in high-dimensional spaces. Furthermore, they form the fundamental building block for more complex models; when combined with non-linear transformations like basis functions, kernels, or the hidden layers of a neural network, they can produce highly flexible, non-linear decision boundaries.

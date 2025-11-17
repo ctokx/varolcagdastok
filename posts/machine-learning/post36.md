@@ -1,5 +1,10 @@
 # Vector Projections and Orthogonality
 
+**Author:** Tok Varol Cagdas
+**Order:** 28
+**Date:**
+**Summary:** No summary available.
+
 ## Orthogonality
 
 Two vectors $u$, $v \in \mathbb{R}^{n}$ are **orthogonal** (perpendicular) if their dot product is zero:

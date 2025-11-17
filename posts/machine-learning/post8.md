@@ -1,5 +1,10 @@
 # Understanding Function Approximation and the Curse of Dimensionality in Machine Learning
 
+**Author:** Tok Varol Cagdas
+**Order:** 32
+**Date:**
+**Summary:** No summary available.
+
 In the field of machine learning, one of the most fundamental challenges a data scientist faces is model selection. With a vast array of models available—from linear classifiers and kernel methods to deep neural networks—how does one choose the most appropriate tool for a given problem? While empirical methods like cross-validation are indispensable for practical model assessment, theoretical analysis provides a deeper understanding of why certain models perform well on specific types of problems. This article explores the core concepts of function approximation, which frame machine learning as an effort to approximate an unknown target function, and delves into the critical challenge known as the "Curse of Dimensionality."
 
 ## The Framework: Target and Model Function Classes

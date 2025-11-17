@@ -1,4 +1,9 @@
 # Managing Evolving Code: A Guide to Regression Testing
+
+**Author:** Tok Varol Cagdas
+**Order:** 7
+**Date:**
+**Summary:** No summary available.
 <p class="post-date">Published: November 13, 2025</p>
 
 Software is not static; it changes constantly. Programmers fix bugs, add new features, and refactor code. Every time a change is made, there is a risk that it will unintentionally alter or break existing, previously-tested behavior.

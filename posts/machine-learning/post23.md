@@ -1,5 +1,10 @@
 # Support Vector Machines: Finding the Optimal Margin
 
+**Author:** Tok Varol Cagdas
+**Order:** 15
+**Date:**
+**Summary:** No summary available.
+
 In the landscape of classification algorithms, the **Support Vector Machine (SVM)** holds a special place. Developed by Vladimir Vapnik and his colleagues, the SVM is a linear classifier that is distinguished by its elegant theoretical foundation and its powerful performance, especially in high-dimensional spaces. Unlike other linear classifiers that simply find *a* separating hyperplane, the SVM is designed to find the *optimal* separating hyperplane—the one that is maximally far from the data points of both classes.
 
 ## The Principle of Maximum Margin

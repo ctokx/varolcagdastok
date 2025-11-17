@@ -1,5 +1,10 @@
 # Matrix Inverse, Linear Independence, and Rank
 
+**Author:** Tok Varol Cagdas
+**Order:** 23
+**Date:**
+**Summary:** No summary available.
+
 ## Matrix Inverse
 
 For a square matrix $A \in \mathbb{R}^{n \times n}$, the inverse $A^{-1}$$ (if it exists) satisfies:

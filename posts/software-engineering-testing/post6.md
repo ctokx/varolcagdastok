@@ -1,4 +1,9 @@
 # A Look at Concolic Execution: The Hybrid of Concrete and Symbolic Testing
+
+**Author:** Tok Varol Cagdas
+**Order:** 5
+**Date:**
+**Summary:** No summary available.
 <p class="post-date">Published: November 12, 2025</p>
 
 In my study of white-box testing, **Symbolic Execution** stands out as a powerful method for generating tests that cover all program paths. However, it has practical limitations. It struggles when code involves complex math, external library calls, or dynamic features that a constraint solver cannot handle.

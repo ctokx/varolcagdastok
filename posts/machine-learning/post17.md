@@ -1,5 +1,10 @@
 # A Refresher on Linear Algebra: The Language of Machine Learning
 
+**Author:** Tok Varol Cagdas
+**Order:** 8
+**Date:**
+**Summary:** No summary available.
+
 Linear algebra is, in many ways, the mathematical language of machine learning. From the way we represent data to the inner workings of complex algorithms like deep neural networks, its concepts are ubiquitous. A solid understanding of vectors, matrices, and their operations is therefore an essential prerequisite for a deeper dive into the field. This article serves as a high-level review of these fundamental building blocks.
 
 ## Vectors: The Foundation of Data Representation

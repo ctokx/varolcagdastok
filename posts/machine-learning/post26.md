@@ -1,5 +1,10 @@
 # Vectors and Vector Spaces
 
+**Author:** Tok Varol Cagdas
+**Order:** 18
+**Date:**
+**Summary:** No summary available.
+
 ## Definition of a Vector
 
 A vector is an ordered list of numbers. Formally, a vector $v$ in $\mathbb{R}^n$ is an element of n-dimensional Euclidean space:
