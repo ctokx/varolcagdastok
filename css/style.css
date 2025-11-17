@@ -2,7 +2,7 @@
 body {
     font-family: 'Times New Roman', Times, serif;
     line-height: 1.6;
-    background-color: #ffffff;
+    background-color: #FFFFE0;
     color: #000000;
     max-width: 900px; /* Limits width for readability */
     margin: 0 auto;   /* Centers the content */
@@ -230,4 +230,37 @@ pre code {
 
 .category .article-list li {
     margin-bottom: 10px;
+}
+
+.social-links a {
+    display: inline-block;
+    margin-right: 15px;
+    text-decoration: none;
+    color: #0000ee;
+    font-weight: bold;
+}
+
+.social-links a:hover {
+    text-decoration: underline;
+}
+
+.social-links i {
+    margin-right: 5px;
+}
+
+.github-stats img {
+    max-width: 100%;
+    height: auto;
+}
+
+.maps-container {
+    display: block;
+}
+
+.map-item {
+    margin-bottom: 20px;
+}
+
+.map-item p {
+    margin-top: 0;
 }

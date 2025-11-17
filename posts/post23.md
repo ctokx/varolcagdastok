@@ -29,7 +29,7 @@ This is a quadratic programming problem that can be solved efficiently.
 In most real-world scenarios, data is not perfectly linearly separable due to noise or overlapping classes. To handle this, the SVM is extended to the **soft-margin classifier**. This is achieved by introducing "slack" variables, `ξ_i`, for each data point. These variables allow a point to be on the wrong side of the margin, or even on the wrong side of the hyperplane, but at a cost.
 
 The optimization problem is modified to include a penalty for these violations:
--   **Minimize:** `(1/2) * ||w||² + C * Σ ξ_i`
+-   **Minimize:** `(1/2) * ||w||² + C * \sum_{i} ξ_i`
 -   **Subject to:** `y_i * (wᵀx_i + w₀) ≥ 1 - ξ_i` and `ξ_i ≥ 0` for all `i`.
 
 The hyperparameter `C` controls the trade-off between maximizing the margin and minimizing the classification error.

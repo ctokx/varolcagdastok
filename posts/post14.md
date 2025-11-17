@@ -4,23 +4,27 @@ Many of the foundational models in machine learning, such as linear regression a
 
 ## The Fundamental Trick: From Input Space to Feature Space
 
-Consider the classic XOR problem, a textbook example of a non-linearly separable classification task. No single straight line can separate the positive and negative examples. However, if we augment our original inputs, `x₁` and `x₂`, with a new, engineered feature—the product `x₁x₂`—the problem is transformed. In this new three-dimensional space (`x₁`, `x₂`, `x₁x₂`), the classes become linearly separable. A simple plane can now perfectly divide the data.
+Consider the classic XOR problem, a textbook example of a non-linearly separable classification task. No single straight line can separate the positive and negative examples. However, if we augment our original inputs, $x_1$ and $x_2$, with a new, engineered feature—the product $x_1x_2$—the problem is transformed. In this new three-dimensional space ($x_1$, $x_2$, $x_1x_2$), the classes become linearly separable. A simple plane can now perfectly divide the data.
 
-This is the essence of the basis function approach. We define a set of functions, `{φ_m(x)}`, that take the original input vector `x` and map it to a new set of features. Our model then becomes a linear combination of these new features:
+This is the essence of the basis function approach. We define a set of functions, $\{\phi_m(x)\}$, that take the original input vector $x$ and map it to a new set of features. Our model then becomes a linear combination of these new features:
 
-`f(x) = Σ w_m * φ_m(x)`
+$$
+f(x) = \sum_{m} w_m \phi_m(x)
+$$
 
-This model is still linear in the parameters `w_m`, which means we can use the same efficient and well-understood algorithms for training linear models, such as the penalized least-squares solution for regression or the Perceptron algorithm for classification. The non-linearity of the problem is entirely captured by the fixed, pre-defined basis functions.
+This model is still linear in the parameters $w_m$, which means we can use the same efficient and well-understood algorithms for training linear models, such as the penalized least-squares solution for regression or the Perceptron algorithm for classification. The non-linearity of the problem is entirely captured by the fixed, pre-defined basis functions.
 
 ## Common Types of Basis Functions
 
 The choice of basis functions is a form of feature engineering and injects prior knowledge into the model about the kind of non-linearity we expect to see. Two common choices are:
 
-1.  **Polynomial Basis Functions:** This set includes powers and interaction terms of the original input variables. For example, for a two-dimensional input `(x₁, x₂)`, a second-degree polynomial basis would include `{1, x₁, x₂, x₁², x₂², x₁x₂}`. These are well-suited for modeling smooth, global trends in the data.
+1.  **Polynomial Basis Functions:** This set includes powers and interaction terms of the original input variables. For example, for a two-dimensional input $(x_1, x_2)$, a second-degree polynomial basis would include $\{1, x_1, x_2, x_1^2, x_2^2, x_1x_2\}$. These are well-suited for modeling smooth, global trends in the data.
 
 2.  **Radial Basis Functions (RBFs):** These are functions that depend only on the distance from a central point. A typical choice is the Gaussian RBF:
-    `φ_j(x) = exp(- ||x - c_j||² / (2s²))`
-    Each RBF is centered at a point `c_j` and has a width `s`. It acts as a localized "bump," having a significant value only for inputs `x` that are close to its center. A linear combination of these localized bumps can be used to approximate any continuous function, much like building a complex landscape out of small hills.
+    $$
+    \phi_j(x) = \exp\left(- \frac{\|x - c_j\|^2}{2s^2}\right)
+    $$
+    Each RBF is centered at a point $c_j$ and has a width $s$. It acts as a localized "bump," having a significant value only for inputs $x$ that are close to its center. A linear combination of these localized bumps can be used to approximate any continuous function, much like building a complex landscape out of small hills.
 
 ## The Challenge: The Curse of Dimensionality Revisited
 

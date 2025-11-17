@@ -26,7 +26,7 @@ where `Φ` is the design matrix (whose rows are the feature vectors `φ(x_i)ᵀ`
 
 Notice that this expression involves dot products between the feature vector of the new point, `φ(x')`, and the feature vectors of the training points, `φ(x_i)`. By substituting the kernel function for these dot products, we get:
 
-`f(x') = Σ v_i k(x_i, x')`
+`f(x') = \sum_{i} v_i k(x_i, x')`
 
 This is a remarkable result. The prediction is now a weighted sum of kernel functions, centered at each of the `N` training data points. We have completely bypassed the need to explicitly define or compute the high-dimensional feature vectors `φ(x)`. The entire algorithm—both training and prediction—can be "kernelized" by replacing all dot products with the kernel function. This allows us to work with feature spaces of immense dimensionality without incurring the associated computational cost. The complexity of the algorithm now scales with the number of data points, `N`, rather than the number of features, `M_φ`.
 

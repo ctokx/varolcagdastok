@@ -18,7 +18,7 @@ Often, we are interested in more than one random variable at a time. The **joint
 
 If we have the joint distribution, we can recover the distribution of a single variable through a process called **marginalization**. This involves summing the joint probability over all possible states of the other variable:
 
-`P(H=h) = Σ_s P(H=h, S=s)`
+`P(H=h) = \sum_{s} P(H=h, S=s)`
 
 ### Conditional Probability and the Chain Rule
 

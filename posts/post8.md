@@ -14,21 +14,25 @@ At its core, supervised machine learning can be viewed as a problem of function 
 
 To understand how well our model approximates the target, we need a way to measure the "distance" between two functions. A common approach is to use a metric analogous to the squared Euclidean distance, but for functions. We can define the distance between a target function `f` and a model function `g` over a specific input domain `B` (like a unit ball) as:
 
-`||f - g||²_B = (1 / V_B) ∫_B (f(x) - g(x))² dx`
+$$
+\|f - g\|^2_B = \frac{1}{V_B} \int_B (f(x) - g(x))^2 dx
+$$
 
-Here, `V_B` is the volume of the domain. This formula calculates the average squared difference between the two functions across all possible inputs in that domain. The ultimate goal of approximation theory in this context is to find a model `f_w` from our model class `M` that minimizes this distance for the most difficult-to-approximate function in the target class `F`.
+Here, $V_B$ is the volume of the domain. This formula calculates the average squared difference between the two functions across all possible inputs in that domain. The ultimate goal of approximation theory in this context is to find a model $f_w$ from our model class $M$ that minimizes this distance for the most difficult-to-approximate function in the target class $F$.
 
-In practice, we are more interested in performance on the data we actually encounter. Therefore, we often use a weighted distance that considers the probability distribution of the input data, `P(x)`. This focuses the measurement on regions of the input space where data is more likely to appear.
+In practice, we are more interested in performance on the data we actually encounter. Therefore, we often use a weighted distance that considers the probability distribution of the input data, $P(x)$. This focuses the measurement on regions of the input space where data is more likely to appear.
 
 ## The Challenge: The Curse of Dimensionality
 
 A crucial insight from approximation theory relates the number of parameters or components a model needs (e.g., the number of basis functions, `M_φ`) to three key factors: the desired accuracy, the smoothness of the target function, and the dimensionality of the input space.
 
-Let's define the smoothness of a function class with the parameter `m`, where a larger `m` implies a smoother function (i.e., it has continuous partial derivatives up to order `m`). The number of basis functions required can be expressed as being proportional to:
+Let's define the smoothness of a function class with the parameter $m$, where a larger $m$ implies a smoother function (i.e., it has continuous partial derivatives up to order $m$). The number of basis functions required can be expressed as being proportional to:
 
-`(accuracy)^(M × roughness)`
+$$
+(\text{accuracy})^{(M \times \text{roughness})}
+$$
 
-Here, `accuracy` is the inverse of the desired error, `M` is the number of input dimensions, and `roughness` is the inverse of smoothness (`1/m`).
+Here, `accuracy` is the inverse of the desired error, $M$ is the number of input dimensions, and `roughness` is the inverse of smoothness ($1/m$).
 
 This relationship reveals a significant problem. The number of required basis functions grows exponentially with the input dimension `M` and the roughness of the function. This exponential explosion is what Richard Bellman termed the **"Curse of Dimensionality."** If we are dealing with a high-dimensional problem (large `M`) where the underlying function is complex and non-smooth (large roughness), the number of basis functions needed to achieve a reasonable accuracy becomes computationally and practically infeasible.
 

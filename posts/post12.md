@@ -21,7 +21,7 @@ A single neuron can only learn a linear decision boundary. The true power of neu
 
 The equation for an MLP with one hidden layer and a single output for regression is:
 
-`f(x) = Σ w_h * sig(v_hᵀx + v_{h,0})`
+`f(x) = \sum_{h} w_h \text{sig}(v_h^T x + v_{h,0})`
 
 Here, the `v`'s are the weights of the hidden layer neurons (the "inner" parameters), and the `w`'s are the weights of the output layer. The network learns both sets of weights simultaneously.
 

@@ -4,21 +4,25 @@ Linear regression is arguably the most fundamental and widely used algorithm in 
 
 ## The Linear Model
 
-The linear model, also known as the ADALINE (Adaptive Linear Element) in early machine learning literature, assumes that the output `ŷ` is a linearly weighted sum of the inputs `x`. For a problem with `M` input features, the model is defined as:
+The linear model, also known as the ADALINE (Adaptive Linear Element) in early machine learning literature, assumes that the output $\hat{y}$ is a linearly weighted sum of the inputs $x$. For a problem with $M$ input features, the model is defined as:
 
-`ŷ = f(x) = w₀ + w₁x₁ + w₂x₂ + ... + w_M*x_M = xᵀw`
+$$
+\hat{y} = f(x) = w_0 + w_1x_1 + w_2x_2 + \dots + w_Mx_M = x^Tw
+$$
 
-Here, `w₁` through `w_M` are the weights assigned to each input feature, representing the feature's contribution to the output. The term `w₀` is the bias (or intercept), which represents the baseline value of the output when all input features are zero. By convention, we often augment the input vector `x` with a constant value of 1, allowing the bias to be treated as just another weight.
+Here, $w_1$ through $w_M$ are the weights assigned to each input feature, representing the feature's contribution to the output. The term $w_0$ is the bias (or intercept), which represents the baseline value of the output when all input features are zero. By convention, we often augment the input vector $x$ with a constant value of 1, allowing the bias to be treated as just another weight.
 
-A key property of the linear model is that the effect of changing a single input is independent of the context provided by the other inputs. If we increase the value of `x_j` by one unit, the output `ŷ` will always change by `w_j`, regardless of the values of the other features. This makes the model highly interpretable but also limits its ability to capture complex interactions.
+A key property of the linear model is that the effect of changing a single input is independent of the context provided by the other inputs. If we increase the value of $x_j$ by one unit, the output $\hat{y}$ will always change by $w_j$, regardless of the values of the other features. This makes the model highly interpretable but also limits its ability to capture complex interactions.
 
 ## Finding the Best Fit: The Method of Least Squares
 
 Given a dataset of `N` input-output pairs, how do we find the optimal set of weights `w` that best describes the data? The most common approach is the **method of least squares**. This involves defining a cost function that measures the total error of the model's predictions. The standard choice is the **sum of squared errors (SSE)**, which is the sum of the squared differences between the true target values `y_i` and the model's predictions `ŷ_i`:
 
-`cost(w) = Σ (y_i - ŷ_i)² = Σ (y_i - x_iᵀw)²`
+$$
+\text{cost}(w) = \sum_{i} (y_i - \hat{y}_i)^2 = \sum_{i} (y_i - x_i^T w)^2
+$$
 
-The goal is to find the set of weights, `w_ls`, that minimizes this cost function.
+The goal is to find the set of weights, $w_{ls}$, that minimizes this cost function.
 
 ### Solving for the Optimal Weights
 
@@ -26,11 +30,13 @@ There are two primary ways to find the optimal weights:
 
 1.  **Iterative Optimization (Gradient Descent):** This approach starts with a random set of weights and iteratively adjusts them in the direction that most steeply decreases the cost function. The **ADALINE learning rule**, a form of stochastic gradient descent (SGD), updates the weights after each data point based on the prediction error for that point. This method is versatile and can be applied to a wide range of models, but it requires tuning a learning rate and can be slow to converge.
 
-2.  **Analytical Solution (The Normal Equation):** For linear regression with a least-squares cost function, a unique, closed-form solution exists. By taking the derivative of the cost function with respect to the weights `w` and setting it to zero, we can directly solve for the optimal weights:
+2.  **Analytical Solution (The Normal Equation):** For linear regression with a least-squares cost function, a unique, closed-form solution exists. By taking the derivative of the cost function with respect to the weights $w$ and setting it to zero, we can directly solve for the optimal weights:
 
-    `w_ls = (XᵀX)⁻¹Xᵀy`
+    $$
+    w_{ls} = (X^TX)^{-1}X^Ty
+    $$
 
-    Here, `X` is the `N x (M+1)` design matrix (where each row is a data point) and `y` is the vector of target values. This equation, known as the normal equation, provides an efficient, one-step solution, though it requires computing a matrix inverse, which can be computationally expensive if the number of features `M` is very large.
+    Here, $X$ is the $N \times (M+1)$ design matrix (where each row is a data point) and $y$ is the vector of target values. This equation, known as the normal equation, provides an efficient, one-step solution, though it requires computing a matrix inverse, which can be computationally expensive if the number of features $M$ is very large.
 
 ## The Problem of Overfitting and the Need for Regularization
 
@@ -38,13 +44,17 @@ When the number of data points `N` is much larger than the number of features `M
 
 **Regularization** is a technique used to combat overfitting by adding a penalty term to the cost function that discourages overly complex models. The most common form is **L2 regularization**, also known as **Ridge Regression** or **weight decay**:
 
-`cost_pen(w) = Σ (y_i - x_iᵀw)² + λ Σ w_j²`
+$$
+\text{cost}_{\text{pen}}(w) = \sum_{i} (y_i - x_i^T w)^2 + \lambda \sum_{j} w_j^2
+$$
 
-The penalty term `λ Σ w_j²` discourages large weight values. The hyperparameter `λ` controls the strength of the regularization: a larger `λ` forces the weights to be smaller, resulting in a simpler, smoother model that is less likely to overfit. The analytical solution for Ridge Regression is a slight modification of the normal equation:
+The penalty term $\lambda \sum_{j} w_j^2$ discourages large weight values. The hyperparameter $\lambda$ controls the strength of the regularization: a larger $\lambda$ forces the weights to be smaller, resulting in a simpler, smoother model that is less likely to overfit. The analytical solution for Ridge Regression is a slight modification of the normal equation:
 
-`w_pen = (XᵀX + λI)⁻¹Xᵀy`
+$$
+w_{\text{pen}} = (X^TX + \lambda I)^{-1}X^Ty
+$$
 
-The addition of the `λI` term makes the matrix inversion more stable and ensures a unique solution always exists, even when features are correlated.
+The addition of the $\lambda I$ term makes the matrix inversion more stable and ensures a unique solution always exists, even when features are correlated.
 
 ## Correlation vs. Causation: The Power of Multivariate Analysis
 

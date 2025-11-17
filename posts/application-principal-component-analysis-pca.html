@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application: Principal Component Analysis (PCA) - Varol Cagdas Tok</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../js/math-renderer.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Varol Cagdas Tok</h1>
+        <p>A collection of articles, notes, and thoughts.</p>
+    </header>
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="../articles.html">All Articles</a>
+        <a href="../about.html">About</a>
+    </nav>
+    <main id="article-content">
+        <div data-markdown-path="../posts/post35.md"></div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Varol Cagdas Tok</p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const container = document.querySelector('[data-markdown-path]');
+            const path = container.getAttribute('data-markdown-path');
+
+            fetch(path)
+                .then(response => response.text())
+                .then(text => {
+                    container.innerHTML = marked.parse(text);
+                    renderMath();
+                });
+        });
+    </script>
+</body>
+</html>

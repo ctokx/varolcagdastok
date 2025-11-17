@@ -6,16 +6,20 @@ Linear algebra is, in many ways, the mathematical language of machine learning. 
 
 At its core, a **vector** is an ordered list of numbers. In machine learning, we almost always use vectors to represent our data points. For example, a single data point with `M` features (e.g., the age, height, and weight of a person) can be represented as an `M`-dimensional vector. By convention, we typically work with **column vectors**.
 
-`c = [c₁, c₂, ..., c_M]ᵀ`
+$$
+c = \begin{bmatrix} c_1 \\ c_2 \\ \vdots \\ c_M \end{bmatrix}
+$$
 
-The **transpose** of a column vector, denoted `cᵀ`, is a **row vector**. This distinction becomes important when we start performing operations that involve both vectors and matrices.
+The **transpose** of a column vector, denoted $c^T$, is a **row vector**. This distinction becomes important when we start performing operations that involve both vectors and matrices.
 
 Key vector operations include:
 -   **Addition:** Vectors of the same dimension can be added by adding their corresponding components.
 -   **Scalar Multiplication:** Multiplying a vector by a scalar (a single number) involves multiplying each component of the vector by that scalar.
--   **Scalar Product (Dot Product):** The dot product of two vectors `a` and `c` of the same dimension is a scalar value obtained by multiplying their corresponding components and summing the results:
-    `a · c = aᵀc = Σ a_j * c_j`
-    The dot product is a fundamental operation, often used to measure the similarity or projection of one vector onto another. The dot product of a vector with itself gives its squared Euclidean norm or length, `||a||²`.
+-   **Scalar Product (Dot Product):** The dot product of two vectors $a$ and $c$ of the same dimension is a scalar value obtained by multiplying their corresponding components and summing the results:
+$$
+    a \cdot c = a^T c = \sum_{j} a_j c_j
+$$
+    The dot product is a fundamental operation, often used to measure the similarity or projection of one vector onto another. The dot product of a vector with itself gives its squared Euclidean norm or length, $\|a\|^2$.
 
 ## Matrices: Organizing Data and Transformations
 
@@ -27,25 +31,25 @@ A **matrix** is a rectangular, two-dimensional array of numbers. Matrices serve 
 
 ### Matrix Operations
 
--   **Matrix-Vector Product:** If `A` is an `N x M` matrix and `c` is an `M`-dimensional column vector, their product `d = Ac` is an `N`-dimensional column vector. Each component `d_i` of the resulting vector is the dot product of the `i`-th row of the matrix `A` with the vector `c`. This is the mathematical representation of applying a linear transformation to a vector.
+-   **Matrix-Vector Product:** If $A$ is an $N \times M$ matrix and $c$ is an $M$-dimensional column vector, their product $d = Ac$ is an $N$-dimensional column vector. Each component $d_i$ of the resulting vector is the dot product of the $i$-th row of the matrix $A$ with the vector $c$. This is the mathematical representation of applying a linear transformation to a vector.
 
--   **Matrix-Matrix Product:** The product of an `N x M` matrix `A` and an `M x K` matrix `C` is an `N x K` matrix `D = AC`. Each element `d_{i,k}` is the dot product of the `i`-th row of `A` and the `k`-th column of `C`. Matrix multiplication can be viewed as a composition of linear transformations.
+-   **Matrix-Matrix Product:** The product of an $N \times M$ matrix $A$ and an $M \times K$ matrix $C$ is an $N \times K$ matrix $D = AC$. Each element $d_{i,k}$ is the dot product of the $i$-th row of $A$ and the $k$-th column of $C$. Matrix multiplication can be viewed as a composition of linear transformations.
 
--   **Transpose:** The transpose of a matrix `A`, denoted `Aᵀ`, is obtained by swapping its rows and columns. A key property is that the transpose of a product is the product of the transposes in reverse order: `(AC)ᵀ = CᵀAᵀ`.
+-   **Transpose:** The transpose of a matrix $A$, denoted $A^T$, is obtained by swapping its rows and columns. A key property is that the transpose of a product is the product of the transposes in reverse order: $(AC)^T = C^T A^T$.
 
--   **Outer Product:** The product of an `N`-dimensional column vector `d` and an `M`-dimensional row vector `cᵀ` results in an `N x M` matrix `A = dcᵀ`. This is known as the outer product.
+-   **Outer Product:** The product of an $N$-dimensional column vector $d$ and an $M$-dimensional row vector $c^T$ results in an $N \times M$ matrix $A = dc^T$. This is known as the outer product.
 
 ## Special Matrices and the Concept of Inverse
 
 Certain types of matrices have special properties that are important in machine learning:
 
 -   **Square Matrix:** A matrix with the same number of rows and columns (`N x N`).
--   **Identity Matrix (`I`):** A square matrix with ones on the main diagonal and zeros everywhere else. It is the matrix equivalent of the number 1; multiplying any matrix by the identity matrix leaves it unchanged (`AI = A`).
+-   **Identity Matrix ($I$):** A square matrix with ones on the main diagonal and zeros everywhere else. It is the matrix equivalent of the number 1; multiplying any matrix by the identity matrix leaves it unchanged ($AI = A$).
 -   **Diagonal Matrix:** A square matrix where all off-diagonal elements are zero.
 
-The **inverse** of a square matrix `A`, denoted `A⁻¹`, is a matrix such that `A⁻¹A = AA⁻¹ = I`. The inverse "undoes" the transformation performed by `A`. The inverse is a crucial concept because it allows us to solve systems of linear equations. For example, the equation `Ac = d` can be solved for `c` by `c = A⁻¹d`. This is exactly what happens when we find the closed-form solution for linear regression. Not all square matrices have an inverse; those that do not are called singular.
+The **inverse** of a square matrix $A$, denoted $A^{-1}$, is a matrix such that $A^{-1}A = AA^{-1} = I$. The inverse "undoes" the transformation performed by $A$. The inverse is a crucial concept because it allows us to solve systems of linear equations. For example, the equation $Ac = d$ can be solved for $c$ by $c = A^{-1}d$. This is exactly what happens when we find the closed-form solution for linear regression. Not all square matrices have an inverse; those that do not are called singular.
 
--   **Orthogonal Matrix:** A square matrix `R` whose columns (and rows) are orthonormal (unit vectors that are mutually perpendicular). Orthogonal matrices represent transformations that are pure rotations (or reflections) and preserve the lengths and angles of vectors. A key property is that their inverse is simply their transpose: `R⁻¹ = Rᵀ`.
+-   **Orthogonal Matrix:** A square matrix $R$ whose columns (and rows) are orthonormal (unit vectors that are mutually perpendicular). Orthogonal matrices represent transformations that are pure rotations (or reflections) and preserve the lengths and angles of vectors. A key property is that their inverse is simply their transpose: $R^{-1} = R^T$.
 
 ## Conclusion: The Language of Data
 
