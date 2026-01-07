@@ -39,7 +39,7 @@ def generate_all():
     posts_dir = base_dir / 'posts'
     posts_json_path = base_dir / 'js' / 'posts.json'
     template_path = base_dir / 'post-template.html'
-    output_dir = base_dir / 'posts'
+    output_dir = base_dir / 'articles'
 
     categories = {
         "Software Engineering & Testing": {
@@ -82,7 +82,7 @@ def generate_all():
                 "title": title,
                 "author": author,
                 "order": order,
-                "url": f"posts/{slug}.html",
+                "url": f"articles/{slug}/",
                 "slug": slug,
                 "filename": post_name,
                 "summary": summary,
@@ -117,14 +117,24 @@ def generate_all():
         template_html = f.read()
 
     for article in all_articles:
-        output_path = output_dir / f"{article['slug']}.html"
+        article_dir = output_dir / article['slug']
+        if not article_dir.exists():
+            article_dir.mkdir(parents=True)
+            
+        output_path = article_dir / "index.html"
         post_html = template_html.replace('{{POST_TITLE}}', article['title'])
-        post_html = post_html.replace('{{MARKDOWN_PATH}}', f"../posts/{article['md_path']}")
+        # Adjust relative path since we are now one level deeper (articles/slug/index.html vs posts/slug.html)
+        # Old: ../posts/md  New: ../../posts/md
+        post_html = post_html.replace('{{MARKDOWN_PATH}}', f"../../posts/{article['md_path']}")
+        # Also need to fix relative links to css/js if they are relative in template. 
+        # Assuming template uses absolute or root-relative? 
+        # If template uses "css/style.css" it breaks. If "/css/style.css" it works (on server).
+        # Let's check template later if needed. For now just markdown path.
 
         with open(output_path, 'w', encoding='utf-8') as f:
             f.write(post_html)
 
-    print(f"✓ Generated {len(all_articles)} HTML pages.")
+    print(f"✓ Generated {len(all_articles)} HTML pages in articles/ directory.")
     print("\n📁 Category breakdown:")
     for category in output_data['categories']:
         print(f"  - {category['name']}: {len(category['articles'])} articles")

@@ -5,7 +5,7 @@
     <link>https://ctokx.github.io/blog/</link>
     <description>Notes on cybersecurity, machine learning, software testing, and related topics.</description>
     <language>en</language>
-    <lastBuildDate>Thu, 01 Jan 2026 19:18:25 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 07 Jan 2026 22:17:05 GMT</lastBuildDate>
     <atom:link href="https://ctokx.github.io/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Black-Box Testing Techniques</title>
@@ -13,7 +13,7 @@
       <description></description>
       <category>Software Engineering &amp; Testing</category>
       <guid isPermaLink="true">https://ctokx.github.io/blog/articles/black-box-testing-techniques/</guid>
-      <pubDate>Thu, 01 Jan 2026 00:00:00 GMT</pubDate>
+      <pubDate>Wed, 07 Jan 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Test Coverage and Mutation Testing</title>
@@ -21,7 +21,7 @@
       <description></description>
       <category>Software Engineering &amp; Testing</category>
       <guid isPermaLink="true">https://ctokx.github.io/blog/articles/test-coverage-and-mutation-testing/</guid>
-      <pubDate>Wed, 31 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Tue, 06 Jan 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>The Test Oracle Problem</title>
@@ -29,7 +29,7 @@
       <description></description>
       <category>Software Engineering &amp; Testing</category>
       <guid isPermaLink="true">https://ctokx.github.io/blog/articles/the-test-oracle-problem/</guid>
-      <pubDate>Tue, 30 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Mon, 05 Jan 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>White-Box Testing: Symbolic Execution and Search-Based Testing</title>
@@ -37,7 +37,7 @@
       <description></description>
       <category>Software Engineering &amp; Testing</category>
       <guid isPermaLink="true">https://ctokx.github.io/blog/articles/white-box-testing-symbolic-execution-and-search-based-testing/</guid>
-      <pubDate>Mon, 29 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Sun, 04 Jan 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Concolic Execution</title>
@@ -45,7 +45,7 @@
       <description></description>
       <category>Software Engineering &amp; Testing</category>
       <guid isPermaLink="true">https://ctokx.github.io/blog/articles/concolic-execution/</guid>
-      <pubDate>Sun, 28 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Fuzzing and Random Testing</title>
@@ -53,7 +53,7 @@
       <description></description>
       <category>Software Engineering &amp; Testing</category>
       <guid isPermaLink="true">https://ctokx.github.io/blog/articles/fuzzing-and-random-testing/</guid>
-      <pubDate>Sat, 27 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Fri, 02 Jan 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Regression Testing</title>
@@ -61,7 +61,7 @@
       <description></description>
       <category>Software Engineering &amp; Testing</category>
       <guid isPermaLink="true">https://ctokx.github.io/blog/articles/regression-testing/</guid>
-      <pubDate>Fri, 26 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Thu, 01 Jan 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Introduction to Machine Learning</title>
@@ -69,7 +69,7 @@
       <description></description>
       <category>Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/blog/articles/introduction-to-machine-learning/</guid>
-      <pubDate>Thu, 25 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Wed, 31 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Linear Algebra for Machine Learning</title>
@@ -77,7 +77,7 @@
       <description></description>
       <category>Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/blog/articles/linear-algebra-for-machine-learning/</guid>
-      <pubDate>Wed, 24 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Tue, 30 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>The Perceptron Algorithm</title>
@@ -85,7 +85,7 @@
       <description></description>
       <category>Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/blog/articles/the-perceptron-algorithm/</guid>
-      <pubDate>Tue, 23 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Mon, 29 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Linear Regression</title>
@@ -93,7 +93,7 @@
       <description></description>
       <category>Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/blog/articles/linear-regression/</guid>
-      <pubDate>Mon, 22 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Sun, 28 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Basis Functions for Non-Linear Problems</title>
@@ -101,7 +101,7 @@
       <description></description>
       <category>Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/blog/articles/basis-functions-for-non-linear-problems/</guid>
-      <pubDate>Sun, 21 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Sat, 27 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Introduction to Neural Networks</title>
@@ -109,7 +109,7 @@
       <description></description>
       <category>Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/blog/articles/introduction-to-neural-networks/</guid>
-      <pubDate>Sat, 20 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Fri, 26 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Function Approximation and the Curse of Dimensionality</title>
@@ -117,7 +117,7 @@
       <description></description>
       <category>Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/blog/articles/function-approximation-and-the-curse-of-dimensionality/</guid>
-      <pubDate>Fri, 19 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Introduction to Deep Learning</title>
@@ -125,7 +125,7 @@
       <description></description>
       <category>Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/blog/articles/introduction-to-deep-learning/</guid>
-      <pubDate>Thu, 18 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Wed, 24 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Recurrent Neural Networks and Attention Mechanisms</title>
@@ -133,7 +133,7 @@
       <description></description>
       <category>Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/blog/articles/recurrent-neural-networks-and-attention-mechanisms/</guid>
-      <pubDate>Wed, 17 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Tue, 23 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Manifold Learning, Autoencoders, and Generative Models</title>
@@ -141,7 +141,7 @@
       <description></description>
       <category>Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/blog/articles/manifold-learning-autoencoders-and-generative-models/</guid>
-      <pubDate>Tue, 16 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Mon, 22 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Kernel Methods and the Kernel Trick</title>
@@ -149,7 +149,7 @@
       <description></description>
       <category>Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/blog/articles/kernel-methods-and-the-kernel-trick/</guid>
-      <pubDate>Mon, 15 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Sun, 21 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Probability for Machine Learning</title>
@@ -157,7 +157,7 @@
       <description></description>
       <category>Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/blog/articles/probability-for-machine-learning/</guid>
-      <pubDate>Sun, 14 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Frequentist vs. Bayesian Statistics</title>
@@ -165,7 +165,7 @@
       <description></description>
       <category>Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/blog/articles/frequentist-vs-bayesian-statistics/</guid>
-      <pubDate>Sat, 13 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Fri, 19 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Introduction to Linear Classifiers</title>
@@ -173,7 +173,7 @@
       <description></description>
       <category>Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/blog/articles/introduction-to-linear-classifiers/</guid>
-      <pubDate>Fri, 12 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Thu, 18 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Support Vector Machines</title>
@@ -181,7 +181,7 @@
       <description></description>
       <category>Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/blog/articles/support-vector-machines/</guid>
-      <pubDate>Thu, 11 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Wed, 17 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Model Selection and Estimating Generalization Performance</title>
@@ -189,15 +189,15 @@
       <description></description>
       <category>Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/blog/articles/model-selection-and-estimating-generalization-performance/</guid>
-      <pubDate>Wed, 10 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Tue, 16 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Linear Algebra for Machine Learning: Course Overview</title>
-      <link>https://ctokx.github.io/blog/articles/linear-algebra-for-machine-learning-course-overview/</link>
+      <title>The Linear Algebra of Machine Learning: A Roadmap</title>
+      <link>https://ctokx.github.io/blog/articles/the-linear-algebra-of-machine-learning-a-roadmap/</link>
       <description></description>
       <category>Linear Algebra for Machine Learning</category>
-      <guid isPermaLink="true">https://ctokx.github.io/blog/articles/linear-algebra-for-machine-learning-course-overview/</guid>
-      <pubDate>Tue, 09 Dec 2025 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://ctokx.github.io/blog/articles/the-linear-algebra-of-machine-learning-a-roadmap/</guid>
+      <pubDate>Mon, 15 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Vectors and Vector Spaces</title>
@@ -205,7 +205,7 @@
       <description></description>
       <category>Linear Algebra for Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/blog/articles/vectors-and-vector-spaces/</guid>
-      <pubDate>Mon, 08 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Sun, 14 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Matrices and Data Representation</title>
@@ -213,7 +213,7 @@
       <description></description>
       <category>Linear Algebra for Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/blog/articles/matrices-and-data-representation/</guid>
-      <pubDate>Sun, 07 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Sat, 13 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Dot Products and Vector Norms</title>
@@ -221,7 +221,7 @@
       <description></description>
       <category>Linear Algebra for Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/blog/articles/dot-products-and-vector-norms/</guid>
-      <pubDate>Sat, 06 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Fri, 12 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Matrix Multiplication and Linear Transformations</title>
@@ -229,7 +229,7 @@
       <description></description>
       <category>Linear Algebra for Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/blog/articles/matrix-multiplication-and-linear-transformations/</guid>
-      <pubDate>Fri, 05 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Thu, 11 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Systems of Linear Equations</title>
@@ -237,7 +237,7 @@
       <description></description>
       <category>Linear Algebra for Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/blog/articles/systems-of-linear-equations/</guid>
-      <pubDate>Thu, 04 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Wed, 10 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Matrix Inverse, Linear Independence, and Rank</title>
@@ -245,7 +245,7 @@
       <description></description>
       <category>Linear Algebra for Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/blog/articles/matrix-inverse-linear-independence-and-rank/</guid>
-      <pubDate>Wed, 03 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Tue, 09 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Eigenvectors and Eigenvalues</title>
@@ -253,7 +253,7 @@
       <description></description>
       <category>Linear Algebra for Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/blog/articles/eigenvectors-and-eigenvalues/</guid>
-      <pubDate>Tue, 02 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Mon, 08 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Eigendecomposition of a Matrix</title>
@@ -261,7 +261,7 @@
       <description></description>
       <category>Linear Algebra for Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/blog/articles/eigendecomposition-of-a-matrix/</guid>
-      <pubDate>Mon, 01 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Sun, 07 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Singular Value Decomposition (SVD)</title>
@@ -269,7 +269,7 @@
       <description></description>
       <category>Linear Algebra for Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/blog/articles/singular-value-decomposition-svd/</guid>
-      <pubDate>Sun, 30 Nov 2025 00:00:00 GMT</pubDate>
+      <pubDate>Sat, 06 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Application: Principal Component Analysis (PCA)</title>
@@ -277,7 +277,7 @@
       <description></description>
       <category>Linear Algebra for Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/blog/articles/application-principal-component-analysis-pca/</guid>
-      <pubDate>Sat, 29 Nov 2025 00:00:00 GMT</pubDate>
+      <pubDate>Fri, 05 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Vector Projections and Orthogonality</title>
@@ -285,7 +285,7 @@
       <description></description>
       <category>Linear Algebra for Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/blog/articles/vector-projections-and-orthogonality/</guid>
-      <pubDate>Fri, 28 Nov 2025 00:00:00 GMT</pubDate>
+      <pubDate>Thu, 04 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Application: Linear Regression and the Normal Equation</title>
@@ -293,7 +293,7 @@
       <description></description>
       <category>Linear Algebra for Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/blog/articles/application-linear-regression-and-the-normal-equation/</guid>
-      <pubDate>Thu, 27 Nov 2025 00:00:00 GMT</pubDate>
+      <pubDate>Wed, 03 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Matrix Calculus: Gradients with Vectors and Matrices</title>
@@ -301,15 +301,15 @@
       <description></description>
       <category>Linear Algebra for Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/blog/articles/matrix-calculus-gradients-with-vectors-and-matrices/</guid>
-      <pubDate>Wed, 26 Nov 2025 00:00:00 GMT</pubDate>
+      <pubDate>Tue, 02 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Course Review and Next Steps</title>
-      <link>https://ctokx.github.io/blog/articles/course-review-and-next-steps/</link>
+      <title>Conclusion: The Linear Algebra Foundation</title>
+      <link>https://ctokx.github.io/blog/articles/conclusion-the-linear-algebra-foundation/</link>
       <description></description>
       <category>Linear Algebra for Machine Learning</category>
-      <guid isPermaLink="true">https://ctokx.github.io/blog/articles/course-review-and-next-steps/</guid>
-      <pubDate>Tue, 25 Nov 2025 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://ctokx.github.io/blog/articles/conclusion-the-linear-algebra-foundation/</guid>
+      <pubDate>Mon, 01 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Introduction to Offline Reinforcement Learning</title>
@@ -317,7 +317,7 @@
       <description>An introduction to offline reinforcement learning, exploring how AI agents can learn optimal decision-making strategies from pre-collected data without ever interacting with the environment. This post defines the core challenge of distributional shift and introduces the primary algorithmic paradigms—BC, TD3+BC, IQL, and CQL—that our research evaluates.</description>
       <category>Reinforcement Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/blog/articles/introduction-to-offline-reinforcement-learning/</guid>
-      <pubDate>Mon, 24 Nov 2025 00:00:00 GMT</pubDate>
+      <pubDate>Sun, 30 Nov 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>TD3+BC Algorithm for Offline RL</title>
@@ -325,7 +325,7 @@
       <description>Exploring TD3+BC, a powerful yet simple approach to offline RL. We first detail the standard algorithm and then introduce our group's customized variant, which incorporates four key enhancements: dynamic hyperparameter selection, BC-weight annealing, state normalization, and episode filtering. We present experimental results from our paper demonstrating that these enhancements yield substantial performance gains (up to 6300%) over the default implementation, particularly on noisy, medium-quality datasets.</description>
       <category>Reinforcement Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/blog/articles/td3bc-algorithm-for-offline-rl/</guid>
-      <pubDate>Sun, 23 Nov 2025 00:00:00 GMT</pubDate>
+      <pubDate>Sat, 29 Nov 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>CQL and IQL Algorithms</title>
@@ -333,7 +333,7 @@
       <description>Exploring Conservative Q-Learning (CQL) and Implicit Q-Learning (IQL), two sophisticated value-based methods that tackle offline RL's distributional shift problem. We detail their core mechanisms—pessimistic value estimation for CQL and implicit policy constraints for IQL—and discuss their performance characteristics as observed in our comparative study.</description>
       <category>Reinforcement Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/blog/articles/cql-and-iql-algorithms/</guid>
-      <pubDate>Sat, 22 Nov 2025 00:00:00 GMT</pubDate>
+      <pubDate>Fri, 28 Nov 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Benchmarking Offline RL Algorithms</title>
@@ -341,7 +341,7 @@
       <description>Synthesizing insights from our extensive experimentation with BC, TD3+BC, IQL, and CQL across MuJoCo tasks. We present a quantitative comparison that reveals a clear conclusion: no single algorithm wins. The "best" method is highly dependent on dataset quality. We find that BC excels on expert data, while our enhanced TD3+BC and IQL show the strongest performance on noisy, medium-quality data.</description>
       <category>Reinforcement Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/blog/articles/benchmarking-offline-rl-algorithms/</guid>
-      <pubDate>Fri, 21 Nov 2025 00:00:00 GMT</pubDate>
+      <pubDate>Thu, 27 Nov 2025 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>

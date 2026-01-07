@@ -1,3 +1,15 @@
+
+# Internal Guides and Documentation
+HOW_TO_CREATE_NEW_POST.md
+RESTRUCTURE_GUIDE.md
+WRITING_GUIDE.md
+ARTICLE_REVIEW_GUIDE.md
+README.md
+
+# Generated Content in Source Folders
+posts/*.html
+
+# System and IDE
 __pycache__/
 *.py[cod]
 *.pyo
@@ -18,9 +30,8 @@ errors.txt
 *.tmp
 *.bak
 *.old
+
+# Drafts
 draft.md
 *.draft
-HOW_TO_CREATE_NEW_POST.md
-RESTRUCTURE_GUIDE.md
-WRITING_GUIDE.md
 

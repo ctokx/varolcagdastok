@@ -1,73 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Application: Principal Component Analysis (PCA) - Varol Cagdas Tok</title>
-    <meta name="description" content="Applying eigendecomposition to reduce dimensionality while preserving variance, implementing PCA via covariance matrices and SVD, and use cases in visualization and feature extraction.">
-    <meta name="author" content="Varol Cagdas Tok">
-    <meta property="og:title" content="Application: Principal Component Analysis (PCA)">
-    <meta property="og:description" content="Applying eigendecomposition to reduce dimensionality while preserving variance, implementing PCA via covariance matrices and SVD, and use cases in visualization and feature extraction.">
-    <meta property="og:type" content="article">
-    <link rel="canonical" href="/articles/application-principal-component-analysis-pca/">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-</head>
-<body>
-
-    <header>
-        <h1>Varol Cagdas Tok</h1>
-        <p>Focusing on cybersecurity, software development, and machine learning.</p>
-    </header>
-
-    <nav>
-        <a href="../../index.html">Home</a>
-        <a href="../../articles.html">All Articles</a>
-        <a href="../../about.html">About Me</a>
-    </nav>
-
-    <main>
-        <article id="article-content">
-            <p>Loading article...</p>
-        </article>
-    </main>
-
-    <footer>
-        <p>© 2026 Varol Cagdas Tok.</p>
-    </footer>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
     <script src="../../js/math-renderer.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Varol Cagdas Tok</h1>
+        <p>Personal notes and articles.</p>
+    </header>
+    <nav>
+        <a href="../../index.html">Articles</a>
+        <a href="../../about.html">About</a>
+        <a href="../../feed.xml" class="rss-link">RSS</a>
+    </nav>
+    <main id="article-content">
+        <div data-markdown-path="../../posts/linear-algebra/post35.md"></div>
+    </main>
+    <footer>
+        <p>&copy; 2026 Varol Cagdas Tok</p>
+    </footer>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const articleContent = document.getElementById("article-content");
-            const postPath = '../../posts/post35.md';
-
-            fetch(postPath)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error("Could not load article.");
-                    }
-                    return response.text();
-                })
-                .then(markdownText => {
-                    // Use our custom renderer that protects math
-                    articleContent.innerHTML = renderMarkdownWithMath(markdownText);
-                    // Trigger KaTeX rendering
+            const container = document.querySelector('[data-markdown-path]');
+            const path = container.getAttribute('data-markdown-path');
+            fetch(path)
+                .then(response => response.text())
+                .then(text => {
+                    container.innerHTML = renderMarkdownWithMath(text);
                     renderMath();
-
-                    const firstHeading = articleContent.querySelector("h1");
-                    if (firstHeading) {
-                        document.title = firstHeading.textContent + " - Varol Cagdas Tok";
-                    }
-                })
-                .catch(error => {
-                    console.error("Error fetching article:", error);
-                    articleContent.innerHTML = "<h1>Error 404</h1><p>Article not found. Please check the URL and try again.</p>";
                 });
         });
     </script>
 </body>
+
 </html>
