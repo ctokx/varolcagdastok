@@ -8,6 +8,7 @@ README.md
 
 # Generated Content in Source Folders
 posts/*.html
+post-template.html
 
 # System and IDE
 __pycache__/

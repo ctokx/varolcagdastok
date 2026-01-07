@@ -201,6 +201,7 @@ pre code {
     max-width: 180px;
     height: auto;
     border: 1px solid #ccc;
+    border-radius: 50%;
 }
 
 .about-section {
