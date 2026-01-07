@@ -1,11 +1,12 @@
-# A Refresher on Linear Algebra: The Language of Machine Learning
+---
+author: Tok Varol Cagdas
+order: 2
+---
 
-**Author:** Tok Varol Cagdas
-**Order:** 2
-**Date:**
-**Summary:** No summary available.
 
-Linear algebra is, in many ways, the mathematical language of machine learning. From the way we represent data to the inner workings of complex algorithms like deep neural networks, its concepts are ubiquitous. A solid understanding of vectors, matrices, and their operations is therefore an essential prerequisite for a deeper dive into the field. This article serves as a high-level review of these fundamental building blocks.
+# Linear Algebra for Machine Learning
+
+Linear algebra is the mathematical language of machine learning. From data representation to the mechanics of deep neural networks, its concepts are ubiquitous. A solid understanding of vectors, matrices, and their operations is requisite for the field. This article reviews these fundamental building blocks.
 
 ## Vectors: The Foundation of Data Representation
 
@@ -49,13 +50,13 @@ A **matrix** is a rectangular, two-dimensional array of numbers. Matrices serve 
 Certain types of matrices have special properties that are important in machine learning:
 
 -   **Square Matrix:** A matrix with the same number of rows and columns (`N x N`).
--   **Identity Matrix ($I$):** A square matrix with ones on the main diagonal and zeros everywhere else. It is the matrix equivalent of the number 1; multiplying any matrix by the identity matrix leaves it unchanged ($AI = A$).
+-   **Identity Matrix ($I$):** A square matrix with ones on the main diagonal and zeros everywhere else. It is the matrix equivalent of the number 1; multiplying any matrix by the identity matrix leaves it unchanged ($AI = IA = A$).
 -   **Diagonal Matrix:** A square matrix where all off-diagonal elements are zero.
 
-The **inverse** of a square matrix $A$, denoted $A^{-1}$, is a matrix such that $A^{-1}A = AA^{-1} = I$. The inverse "undoes" the transformation performed by $A$. The inverse is a crucial concept because it allows us to solve systems of linear equations. For example, the equation $Ac = d$ can be solved for $c$ by $c = A^{-1}d$. This is exactly what happens when we find the closed-form solution for linear regression. Not all square matrices have an inverse; those that do not are called singular.
+The **inverse** of a square matrix $A$, denoted $A^{-1}$, is a matrix such that $A^{-1}A = AA^{-1} = I$. The inverse "undoes" the transformation performed by $A$. The inverse is a crucial concept because it allows us to solve systems of linear equations. For example, the equation $Ac = d$ can be solved for $c$ by $c = A^{-1}d$. This concept underpins the closed-form solution for linear regression. Not all square matrices have an inverse; those that do not are called singular.
 
 -   **Orthogonal Matrix:** A square matrix $R$ whose columns (and rows) are orthonormal (unit vectors that are mutually perpendicular). Orthogonal matrices represent transformations that are pure rotations (or reflections) and preserve the lengths and angles of vectors. A key property is that their inverse is simply their transpose: $R^{-1} = R^T$.
 
 ## Conclusion: The Language of Data
 
-Linear algebra provides the essential tools for representing and manipulating data in machine learning. Vectors and matrices give us a compact and efficient way to handle datasets and to define the mathematical operations at the heart of learning algorithms. Whether it's solving for the weights in a linear regression model, representing the connections in a neural network, or performing dimensionality reduction with Principal Component Analysis, the principles of linear algebra are the foundation upon which these powerful techniques are built.
+Linear algebra provides the essential tools for representing and manipulating data in machine learning. Vectors and matrices give us a compact and efficient way to handle datasets and to define the mathematical operations at the heart of learning algorithms. Whether solving for weights in a linear regression model, representing connections in a neural network, or performing dimensionality reduction, the principles of linear algebra are the foundation upon which these methods are built.

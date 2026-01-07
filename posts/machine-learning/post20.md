@@ -1,9 +1,10 @@
-# Model Selection and Estimating Generalization Performance
+---
+author: Tok Varol Cagdas
+order: 16
+---
 
-**Author:** Tok Varol Cagdas
-**Order:** 16
-**Date:**
-**Summary:** No summary available.
+
+# Model Selection and Estimating Generalization Performance
 
 In machine learning, our primary goal is not to build a model that performs perfectly on the data it was trained on, but to build a model that **generalizes** well to new, unseen data. The ability to accurately estimate this future performance is one of the most critical skills in the practical application of machine learning. This process, known as model selection, involves choosing the best model from a set of candidates and tuning its hyperparameters to achieve the best possible generalization.
 
@@ -33,9 +34,9 @@ The model with the lowest test set cost is then selected as the best model.
 When the amount of available data is limited, splitting it into a single training and test set can be problematic. The performance estimate can be highly variable depending on which specific data points happen to end up in the test set.
 
 **K-fold cross-validation** is a more robust and data-efficient method for estimating generalization performance. The procedure is as follows:
-1.  **Partition the Data:** The entire dataset is randomly partitioned into `K` equally sized, non-overlapping subsets (or "folds"). A common choice is `K=5` or `K=10`.
-2.  **Iterate `K` Times:** The process is repeated `K` times. In each iteration `k`, one fold is held out as the test set, and the remaining `K-1` folds are used for training.
-3.  **Average the Results:** This process yields `K` different estimates of the generalization cost. The final estimate is the average of these `K` values.
+1.  **Partition the Data:** The entire dataset is randomly partitioned into $K$ equally sized, non-overlapping subsets (or "folds"). A common choice is $K=5$ or $K=10$.
+2.  **Iterate $K$ Times:** The process is repeated $K$ times. In each iteration $k$, one fold is held out as the test set, and the remaining $K-1$ folds are used for training.
+3.  **Average the Results:** This process yields $K$ different estimates of the generalization cost. The final estimate is the average of these $K$ values.
 
 Cross-validation provides a more stable and reliable estimate of the model's performance because every data point gets to be in a test set exactly once. It also allows us to estimate the variance of our performance measure, giving us a sense of how much the model's performance might vary on different datasets.
 
@@ -49,9 +50,9 @@ Beyond these empirical methods, several theoretical frameworks provide guidance 
     -   **Irreducible Error (Residual):** The inherent noise in the data that no model can eliminate.
     The goal of model selection is to find a model that strikes an optimal balance between bias and variance.
 
--   **Information Criteria (AIC & BIC):** These are statistical criteria that provide a way to select a model by balancing its goodness of fit (measured by the likelihood of the data) with its complexity (measured by the number of parameters, `M_p`).
-    -   **Akaike Information Criterion (AIC):** `AIC = -2 * log(Likelihood) + 2 * M_p`
-    -   **Bayesian Information Criterion (BIC):** `BIC = -2 * log(Likelihood) + M_p * log(N)`
+-   **Information Criteria (AIC & BIC):** These are statistical criteria that provide a way to select a model by balancing its goodness of fit (measured by the likelihood of the data) with its complexity (measured by the number of parameters, $M_p$).
+    -   **Akaike Information Criterion (AIC):** $\text{AIC} = -2 \log(\text{Likelihood}) + 2 M_p$
+    -   **Bayesian Information Criterion (BIC):** $\text{BIC} = -2 \log(\text{Likelihood}) + M_p \log(N)$
     In both cases, a lower value is better. The BIC penalizes model complexity more heavily than the AIC, especially for large datasets, and thus tends to favor simpler models.
 
 -   **Statistical Learning Theory (VC-Theory):** This theory provides a more general, non-parametric framework for understanding generalization. It introduces the concept of the **VC-dimension**, a measure of a model's complexity or "capacity." VC-theory provides mathematical bounds on the maximum possible difference between the training and generalization error for a given model class. While these bounds are often too loose to be used directly for model selection, they provide deep theoretical insights into why and when learning is possible.

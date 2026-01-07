@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Perceptron: A Glimpse into the Dawn of Machine Learning - Varol Cagdas Tok</title>
+    <title>Conservative and Implicit Approaches: A Deeper Look at CQL and IQL - Varol Cagdas Tok</title>
     <link rel="stylesheet" href="../css/style.css">
+    <!-- KaTeX CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <!-- Marked.js for Markdown -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- KaTeX JS -->
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
     <script src="../js/math-renderer.js"></script>
 </head>
+
 <body>
     <header>
         <h1>Varol Cagdas Tok</h1>
@@ -21,10 +27,10 @@
         <a href="../about.html">About</a>
     </nav>
     <main id="article-content">
-        <div data-markdown-path="../posts/post21.md"></div>
+        <div data-markdown-path="../posts/reinforcement-learning/post42.md"></div>
     </main>
     <footer>
-        <p>&copy; 2025 Varol Cagdas Tok</p>
+        <p>&copy; 2026 Varol Cagdas Tok</p>
     </footer>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -34,10 +40,13 @@
             fetch(path)
                 .then(response => response.text())
                 .then(text => {
-                    container.innerHTML = marked.parse(text);
+                    // Use our custom renderer that protects math
+                    container.innerHTML = renderMarkdownWithMath(text);
+                    // Trigger KaTeX rendering
                     renderMath();
                 });
         });
     </script>
 </body>
+
 </html>

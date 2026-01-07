@@ -1,9 +1,10 @@
-# Application: Principal Component Analysis (PCA)
+---
+author: Tok Varol Cagdas
+order: 11
+---
 
-**Author:** Tok Varol Cagdas
-**Order:** 11
-**Date:**
-**Summary:** No summary available.
+
+# Application: Principal Component Analysis (PCA)
 
 ## Problem Statement
 
@@ -30,9 +31,9 @@ Applications:
 
 Subtract the mean from each feature:
 
-$X_centered$ = $X$ - **$\mu$**
+$$X_{\text{centered}} = X - \mu$$
 
-where **$\mu$** = (1/n)$\Sigm$a_{i}$=$_1^n$ $x_{i}$ is the mean vector (computed column-wise).
+where $\mu = (1/n)\sum_{i=1}^n x_i$ is the mean vector (computed column-wise).
 
 Centering ensures the first principal component captures the direction of maximum variance, not just the mean offset.
 
@@ -40,13 +41,13 @@ Centering ensures the first principal component captures the direction of maximu
 
 The covariance matrix $C \in \mathbb{R}^{d \times d}$ is:
 
-$C$ = (1/(n-1))$X_{centered}^T$ $X_centered$
+$$C = \frac{1}{n-1}X_{\text{centered}}^T X_{\text{centered}}$$
 
 The (i,j)-th entry is the covariance between features i and j:
 
-$c_{i}_j = (1/(n-1))$\Sigm$a_{m}$=$_1^n ($x_{m}_i$ - \m$u_{i}$)($x_{m}_j$ - \m$u_{j}$)
+$$c_{ij} = \frac{1}{n-1}\sum_{m=1}^n (x_{mi} - \mu_i)(x_{mj} - \mu_j)$$
 
-The diagonal entries are variances: $c_{i}_i$$ = var(feature i).
+The diagonal entries are variances: $c_{i}_i  = var(feature i).
 
 $C$ is symmetric and positive semi-definite.
 
@@ -54,19 +55,19 @@ $C$ is symmetric and positive semi-definite.
 
 Compute the eigendecomposition of $C$:
 
-$C = Q$**Λ**$Q^T$$
+$$C = Q\Lambda Q^T$$
 
 where:
-- $Q$ = [$q_1$ $q_{2}$ ... $q^{d}$] contains orthonormal eigenvectors (principal components)
-- **Λ** = diag($\lambd$a_{1}$, $\lambd$a_{2}$, ..., $\lambd$a^{d}$) contains eigenvalues (variance along each component)
+- $Q = [q_1, q_2, \ldots, q_d]$ contains orthonormal eigenvectors (principal components)
+- $\Lambda = \text{diag}(\lambda_1, \lambda_2, \ldots, \lambda_d)$ contains eigenvalues (variance along each component)
 
-Order eigenvalues: $\lambda_1$ \geq \lambd$a_2$ \geq$ ... $\geq \lambda$^d \geq$ 0.
+Order eigenvalues: $\lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_d \geq 0$.
 
 ### Step 4: Select Top k Components
 
 Choose k principal components with largest eigenvalues:
 
-$Q_{k}$ = [$q_1$ $q_{2}$ ... $q_{k}$] $\in \mathbb{R}$^d$x$^k$
+$$Q_{k} = [q_1 q_{2} ... q_{k}] \in \mathbb{R}^dx^k$$
 
 These directions capture the most variance.
 
@@ -74,9 +75,9 @@ These directions capture the most variance.
 
 Transform data to the k-dimensional subspace:
 
-$X_reduced$ = $X_centered$ $Q_k$ \in \mathbb{R}^{n \times k}$$
+$$X_{\text{reduced}} = X_{\text{centered}} Q_k \in \mathbb{R}^{n \times k}$$
 
-Each sample $x_{i}$ is projected: $z_i$ = $Q_{k}^T($x_{i}$ - **$\mu$**) $\in \mathbb{R}$^k$.
+Each sample $x_i$ is projected: $z_i = Q_k^T(x_i - \mu) \in \mathbb{R}^k$.
 
 ## Example
 
@@ -92,7 +93,7 @@ Step 1: Center the data:
 ```
 μ = (1/3)[(1+3+5), (2+4+6)]ᵀ = [3, 4]ᵀ
 
-X_centered = [1-3  2-4]   [-2  -2]
+$$X_centered = [1-3  2-4]   [-2  -2]$$
              [3-3  4-4] = [0   0]
              [5-3  6-4]   [2   2]
 ```
@@ -113,9 +114,9 @@ det(C - λI) = det([4-λ   4 ])
             = λ(λ - 8)
 ```
 
-Eigenvalues: $\lambd$a_{1}$ = 8, $\lambd$a_{2}$ = 0
+Eigenvalues: \lambda_{1} = 8, \lambda_{2} = 0
 
-For $\lambd$a_{1}$ = 8:
+For $\lambda_1 = 8$:
 ```
 (C - 8I)v = [-4  4][v₁]   [0]
             [4  -4][v₂] = [0]
@@ -123,9 +124,9 @@ For $\lambd$a_{1}$ = 8:
 -v₁ + v₂ = 0  →  v₁ = v₂
 ```
 
-Normalized: $q_{1}$ = $[1/$\sqrt$2, 1/$\sqrt$2]^T$
+Normalized: $q_1 = [1/\sqrt{2}, 1/\sqrt{2}]^T$ 
 
-For $\lambd$a_{2}$ = 0:
+For $\lambda_2 = 0$:
 ```
 Cv = [4  4][v₁]   [0]
      [4  4][v₂] = [0]
@@ -133,15 +134,15 @@ Cv = [4  4][v₁]   [0]
 v₁ + v₂ = 0  →  v₂ = -v₁
 ```
 
-Normalized: $q_{2}$ = $[1/$\sqrt$2, -1/$\sqrt$2]^T$
+Normalized: $q_2 = [1/\sqrt{2}, -1/\sqrt{2}]^T$ 
 
 Step 4: Select k=1 component:
 
-$Q_{1}$ = $[1/$\sqrt$2, 1/$\sqrt$2]^T$ (first column only)
+$Q_1 = [1/\sqrt{2}, 1/\sqrt{2}]^T$ (first column only) 
 
 Step 5: Project:
 ```
-X_reduced = [-2  -2][1/√2]   [-4/√2]   [-2√2]
+$$X_reduced = [-2  -2][1/√2]   [-4/√2]   [-2√2]$$
             [0   0][1/√2] = [0    ] = [0   ]
             [2   2]         [4/√2]    [2√2 ]
 ```
@@ -152,20 +153,20 @@ The data is now 1-dimensional, aligned with the direction [1, 1].
 
 The fraction of variance explained by the first k components is:
 
-variance explained = ($\Sigm$a_{i}$=$_1^k$ \lambd$a_{i}$) / ($\Sigm$a_{j}$=$_1^d$ \lambd$a_{j}$)
+$$\text{variance explained} = \frac{\sum_{i=1}^k \lambda_i}{\sum_{j=1}^d \lambda_j}$$
 
-In the example: $\lambd$a_{1}$ = 8, $\lambd$a_{2}$ = 0, so the first component explains 8/(8+0) = 100% of variance.
+In the example: $\lambda_{1}$ = 8, $\lambda_{2}$ = 0, so the first component explains 8/(8+0) = 100% of variance.
 
 ## SVD-Based PCA
 
 Instead of computing the covariance matrix, apply SVD directly to $X_centered$:
 
-$X_centered$ = $U$**$\Sigma$**$V^T$$
+$$X_{\text{centered}} = U \Sigma V^T$$
 
 Then:
 - Principal components: columns of $V$
-- Variance along component i: $\sigm$a_{i}^2$$/(n-1)
-- Projection: $X_reduced$ = $U$**$\Sigma$**$_k$ or $X_reduced$ = $X_centered$ V_{k}$
+- Variance along component i: $\sigma_i^2 /(n-1)$
+- Projection: $X_{\text{reduced}} = U \Sigma_k$ or $X_{\text{reduced}} = X_{\text{centered}} V_k$
 
 This is numerically more stable and efficient for large d.
 
@@ -173,16 +174,16 @@ This is numerically more stable and efficient for large d.
 
 To reconstruct approximate original data from reduced representation:
 
-$X_reconstructed$ = $X_reduced$ $Q_{k}^T + **$\mu$**
+$$X_{\text{reconstructed}} = X_{\text{reduced}} Q_k^T + \mu$$
 
-Reconstruction error: \|\1\|_F
+Reconstruction error: $\|X - X_{\text{reconstructed}}\|_F$
 
 ## Choosing k
 
 Methods to select the number of components:
 
-1. **Variance threshold**: Choose k such that variance explained $\geq$ threshold (e.g., 95%)
-2. **Scree plot**: Plot eigenvalues; look for "elbow" where $\lambd$a_{i}$ drops sharply
+1. **Variance threshold**: Choose k such that variance explained $\geq threshold (e.g., 95%)
+2. **Scree plot**: Plot eigenvalues; look for "elbow" where $\lambda_{i}$ drops sharply
 3. **Cross-validation**: Use validation performance on downstream task
 4. **Fixed target**: Choose k = 2 or 3 for visualization
 
@@ -203,9 +204,9 @@ Limitations:
 
 If features have different scales, standardize before PCA:
 
-$X_std$ = ($X$ - **$\mu$**) / **$\sigma$**
+$$X_{\text{std}} = (X - \mu) / \sigma$$
 
-where **$\sigma$** is the vector of standard deviations (computed column-wise).
+where $\sigma$ is the vector of standard deviations (computed column-wise).
 
 This ensures each feature contributes equally.
 

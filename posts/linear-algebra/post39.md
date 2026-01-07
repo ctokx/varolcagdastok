@@ -1,9 +1,10 @@
-# Course Review and Next Steps
+---
+author: Tok Varol Cagdas
+order: 15
+---
 
-**Author:** Tok Varol Cagdas
-**Order:** 15
-**Date:**
-**Summary:** No summary available.
+
+# Course Review and Next Steps
 
 ## Course Summary
 
@@ -23,7 +24,7 @@ This course covered the foundational linear algebra concepts required for unders
 
 **Module 3: Dot Products and Vector Norms**
 - Inner products and geometric interpretation
-- Norms: $L_{1}$, $L_{2}$, L$\infty$, and general Lₚ
+- Norms: $L_1$, $L_2$, $L_\infty$, and general $L_p$
 - Application: Similarity metrics and regularization
 
 ### Unit 2: Matrix Operations and Systems
@@ -51,12 +52,12 @@ This course covered the foundational linear algebra concepts required for unders
 - Application: Stability analysis in RNNs and spectral clustering
 
 **Module 8: Eigendecomposition**
-- Spectral decomposition $A = Q$**Λ**$Q$^T$
+- Spectral decomposition $A = Q\Lambda Q^T$
 - Matrix powers and functions
 - Application: PCA, whitening transformations, and Gaussian distributions
 
 **Module 9: Singular Value Decomposition (SVD)**
-- Decomposition $A = U$**$\Sigma$**$V$^T$ for any matrix
+- Decomposition $A = U \Sigma V^T$ for any matrix
 - Low-rank approximation and pseudo-inverse
 - Application: Dimensionality reduction, collaborative filtering, image compression
 
@@ -73,7 +74,7 @@ This course covered the foundational linear algebra concepts required for unders
 - Application: QR decomposition and orthogonal initialization
 
 **Module 12: Linear Regression**
-- Formulation and the normal equation $X$^T$Xw = X$^T$y$
+- Formulation and the normal equation $X^TXw = X^Ty$
 - Geometric interpretation as projection
 - Application: Baseline modeling and closed-form solutions
 
@@ -110,12 +111,12 @@ After completing this course, you should be able to:
 ## Connecting to Machine Learning Algorithms
 
 ### Linear Models
-- **Linear Regression**: $w$ = ($X$^T$X$)$^{-1}$X$^T$y$
+- **Linear Regression**: $w = (X^TX)^{-1}X^Ty$ 
 - **Logistic Regression**: Iterative optimization of log-likelihood using gradients
 - **Support Vector Machines**: Quadratic programming with kernel matrices
 
 ### Neural Networks
-- **Feedforward Layer**: $h = \sigma$($Wx + b$)
+- **Feedforward Layer**: $h = \sigma(Wx + b)$
 - **Backpropagation**: Chain rule via Jacobian matrices
 - **Batch Normalization**: Mean/variance computation via matrix operations
 
@@ -129,13 +130,13 @@ After completing this course, you should be able to:
 - **Spectral Clustering**: Graph Laplacian eigendecomposition
 
 ### Recommender Systems
-- **Matrix Factorization**: $R \approx$ **UV**$^T$ (low-rank approximation)
+- **Matrix Factorization**: $R \approx UV^T$ (low-rank approximation)
 - **SVD-based Collaborative Filtering**: Truncated SVD of user-item matrix
 
 ### Natural Language Processing
 - **Word Embeddings**: Vectors in $\mathbb{R}^{d}$ with dot product similarity
 - **Latent Semantic Analysis**: SVD of term-document matrix
-- **Attention Mechanisms**: Scaled dot products **QK**$^T$
+- **Attention Mechanisms**: Scaled dot products $QK^T$
 
 ## Further Study
 
@@ -145,7 +146,7 @@ To deepen your understanding, consider these topics:
 - **Tensor operations**: Extending to higher-order arrays
 - **Sparse matrices**: Efficient representations for high-dimensional data
 - **Matrix norms and conditioning**: Numerical stability
-- **Generalized eigenvalue problems**: $Av = \lambda$Bv$
+- **Generalized eigenvalue problems**: $Av = \lambda Bv$
 
 ### Optimization
 - **Convex optimization**: Quadratic programming, interior point methods

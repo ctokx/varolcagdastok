@@ -1,10 +1,11 @@
-# Measuring Test Suite Quality: A Guide to Coverage Criteria and Mutation Testing
+---
+author: Tok Varol Cagdas
+order: 2
+---
 
-**Author:** Tok Varol Cagdas
-**Order:** 2
-**Date:**
-**Summary:** No summary available.
-<p class="post-date">Published: November 15, 2025</p>
+
+# Test Coverage and Mutation Testing
+
 
 After writing a large test suite, how do you assess its quality? How do you know if you are "done testing"? To answer this, we need **adequacy criteria**, which are metrics for measuring the quality and thoroughness of a test suite.
 
@@ -26,7 +27,7 @@ Here are the most common structural coverage criteria, from weakest to strongest
 
 ## 3. Modified Condition/Decision Coverage (MC/DC)
 * **Goal:** A much stricter standard that enhances branch and condition coverage. MC/DC requires that every "atom" (a sub-expression in a condition) is shown to **independently affect that condition's outcome**.
-* **Discussion:** To show independent affection for an atom `A` in a condition like `(A && B)`, you need a pair of tests where:
+* **Discussion:** To show independent effect for an atom `A` in a condition like `(A && B)`, you need a pair of tests where:
     1.  The value of `B` is the same in both tests.
     2.  The value of `A` is `true` in one test and `false` in the other.
     3.  The *final outcome* of `(A && B)` is different for both tests.

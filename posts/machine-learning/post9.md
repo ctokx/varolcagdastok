@@ -1,9 +1,10 @@
-# An Introduction to Deep Learning: From Revival to Revolution
+---
+author: Tok Varol Cagdas
+order: 8
+---
 
-**Author:** Tok Varol Cagdas
-**Order:** 8
-**Date:**
-**Summary:** No summary available.
+
+# Introduction to Deep Learning
 
 After a period often referred to as the "AI winter," neural networks experienced a dramatic resurgence in the late 2000s, sparking the deep learning revolution that continues to shape technology today. Pioneers like Geoffrey Hinton, Yann LeCun, and Yoshua Bengio revisited and advanced earlier concepts, leveraging increased computational power and vast datasets to unlock unprecedented capabilities. This article provides an overview of the fundamental principles of deep learning, exploring the key ingredients that contribute to its success and the theoretical concepts that explain its power.
 
@@ -19,7 +20,7 @@ The modern practice of deep learning can be distilled into a set of core compone
 
 4.  **Advanced Optimization and Regularization:**
     *   **Stochastic Gradient Descent (SGD):** Instead of calculating the gradient of the loss function over the entire dataset (which is computationally expensive), SGD and its variants (like minibatch SGD) estimate the gradient using a small, random subset of the data. This makes the training process much faster and can help the model escape poor local optima.
-    *   **Rectified Linear Units (ReLU):** The activation function `max(0, h)` has become the standard for most hidden layers. ReLUs help mitigate the "vanishing gradient" problem that can occur with traditional sigmoidal functions, allowing for faster and more stable training. They also promote sparsity in the network's activations.
+    *   **Rectified Linear Units (ReLU):** The activation function $\max(0, h)$ has become the standard for most hidden layers. ReLUs help mitigate the "vanishing gradient" problem that can occur with traditional sigmoidal functions, allowing for faster and more stable training. They also promote sparsity in the network's activations.
     *   **Dropout:** This is a powerful regularization technique where a random fraction of neurons is temporarily "dropped" or ignored during each training step. This prevents neurons from co-adapting too much and forces the network to learn more robust and redundant features. At test time, all neurons are used, but their outputs are scaled down to account for the dropout during training. This can be seen as an efficient way to train and average an ensemble of many different network architectures.
 
 ## Convolutional Neural Networks (CNNs): A Specialized Architecture for Spatial Data

@@ -1,9 +1,10 @@
-# Matrix Multiplication and Linear Transformations
+---
+author: Tok Varol Cagdas
+order: 5
+---
 
-**Author:** Tok Varol Cagdas
-**Order:** 5
-**Date:**
-**Summary:** No summary available.
+
+# Matrix Multiplication and Linear Transformations
 
 ## Matrix-Vector Multiplication
 
@@ -35,7 +36,7 @@ For $Ax$ to be defined:
 
 Matrix-vector multiplication can be viewed as a linear combination of columns:
 
-If $A = [a_1 \; a_2 \; \ldots \; a_n]$ (columns) and $x = [x_1, x_2, \ldots, x_n]^T$, then:
+If $A = [a_1 \; a_2 \; \ldots \; a_n]$ (columns) and $ x = [x_1, x_2, \ldots, x_n]^T$, then:
 
 $$Ax = x_1 a_1 + x_2 a_2 + \cdots + x_n a_n$$
 
@@ -102,13 +103,13 @@ AB ≠ BA
 
 ## Computational Complexity
 
-Multiplying an $m \times n$ matrix by an $n \times p$ matrix requires:
+Multiplying an $m \times n $ matrix by an $ n \times p$ matrix requires:
 - $O(mnp)$ scalar multiplications
 - $O(mnp)$ scalar additions
 
-For square matrices ($n \times n$), this is $O(n^3)$.
+For square matrices ($n \times n $), this is $ O(n^3)$.
 
-For matrix-vector multiplication ($n \times n$ matrix, n-dimensional vector): $O(n^2)$.
+For matrix-vector multiplication ($n \times n $ matrix, n-dimensional vector): $ O(n^2)$.
 
 ## Linear Transformations
 
@@ -132,7 +133,7 @@ R(θ) = [cos(θ)  -sin(θ)]
        [sin(θ)   cos(θ)]
 ```
 
-Rotating $x = [1, 0]^T$ by 90° ($\theta = \pi/2$):
+Rotating $x = [1, 0]^T $ by 90° ($\theta = \pi/2$):
 
 ```
 R(π/2) = [0  -1]
@@ -144,14 +145,14 @@ R(π/2)[1] = [0]
 
 ### Example: Scaling
 
-Scaling by factors $s_x$ and $s_y$:
+Scaling by factors $s_x $ and $ s_y$:
 
 ```
 S = [sₓ   0]
     [0   sᵧ]
 ```
 
-For $s_x = 2$, $s_y = 3$:
+For $s_x = 2, s_y = 3$:
 
 ```
 S[1] = [2]
@@ -172,7 +173,7 @@ P[3] = [3]
 
 ## Composition of Transformations
 
-Applying transformation $B$ followed by $A$ is:
+Applying transformation $B $ followed by $ A$ is:
 
 $$T(x) = A(Bx) = (AB)x$$
 
@@ -198,7 +199,7 @@ $$h = \sigma(Wx + b)$$
 
 where $W$ is the weight matrix and $\sigma$ is an activation function. The linear part $Wx$ is matrix-vector multiplication.
 
-**Batch Processing**: Processing n samples $X \in \mathbb{R}^{n \times d}$ through a layer with weights $W \in \mathbb{R}^{d \times k}$:
+**Batch Processing**: Processing n samples $X \in \mathbb{R}^{n \times d}$ through a layer with weights $ W \in \mathbb{R}^{d \times k}$:
 
 $$H = XW$$
 

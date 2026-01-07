@@ -1,9 +1,10 @@
-# Linear Algebra for Machine Learning: Course Overview
+---
+author: Tok Varol Cagdas
+order: 1
+---
 
-**Author:** Tok Varol Cagdas
-**Order:** 1
-**Date:**
-**Summary:** No summary available.
+
+# Linear Algebra for Machine Learning: Course Overview
 
 ## Purpose of These Notes
 

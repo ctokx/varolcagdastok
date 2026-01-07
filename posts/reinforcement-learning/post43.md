@@ -1,13 +1,15 @@
-# Lessons from Benchmarking Offline RL: What Really Matters in Practice
+---
+author: Tok Varol Cagdas
+order: 4
+summary: Synthesizing insights from our extensive experimentation with BC, TD3+BC, IQL, and CQL across MuJoCo tasks. We present a quantitative comparison that reveals a clear conclusion: no single algorithm wins. The "best" method is highly dependent on dataset quality. We find that BC excels on expert data, while our enhanced TD3+BC and IQL show the strongest performance on noisy, medium-quality data.
+---
 
-**Author:** Tok Varol Cagdas
-**Order:** 4
-**Summary:** Synthesizing insights from our extensive experimentation with BC, TD3+BC, IQL, and CQL across MuJoCo tasks. We present a quantitative comparison that reveals a clear conclusion: no single algorithm wins. The "best" method is highly dependent on dataset quality. We find that BC excels on expert data, while our enhanced TD3+BC and IQL show the strongest performance on noisy, medium-quality data.
+
+# Benchmarking Offline RL Algorithms
 
 After implementing and benchmarking four distinct offline RL algorithms (Behavioral Cloning, our custom TD3+BC, IQL, and CQL) across eight MuJoCo environments and two dataset qualities (expert and medium) for 10 random seeds each, our research yielded a rich set of insights.
 
 The messy reality of practice is that the "best" algorithm is always context-dependent. [cite_start]Our findings, summarized in Table III of our paper [cite: 344-347], reveal clear patterns.
-
 
 *TABLE III from our report, showing the final mean return (± std. dev.) for all four algorithms across all tasks. [cite_start]Best results per row are highlighted [cite: 344-347].*
 
@@ -32,7 +34,6 @@ This is where the robustness of our **customized TD3+BC** and the cleverness of 
 * **Swimmer-Medium:** Our **Custom TD3+BC** won again with **235.21**, followed by IQL (227.70) and BC (198.20).
 * **InvertedDoublePendulum-Medium:** **IQL** was the dominant algorithm, achieving a near-perfect score of **9358.84**, significantly outperforming our TD3+BC (8169.92).
 * **HalfCheetah-Medium:** **BC** actually won this task (11972.09), with our Custom TD3+BC (10768.79) as a strong second. This shows that even on medium data, high-quality imitation can be a powerful baseline.
-
 
 *Our custom TD3+BC learning on Walker2D-medium, showing stable convergence to a high-return policy.*
 

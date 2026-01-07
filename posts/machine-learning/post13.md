@@ -1,9 +1,10 @@
-# Modeling Sequential Data: From Recurrent Neural Networks to the Attention Revolution
+---
+author: Tok Varol Cagdas
+order: 9
+---
 
-**Author:** Tok Varol Cagdas
-**Order:** 9
-**Date:**
-**Summary:** No summary available.
+
+# Recurrent Neural Networks and Attention Mechanisms
 
 Many of the most important and challenging problems in machine learning involve sequential data—data where the order of elements is crucial. Examples are everywhere: time series like stock prices, sentences in natural language, audio waveforms, and DNA sequences. Standard feedforward neural networks, which assume that data points are independent and identically distributed (i.i.d.), are not well-suited for these tasks. This article explores the evolution of architectures designed specifically for sequential data, from the foundational Recurrent Neural Networks (RNNs) to the powerful attention mechanisms that underpin modern models like the Transformer.
 
@@ -11,24 +12,28 @@ Many of the most important and challenging problems in machine learning involve 
 
 The fundamental challenge in modeling sequences is the need for memory. A model's prediction at the current time step often depends on information from previous time steps. A **Recurrent Neural Network (RNN)** addresses this by introducing a feedback loop.
 
-In a standard feedforward network, information flows in one direction: from input to output. In an RNN, the activations of the hidden layer at a given time step `t` are fed back as an input to the same hidden layer at the next time step, `t+1`. This recurrent connection allows the hidden state `z_t` to act as a form of memory, accumulating information from all previous inputs in the sequence.
+In a standard feedforward network, information flows in one direction: from input to output. In an RNN, the activations of the hidden layer at a given time step $t$ are fed back as an input to the same hidden layer at the next time step, $t+1$. This recurrent connection allows the hidden state $\mathbf{z}_t$ to act as a form of memory, accumulating information from all previous inputs in the sequence.
 
 The equations for a simple RNN can be written as:
 
-`z_t = sig(V*x_t + B*z_{t-1})`
-`y_t = sig(W*z_t)`
+$$
+\mathbf{z}_t = \sigma(\mathbf{V}\mathbf{x}_t + \mathbf{B}\mathbf{z}_{t-1})
+$$
+$$
+\mathbf{y}_t = \sigma(\mathbf{W}\mathbf{z}_t)
+$$
 
-Here, `x_t` is the input at time `t`, `z_t` is the hidden state, and `y_t` is the output. Crucially, the same weight matrices (`V`, `B`, `W`) are used at every time step. This weight sharing makes the model efficient and allows it to generalize to sequences of varying lengths. The network is trained by "unfolding" it through time and applying a modified version of backpropagation called Backpropagation Through Time (BPTT).
+Here, $\mathbf{x}_t$ is the input at time $t$, $\mathbf{z}_t$ is the hidden state, and $\mathbf{y}_t$ is the output. Crucially, the same weight matrices ($\mathbf{V}$, $\mathbf{B}$, $\mathbf{W}$) are used at every time step. This weight sharing makes the model efficient and allows it to generalize to sequences of varying lengths. The network is trained by "unfolding" it through time and applying a modified version of backpropagation called Backpropagation Through Time (BPTT).
 
 ## The Vanishing Gradient Problem and LSTMs
 
 While elegant in theory, simple RNNs struggle to learn long-range dependencies. During BPTT, gradients are propagated backward through the sequence. For long sequences, these gradients can either shrink exponentially until they vanish or explode to an unmanageably large size. The **vanishing gradient problem** is particularly common and makes it very difficult for the network to learn connections between events that are far apart in the sequence.
 
-The **Long Short-Term Memory (LSTM)** network was designed specifically to solve this problem. An LSTM is a more complex type of recurrent unit that introduces a dedicated **cell state** `s_t`, which acts as a conveyor belt for information. The LSTM can add or remove information from this cell state using a set of specialized mechanisms called **gates**:
+The **Long Short-Term Memory (LSTM)** network was designed specifically to solve this problem. An LSTM is a more complex type of recurrent unit that introduces a dedicated **cell state** $\mathbf{s}_t$, which acts as a conveyor belt for information. The LSTM can add or remove information from this cell state using a set of specialized mechanisms called **gates**:
 
-1.  **Forget Gate:** Decides what information from the previous cell state `s_{t-1}` should be discarded.
-2.  **Input Gate:** Decides what new information from the current input `x_t` should be stored in the cell state.
-3.  **Output Gate:** Decides what part of the cell state should be used to compute the hidden state `z_t` and the final output.
+1.  **Forget Gate:** Decides what information from the previous cell state $\mathbf{s}_{t-1}$ should be discarded.
+2.  **Input Gate:** Decides what new information from the current input $\mathbf{x}_t$ should be stored in the cell state.
+3.  **Output Gate:** Decides what part of the cell state should be used to compute the hidden state $\mathbf{z}_t$ and the final output.
 
 Each of these gates is a small neural network that learns to control the flow of information. This gating mechanism allows LSTMs to selectively remember or forget information over long periods, making them much more effective at capturing long-range dependencies than simple RNNs.
 

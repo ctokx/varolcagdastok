@@ -1,9 +1,10 @@
-# Systems of Linear Equations
+---
+author: Tok Varol Cagdas
+order: 6
+---
 
-**Author:** Tok Varol Cagdas
-**Order:** 6
-**Date:**
-**Summary:** No summary available.
+
+# Systems of Linear Equations
 
 ## Definition
 
@@ -18,7 +19,7 @@ aₘ₁x₁ + aₘ₂x₂ + ... + aₘₙxₙ = bₘ
 
 This can be written compactly as a matrix equation:
 
-$Ax = b$
+$$Ax = b$$ 
 
 where:
 - $A \in \mathbb{R}^{m \times n}$ is the coefficient matrix
@@ -54,17 +55,15 @@ A system $Ax = b$ can have:
 [1  3][x₂] = [8]
 ```
 
-Solution: $x = [1, 3]^T$
+From equation 1: $2x_1 + x_2 = 5 \implies x_2 = 5 - 2x_1$
+Substitute into equation 2:
+$$x_1 + 3(5 - 2x_1) = 8$$
+$$x_1 + 15 - 6x_1 = 8$$
+$$-5x_1 = -7 \implies x_1 = \frac{7}{5} = 1.4$$
 
-Verify: 2(1) + 1(3) = 5 ✓ and 1(1) + 3(3) = 10... wait, 1 + 9 = 10 $\neq$ 8. Let me recalculate.
+Then $x_2 = 5 - 2(1.4) = 5 - 2.8 = 2.2$.
 
-Actually: 1(1) + 3(3) = 1 + 9 = 10 $\neq$ 8. Let me solve correctly:
-
-From equation 1: $2x_1$ + $x_{2}$ = 5 → $x_{2}$ = 5 - $2x_1$
-Substitute into equation 2: $x_{1}$ + 3(5 - $2x_1$) = 8 → $x_{1}$ + 15 - $6x_1$ = 8 → -$5x_1$ = -7 → $x_{1}$ = 7/5
-Then $x_{2}$ = 5 - 2(7/5) = 5 - 14/5 = 11/5
-
-Solution: $x = [7/5, 11/5]^T$ = $[1.4, 2.2]^T$
+Solution: $x = [1.4, 2.2]^T$
 
 ### Example: Infinite Solutions
 
@@ -73,7 +72,7 @@ Solution: $x = [7/5, 11/5]^T$ = $[1.4, 2.2]^T$
 [2  4][x₂] = [6]
 ```
 
-The second equation is 2$\times$ the first, so both equations represent the same constraint. Solutions: $x_{2}$ = (3 - $x_{1}$)/2 for any $x_{1}$. Example solutions: $[1, 1]^T$, $[3, 0]^T$, $[-1, 2]^T$.
+The second equation is $2 \times$ the first, so both equations represent the same constraint. Solutions: $x_2 = (3 - x_1)/2$ for any $x_1$. Example solutions: $[1, 1]^T$, $[3, 0]^T$, $[-1, 2]^T$.
 
 ### Example: No Solution
 
@@ -109,8 +108,8 @@ Augmented matrix:
 ```
 
 Step 1: Eliminate $x_{1}$ from rows 2 and 3:
-- $R_{2}$ ← $R_{2}$ - $2R_1$
-- $R_{3}$ ← $R_{3}$ - $R_{1}$
+- $R_{2}$ ← $ R_{2}$ - $2R_1$
+- $R_{3}$ ← $ R_{3}$ - $ R_{1}$
 
 ```
 [1   2   1 | 4]
@@ -119,7 +118,7 @@ Step 1: Eliminate $x_{1}$ from rows 2 and 3:
 ```
 
 Step 2: Eliminate from row 3:
-- $R_{3}$ ← $R_{3}$ - $R_{2}$
+- $R_{3}$ ← $ R_{3}$ - $ R_{2}$
 
 ```
 [1   2   1 | 4]
@@ -128,13 +127,13 @@ Step 2: Eliminate from row 3:
 ```
 
 Step 3: Back substitution:
-- From row 2: -$3x_2$ + $x_{3}$ = -1 → $x_{3}$ = $3x_2$ - 1
-- From row 1: $x_{1}$ + $2x_2$ + $x_{3}$ = 4 → $x_{1}$ = 4 - $2x_2$ - $x_{3}$ = 4 - $2x_2$ - ($3x_2$ - 1) = 5 - $5x_2$
+- From row 2: $-3x_2 + x_3 = -1 \implies x_3 = 3x_2 - 1$
+- From row 1: $x_1 + 2x_2 + x_3 = 4 \implies x_1 = 4 - 2x_2 - x_3 = 4 - 2x_2 - (3x_2 - 1) = 5 - 5x_2$
 
-Solution (parametrized by $x_{2}$ = t):
+Solution (parametrized by $x_2 = t$):
 $$x = [5 - 5t, t, 3t - 1]^T$$
 
-Example: t = 1 gives $x = [0, 1, 2]^T$.
+Example: $t = 1$ gives $x = [0, 1, 2]^T$.
 
 ## Row Echelon Form
 
@@ -160,31 +159,31 @@ Example RREF:
 
 A system is homogeneous if $b$ = **0**:
 
-$Ax$ = **0**
+$$Ax = \mathbf{0}$$
 
-Homogeneous systems always have at least one solution: $x$ = **0** (trivial solution).
+Homogeneous systems always have at least one solution: $x = \mathbf{0}$ (trivial solution).
 
-If $A$ has more columns than rows (n > m), or if columns are linearly dependent, non-trivial solutions exist.
+If $A$ has more columns than rows ($n > m$), or if columns are linearly dependent, non-trivial solutions exist.
 
 ## Relevance for Machine Learning
 
 **Linear Regression (Normal Equation)**: The optimal weights for linear regression satisfy:
 
-$X$^T$Xw = X$^T$y$
+$$X^TXw = X^Ty$$
 
-This is a system of linear equations. When $X$^T$X$ is invertible, the solution is:
+This is a system of linear equations. When $X^TX$ is invertible, the solution is:
 
-$w$ = ($X$^T$X$)$^{-1}$X$^T$y$
+$$w = (X^TX)^{-1}X^Ty$$
 
-**Least Squares Problems**: Many ML problems involve finding $x$ that minimizes \|\1\|$_2$^2$. The solution satisfies the normal equation:
+**Least Squares Problems**: Many ML problems involve finding $x$ that minimizes $\|Ax - b\|_2^2$. The solution satisfies the normal equation:
 
-$A$^T$Ax = A$^T$b$
+$$A^TAx = A^Tb$$
 
 **Solving Network Equations**: In graph neural networks, node representations satisfy systems of equations based on message passing.
 
 **Kernel Ridge Regression**: The prediction function involves solving:
 
-($K + \lambda$I$)**$\alpha$** = $y$
+$$(K + \lambda I)\alpha = y$$
 
 where $K$ is the kernel matrix.
 

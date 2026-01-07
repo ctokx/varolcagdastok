@@ -1,10 +1,11 @@
-# Managing Evolving Code: A Guide to Regression Testing
+---
+author: Tok Varol Cagdas
+order: 7
+---
 
-**Author:** Tok Varol Cagdas
-**Order:** 7
-**Date:**
-**Summary:** No summary available.
-<p class="post-date">Published: November 13, 2025</p>
+
+# Regression Testing
+
 
 Software is not static; it changes constantly. Programmers fix bugs, add new features, and refactor code. Every time a change is made, there is a risk that it will unintentionally alter or break existing, previously-tested behavior.
 
@@ -17,19 +18,19 @@ Therefore, we must use techniques to optimize our regression testing. The three 
 ## 1. Test Suite Minimization
 
 * **The Idea:** To *permanently reduce* the size of the test suite by removing redundant tests.
-* **The Goal:** Find a minimal subset of tests `TS` that achieves the same **adequacy criterion** (e.g., 100% branch coverage) as the original full suite `T`.
+* **The Goal:** Find a minimal subset of tests $TS$ that achieves the same **adequacy criterion** (e.g., 100% branch coverage) as the original full suite $T$.
 * **Key Concepts:**
-    * **Redundant Test:** A test `t` is redundant if its removal does not reduce the adequacy of the test suite. For a metric `m`, `m(T) = m(T \ {t})`.
-    * **Essential Test:** A test `t` is essential if it is the *only* test that covers a specific test goal (like a particular branch).
+    * **Redundant Test:** A test $t$ is redundant if its removal does not reduce the adequacy of the test suite. For a metric $m$, $m(T) = m(T \setminus \{t\})$.
+    * **Essential Test:** A test $t$ is essential if it is the *only* test that covers a specific test goal (like a particular branch).
 * **The Risk:** Minimization is a trade-off. A removed test might be "redundant" from a *coverage* perspective but may have been the only test that could find a *specific fault*.
 
 ## 2. Test Selection
 
 * **The Idea:** To *temporarily select* a subset of tests from the full suite to run for a specific change.
 * **The Goal:** Instead of running all 10,000 tests, run only the tests that are *relevant* to the code that was just modified.
-* **How it Works (CFA-based):** One approach is to analyze the program's Control-Flow Automaton (CFA). The algorithm compares the CFA of the original program (`P`) with the CFA of the modified program (`P'`).
+* **How it Works (CFA-based):** One approach is to analyze the program's Control-Flow Automaton (CFA). The algorithm compares the CFA of the original program ($P$) with the CFA of the modified program ($P'$).
     1.  It traces the paths of both versions simultaneously.
-    2.  If it finds an edge in the *original* program `P` that has been modified or deleted in `P'`, it adds all tests that covered that original edge to the "selected" test suite `TS`.
+    2.  If it finds an edge in the *original* program $P$ that has been modified or deleted in $P'$, it adds all tests that covered that original edge to the "selected" test suite $TS$.
     * This algorithm effectively selects all tests that would execute differently due to the code change.
 
 ## 3. Test Prioritization

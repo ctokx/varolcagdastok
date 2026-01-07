@@ -1,10 +1,11 @@
-# A Guide to Black-Box Testing: Equivalence, Boundary, and Decision Table Techniques
+---
+author: Tok Varol Cagdas
+order: 1
+---
 
-**Author:** Tok Varol Cagdas
-**Order:** 1
-**Date:**
-**Summary:** No summary available.
-<p class="post-date">Published: November 17, 2025</p>
+
+# Black-Box Testing Techniques
+
 
 Black-box testing is a method of software testing that does not consider the internal structure of the system. Instead, test cases are derived from the external specification, which describes what the system is supposed to do. This approach is often used in system and integration testing.
 
@@ -29,9 +30,9 @@ This specification leads to three distinct equivalence classes for the input `nu
 
 | Class Name | Values | Representative |
 | :--- | :--- | :--- |
-| non-negative | $0 \le num \le$ Integer.MAX_VALUE | 10 |
-| negative-not-min | Integer.MIN_VALUE < $num$ < 0 | -5 |
-| min-value | $num$ = Integer.MIN_VALUE | Integer.MIN_VALUE |
+| non-negative | $0 \le \texttt{num} \le \texttt{Integer.MAX\_VALUE}$ | 10 |
+| negative-not-min | $\texttt{Integer.MIN\_VALUE} < \texttt{num} < 0$ | -5 |
+| min-value | $\texttt{num} = \texttt{Integer.MIN\_VALUE}$ | Integer.MIN_VALUE |
 
 This reduces the full range of possible integers to just three representative cases.
 
@@ -43,9 +44,9 @@ Boundary value analysis requires identifying the partitions and then testing the
 
 ### Example: `getAbsoluteValue(int num)` Boundaries
 Using the same classes from before, we can identify the following boundaries and create test cases for them:
-* **For `non-negative` ($0 \le num \le$ MAX):** Boundaries are 0 and `Integer.MAX_VALUE`.
-* **For `negative-not-min` (MIN < $num$ < 0):** Boundaries are `Integer.MIN_VALUE + 1` and `-1`.
-* **For `min-value` ($num$ = MIN):** The boundary is `Integer.MIN_VALUE`.
+* **For `non-negative` ($0 \le \texttt{num} \le \texttt{MAX}$):** Boundaries are 0 and `Integer.MAX_VALUE`.
+* **For `negative-not-min` ($\texttt{MIN} < \texttt{num} < 0$):** Boundaries are `Integer.MIN_VALUE + 1` and `-1`.
+* **For `min-value` ($\texttt{num} = \texttt{MIN}$):** The boundary is `Integer.MIN_VALUE`.
 
 This creates a more robust set of test cases for catching common off-by-one errors.
             

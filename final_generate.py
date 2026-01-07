@@ -1,121 +1,87 @@
 import os
 import json
 import re
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 
 def get_post_details(filepath):
-    """Extracts title, author, order, date, and summary from a markdown file."""
     with open(filepath, 'r', encoding='utf-8') as f:
         content = f.read()
 
-    title_match = re.search(r'^#\s+(.*)', content)
-    author_match = re.search(r'^\*\*Author:\*\*\s+(.*)', content, re.MULTILINE)
-    order_match = re.search(r'^\*\*Order:\*\*\s+(\d+)', content, re.MULTILINE)
-    date_match = re.search(r'^\*\*Date:\*\*\s+(.*)', content, re.MULTILINE)
-    summary_match = re.search(r'^\*\*Summary:\*\*\s+(.*)', content, re.MULTILINE)
+    author = "Varol Cagdas Tok"
+    order = 999
+    summary = ""
+    
+    if content.startswith('---'):
+        parts = content.split('---', 2)
+        if len(parts) >= 3:
+            frontmatter = parts[1]
+            content = parts[2]
+            
+            author_match = re.search(r'^author:\s*(.+)$', frontmatter, re.MULTILINE)
+            order_match = re.search(r'^order:\s*(\d+)$', frontmatter, re.MULTILINE)
+            summary_match = re.search(r'^summary:\s*(.+)$', frontmatter, re.MULTILINE)
+            
+            if author_match:
+                author = author_match.group(1).strip()
+            if order_match:
+                order = int(order_match.group(1))
+            if summary_match:
+                summary = summary_match.group(1).strip()
 
+    title_match = re.search(r'^#\s+(.*)', content, re.MULTILINE)
     title = title_match.group(1).strip() if title_match else "Untitled"
-    author = author_match.group(1).strip() if author_match else "Tok Varol Cagdas"
-    order = int(order_match.group(1)) if order_match else 999  # Default to end if no order
-    summary = summary_match.group(1).strip() if summary_match else "No summary available."
 
-    # Date is optional - only use if provided and not empty
-    date_str = None
-    if date_match:
-        date_str = date_match.group(1).strip()
-        if not date_str or date_str == "":
-            date_str = None
-
-    # Format date if provided, otherwise leave empty
-    formatted_date = ""
-    if date_str:
-        try:
-            date_obj = datetime.strptime(date_str, '%B %d, %Y')
-            formatted_date = date_obj.strftime('%Y-%m-%d')
-        except ValueError:
-            # Invalid date format, leave empty
-            formatted_date = ""
-
-    return title, author, order, formatted_date, summary
-
-def create_category_slug(category_name):
-    """Convert category name to folder slug"""
-    slug_map = {
-        "Software Engineering & Testing": "software-engineering-testing",
-        "Cybersecurity & Machine Learning": "cybersecurity-machine-learning",
-        "Machine Learning": "machine-learning",
-        "Linear Algebra for Machine Learning": "linear-algebra",
-        "Reinforcement Learning": "reinforcement-learning"
-    }
-    return slug_map.get(category_name, category_name.lower().replace(" ", "-").replace("&", "and"))
+    return title, author, order, summary
 
 def generate_all():
-    """
-    Generates the posts.json file and the individual HTML pages for each post.
-    Now works with category-based folder structure under posts/
-    """
     base_dir = Path(os.getcwd())
     posts_dir = base_dir / 'posts'
     posts_json_path = base_dir / 'js' / 'posts.json'
     template_path = base_dir / 'post-template.html'
     output_dir = base_dir / 'posts'
 
-    # Predefined categories with their descriptions
     categories = {
         "Software Engineering & Testing": {
-            "description": "These articles serve as my understanding of software testing. They are based on the slides from the software testing lecture when I was a student at LMU.",
+            "description": "Notes on software testing concepts and techniques.",
             "articles": [],
             "folder": "software-engineering-testing"
         },
-        "Cybersecurity & Machine Learning": {
-            "description": "Explorations into cybersecurity concepts and machine learning applications.",
-            "articles": [],
-            "folder": "cybersecurity-machine-learning"
-        },
         "Machine Learning": {
-            "description": "This category reflects my understanding of Machine Learning based on the lecture I attended at LMU.",
+            "description": "Notes on machine learning concepts and algorithms.",
             "articles": [],
             "folder": "machine-learning"
         },
         "Linear Algebra for Machine Learning": {
-            "description": "Personal notes covering foundational linear algebra concepts for machine learning. These notes aim to help others understand the mathematical foundations of modern ML algorithms.",
+            "description": "Linear algebra foundations for machine learning.",
             "articles": [],
             "folder": "linear-algebra"
         },
         "Reinforcement Learning": {
-            "description": "Deep dive into offline reinforcement learning algorithms, exploring how AI agents learn from pre-collected data. Based on a project comparing BC, TD3+BC, IQL, and CQL on continuous control tasks.",
+            "description": "Notes on reinforcement learning algorithms.",
             "articles": [],
             "folder": "reinforcement-learning"
         }
     }
 
-    # Scan category folders for markdown files
     all_articles = []
 
     for category_name, category_data in categories.items():
         category_folder = posts_dir / category_data["folder"]
 
-        # Skip if folder doesn't exist
         if not category_folder.exists():
-            print(f"Warning: Category folder {category_data['folder']} does not exist. Skipping...")
             continue
 
-        # Find all markdown files in this category folder
         for md_file in category_folder.glob("*.md"):
-            title, author, order, date, summary = get_post_details(md_file)
-
-            post_name = md_file.stem  # filename without extension
+            title, author, order, summary = get_post_details(md_file)
+            post_name = md_file.stem
             slug = re.sub(r'[^a-z0-9-]+', '', title.lower().replace(' ', '-'))
-
-            # Store relative path from posts directory
             relative_md_path = f"{category_data['folder']}/{md_file.name}"
 
             article_data = {
                 "title": title,
                 "author": author,
                 "order": order,
-                "date": date,
                 "url": f"posts/{slug}.html",
                 "slug": slug,
                 "filename": post_name,
@@ -124,32 +90,26 @@ def generate_all():
                 "md_path": relative_md_path
             }
 
-            # Add to this category
             category_data["articles"].append(article_data)
             all_articles.append(article_data)
-
             print(f"Found: {category_name}/{md_file.name} (order: {order})")
 
-    # Sort articles within each category by order (logical sequence)
     for category_data in categories.values():
         category_data["articles"].sort(key=lambda x: x["order"])
 
-    # Format the final JSON data
     output_data = {"categories": []}
     for name, data in categories.items():
-        if data["articles"]:  # Only include categories with articles
+        if data["articles"]:
             output_data["categories"].append({
                 "name": name,
                 "description": data["description"],
                 "articles": data["articles"]
             })
 
-    # Write the new posts.json file
     with open(posts_json_path, 'w', encoding='utf-8') as f:
         json.dump(output_data, f, indent=2)
-    print(f"\n✓ Successfully generated posts.json with {len(all_articles)} articles across {len(output_data['categories'])} categories.")
+    print(f"\n✓ Generated posts.json with {len(all_articles)} articles across {len(output_data['categories'])} categories.")
 
-    # Generate individual HTML pages
     if not output_dir.exists():
         output_dir.mkdir(parents=True)
 
@@ -159,16 +119,73 @@ def generate_all():
     for article in all_articles:
         output_path = output_dir / f"{article['slug']}.html"
         post_html = template_html.replace('{{POST_TITLE}}', article['title'])
-        # Update path to include category folder
         post_html = post_html.replace('{{MARKDOWN_PATH}}', f"../posts/{article['md_path']}")
 
         with open(output_path, 'w', encoding='utf-8') as f:
             f.write(post_html)
 
-    print(f"✓ Successfully generated {len(all_articles)} HTML pages.")
+    print(f"✓ Generated {len(all_articles)} HTML pages.")
     print("\n📁 Category breakdown:")
     for category in output_data['categories']:
         print(f"  - {category['name']}: {len(category['articles'])} articles")
+    
+    generate_rss(posts_json_path)
+
+def generate_rss(posts_json_path):
+    with open(posts_json_path, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    
+    base_url = "https://ctokx.github.io/blog"
+    build_date = datetime.now().strftime("%a, %d %b %Y %H:%M:%S GMT")
+    
+    rss = f'''<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>Varol Cagdas Tok</title>
+    <link>{base_url}/</link>
+    <description>Notes on cybersecurity, machine learning, software testing, and related topics.</description>
+    <language>en</language>
+    <lastBuildDate>{build_date}</lastBuildDate>
+    <atom:link href="{base_url}/feed.xml" rel="self" type="application/rss+xml"/>
+'''
+    
+    all_items = []
+    for category in data['categories']:
+        cat_name = category['name']
+        for article in category.get('articles', []):
+            all_items.append({
+                'title': article['title'],
+                'slug': article['slug'],
+                'summary': article.get('summary', ''),
+                'category': cat_name
+            })
+    
+    base_date = datetime.now()
+    for i, item in enumerate(all_items):
+        pub_date = (base_date - timedelta(days=i)).strftime("%a, %d %b %Y 00:00:00 GMT")
+        url = f"{base_url}/articles/{item['slug']}/"
+        
+        title = item['title'].replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+        summary = item['summary'].replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+        category = item['category'].replace('&', '&amp;')
+        
+        rss += f'''    <item>
+      <title>{title}</title>
+      <link>{url}</link>
+      <description>{summary}</description>
+      <category>{category}</category>
+      <guid isPermaLink="true">{url}</guid>
+      <pubDate>{pub_date}</pubDate>
+    </item>
+'''
+    
+    rss += '''  </channel>
+</rss>'''
+    
+    with open('feed.xml', 'w', encoding='utf-8') as f:
+        f.write(rss)
+    
+    print(f"✓ Generated feed.xml with {len(all_items)} articles")
 
 if __name__ == '__main__':
     generate_all()

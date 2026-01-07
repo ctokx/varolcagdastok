@@ -1,11 +1,11 @@
-# The Test Oracle Problem: How Do You Know Your Test *Really* Passed?
+---
+author: Tok Varol Cagdas
+order: 3
+---
 
-**Author:** Tok Varol Cagdas
-**Order:** 3
-**Date:**
-**Summary:** No summary available.
 
-Published: November 16, 2025
+# The Test Oracle Problem
+
 
 In software testing, we dedicate significant effort to generating test inputs. However, a test input is only half of a test case. The other half is knowing what the **correct output** should be.
 

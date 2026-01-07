@@ -1,8 +1,11 @@
-# What is Offline Reinforcement Learning? A Journey from Interaction to Pure Learning
+---
+author: Tok Varol Cagdas
+order: 1
+summary: An introduction to offline reinforcement learning, exploring how AI agents can learn optimal decision-making strategies from pre-collected data without ever interacting with the environment. This post defines the core challenge of distributional shift and introduces the primary algorithmic paradigms—BC, TD3+BC, IQL, and CQL—that our research evaluates.
+---
 
-**Author:** Tok Varol Cagdas
-**Order:** 1
-**Summary:** An introduction to offline reinforcement learning, exploring how AI agents can learn optimal decision-making strategies from pre-collected data without ever interacting with the environment. This post defines the core challenge of distributional shift and introduces the primary algorithmic paradigms—BC, TD3+BC, IQL, and CQL—that our research evaluates.
+
+# Introduction to Offline Reinforcement Learning
 
 ### The Traditional RL Paradigm: Learning Through Interaction
 
@@ -29,15 +32,15 @@ Standard Q-learning is notoriously bad at evaluating these OOD actions. Lacking 
 Our research investigates four prominent paradigms for tackling this distributional shift problem, each with a different philosophy:
 
 1.  **Behavioral Cloning (BC):** The simplest approach. BC forgoes value-based learning and treats the problem as supervised learning. It trains a policy to directly mimic the actions in the dataset, optimizing the objective:
-    $\pi = \arg\min_{\pi} \mathbb{E}_{(s,a)\sim\mathcal{D}}[||\pi(s) - a||^2]$.
+    $$ \pi = \operatorname*{arg\,min}_{\pi} \mathbb{E}_{(s,a)\sim\mathcal{D}}[||\pi(s) - a||^2] $$
     This avoids OOD queries but is limited by the quality of the dataset; it cannot outperform the best behaviors it has seen.
 
 2.  **TD3+BC:** A "minimalist" policy constraint method. This algorithm, proposed by Fujimoto and Gu, combines the standard TD3 actor-critic algorithm with a BC regularization term. The actor is trained to both maximize the learned Q-value and minimize its distance from dataset actions:
-    $\pi = \arg\max_{\pi} \mathbb{E}_{(s,a)\sim\mathcal{D}}[Q(s, \pi(s)) - \alpha||\pi(s) - a||^2]$.
+    $$ \pi = \operatorname*{arg\,max}_{\pi} \mathbb{E}_{(s,a)\sim\mathcal{D}}[Q(s, \pi(s)) - \alpha||\pi(s) - a||^2] $$
     The hyperparameter $\alpha$ balances exploitation against imitation.
 
 3.  **Conservative Q-Learning (CQL):** A pessimistic value-based method. Proposed by Kumar et al., CQL learns a conservative Q-function that serves as a lower bound on the true policy value. It adds a regularizer to the Bellman error objective that penalizes Q-values for unseen actions while pushing up the Q-values for actions present in the dataset:
-    $\mathcal{L}_{CQL}(Q) = \mathcal{L}_{TD}(Q) + \alpha\mathbb{E}_{s\sim\mathcal{D}}[\log\sum_{a}e^{Q(s,a)} - \mathbb{E}_{a\sim\mathcal{D}}[Q(s,a)]]$.
+    $$ \mathcal{L}_{CQL}(Q) = \mathcal{L}_{TD}(Q) + \alpha\mathbb{E}_{s\sim\mathcal{D}}\left[\log\sum_{a}e^{Q(s,a)} - \mathbb{E}_{a\sim\mathcal{D}}[Q(s,a)]\right] $$
 
 4.  **Implicit Q-Learning (IQL):** An implicit policy constraint method. Proposed by Kostrikov et al., IQL cleverly avoids ever querying OOD actions. It uses **expectile regression** to learn a state-value function $V(s)$ that implicitly targets the higher Q-values in the dataset, and then learns a Q-function by bootstrapping off $V(s')$. The final policy is extracted using advantage-weighted behavioral cloning.
 

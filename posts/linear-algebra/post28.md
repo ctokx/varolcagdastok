@@ -1,9 +1,10 @@
-# Dot Products and Vector Norms
+---
+author: Tok Varol Cagdas
+order: 4
+---
 
-**Author:** Tok Varol Cagdas
-**Order:** 4
-**Date:**
-**Summary:** No summary available.
+
+# Dot Products and Vector Norms
 
 ## Dot Product Definition
 
@@ -36,7 +37,7 @@ where $u^T$ is a row vector and $v$ is a column vector.
 
 ## Geometric Interpretation
 
-For vectors $u$ and $v$ in $\mathbb{R}^n$:
+For vectors $u $ and $ v $ in $\mathbb{R}^n$:
 
 $$u \cdot v = \|u\| \|v\| \cos(\theta)$$
 
@@ -74,8 +75,6 @@ This measures the straight-line distance from the origin to the point represente
 
 ### Example
 
-For $v = [3, 4]^T$:
-
 $$\|v\|_2 = \sqrt{3^2 + 4^2} = \sqrt{9 + 16} = \sqrt{25} = 5$$
 
 ## Manhattan Norm (L₁ Norm)
@@ -88,7 +87,7 @@ This measures the distance traveling along axes (grid distance).
 
 ### Example
 
-For $v = [3, -4]^T$:
+For $v = [3, -4]^T:
 
 $$\|v\|_1 = |3| + |-4| = 3 + 4 = 7$$
 
@@ -100,7 +99,7 @@ $$\|v\|_\infty = \max\{|v_1|, |v_2|, \ldots, |v_n|\}$$
 
 ### Example
 
-For $v = [3, -7, 2]^T$:
+For $v = [3, -7, 2]^T:
 
 $$\|v\|_\infty = \max\{3, 7, 2\} = 7$$
 
@@ -117,13 +116,13 @@ $$\|v\|_p = (|v_1|^p + |v_2|^p + \cdots + |v_n|^p)^{1/p}$$
 
 A unit vector has norm equal to 1. Any non-zero vector $v$ can be normalized:
 
-$$\hat{u} = \frac{v}{\|v\|}$$
+ $$\hat{u} = \frac{v}{\|v\|}$$
 
 This produces a unit vector in the same direction as $v$.
 
 ### Example
 
-For $v = [3, 4]^T$ with $\|v\|_2 = 5$:
+For $v = [3, 4]^T with $\|v\|_2 = 5$:
 
 $$\hat{u} = [3/5, 4/5]^T = [0.6, 0.8]^T$$
 
@@ -131,7 +130,7 @@ Verify: $\|\hat{u}\|_2 = \sqrt{0.6^2 + 0.8^2} = \sqrt{0.36 + 0.64} = 1$
 
 ## Distance Between Vectors
 
-The distance between $u$ and $v$ using the Lₚ norm is:
+The distance between $u $ and $ v$ using the Lₚ norm is:
 
 $$d(u, v) = \|u - v\|_p$$
 
@@ -161,10 +160,10 @@ $$L(y, \hat{y}) = \frac{1}{n}\|y - \hat{y}\|_1$$
 
 **Regularization**: Ridge regression (L₂ regularization) adds $\|w\|_2^2$ to penalize large weights. Lasso regression (L₁ regularization) adds $\|w\|_1$ to encourage sparsity (many weights become exactly zero).
 
-**Gradient Computation**: The gradient of $\|w\|_2^2$ is $2w$, used in weight decay. The subgradient of $\|w\|_1$ is $\text{sign}(w)$, used in sparse optimization.
+**Gradient Computation**: The gradient of $\|w\|_2^2$ is $2w $, used in weight decay. The subgradient of $\|w\|_1$ is $\text{sign}(w)$, used in sparse optimization.
 
 **Attention Mechanisms**: In transformers, attention scores are computed using scaled dot products:
 
 $$\text{attention}(q, k) = \frac{\exp(q \cdot k / \sqrt{d})}{Z}$$
 
-where $q$ is a query vector, $k$ is a key vector, and $d$ is dimensionality.
+where $q $ is a query vector, $ k $ is a key vector, and $ d$ is dimensionality.

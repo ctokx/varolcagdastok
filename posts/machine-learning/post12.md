@@ -1,9 +1,10 @@
-# An Introduction to Neural Networks: The Power of Learned Representations
+---
+author: Tok Varol Cagdas
+order: 6
+---
 
-**Author:** Tok Varol Cagdas
-**Order:** 6
-**Date:**
-**Summary:** No summary available.
+
+# Introduction to Neural Networks
 
 While methods using fixed basis functions can be powerful, they often struggle with problems where the complexity of the underlying function is not uniform across the input space. For instance, a function might be simple and smooth in most regions but exhibit complex, high-frequency behavior in specific areas. A fixed, uniform grid of basis functions would be inefficient, requiring a dense placement everywhere to capture the localized complexity. Neural networks, specifically the Multilayer Perceptron (MLP), offer a powerful alternative by learning the basis functions themselves, allowing them to adapt to the specific structure of the problem.
 
@@ -11,28 +12,30 @@ While methods using fixed basis functions can be powerful, they often struggle w
 
 The foundational building block of many neural networks is the neuron, which is inspired by its biological counterpart. A common type is the **sigmoidal neuron**. It performs a two-step computation:
 
-1.  **Activation:** It calculates a weighted sum of its inputs, `x`, including a bias term. This is a linear operation: `h = vᵀx + v₀`.
-2.  **Transfer Function:** It passes this activation through a non-linear function, typically the sigmoid (or logistic) function: `z = sig(h) = 1 / (1 + exp(-h))`.
+1.  **Activation:** It calculates a weighted sum of its inputs, $\mathbf{x}$, including a bias term. This is a linear operation: $h = \mathbf{v}^T\mathbf{x} + v_0$.
+2.  **Transfer Function:** It passes this activation through a non-linear function, typically the sigmoid (or logistic) function: $z = \sigma(h) = \frac{1}{1 + \exp(-h)}$.
 
-The output of the sigmoid function is a smooth, S-shaped curve that squashes any input value into the range (0, 1). Geometrically, the weights `v` and bias `v₀` define a hyperplane in the input space. The neuron's output is close to 0.5 on this hyperplane and transitions smoothly to 0 or 1 on either side. By adjusting these inner parameters, the neuron can learn the optimal position and orientation of this decision boundary.
+The output of the sigmoid function is a smooth, S-shaped curve that squashes any input value into the range $(0, 1)$. Geometrically, the weights $\mathbf{v}$ and bias $v_0$ define a hyperplane in the input space. The neuron's output is close to 0.5 on this hyperplane and transitions smoothly to 0 or 1 on either side. By adjusting these inner parameters, the neuron can learn the optimal position and orientation of this decision boundary.
 
 ## The Multilayer Perceptron (MLP): Combining Neurons into a Network
 
 A single neuron can only learn a linear decision boundary. The true power of neural networks comes from arranging these neurons into layers. A typical MLP consists of:
 
 1.  **An Input Layer:** This layer simply receives the input features of the data.
-2.  **One or More Hidden Layers:** This is where the core computation happens. Each neuron in a hidden layer receives input from all neurons in the previous layer (or the input layer). The outputs of these neurons, `z_h`, can be thought of as a set of learned, adaptive basis functions. They form a new, transformed representation of the data.
+2.  **One or More Hidden Layers:** This is where the core computation happens. Each neuron in a hidden layer receives input from all neurons in the previous layer (or the input layer). The outputs of these neurons, $z_h$, can be thought of as a set of learned, adaptive basis functions. They form a new, transformed representation of the data.
 3.  **An Output Layer:** This layer takes the representation from the final hidden layer and produces the final prediction. For a regression task, this might be a single neuron that computes a weighted sum of the hidden layer outputs. For a multi-class classification task, it might have one neuron for each class, often using a softmax activation function to produce a probability distribution over the classes.
 
 The equation for an MLP with one hidden layer and a single output for regression is:
 
-`f(x) = \sum_{h} w_h \text{sig}(v_h^T x + v_{h,0})`
+$$
+f(\mathbf{x}) = \sum_{h} w_h \sigma(\mathbf{v}_h^T \mathbf{x} + v_{h,0})
+$$
 
-Here, the `v`'s are the weights of the hidden layer neurons (the "inner" parameters), and the `w`'s are the weights of the output layer. The network learns both sets of weights simultaneously.
+Here, the $\mathbf{v}$'s are the weights of the hidden layer neurons (the "inner" parameters), and the $w$'s are the weights of the output layer. The network learns both sets of weights simultaneously.
 
 ## Training the Network: The Backpropagation Algorithm
 
-Because the inner parameters of the basis functions (`v_h`) are learned, there is no closed-form solution for the optimal weights. Instead, we must use an iterative, gradient-based optimization method like Stochastic Gradient Descent (SGD). The challenge is to efficiently compute the gradient of the cost function (e.g., mean squared error or cross-entropy) with respect to all the weights in the network.
+Because the inner parameters of the basis functions ($\mathbf{v}_h$) are learned, there is no closed-form solution for the optimal weights. Instead, we must use an iterative, gradient-based optimization method like Stochastic Gradient Descent (SGD). The challenge is to efficiently compute the gradient of the cost function (e.g., mean squared error or cross-entropy) with respect to all the weights in the network.
 
 This is solved by the **backpropagation algorithm**. It is an efficient application of the chain rule of calculus. The process involves two passes:
 

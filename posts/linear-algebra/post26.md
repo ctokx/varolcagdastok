@@ -1,13 +1,14 @@
-# Vectors and Vector Spaces
+---
+author: Tok Varol Cagdas
+order: 2
+---
 
-**Author:** Tok Varol Cagdas
-**Order:** 2
-**Date:**
-**Summary:** No summary available.
+
+# Vectors and Vector Spaces
 
 ## Definition of a Vector
 
-A vector is an ordered list of numbers. Formally, a vector $v$ in $\mathbb{R}^n$ is an element of n-dimensional Euclidean space:
+A vector is an ordered list of numbers. Formally, a vector $v $ in $\mathbb{R}^n$ is an element of n-dimensional Euclidean space:
 
 $$v = [v_1, v_2, \ldots, v_n]^T$$
 
@@ -31,7 +32,7 @@ For dimensions $n > 3$, geometric visualization is not possible, but the algebra
 
 ## Vector Addition
 
-Given vectors $u$ and $v$ in $\mathbb{R}^n$, their sum is computed component-wise:
+Given vectors $u $ and $ v $ in $\mathbb{R}^n$, their sum is computed component-wise:
 
 $$u + v = [u_1 + v_1, u_2 + v_2, \ldots, u_n + v_n]^T$$
 
@@ -59,7 +60,7 @@ Geometrically, scalar multiplication stretches ($\alpha > 1$), shrinks ($0 < \al
 
 ## Vector Spaces
 
-A vector space $V$ over $\mathbb{R}$ is a set equipped with vector addition and scalar multiplication satisfying eight axioms:
+A vector space $V$ over $\mathbb{R}$ is a set equipped with vector addition and scalar multiplication satisfying ten axioms:
 
 1. **Closure under addition**: $u + v \in V$ for all $u, v \in V$
 2. **Commutativity**: $u + v = v + u$

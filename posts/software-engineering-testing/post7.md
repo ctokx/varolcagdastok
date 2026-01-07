@@ -1,10 +1,11 @@
-# From Random Guesses to Intelligent Grammars: A Look at Fuzzing and Random Testing
+---
+author: Tok Varol Cagdas
+order: 6
+---
 
-**Author:** Tok Varol Cagdas
-**Order:** 6
-**Date:**
-**Summary:** No summary available.
-<p class="post-date">Published: November 11, 2025</p>
+
+# Fuzzing and Random Testing
+
 
 While techniques like equivalence partitioning are systematic, another set of black-box techniques relies on a different approach: **randomness**. These methods are effective for finding unexpected bugs and testing system robustness.
 
@@ -40,10 +41,12 @@ The solution is **grammar-based fuzzing**.
 This technique uses a **grammar** (like a Backus-Naur Form, or BNF, definition) that formally describes the syntax of valid inputs. The fuzzer then generates a new test case by **randomly applying production rules** from the grammar.
 
 For example, given a simplified grammar for a URL:
-`<url> ::= <protocol> "://" <domain>`
-`<protocol> ::= "http" | "https"`
-`<domain> ::= <word> "." <word>`
-`<word> ::= "a" | "b" | "c" | ...`
+```bnf
+<url> ::= <protocol> "://" <domain>
+<protocol> ::= "http" | "https"
+<domain> ::= <word> "." <word>
+<word> ::= "a" | "b" | "c" | ...
+```
 
 The fuzzer starts with `<url>`, expands it, and randomly chooses rules until it has generated a complete, syntactically valid input like `https://google.com`.
 

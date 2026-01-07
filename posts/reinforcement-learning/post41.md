@@ -1,15 +1,18 @@
-# TD3+BC: Enhancing a Minimalist Approach for Robust Offline Learning
+---
+author: Tok Varol Cagdas
+order: 2
+summary: Exploring TD3+BC, a powerful yet simple approach to offline RL. We first detail the standard algorithm and then introduce our group's customized variant, which incorporates four key enhancements: dynamic hyperparameter selection, BC-weight annealing, state normalization, and episode filtering. We present experimental results from our paper demonstrating that these enhancements yield substantial performance gains (up to 6300%) over the default implementation, particularly on noisy, medium-quality datasets.
+---
 
-**Author:** Tok Varol Cagdas
-**Order:** 2
-**Summary:** Exploring TD3+BC, a powerful yet simple approach to offline RL. We first detail the standard algorithm and then introduce our group's customized variant, which incorporates four key enhancements: dynamic hyperparameter selection, BC-weight annealing, state normalization, and episode filtering. We present experimental results from our paper demonstrating that these enhancements yield substantial performance gains (up to 6300%) over the default implementation, particularly on noisy, medium-quality datasets.
+
+# TD3+BC Algorithm for Offline RL
 
 ### The Foundation: Understanding Standard TD3+BC
 
 TD3+BC, introduced by Fujimoto and Gu, is an elegant solution to the distributional shift problem. It starts with the **Twin Delayed Deep Deterministic Policy Gradient (TD3)** algorithm—a state-of-the-art online actor-critic method—and adds a simple behavioral cloning (BC) term.
 
 The actor (policy) is trained not only to maximize the Q-value (the "RL objective") but also to stay close to the actions in the dataset (the "imitation objective"). The resulting actor loss is a weighted combination:
-$\pi = \arg\max_{\pi} \mathbb{E}_{(s,a)\sim\mathcal{D}}[Q(s, \pi(s)) - \alpha||\pi(s) - a||^2]$.
+$$ \pi = \operatorname*{arg\,max}_{\pi} \mathbb{E}_{(s,a)\sim\mathcal{D}}[Q(s, \pi(s)) - \alpha||\pi(s) - a||^2] $$
 
 The hyperparameter $\alpha$ is critical:
 * If $\alpha$ is too **high**, the algorithm reverts to pure BC and cannot improve upon the dataset.
@@ -50,7 +53,5 @@ On medium-quality datasets, where robustness is most critical, our custom varian
 | **Pusher-Medium** | $-46.51 \pm 2.05$ | $\mathbf{-34.80} \pm 1.35$ | **+25%** |
 | **Reacher-Medium** | $-11.24 \pm 0.93$ | $\mathbf{-4.21} \pm 0.32$ | **+62%** |
 *(Results from Table II, `report_offline_RL.pdf`)*
-
-
 
 These results objectively demonstrate that for TD3+BC, a "minimalist" algorithm, thoughtful engineering and data-adaptive design are not minor tweaks—they are the primary drivers of success, transforming a failing algorithm into a state-of-the-art performer.

@@ -1,39 +1,48 @@
-# Kernel Methods: The Power of Infinite Dimensions and the Kernel Trick
+---
+author: Tok Varol Cagdas
+order: 11
+---
 
-**Author:** Tok Varol Cagdas
-**Order:** 11
-**Date:**
-**Summary:** No summary available.
+
+# Kernel Methods and the Kernel Trick
 
 In machine learning, a common approach to modeling complex, non-linear relationships is to transform the input data into a higher-dimensional feature space using a set of basis functions. In this new space, a simple linear model might be sufficient to solve the problem. However, this approach faces a significant challenge: the number of basis functions required can grow exponentially with the dimensionality of the input space, a phenomenon known as the curse of dimensionality. Kernel methods offer an elegant and powerful solution to this problem, allowing us to work implicitly in feature spaces of incredibly high—even infinite—dimensions without ever having to compute the transformations explicitly.
 
 ## The Core Idea: From Basis Functions to Smoothness
 
-Instead of starting with a predefined set of basis functions, kernel methods are often motivated by the assumption of **smoothness**. This is the intuitive idea that inputs that are close to each other should have similar outputs. A kernel function, `k(x, x')`, formalizes this by measuring the similarity between two input points, `x` and `x'`. The prediction for a new point is then determined by a weighted combination of its similarities to the training data points.
+Instead of starting with a predefined set of basis functions, kernel methods are often motivated by the assumption of **smoothness**. This is the intuitive idea that inputs that are close to each other should have similar outputs. A kernel function, $k(\mathbf{x}, \mathbf{x}')$, formalizes this by measuring the similarity between two input points, $\mathbf{x}$ and $\mathbf{x}'$. The prediction for a new point is then determined by a weighted combination of its similarities to the training data points.
 
 A key insight is the deep connection between kernels and basis functions. Any valid kernel function can be expressed as a dot product of feature vectors in some high-dimensional space:
 
-`k(x, x') = φ(x)ᵀ φ(x')`
+$$
+k(\mathbf{x}, \mathbf{x}') = \phi(\mathbf{x})^T \phi(\mathbf{x}')
+$$
 
-Here, `φ(x)` is the function that maps the input `x` into the high-dimensional feature space. This means that a kernel function implicitly defines a feature space. For example, a simple polynomial kernel like `k(x, x') = (xᵀx' + 1)²` corresponds to a feature space containing all second-order polynomial terms of the inputs. The Gaussian kernel, a popular choice, corresponds to an *infinite-dimensional* feature space.
+Here, $\phi(\mathbf{x})$ is the function that maps the input $\mathbf{x}$ into the high-dimensional feature space. This means that a kernel function implicitly defines a feature space. For example, a simple polynomial kernel like $k(\mathbf{x}, \mathbf{x}') = (\mathbf{x}^T\mathbf{x}' + 1)^2$ corresponds to a feature space containing all second-order polynomial terms of the inputs. The Gaussian kernel, a popular choice, corresponds to an *infinite-dimensional* feature space.
 
 This relationship is the foundation of the **"kernel trick."**
 
 ## The Kernel Trick: Bypassing High Dimensions
 
-Many machine learning algorithms, from linear regression to Support Vector Machines, can be formulated in a way that only requires dot products of the input vectors. For example, in regularized least squares regression, the optimal weight vector `w` can be expressed as a linear combination of the feature vectors of the training data:
+Many machine learning algorithms, from linear regression to Support Vector Machines, can be formulated in a way that only requires dot products of the input vectors. For example, in regularized least squares regression, the optimal weight vector $\mathbf{w}$ can be expressed as a linear combination of the feature vectors of the training data:
 
-`w = Φᵀv`
+$$
+\mathbf{w} = \Phi^T \mathbf{v}
+$$
 
-where `Φ` is the design matrix (whose rows are the feature vectors `φ(x_i)ᵀ`) and `v` is a vector of coefficients. When we make a prediction for a new point `x'`, we compute:
+where $\Phi$ is the design matrix (whose rows are the feature vectors $\phi(\mathbf{x}_i)^T$) and $\mathbf{v}$ is a vector of coefficients. When we make a prediction for a new point $\mathbf{x}'$, we compute:
 
-`f(x') = φ(x')ᵀw = φ(x')ᵀΦᵀv`
+$$
+f(\mathbf{x}') = \phi(\mathbf{x}')^T \mathbf{w} = \phi(\mathbf{x}')^T \Phi^T \mathbf{v}
+$$
 
-Notice that this expression involves dot products between the feature vector of the new point, `φ(x')`, and the feature vectors of the training points, `φ(x_i)`. By substituting the kernel function for these dot products, we get:
+Notice that this expression involves dot products between the feature vector of the new point, $\phi(\mathbf{x}')$, and the feature vectors of the training points, $\phi(\mathbf{x}_i)$. By substituting the kernel function for these dot products, we get:
 
-`f(x') = \sum_{i} v_i k(x_i, x')`
+$$
+f(\mathbf{x}') = \sum_{i} v_i k(\mathbf{x}_i, \mathbf{x}')
+$$
 
-This is a remarkable result. The prediction is now a weighted sum of kernel functions, centered at each of the `N` training data points. We have completely bypassed the need to explicitly define or compute the high-dimensional feature vectors `φ(x)`. The entire algorithm—both training and prediction—can be "kernelized" by replacing all dot products with the kernel function. This allows us to work with feature spaces of immense dimensionality without incurring the associated computational cost. The complexity of the algorithm now scales with the number of data points, `N`, rather than the number of features, `M_φ`.
+This is a remarkable result. The prediction is now a weighted sum of kernel functions, centered at each of the $N$ training data points. We have completely bypassed the need to explicitly define or compute the high-dimensional feature vectors $\phi(\mathbf{x})$. The entire algorithm—both training and prediction—can be "kernelized" by replacing all dot products with the kernel function. This allows us to work with feature spaces of immense dimensionality without incurring the associated computational cost. The complexity of the algorithm now scales with the number of data points, $N$, rather than the number of features, $M_\phi$.
 
 ## The Representer Theorem: A General Principle
 
@@ -51,7 +60,7 @@ Kernel methods have several distinct advantages:
 
 However, they also have limitations:
 
-1.  **Computational Complexity:** The primary drawback is that the computational cost of training a kernel model typically scales with the number of training samples, often as `O(N³)` or `O(N²)`. This makes them less suitable for very large datasets compared to models like neural networks, whose training cost scales with the number of parameters and can be optimized with stochastic methods.
+1.  **Computational Complexity:** The primary drawback is that the computational cost of training a kernel model typically scales with the number of training samples, often as $\mathcal{O}(N^3)$ or $\mathcal{O}(N^2)$. This makes them less suitable for very large datasets compared to models like neural networks, whose training cost scales with the number of parameters and can be optimized with stochastic methods.
 
 2.  **The Manifold Dilemma:** Kernel methods, particularly those with local kernels like the Gaussian kernel, perform best when the data lies on a low-dimensional manifold within the high-dimensional input space. They can effectively model the function's complexity on this manifold. However, their predictions tend to decay to zero for points far away from the training data manifold. This can be a strength for tasks like one-class classification or anomaly detection, but it also means they may not generalize well to test data that comes from a different distribution (a problem known as covariate shift).
 

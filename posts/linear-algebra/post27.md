@@ -1,9 +1,10 @@
-# Matrices and Data Representation
+---
+author: Tok Varol Cagdas
+order: 3
+---
 
-**Author:** Tok Varol Cagdas
-**Order:** 3
-**Date:**
-**Summary:** No summary available.
+
+# Matrices and Data Representation
 
 ## Definition of a Matrix
 
@@ -27,7 +28,7 @@ A = [1   2   3]
     [4   5   6]
 ```
 
-Here, $a_{12} = 2$ and $a_{23} = 6$.
+Here, $a_{12} = 2$ and $ a_{23} = 6$.
 
 ## Matrix Dimensions
 
@@ -37,15 +38,15 @@ A matrix $A \in \mathbb{R}^{m \times n}$ has:
 - mn total elements
 
 Special cases:
-- **Square matrix**: $m = n$ (e.g., $3 \times 3$)
+- **Square matrix**: $m = n $ (e.g., $3 \times 3$)
 - **Row vector**: $m = 1$ (e.g., $1 \times n$)
-- **Column vector**: $n = 1$ (e.g., $m \times 1$)
+- **Column vector**: $n = 1$ (e.g., $ m \times 1$)
 
 ## Matrix Transpose
 
 The transpose of a matrix $A \in \mathbb{R}^{m \times n}$, denoted $A^T \in \mathbb{R}^{n \times m}$, is obtained by swapping rows and columns:
 
-$$(A^T)_{ij} = a_{ji}$$
+ $$(A^T)_{ij} = a_{ji}$$
 
 ### Example
 
@@ -75,11 +76,11 @@ A = [2   1   3]
     [3   0   5]
 ```
 
-Here, $a_{12} = a_{21} = 1$, $a_{13} = a_{31} = 3$, etc.
+Here, $a_{12} = a_{21} = 1$, $ a_{13} = a_{31} = 3$, etc.
 
 ### Diagonal Matrix
 
-A matrix $D \in \mathbb{R}^{n \times n}$ is diagonal if $d_{ij} = 0$ for all $i \neq j$.
+A matrix $D \in \mathbb{R}^{n \times n}$ is diagonal if $ d_{ij} = 0$ for all $ i \neq j$.
 
 Example:
 ```
@@ -88,7 +89,7 @@ D = [3   0   0]
     [0   0  -2]
 ```
 
-Notation: $D = \text{diag}(d_1, d_2, \ldots, d_n)$
+ $$Notation: D = \text{diag}(d_1, d_2, \ldots, d_n)$$
 
 ### Identity Matrix
 
@@ -111,7 +112,7 @@ The zero matrix $\mathbf{0}$ has all entries equal to 0:
        [0  0  0]
 ```
 
-Property: $A + \mathbf{0} = A$
+Property: $A + \mathbf{0} = A$ 
 
 ## Matrix Addition
 
@@ -130,7 +131,7 @@ Matrices must have the same dimensions for addition.
 
 ## Scalar Multiplication
 
-Given $\alpha \in \mathbb{R}$ and $A \in \mathbb{R}^{m \times n}$:
+Given $\alpha \in \mathbb{R}$ and $ A \in \mathbb{R}^{m \times n}$:
 
 $$\alpha A \text{ has entries } (\alpha A)_{ij} = \alpha a_{ij}$$
 
@@ -177,15 +178,15 @@ The labels (prices) form a vector $y \in \mathbb{R}^3$: $y = [300, 400, 250]^T$
 
 **Dataset Representation**: The fundamental data structure in machine learning is the design matrix $X$ where rows are samples and columns are features. This representation enables vectorized operations.
 
-**Batch Processing**: Modern machine learning frameworks process multiple samples simultaneously. Given a weight matrix $W$ and input batch $X$, computing predictions for all samples is a single matrix multiplication: $XW$.
+**Batch Processing**: Modern machine learning frameworks process multiple samples simultaneously. Given a weight matrix $W $ and input batch $ X $, computing predictions for all samples is a single matrix multiplication: $ XW$.
 
-**Image Data**: A grayscale image with height h and width w is stored as a matrix $I \in \mathbb{R}^{h \times w}$ where each entry represents pixel intensity. Color images use a 3D tensor ($h \times w \times 3$).
+**Image Data**: A grayscale image with height h and width w is stored as a matrix $I \in \mathbb{R}^{h \times w}$ where each entry represents pixel intensity. Color images use a 3D tensor ($ h \times w \times 3$).
 
-**Covariance Matrices**: The covariance matrix $C \in \mathbb{R}^{d \times d}$ of a dataset $X$ captures relationships between features:
+**Covariance Matrices**: The covariance matrix $C \in \mathbb{R}^{d \times d}$ of a dataset $ X$ captures relationships between features:
 
 $$C = \frac{1}{n}X^T X$$
 
-Covariance matrices are symmetric and used in PCA.
+(Assuming the data $X$ is centered, i.e., each feature has zero mean). Covariance matrices are symmetric and used in PCA.
 
 **Weight Matrices**: In neural networks, each layer has a weight matrix $W$ that transforms inputs. A layer mapping from $d_1$ to $d_2$ dimensions uses $W \in \mathbb{R}^{d_1 \times d_2}$.
 

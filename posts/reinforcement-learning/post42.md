@@ -1,8 +1,11 @@
-# Conservative and Implicit Approaches: A Deeper Look at CQL and IQL
+---
+author: Tok Varol Cagdas
+order: 3
+summary: Exploring Conservative Q-Learning (CQL) and Implicit Q-Learning (IQL), two sophisticated value-based methods that tackle offline RL's distributional shift problem. We detail their core mechanisms—pessimistic value estimation for CQL and implicit policy constraints for IQL—and discuss their performance characteristics as observed in our comparative study.
+---
 
-**Author:** Tok Varol Cagdas
-**Order:** 3
-**Summary:** Exploring Conservative Q-Learning (CQL) and Implicit Q-Learning (IQL), two sophisticated value-based methods that tackle offline RL's distributional shift problem. We detail their core mechanisms—pessimistic value estimation for CQL and implicit policy constraints for IQL—and discuss their performance characteristics as observed in our comparative study.
+
+# CQL and IQL Algorithms
 
 While TD3+BC constrains the *policy*, two other major schools of thought focus on modifying the *value function* learning itself. Our research also benchmarked **Conservative Q-Learning (CQL)** and **Implicit Q-Learning (IQL)** to provide a complete picture of the offline RL landscape.
 
@@ -15,7 +18,7 @@ The core idea of CQL is to learn a Q-function that is a *lower bound* of the tru
 CQL modifies the standard Bellman error objective ($\mathcal{L}_{TD}(Q)$) by adding a regularizer that penalizes Q-values for actions chosen by the current policy (especially OOD actions) and simultaneously pushes up the Q-values for actions found in the dataset.
 
 The full objective is:
-$\mathcal{L}_{CQL}(Q) = \mathcal{L}_{TD}(Q) + \alpha \cdot \left( \mathbb{E}_{s \sim \mathcal{D}}[\log\sum_a e^{Q(s,a)}] - \mathbb{E}_{(s,a) \sim \mathcal{D}}[Q(s,a)] \right)$
+$$ \mathcal{L}_{CQL}(Q) = \mathcal{L}_{TD}(Q) + \alpha \cdot \left( \mathbb{E}_{s \sim \mathcal{D}}[\log\sum_a e^{Q(s,a)}] - \mathbb{E}_{(s,a) \sim \mathcal{D}}[Q(s,a)] \right) $$
 
 Here, $\alpha$ controls the strength of the conservatism. This ensures that the policy, when maximizing $Q(s, a)$, will not be fooled by spuriously high values for OOD actions.
 
@@ -34,7 +37,7 @@ IQL takes a different and highly elegant approach: it *never* evaluates the Q-fu
 IQL learns three separate functions:
 1.  **A Value Function $V_{\psi}(s)$:** Instead of standard TD, $V$ is learned using **expectile regression**. This asymmetrically weights errors to make $V(s)$ estimate a high quantile (e.g., the 70th percentile) of the Q-values available in that state, rather than the mean.
 2.  **A Q-Function $Q_{\theta}(s, a)$:** The Q-function is then learned using a standard TD update, but it uses the learned $V(s')$ as the target, *not* a $\max_{a'} Q(s', a')$ operation.
-    $\mathcal{L}_Q(Q) = \mathbb{E}_{(s,a,r,s') \sim \mathcal{D}}\left[ \left( Q(s,a) - (r + \gamma V(s')) \right)^2 \right]$.
+    $$ \mathcal{L}_Q(Q) = \mathbb{E}_{(s,a,r,s') \sim \mathcal{D}}\left[ \left( Q(s,a) - (r + \gamma V(s')) \right)^2 \right] $$
     This completely sidesteps OOD queries.
 3.  **A Policy $\pi_{\phi}(a|s)$:** The policy is extracted using **Advantage-Weighted Regression (AWR)**. It's trained to imitate dataset actions, but it *up-weights* actions that had a high advantage $A(s,a) = Q(s,a) - V(s)$.
 
