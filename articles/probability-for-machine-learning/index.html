@@ -1,18 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Probability for Machine Learning - Varol Cagdas Tok</title>
+    <meta name="description" content="Probability theory is the mathematical framework for reasoning about uncertainty and is a foundation for machine learning. Most machine learning algorithms are built upon implicit or explicit probabil...">
+    <meta name="author" content="Tok Varol Cagdas">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ctokx.github.io/personalblog/articles/probability-for-machine-learning/">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ctokx.github.io/personalblog/articles/probability-for-machine-learning/">
+    <meta property="og:title" content="Probability for Machine Learning">
+    <meta property="og:description" content="Probability theory is the mathematical framework for reasoning about uncertainty and is a foundation for machine learning. Most machine learning algorithms are built upon implicit or explicit probabil...">
+    <meta property="og:site_name" content="Varol Cagdas Tok">
+    <meta property="article:author" content="Varol Cagdas Tok">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="Probability for Machine Learning">
+    <meta property="twitter:description" content="Probability theory is the mathematical framework for reasoning about uncertainty and is a foundation for machine learning. Most machine learning algorithms are built upon implicit or explicit probabil...">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Probability for Machine Learning",
+    "description": "Probability theory is the mathematical framework for reasoning about uncertainty and is a foundation for machine learning. Most machine learning algorithms are built upon implicit or explicit probabil...",
+    "author": {
+        "@type": "Person",
+        "name": "Tok Varol Cagdas",
+        "url": "https://ctokx.github.io/personalblog/about.html"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "Varol Cagdas Tok"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ctokx.github.io/personalblog/articles/probability-for-machine-learning/"
+    },
+    "datePublished": "2026-01-10",
+    "dateModified": "2026-01-10"
+}
+    </script>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-    <script src="../../js/math-renderer.js"></script>
 </head>
-
 <body>
     <header>
         <h1>Varol Cagdas Tok</h1>
@@ -23,24 +55,113 @@
         <a href="../../about.html">About</a>
         <a href="../../feed.xml" class="rss-link">RSS</a>
     </nav>
-    <main id="article-content">
-        <div data-markdown-path="../../posts/machine-learning/post22.md"></div>
+    <main>
+        <article id="article-content">
+
+
+
+<h1>Probability for Machine Learning</h1>
+
+<p>Probability theory is the mathematical framework for reasoning about uncertainty and is a foundation for machine learning. Most machine learning algorithms are built upon implicit or explicit probabilistic assumptions, from data noise to parameter uncertainty. This article reviews core probability concepts relevant to the field.</p>
+
+<h2>The Basics: Random Variables and Probability Distributions</h2>
+
+<p>At the heart of probability is the concept of a <strong>random variable</strong>, which is a variable whose value is a numerical outcome of a random phenomenon. For example, if we randomly select a person from a population, their height <span class="math-inline">\(H\)</span> is a random variable.</p>
+
+<p>The <strong>probability distribution</strong> of a random variable describes the likelihood of each possible outcome. For a discrete random variable, <span class="math-inline">\(P(H=h)\)</span> gives the probability that the variable <span class="math-inline">\(H\)</span> takes on a specific value <span class="math-inline">\(h\)</span>. This probability is often defined in terms of the long-run frequency of that outcome in a population.</p>
+
+<h2>Key Concepts and Rules</h2>
+
+<p>From this basic definition, we can derive the fundamental rules that govern probabilistic reasoning.</p>
+
+<h3>Joint and Marginal Probabilities</h3>
+
+<p>Often, we are interested in more than one random variable at a time. The <strong>joint probability distribution</strong>, <span class="math-inline">\(P(H=h, S=s)\)</span>, gives the probability of two (or more) events occurring simultaneously.</p>
+
+<p>If we have the joint distribution, we can recover the distribution of a single variable through a process called <strong>marginalization</strong>. This involves summing the joint probability over all possible states of the other variable:</p>
+
+<p><div class="math-display">\[P(H=h) = \sum_{s} P(H=h, S=s)\]</div></p>
+
+<h3>Conditional Probability and the Chain Rule</h3>
+
+<p><strong>Conditional probability</strong>, <span class="math-inline">\(P(S=s | H=h)\)</span>, represents the probability of one event occurring <em>given that</em> another event has already occurred. It is defined as:</p>
+
+<p><div class="math-display">\[P(S=s | H=h) = \frac{P(H=h, S=s)}{P(H=h)}\]</div></p>
+
+<p>This is the basis for supervised learning, where we want to model <span class="math-inline">\(P(y|x)\)</span>—the probability of an output <span class="math-inline">\(y\)</span> given an input <span class="math-inline">\(x\)</span>.</p>
+
+<p>Rearranging the definition of conditional probability gives the <strong>product rule</strong>:</p>
+
+<p><div class="math-display">\[P(H=h, S=s) = P(S=s | H=h) P(H=h)\]</div></p>
+
+<p>The product rule can be extended to multiple variables, leading to the <strong>chain rule of probability</strong>:</p>
+
+<p><div class="math-display">\[P(x_1, \dots, x_M) = P(x_1) P(x_2|x_1) \dots P(x_M|x_1, \dots, x_{M-1})\]</div></p>
+
+<h3>Bayes' Theorem</h3>
+
+<p>Bayes' theorem is a direct consequence of the product rule and provides a way to "invert" conditional probabilities:</p>
+
+<p><div class="math-display">\[P(H|S) = \frac{P(S|H) P(H)}{P(S)}\]</div></p>
+
+<p>This formula enables Bayesian inference, allowing us to update beliefs (<span class="math-inline">\(P(H)\)</span>) in light of new evidence (<span class="math-inline">\(S\)</span>) to arrive at a posterior belief (<span class="math-inline">\(P(H|S)\)</span>).</p>
+
+<h3>Independence</h3>
+
+<p>Two random variables are <strong>independent</strong> if knowing the value of one gives no information about the other. Mathematically, their joint probability is the product of their marginal probabilities:</p>
+
+<p><div class="math-display">\[P(S=s, H=h) = P(S=s) P(H=h)\]</div></p>
+
+<p>This is equivalent to saying <span class="math-inline">\(P(S|H) = P(S)\)</span>.</p>
+
+<h2>Summarizing Distributions: Expectation, Variance, and Covariance</h2>
+
+<p>While the full probability distribution contains all the information about a random variable, we often use summary statistics to describe its key properties.</p>
+
+<ul>
+<li>  <strong>Expected Value (Mean):</strong> The expected value, <span class="math-inline">\(\mathbb{E}[X]\)</span>, is the average value of the random variable, weighted by its probability. It is a measure of the central tendency of the distribution.</li>
+</ul>
+
+<ul>
+<li>  <strong>Variance:</strong> The variance, <span class="math-inline">\(\text{Var}(X)\)</span>, measures the spread or dispersion of the distribution. It is the expected squared difference between the variable and its mean: <span class="math-inline">\(\text{Var}(X) = \mathbb{E}[(X - \mathbb{E}[X])^2]\)</span>. The square root of the variance is the <strong>standard deviation</strong>.</li>
+</ul>
+
+<ul>
+<li>  <strong>Covariance:</strong> The covariance, <span class="math-inline">\(\text{Cov}(X, Y)\)</span>, measures the degree to which two random variables vary together. A positive covariance means they tend to increase or decrease together, while a negative covariance means one tends to increase as the other decreases.</li>
+</ul>
+
+<h2>Continuous Variables and the Gaussian Distribution</h2>
+
+<p>The concepts above extend naturally to <strong>continuous random variables</strong>, where the variable can take on any value in a given range. For continuous variables, we work with a <strong>probability density function (PDF)</strong>, <span class="math-inline">\(p(x)\)</span>, and probabilities are calculated by integrating the PDF over a certain interval.</p>
+
+<p>The most important continuous distribution in machine learning is the <strong>Normal or Gaussian distribution</strong>. It is defined by its mean <span class="math-inline">\(\mu\)</span> and variance <span class="math-inline">\(\sigma^2\)</span> and has the familiar bell-shaped curve. The Gaussian distribution is ubiquitous for several reasons:</p>
+<ul>
+<li>  The <strong>Central Limit Theorem</strong> states that the sum of many independent random variables tends to be Gaussian distributed.</li>
+<li>  It is mathematically convenient and leads to tractable analytical solutions for many models (e.g., linear regression with Gaussian noise).</li>
+<li>  A <strong>multivariate Gaussian distribution</strong> provides an effective way to model the joint distribution of multiple continuous variables, capturing not just their individual means and variances but also their covariances.</li>
+</ul>
+
+<h2>Conclusion</h2>
+
+<p>Probability theory is the bedrock upon which modern machine learning is built. It provides the tools to model uncertainty, make inferences from data, and quantify confidence in predictions. From basic concepts to complex distributions learned by generative models, the language of probability is essential for both understanding and developing learning algorithms.</p>
+
+        </article>
     </main>
     <footer>
         <p>&copy; 2026 Varol Cagdas Tok</p>
     </footer>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const container = document.querySelector('[data-markdown-path]');
-            const path = container.getAttribute('data-markdown-path');
-            fetch(path)
-                .then(response => response.text())
-                .then(text => {
-                    container.innerHTML = renderMarkdownWithMath(text);
-                    renderMath();
+        document.addEventListener("DOMContentLoaded", function() {
+            if (window.renderMathInElement) {
+                renderMathInElement(document.getElementById('article-content'), {
+                    delimiters: [
+                        {left: '\\[', right: '\\]', display: true},
+                        {left: '\\(', right: '\\)', display: false}
+                    ],
+                    throwOnError: false
                 });
+            }
         });
     </script>
 </body>
-
 </html>

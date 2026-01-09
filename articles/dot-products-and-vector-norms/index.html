@@ -1,18 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dot Products and Vector Norms - Varol Cagdas Tok</title>
+    <meta name="description" content="The dot product (also called inner product or scalar product) of two vectors $u, v \in \mathbb{R}^n$ is:">
+    <meta name="author" content="Tok Varol Cagdas">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ctokx.github.io/personalblog/articles/dot-products-and-vector-norms/">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ctokx.github.io/personalblog/articles/dot-products-and-vector-norms/">
+    <meta property="og:title" content="Dot Products and Vector Norms">
+    <meta property="og:description" content="The dot product (also called inner product or scalar product) of two vectors $u, v \in \mathbb{R}^n$ is:">
+    <meta property="og:site_name" content="Varol Cagdas Tok">
+    <meta property="article:author" content="Varol Cagdas Tok">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="Dot Products and Vector Norms">
+    <meta property="twitter:description" content="The dot product (also called inner product or scalar product) of two vectors $u, v \in \mathbb{R}^n$ is:">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Dot Products and Vector Norms",
+    "description": "The dot product (also called inner product or scalar product) of two vectors $u, v \\in \\mathbb{R}^n$ is:",
+    "author": {
+        "@type": "Person",
+        "name": "Tok Varol Cagdas",
+        "url": "https://ctokx.github.io/personalblog/about.html"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "Varol Cagdas Tok"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ctokx.github.io/personalblog/articles/dot-products-and-vector-norms/"
+    },
+    "datePublished": "2026-01-10",
+    "dateModified": "2026-01-10"
+}
+    </script>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-    <script src="../../js/math-renderer.js"></script>
 </head>
-
 <body>
     <header>
         <h1>Varol Cagdas Tok</h1>
@@ -23,24 +55,200 @@
         <a href="../../about.html">About</a>
         <a href="../../feed.xml" class="rss-link">RSS</a>
     </nav>
-    <main id="article-content">
-        <div data-markdown-path="../../posts/linear-algebra/post28.md"></div>
+    <main>
+        <article id="article-content">
+
+
+
+<h1>Dot Products and Vector Norms</h1>
+
+<h2>Dot Product Definition</h2>
+
+<p>The dot product (also called inner product or scalar product) of two vectors <span class="math-inline">\(u, v \in \mathbb{R}^n\)</span> is:</p>
+
+<p><div class="math-display">\[u \cdot v = u_1 v_1 + u_2 v_2 + \cdots + u_n v_n = \sum_{i=1}^{n} u_i v_i\]</div></p>
+
+<p>The result is a scalar, not a vector.</p>
+
+<h3>Example</h3>
+
+<p>Let <span class="math-inline">\(u = [1, 2, 3]^T\)</span> and <span class="math-inline">\(v = [4, 5, 6]^T\)</span>. Then:</p>
+
+<p><div class="math-display">\[u \cdot v = (1)(4) + (2)(5) + (3)(6) = 4 + 10 + 18 = 32\]</div></p>
+
+<h2>Matrix Notation</h2>
+
+<p>The dot product can be written as matrix multiplication:</p>
+
+<p><div class="math-display">\[u \cdot v = u^T v\]</div></p>
+
+<p>where <span class="math-inline">\(u^T\)</span> is a row vector and <span class="math-inline">\(v\)</span> is a column vector.</p>
+
+<h2>Properties of the Dot Product</h2>
+
+<ol>
+<li><strong>Commutativity</strong>: <span class="math-inline">\(u \cdot v = v \cdot u\)</span></li>
+<li><strong>Distributivity</strong>: <span class="math-inline">\(u \cdot (v + w) = u \cdot v + u \cdot w\)</span></li>
+<li><strong>Scalar multiplication</strong>: <span class="math-inline">\((\alpha u) \cdot v = \alpha(u \cdot v)\)</span></li>
+<li><strong>Positive definiteness</strong>: <span class="math-inline">\(v \cdot v \geq 0\)</span>, with equality if and only if <span class="math-inline">\(v = \mathbf{0}\)</span></li>
+</ul>
+
+<h2>Geometric Interpretation</h2>
+
+<p>For vectors <span class="math-inline">\(u\)</span> and <span class="math-inline">\(v\)</span> in <span class="math-inline">\(\mathbb{R}^n\)</span>:</p>
+
+<p><div class="math-display">\[u \cdot v = \|u\| \|v\| \cos(\theta)\]</div></p>
+
+<p>where <span class="math-inline">\(\theta\)</span> is the angle between <span class="math-inline">\(u\)</span> and <span class="math-inline">\(v\)</span>, and <span class="math-inline">\(\|\cdot\|\)</span> denotes the Euclidean norm (defined below).</p>
+
+<h3>Implications</h3>
+
+<ul>
+<li>If <span class="math-inline">\(u \cdot v > 0\)</span>, then <span class="math-inline">\(\theta < 90°\)</span> (vectors point in similar directions)</li>
+<li>If <span class="math-inline">\(u \cdot v = 0\)</span>, then <span class="math-inline">\(\theta = 90°\)</span> (vectors are orthogonal/perpendicular)</li>
+<li>If <span class="math-inline">\(u \cdot v < 0\)</span>, then <span class="math-inline">\(\theta > 90°\)</span> (vectors point in opposite directions)</li>
+</ul>
+
+<h3>Example</h3>
+
+<p>Let <span class="math-inline">\(u = [1, 0]^T\)</span> and <span class="math-inline">\(v = [0, 1]^T\)</span>. Then:</p>
+
+<p><div class="math-display">\[u \cdot v = (1)(0) + (0)(1) = 0\]</div></p>
+
+<p>These vectors are orthogonal.</p>
+
+<h2>Vector Norms</h2>
+
+<p>A norm is a function that assigns a non-negative length to vectors. A norm <span class="math-inline">\(\|\cdot\|\)</span> must satisfy:</p>
+
+<ol>
+<li><strong>Non-negativity</strong>: <span class="math-inline">\(\|v\| \geq 0\)</span>, with <span class="math-inline">\(\|v\| = 0\)</span> if and only if <span class="math-inline">\(v = \mathbf{0}\)</span></li>
+<li><strong>Homogeneity</strong>: <span class="math-inline">\(\|\alpha v\| = |\alpha| \|v\|\)</span></li>
+<li><strong>Triangle inequality</strong>: <span class="math-inline">\(\|u + v\| \leq \|u\| + \|v\|\)</span></li>
+</ul>
+
+<h2>Euclidean Norm (L₂ Norm)</h2>
+
+<p>The Euclidean norm or L₂ norm is:</p>
+
+<p><div class="math-display">\[\|v\|_2 = \sqrt{v_1^2 + v_2^2 + \cdots + v_n^2} = \sqrt{v \cdot v}\]</div></p>
+
+<p>This measures the straight-line distance from the origin to the point represented by <span class="math-inline">\(v\)</span>.</p>
+
+<h3>Example</h3>
+
+<p><div class="math-display">\[\|v\|_2 = \sqrt{3^2 + 4^2} = \sqrt{9 + 16} = \sqrt{25} = 5\]</div></p>
+
+<h2>Manhattan Norm (L₁ Norm)</h2>
+
+<p>The L₁ norm is the sum of absolute values:</p>
+
+<p><div class="math-display">\[\|v\|_1 = |v_1| + |v_2| + \cdots + |v_n|\]</div></p>
+
+<p>This measures the distance traveling along axes (grid distance).</p>
+
+<h3>Example</h3>
+
+<p>For $v = [3, -4]^T:</p>
+
+<p><div class="math-display">\[\|v\|_1 = |3| + |-4| = 3 + 4 = 7\]</div></p>
+
+<h2>Maximum Norm (L∞ Norm)</h2>
+
+<p>The L∞ norm is the maximum absolute value:</p>
+
+<p><div class="math-display">\[\|v\|_\infty = \max\{|v_1|, |v_2|, \ldots, |v_n|\}\]</div></p>
+
+<h3>Example</h3>
+
+<p>For $v = [3, -7, 2]^T:</p>
+
+<p><div class="math-display">\[\|v\|_\infty = \max\{3, 7, 2\} = 7\]</div></p>
+
+<h2>General Lₚ Norm</h2>
+
+<p>The Lₚ norm for <span class="math-inline">\(p \geq 1\)</span> is:</p>
+
+<p><div class="math-display">\[\|v\|_p = (|v_1|^p + |v_2|^p + \cdots + |v_n|^p)^{1/p}\]</div></p>
+
+<ul>
+<li>L₁, L₂, and L∞ are special cases</li>
+<li>As <span class="math-inline">\(p \to \infty\)</span>, Lₚ approaches L∞</li>
+</ul>
+
+<h2>Unit Vectors and Normalization</h2>
+
+<p>A unit vector has norm equal to 1. Any non-zero vector <span class="math-inline">\(v\)</span> can be normalized:</p>
+
+<p> <div class="math-display">\[\hat{u} = \frac{v}{\|v\|}\]</div></p>
+
+<p>This produces a unit vector in the same direction as <span class="math-inline">\(v\)</span>.</p>
+
+<h3>Example</h3>
+
+<p>For <span class="math-inline">\(v = [3, 4]^T with\)</span>\|v\|_2 = 5$:</p>
+
+<p><div class="math-display">\[\hat{u} = [3/5, 4/5]^T = [0.6, 0.8]^T\]</div></p>
+
+<p>Verify: <span class="math-inline">\(\|\hat{u}\|_2 = \sqrt{0.6^2 + 0.8^2} = \sqrt{0.36 + 0.64} = 1\)</span></p>
+
+<h2>Distance Between Vectors</h2>
+
+<p>The distance between <span class="math-inline">\(u\)</span> and <span class="math-inline">\(v\)</span> using the Lₚ norm is:</p>
+
+<p><div class="math-display">\[d(u, v) = \|u - v\|_p\]</div></p>
+
+<p>For L₂ (Euclidean distance):</p>
+
+<p><div class="math-display">\[d(u, v) = \sqrt{\sum_{i=1}^{n} (u_i - v_i)^2}\]</div></p>
+
+<h2>Relevance for Machine Learning</h2>
+
+<p><strong>Similarity Measurement</strong>: The dot product measures similarity between vectors. In recommendation systems, user-item preferences are vectors, and dot products compute compatibility scores.</p>
+
+<p><strong>Cosine Similarity</strong>: Normalized dot product measures angular similarity:</p>
+
+<p><div class="math-display">\[\text{sim}(u, v) = \frac{u \cdot v}{\|u\|_2 \|v\|_2}\]</div></p>
+
+<p>This is used in document similarity, image retrieval, and clustering.</p>
+
+<p><strong>Distance Metrics</strong>: K-nearest neighbors (KNN) classifies samples based on distance. Euclidean distance (L₂) is most common, but L₁ (Manhattan) is robust to outliers.</p>
+
+<p><strong>Loss Functions</strong>: Mean squared error (MSE) for regression is the squared L₂ norm:</p>
+
+<p><div class="math-display">\[L(y, \hat{y}) = \frac{1}{n}\|y - \hat{y}\|_2^2\]</div></p>
+
+<p>Mean absolute error (MAE) uses L₁:</p>
+
+<p><div class="math-display">\[L(y, \hat{y}) = \frac{1}{n}\|y - \hat{y}\|_1\]</div></p>
+
+<p><strong>Regularization</strong>: Ridge regression (L₂ regularization) adds <span class="math-inline">\(\|w\|_2^2\)</span> to penalize large weights. Lasso regression (L₁ regularization) adds <span class="math-inline">\(\|w\|_1\)</span> to encourage sparsity (many weights become exactly zero).</p>
+
+<p><strong>Gradient Computation</strong>: The gradient of <span class="math-inline">\(\|w\|_2^2\)</span> is <span class="math-inline">\(2w\)</span>, used in weight decay. The subgradient of <span class="math-inline">\(\|w\|_1\)</span> is <span class="math-inline">\(\text{sign}(w)\)</span>, used in sparse optimization.</p>
+
+<p><strong>Attention Mechanisms</strong>: In transformers, attention scores are computed using scaled dot products:</p>
+
+<p><div class="math-display">\[\text{attention}(q, k) = \frac{\exp(q \cdot k / \sqrt{d})}{Z}\]</div></p>
+
+<p>where <span class="math-inline">\(q\)</span> is a query vector, <span class="math-inline">\(k\)</span> is a key vector, and <span class="math-inline">\(d\)</span> is dimensionality.</p>
+
+        </article>
     </main>
     <footer>
         <p>&copy; 2026 Varol Cagdas Tok</p>
     </footer>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const container = document.querySelector('[data-markdown-path]');
-            const path = container.getAttribute('data-markdown-path');
-            fetch(path)
-                .then(response => response.text())
-                .then(text => {
-                    container.innerHTML = renderMarkdownWithMath(text);
-                    renderMath();
+        document.addEventListener("DOMContentLoaded", function() {
+            if (window.renderMathInElement) {
+                renderMathInElement(document.getElementById('article-content'), {
+                    delimiters: [
+                        {left: '\\[', right: '\\]', display: true},
+                        {left: '\\(', right: '\\)', display: false}
+                    ],
+                    throwOnError: false
                 });
+            }
         });
     </script>
 </body>
-
 </html>

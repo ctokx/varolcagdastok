@@ -1,18 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>White-Box Testing: Symbolic Execution and Search-Based Testing - Varol Cagdas Tok</title>
+    <meta name="description" content="**White-box testing** is a testing approach that derives test inputs from the internal structure of the program. Unlike black-box testing, which uses only the specification, this method uses the code ...">
+    <meta name="author" content="Tok Varol Cagdas">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ctokx.github.io/personalblog/articles/white-box-testing-symbolic-execution-and-search-based-testing/">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ctokx.github.io/personalblog/articles/white-box-testing-symbolic-execution-and-search-based-testing/">
+    <meta property="og:title" content="White-Box Testing: Symbolic Execution and Search-Based Testing">
+    <meta property="og:description" content="**White-box testing** is a testing approach that derives test inputs from the internal structure of the program. Unlike black-box testing, which uses only the specification, this method uses the code ...">
+    <meta property="og:site_name" content="Varol Cagdas Tok">
+    <meta property="article:author" content="Varol Cagdas Tok">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="White-Box Testing: Symbolic Execution and Search-Based Testing">
+    <meta property="twitter:description" content="**White-box testing** is a testing approach that derives test inputs from the internal structure of the program. Unlike black-box testing, which uses only the specification, this method uses the code ...">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "White-Box Testing: Symbolic Execution and Search-Based Testing",
+    "description": "**White-box testing** is a testing approach that derives test inputs from the internal structure of the program. Unlike black-box testing, which uses only the specification, this method uses the code ...",
+    "author": {
+        "@type": "Person",
+        "name": "Tok Varol Cagdas",
+        "url": "https://ctokx.github.io/personalblog/about.html"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "Varol Cagdas Tok"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ctokx.github.io/personalblog/articles/white-box-testing-symbolic-execution-and-search-based-testing/"
+    },
+    "datePublished": "2026-01-10",
+    "dateModified": "2026-01-10"
+}
+    </script>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-    <script src="../../js/math-renderer.js"></script>
 </head>
-
 <body>
     <header>
         <h1>Varol Cagdas Tok</h1>
@@ -23,24 +55,76 @@
         <a href="../../about.html">About</a>
         <a href="../../feed.xml" class="rss-link">RSS</a>
     </nav>
-    <main id="article-content">
-        <div data-markdown-path="../../posts/software-engineering-testing/post4.md"></div>
+    <main>
+        <article id="article-content">
+
+
+
+<h1>White-Box Testing: Symbolic Execution and Search-Based Testing</h1>
+
+
+<p><strong>White-box testing</strong> is a testing approach that derives test inputs from the internal structure of the program. Unlike black-box testing, which uses only the specification, this method uses the code itself to generate tests. The goal is often to automatically generate a test suite that achieves high structural coverage.</p>
+
+<p>Two advanced techniques for this are Symbolic Execution and Search-Based Testing.</p>
+
+<h2>1. Symbolic Execution</h2>
+
+<p>Symbolic execution is a technique that explores multiple program execution paths at once by executing the program with <strong>symbolic inputs</strong> rather than concrete values.</p>
+
+<p>As the symbolic executor analyzes the code, it builds up algebraic expressions for the program's variables. For example, if a variable <code>x</code> starts as the symbolic value <code>X_0</code> and the code is <code>x = x + 1;</code>, the executor records the new state of <code>x</code> as the expression <code>X_0 + 1</code>.</p>
+
+<h3>The Three Components of a Symbolic State</h3>
+<p>To keep track of everything, the symbolic executor maintains a "symbolic abstraction state" which has three main parts:</p>
+
+<ol>
+<li> <strong>Location State:</strong> This is the "program counter," or what line of code is being executed (e.g., <code>l3</code>).</li>
+<li> <strong>Symbolic State (Store):</strong> This is a map of all variables to their current symbolic expressions (e.g., <span class="math-inline">\(x \to X_0 + 1\)</span>).</li>
+<li> <strong>Path Condition (PC):</strong> This is a formula that represents the conjunction of all branch conditions that must be true to reach the current line of code. It starts as <code>true</code>.</li>
+</ul>
+
+<h3>How It Works: Stepping Through an Example</h3>
+<p>When the executor encounters a condition like <code>if (x > 10)</code>, it forks, exploring both possibilities:</p>
+<ul>
+<li><strong>Path 1 (True Branch):</strong> It assumes the condition is <code>true</code> and adds <span class="math-inline">\(X_0 > 10\)</span> to its path condition.</li>
+<li><strong>Path 2 (False Branch):</strong> It assumes the condition is <code>false</code> and adds <span class="math-inline">\(\neg(X_0 > 10)\)</span> (or <span class="math-inline">\(X_0 \le 10\)</span>) to its path condition.</li>
+</ul>
+
+<p>When a path terminates, the executor uses a <strong>constraint solver</strong> to find a concrete value for the symbolic input <span class="math-inline">\(X_0\)</span> that satisfies the final path condition. This solution <em>is</em> the test input.</p>
+
+<p>For example, if a path terminates with the PC <span class="math-inline">\((X_0 > 10) \land (X_0 \cdot 2 = 30)\)</span>, the solver would return <span class="math-inline">\(X_0 = 15\)</span>. We have just automatically generated a test case, <code>x = 15</code>, that is guaranteed to execute that exact path.</p>
+
+<h3>Challenges and Solutions</h3>
+<p>This technique faces several challenges, most notably <strong>path explosion</strong>. An <code>if</code> statement in a loop can create a very large or even infinite number of paths. To manage this, tools use <strong>search heuristics</strong> (like Depth-First Search or Breadth-First Search) to prioritize which path to explore next.</p>
+
+<h2>2. Search-Based Software Testing (SBST)</h2>
+
+<p>A different white-box approach is to frame test generation as an <strong>optimization problem</strong>. This is particularly useful for generating test data to cover "difficult" branches.</p>
+
+<p>The process uses a metaheuristic search algorithm, like <strong>Hill Climbing</strong>, to find a solution.</p>
+<ol>
+<li> <strong>Goal:</strong> The search is given a specific target to cover (e.g., a specific branch).</li>
+<li> <strong>Fitness Function:</strong> A <strong>fitness function</strong> is used to evaluate how "good" a candidate solution (a test input) is. This function guides the search.</li>
+<li> <strong>Search:</strong> The algorithm starts with a random test input. It then explores "neighboring solutions" (e.g., changing an input value by +1 or -1) and moves to the neighbor that has a better "fitness". This repeats until it finds a solution that covers the target.</li>
+</ul>
+
+<p>The fitness function is often a combination of <strong>Approach Level</strong> (how close the code got to the target branch) and <strong>Branch Distance</strong> (how close the condition was to evaluating to the desired outcome).</p>
+        </article>
     </main>
     <footer>
         <p>&copy; 2026 Varol Cagdas Tok</p>
     </footer>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const container = document.querySelector('[data-markdown-path]');
-            const path = container.getAttribute('data-markdown-path');
-            fetch(path)
-                .then(response => response.text())
-                .then(text => {
-                    container.innerHTML = renderMarkdownWithMath(text);
-                    renderMath();
+        document.addEventListener("DOMContentLoaded", function() {
+            if (window.renderMathInElement) {
+                renderMathInElement(document.getElementById('article-content'), {
+                    delimiters: [
+                        {left: '\\[', right: '\\]', display: true},
+                        {left: '\\(', right: '\\)', display: false}
+                    ],
+                    throwOnError: false
                 });
+            }
         });
     </script>
 </body>
-
 </html>

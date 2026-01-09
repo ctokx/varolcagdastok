@@ -1,18 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Concolic Execution - Varol Cagdas Tok</title>
+    <meta name="description" content="**Symbolic Execution** is a powerful method for generating tests that cover all program paths. However, it has practical limitations. It struggles when code involves complex math, external library cal...">
+    <meta name="author" content="Tok Varol Cagdas">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ctokx.github.io/personalblog/articles/concolic-execution/">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ctokx.github.io/personalblog/articles/concolic-execution/">
+    <meta property="og:title" content="Concolic Execution">
+    <meta property="og:description" content="**Symbolic Execution** is a powerful method for generating tests that cover all program paths. However, it has practical limitations. It struggles when code involves complex math, external library cal...">
+    <meta property="og:site_name" content="Varol Cagdas Tok">
+    <meta property="article:author" content="Varol Cagdas Tok">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="Concolic Execution">
+    <meta property="twitter:description" content="**Symbolic Execution** is a powerful method for generating tests that cover all program paths. However, it has practical limitations. It struggles when code involves complex math, external library cal...">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Concolic Execution",
+    "description": "**Symbolic Execution** is a powerful method for generating tests that cover all program paths. However, it has practical limitations. It struggles when code involves complex math, external library cal...",
+    "author": {
+        "@type": "Person",
+        "name": "Tok Varol Cagdas",
+        "url": "https://ctokx.github.io/personalblog/about.html"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "Varol Cagdas Tok"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ctokx.github.io/personalblog/articles/concolic-execution/"
+    },
+    "datePublished": "2026-01-10",
+    "dateModified": "2026-01-10"
+}
+    </script>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-    <script src="../../js/math-renderer.js"></script>
 </head>
-
 <body>
     <header>
         <h1>Varol Cagdas Tok</h1>
@@ -23,24 +55,79 @@
         <a href="../../about.html">About</a>
         <a href="../../feed.xml" class="rss-link">RSS</a>
     </nav>
-    <main id="article-content">
-        <div data-markdown-path="../../posts/software-engineering-testing/post6.md"></div>
+    <main>
+        <article id="article-content">
+
+
+
+<h1>Concolic Execution</h1>
+
+
+<p><strong>Symbolic Execution</strong> is a powerful method for generating tests that cover all program paths. However, it has practical limitations. It struggles when code involves complex math, external library calls, or dynamic features that a constraint solver cannot handle.</p>
+
+<p>A modern, hybrid approach called <strong>Concolic Execution</strong> was developed to address these problems. The name, "concolic," is a combination of <strong>CONCrete</strong> and <strong>symbOLIC</strong>.</p>
+
+<p>Concolic execution combines a standard, concrete execution with a symbolic execution. The concrete execution <em>steers</em> the symbolic execution, and the symbolic execution is used to find <em>new paths</em> for the next concrete execution to explore.</p>
+
+<h2>The Concolic Execution Process</h2>
+
+<p>The process is a loop that uses information from the previous run to guide the next one.</p>
+
+<h3>Step 1: Execute with an Initial Input</h3>
+<p>The process starts with a single, initial data state, which can be a random value or a user-provided seed. Assume the program has one input, <code>x</code>, and the initial input is <code>x = 10</code>.</p>
+
+<p>The program is executed <em>twice</em> at the same time:</p>
+<ol>
+<li> <strong>Concrete Execution:</strong> The code runs as normal. <code>x</code> is <code>10</code>.</li>
+<li> <strong>Symbolic Execution:</strong> The code runs with a symbolic variable, <span class="math-inline">\(X_0\)</span>.</li>
+</ul>
+
+<p>As the program runs, the concrete state determines which path to take, and the symbolic executor just follows along, building the path condition.</p>
+
+<p>Consider tracing a simple program: <code>if (x > 5) { ... } else { ... }</code></p>
+<ul>
+<li><strong>Start:</strong> <code>(l0)</code>. Concrete: <code>x=10</code>. Symbolic: <span class="math-inline">\(x \to X_0\)</span>, <code>PC: true</code>.</li>
+<li><strong>Branch <code>(x > 5)</code>:</strong> The concrete value <code>10</code> makes <span class="math-inline">\(10 > 5\)</span> true. The program follows the "true" path.</li>
+<li><strong>Symbolic Update:</strong> The symbolic executor follows and adds this to its path condition.</li>
+<li><strong>End of Path 1:</strong> The program terminates.</li>
+<li><strong>Final PC:</strong> <span class="math-inline">\(X_0 > 5\)</span>.</li>
+</ul>
+
+<h3>Step 2: Generate New Inputs by "Flipping" Conditions</h3>
+<p>At the end of the run, we have a complete path condition. To find <em>new</em> paths to explore, the tool systematically negates (or "flips") one of the conditions in the PC and asks a constraint solver for a new input.</p>
+
+<p>The PC was <span class="math-inline">\(X_0 > 5\)</span>.</p>
+
+<ul>
+<li><strong>Flip #1 (the only branch):</strong></li>
+</ul>
+<p>    * New Constraint: <span class="math-inline">\(\neg(X_0 > 5)\)</span> which simplifies to <span class="math-inline">\(X_0 \le 5\)</span>.</p>
+<p>    * Solver: "Find an input that satisfies <span class="math-inline">\(X_0 \le 5\)</span>."</p>
+<p>    * New Input Generated: <code>x = 3</code>.</p>
+
+<h3>Step 3: Repeat with New Inputs</h3>
+<p>The concolic tester now adds <code>x = 3</code> to its queue. It re-runs the entire process with this new input, which is <strong>guaranteed to take a different path</strong> (the <code>else</code> branch). It will trace this new path, collect a new path condition (<span class="math-inline">\(X_0 \le 5\)</span>), and the process will terminate, as there are no more paths to find.</p>
+
+<h2>Why is this better than Symbolic Execution?</h2>
+
+<p>Concolic execution is a practical compromise. If the program hits a line of code that the symbolic engine cannot understand (like a call to an external library), it does not fail. It simply uses the <em>concrete value</em> from the concrete execution to continue, and then resumes symbolic analysis on the next line. This gives it better scalability and robustness for complex, real-world programs.</p>
+        </article>
     </main>
     <footer>
         <p>&copy; 2026 Varol Cagdas Tok</p>
     </footer>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const container = document.querySelector('[data-markdown-path]');
-            const path = container.getAttribute('data-markdown-path');
-            fetch(path)
-                .then(response => response.text())
-                .then(text => {
-                    container.innerHTML = renderMarkdownWithMath(text);
-                    renderMath();
+        document.addEventListener("DOMContentLoaded", function() {
+            if (window.renderMathInElement) {
+                renderMathInElement(document.getElementById('article-content'), {
+                    delimiters: [
+                        {left: '\\[', right: '\\]', display: true},
+                        {left: '\\(', right: '\\)', display: false}
+                    ],
+                    throwOnError: false
                 });
+            }
         });
     </script>
 </body>
-
 </html>

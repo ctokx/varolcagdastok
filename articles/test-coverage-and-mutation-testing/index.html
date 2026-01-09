@@ -1,18 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test Coverage and Mutation Testing - Varol Cagdas Tok</title>
+    <meta name="description" content="After writing a large test suite, how do you assess its quality? How do you know if you are &quot;done testing&quot;? To answer this, we need **adequacy criteria**, which are metrics for measuring the quality a...">
+    <meta name="author" content="Tok Varol Cagdas">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ctokx.github.io/personalblog/articles/test-coverage-and-mutation-testing/">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ctokx.github.io/personalblog/articles/test-coverage-and-mutation-testing/">
+    <meta property="og:title" content="Test Coverage and Mutation Testing">
+    <meta property="og:description" content="After writing a large test suite, how do you assess its quality? How do you know if you are &quot;done testing&quot;? To answer this, we need **adequacy criteria**, which are metrics for measuring the quality a...">
+    <meta property="og:site_name" content="Varol Cagdas Tok">
+    <meta property="article:author" content="Varol Cagdas Tok">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="Test Coverage and Mutation Testing">
+    <meta property="twitter:description" content="After writing a large test suite, how do you assess its quality? How do you know if you are &quot;done testing&quot;? To answer this, we need **adequacy criteria**, which are metrics for measuring the quality a...">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Test Coverage and Mutation Testing",
+    "description": "After writing a large test suite, how do you assess its quality? How do you know if you are \"done testing\"? To answer this, we need **adequacy criteria**, which are metrics for measuring the quality a...",
+    "author": {
+        "@type": "Person",
+        "name": "Tok Varol Cagdas",
+        "url": "https://ctokx.github.io/personalblog/about.html"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "Varol Cagdas Tok"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ctokx.github.io/personalblog/articles/test-coverage-and-mutation-testing/"
+    },
+    "datePublished": "2026-01-10",
+    "dateModified": "2026-01-10"
+}
+    </script>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-    <script src="../../js/math-renderer.js"></script>
 </head>
-
 <body>
     <header>
         <h1>Varol Cagdas Tok</h1>
@@ -23,24 +55,87 @@
         <a href="../../about.html">About</a>
         <a href="../../feed.xml" class="rss-link">RSS</a>
     </nav>
-    <main id="article-content">
-        <div data-markdown-path="../../posts/software-engineering-testing/post3.md"></div>
+    <main>
+        <article id="article-content">
+
+
+
+<h1>Test Coverage and Mutation Testing</h1>
+
+
+<p>After writing a large test suite, how do you assess its quality? How do you know if you are "done testing"? To answer this, we need <strong>adequacy criteria</strong>, which are metrics for measuring the quality and thoroughness of a test suite.</p>
+
+<p>These criteria allow us to compare two test suites or to decide if our current suite is "good enough".</p>
+
+<p>The most common adequacy criteria are based on <strong>structural coverage</strong>. The motivating principle is that a failure cannot be observed if the faulty code is never executed. While 100% coverage does not guarantee a bug-free program, low coverage is a clear indicator of an inadequate test suite.</p>
+
+<p>Here are the most common structural coverage criteria, from weakest to strongest.</p>
+
+<h2>1. Statement Coverage</h2>
+<ul>
+<li><strong>Goal:</strong> Execute each statement in the program at least once.</li>
+<li><strong>Metric:</strong> <span class="math-inline">\(\frac{\#~statements~executed}{\#~statements~in~program}\)</span></li>
+<li><strong>Discussion:</strong> This is the most basic coverage metric. It is relatively straightforward to achieve but is considered weak because it can miss significant faults, such as an empty <code>else</code> branch that should have contained code.</li>
+</ul>
+
+<h2>2. Branch Coverage</h2>
+<ul>
+<li><strong>Goal:</strong> Execute each branch (or "edge") in the program's control flow at least once.</li>
+<li><strong>Metric:</strong> <span class="math-inline">\(\frac{\#~branches~executed}{\#~branches~in~program}\)</span></li>
+<li><strong>Discussion:</strong> This metric requires every <code>if</code> and <code>while</code> condition to be evaluated to both <strong>true</strong> and <strong>false</strong>. This typically subsumes statement coverage. However, it can be weak for complex logical conditions. For example, a test for <code>(A || B)</code> might achieve 100% branch coverage without ever evaluating <code>B</code> as true (due to short-circuiting).</li>
+</ul>
+
+<h2>3. Modified Condition/Decision Coverage (MC/DC)</h2>
+<ul>
+<li><strong>Goal:</strong> A much stricter standard that enhances branch and condition coverage. MC/DC requires that every "atom" (a sub-expression in a condition) is shown to <strong>independently affect that condition's outcome</strong>.</li>
+<li><strong>Discussion:</strong> To show independent effect for an atom <code>A</code> in a condition like <code>(A && B)</code>, you need a pair of tests where:</li>
+</ul>
+<p>    1.  The value of <code>B</code> is the same in both tests.</p>
+<p>    2.  The value of <code>A</code> is <code>true</code> in one test and <code>false</code> in the other.</p>
+<p>    3.  The <em>final outcome</em> of <code>(A && B)</code> is different for both tests.</p>
+<ul>
+<li>This is a complex metric to achieve but provides high confidence. It is required by regulations for safety-critical systems, such as in avionics.</li>
+</ul>
+
+<h2>4. Path Coverage</h2>
+<ul>
+<li><strong>Goal:</strong> Execute each syntactical program path at least once.</li>
+<li><strong>Metric:</strong> <span class="math-inline">\(\frac{\#~executed~paths}{\#~total~paths}\)</span></li>
+<li><strong>Discussion:</strong> This is the most thorough structural metric. However, for any program with loops, the number of paths can be infinite, making 100% path coverage <strong>mostly impractical</strong>.</li>
+</ul>
+
+<p>---</p>
+<h2>A Different Approach: Mutation Testing</h2>
+
+<p>Instead of measuring code coverage, <strong>mutation testing</strong> assesses the quality of a test suite by measuring how many <em>faults</em> it can detect.</p>
+
+<p>The process works as follows:</p>
+<ol>
+<li> <strong>Generate Mutants:</strong> The tool automatically inserts small, artificial faults ("mutations") into your program. For example, it might change a <code>+</code> to a <code>-</code> (AOR operator) or a <code>></code> to a <code>>=</code> (ROR operator).</li>
+<li> <strong>Execute Tests:</strong> The test suite is run against each of these "mutant" programs.</li>
+<li> <strong>Assess:</strong></li>
+</ul>
+<p>    * If a test fails, it has <strong>"killed" the mutant</strong>. This is good; it means the test suite found the fault.</p>
+<p>    * If all tests pass, the mutant <strong>"survived."</strong> This is bad; it indicates a gap in the test suite.</p>
+
+<p>The final "Mutation Score Indicator" (MSI) is the percentage of mutants that were killed. This is a powerful metric because it directly measures the fault-finding ability of your tests.</p>
+        </article>
     </main>
     <footer>
         <p>&copy; 2026 Varol Cagdas Tok</p>
     </footer>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const container = document.querySelector('[data-markdown-path]');
-            const path = container.getAttribute('data-markdown-path');
-            fetch(path)
-                .then(response => response.text())
-                .then(text => {
-                    container.innerHTML = renderMarkdownWithMath(text);
-                    renderMath();
+        document.addEventListener("DOMContentLoaded", function() {
+            if (window.renderMathInElement) {
+                renderMathInElement(document.getElementById('article-content'), {
+                    delimiters: [
+                        {left: '\\[', right: '\\]', display: true},
+                        {left: '\\(', right: '\\)', display: false}
+                    ],
+                    throwOnError: false
                 });
+            }
         });
     </script>
 </body>
-
 </html>

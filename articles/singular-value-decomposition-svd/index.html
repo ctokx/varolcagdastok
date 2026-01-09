@@ -1,18 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Singular Value Decomposition (SVD) - Varol Cagdas Tok</title>
+    <meta name="description" content="The Singular Value Decomposition (SVD) of a matrix $A \in \mathbb{R}^{m \times n}$ is:">
+    <meta name="author" content="Tok Varol Cagdas">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ctokx.github.io/personalblog/articles/singular-value-decomposition-svd/">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ctokx.github.io/personalblog/articles/singular-value-decomposition-svd/">
+    <meta property="og:title" content="Singular Value Decomposition (SVD)">
+    <meta property="og:description" content="The Singular Value Decomposition (SVD) of a matrix $A \in \mathbb{R}^{m \times n}$ is:">
+    <meta property="og:site_name" content="Varol Cagdas Tok">
+    <meta property="article:author" content="Varol Cagdas Tok">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="Singular Value Decomposition (SVD)">
+    <meta property="twitter:description" content="The Singular Value Decomposition (SVD) of a matrix $A \in \mathbb{R}^{m \times n}$ is:">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Singular Value Decomposition (SVD)",
+    "description": "The Singular Value Decomposition (SVD) of a matrix $A \\in \\mathbb{R}^{m \\times n}$ is:",
+    "author": {
+        "@type": "Person",
+        "name": "Tok Varol Cagdas",
+        "url": "https://ctokx.github.io/personalblog/about.html"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "Varol Cagdas Tok"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ctokx.github.io/personalblog/articles/singular-value-decomposition-svd/"
+    },
+    "datePublished": "2026-01-10",
+    "dateModified": "2026-01-10"
+}
+    </script>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-    <script src="../../js/math-renderer.js"></script>
 </head>
-
 <body>
     <header>
         <h1>Varol Cagdas Tok</h1>
@@ -23,24 +55,243 @@
         <a href="../../about.html">About</a>
         <a href="../../feed.xml" class="rss-link">RSS</a>
     </nav>
-    <main id="article-content">
-        <div data-markdown-path="../../posts/linear-algebra/post34.md"></div>
+    <main>
+        <article id="article-content">
+
+
+
+<h1>Singular Value Decomposition (SVD)</h1>
+
+<h2>Definition</h2>
+
+<p>The Singular Value Decomposition (SVD) of a matrix <span class="math-inline">\(A \in \mathbb{R}^{m \times n}\)</span> is:</p>
+
+<p><div class="math-display">\[A = U \Sigma V^T\]</div></p>
+
+<p>where:</p>
+<ul>
+<li><span class="math-inline">\(U \in \mathbb{R}^{m \times m}\)</span> is orthogonal (columns are orthonormal left singular vectors)</li>
+<li><span class="math-inline">\(\Sigma \in \mathbb{R}^{m \times n}\)</span> is diagonal (entries <span class="math-inline">\(\sigma_1 \geq \sigma_2 \geq ... \geq \sigma_r \geq 0\)</span> are singular values)</li>
+<li><span class="math-inline">\(V \in \mathbb{R}^{n \times n}\)</span> is orthogonal (columns are orthonormal right singular vectors)</li>
+</ul>
+
+<p>Unlike eigendecomposition, SVD applies to any matrix (not just square).</p>
+
+<h2>Singular Values</h2>
+
+<p>The singular values <span class="math-inline">\(\sigma_i\)</span> are the square roots of the eigenvalues of <span class="math-inline">\(A^TA\)</span> (or <span class="math-inline">\(AA^T\)</span>):</p>
+
+<p><div class="math-display">\[\sigma_i = \sqrt{\lambda_i(A^TA)}\]</div></p>
+
+<p>The number of non-zero singular values equals rank(<span class="math-inline">\(A\)</span>).</p>
+
+<h2>Computing SVD</h2>
+
+<p>To find <span class="math-inline">\(U\)</span>, <span class="math-inline">\(\Sigma\)</span>, <span class="math-inline">\(V\)</span>:</p>
+
+<ol>
+<li>Compute <span class="math-inline">\(A^TA \in \mathbb{R}^{n \times n}\)</span> (symmetric, positive semi-definite)</li>
+<li>Find eigenvalues and eigenvectors of <span class="math-inline">\(A^TA\)</span></li>
+<li>Singular values: <span class="math-inline">\(\sigma_i = \sqrt{\lambda_i}\)</span></li>
+<li>Right singular vectors: columns of <span class="math-inline">\(V\)</span> are eigenvectors of <span class="math-inline">\(A^TA\)</span></li>
+<li>Left singular vectors: <span class="math-inline">\(u_i = (1/\sigma_i)Av_i\)</span> for <span class="math-inline">\(i = 1, \ldots, r\)</span></li>
+</ul>
+
+<h3>Example</h3>
+
+<pre><code class="language-text">A = [3  1]
+    [1  3]
+    [0  0]</code></pre>
+
+<p><span class="math-inline">\(A\)</span> is <span class="math-inline">\(3 \times 2\)</span>.</p>
+
+<p>Step 1: Compute <span class="math-inline">\(A^TA\)</span>:</p>
+<pre><code class="language-text">AᵀA = [3  1  0][3  1]   [9+1+0   3+3+0]   [10  6]
+      [1  3  0][1  3] = [3+3+0   1+9+0] = [6  10]
+              [0  0]</code></pre>
+
+<p>Step 2: Find eigenvalues of <span class="math-inline">\(A^TA\)</span>:</p>
+<pre><code class="language-text">det(AᵀA - λI) = det([10-λ    6  ])
+                    [6     10-λ]
+              = (10-λ)² - 36
+              = λ² - 20λ + 100 - 36
+              = λ² - 20λ + 64
+              = (λ - 16)(λ - 4)</code></pre>
+
+<p>Eigenvalues: <span class="math-inline">\(\lambda_{1} = 16, \lambda_{2} = 4\)</span></p>
+
+<p>Step 3: Singular values:</p>
+<p><span class="math-inline">\(\sigma_1 = \sqrt{16} = 4, \sigma_2 = \sqrt{4} = 2\)</span></p>
+
+<pre><code class="language-text">Σ = [4  0]
+    [0  2]
+    [0  0]</code></pre>
+
+<p>Step 4: Find eigenvectors of <span class="math-inline">\(A^TA\)</span>:</p>
+
+<p>For <span class="math-inline">\(\lambda_{1} = 16\)</span>:</p>
+<pre><code class="language-text">(AᵀA - 16I)v = [-6  6][v₁]   [0]
+               [6  -6][v₂] = [0]
+
+-v₁ + v₂ = 0  →  v₁ = v₂</code></pre>
+
+<p>Normalized: <span class="math-inline">\(v_{1} = [1/\sqrt{2}, 1/\sqrt{2}]^T\)</span></p>
+
+<p>For <span class="math-inline">\(\lambda_{2} = 4\)</span>:</p>
+<pre><code class="language-text">(AᵀA - 4I)v = [6  6][v₁]   [0]
+              [6  6][v₂] = [0]
+
+v₁ + v₂ = 0  →  v₂ = -v₁</code></pre>
+
+<p>Normalized: <span class="math-inline">\(v_{2} = [1/\sqrt{2}, -1/\sqrt{2}]^T\)</span></p>
+
+<pre><code class="language-text">V = [1/√2   1/√2]
+    [1/√2  -1/√2]</code></pre>
+
+<p>Step 5: Compute left singular vectors:</p>
+
+<pre><code class="language-text">u₁ = (1/σ₁)Av₁ = (1/4)[3  1][1/√2]   (1/4)[4/√2]   [1/√2]
+                       [1  3][1/√2] = (1/4)[4/√2] = [1/√2]
+                       [0  0]         (1/4)[0   ]   [0   ]
+
+u₂ = (1/σ₂)Av₂ = (1/2)[3  1][ 1/√2]   (1/2)[2/√2]   [1/√2 ]
+                       [1  3][-1/√2] = (1/2)[-2/√2] = [-1/√2]
+                       [0  0]          (1/2)[0    ]   [0    ]</code></pre>
+
+<p>Need a third vector orthogonal to <span class="math-inline">\(u_1\)</span> and <span class="math-inline">\(u_2\)</span>:</p>
+
+<p><span class="math-inline">\(u_3 = [0, 0, 1]^T\)</span> (perpendicular to span<span class="math-inline">\(\{u_1, u_2\}\)</span>)</p>
+
+<pre><code class="language-text">U = [1/√2   1/√2   0]
+    [1/√2  -1/√2   0]
+    [0      0      1]</code></pre>
+
+<p>Verify:</p>
+<pre><code class="language-text">UΣVᵀ = [1/√2   1/√2   0][4  0][1/√2   1/√2]
+       [1/√2  -1/√2   0][0  2][1/√2  -1/√2]
+       [0      0      1][0  0]
+
+     = [1/√2   1/√2   0][4/√2   4/√2]
+       [1/√2  -1/√2   0][2/√2  -2/√2]
+       [0      0      1][0      0   ]
+
+     = [4/2+2/2   4/2-2/2]   [3  1]
+       [4/2-2/2   4/2+2/2] = [1  3] ✓
+       [0         0      ]   [0  0]</code></pre>
+
+<h2>Reduced SVD</h2>
+
+<p>For <span class="math-inline">\(A \in \mathbb{R}^{m \times n}\)</span> with rank r <span class="math-inline">\(\leq\)</span> min(m, n), the <strong>reduced SVD</strong> uses only the r non-zero singular values:</p>
+
+<p><div class="math-display">\[A = U_r\Sigma_rV_r^T\]</div></p>
+
+<p>where:</p>
+<ul>
+<li><span class="math-inline">\(U_r \in \mathbb{R}^{m \times r}\)</span> (first r columns of <span class="math-inline">\(U\)</span>)</li>
+<li><span class="math-inline">\(\Sigma_r \in \mathbb{R}^{r \times r}\)</span> (r <span class="math-inline">\(\times\)</span> r diagonal matrix)</li>
+<li><span class="math-inline">\(V_r \in \mathbb{R}^{n \times r}\)</span> (first r columns of <span class="math-inline">\(V\)</span>)</li>
+</ul>
+
+<p>This is more memory-efficient for low-rank matrices.</p>
+
+<h2>Outer Product Form</h2>
+
+<p>SVD can be written as a sum of rank-1 matrices:</p>
+
+<p><div class="math-display">\[A = \sum_{i=1}^r \sigma_i u_{i} v_{i}^T\]</div></p>
+
+<p>Each term <span class="math-inline">\(\sigma_i u_{i} v_{i}^T\)</span> captures a "mode" or "pattern" in the data.</p>
+
+<h2>Low-Rank Approximation</h2>
+
+<p>The best rank-k approximation to <span class="math-inline">\(A\)</span> (minimizing Frobenius norm) is:</p>
+
+<p><div class="math-display">\[A_k = \sum_{i=1}^k \sigma_i u_i v_i^T = U_k \Sigma_k V_k^T\]</div></p>
+
+<p>where <span class="math-inline">\(U_k\)</span>, <span class="math-inline">\(\Sigma_k\)</span>, <span class="math-inline">\(V_k\)</span> use only the first k singular values/vectors.</p>
+
+<p>The approximation error is:</p>
+
+<p><div class="math-display">\[\|A - A_k\|_F = \sqrt{\sigma_{k+1}^2 + \sigma_{k+2}^2 + \cdots + \sigma_r^2}\]</div></p>
+
+<h2>Moore-Penrose Pseudo-Inverse</h2>
+
+<p>The pseudo-inverse of <span class="math-inline">\(A\)</span> is:</p>
+
+<p><div class="math-display">\[A^+ = V \Sigma^+ U^T\]</div></p>
+
+<p>where <span class="math-inline">\(\Sigma^+\)</span> has <span class="math-inline">\(1/\sigma_{i}\)</span> on the diagonal for non-zero <span class="math-inline">\(\sigma_{i}\)</span>, and 0 elsewhere.</p>
+
+<p>For overdetermined systems <span class="math-inline">\(Ax = b\)</span> (m > n), the least squares solution is:</p>
+
+<p><div class="math-display">\[x = A^+b\]</div></p>
+
+<h2>Properties of SVD</h2>
+
+<ol>
+<li>rank(<span class="math-inline">\(A\)</span>) = number of non-zero singular values</li>
+<li><span class="math-inline">\(\|A\|_2 = \sigma_{1}\)</span> (largest singular value)</li>
+<li><span class="math-inline">\(\|A\|_F = \sqrt{\sigma_{1}^2 + \sigma_{2}^2 + ... + \sigma_r^2}\)</span></li>
+<li><span class="math-inline">\(\det(A) = \prod \sigma_{i}\)</span> (for square A)</li>
+<li><span class="math-inline">\(A^TA = V \Sigma^T \Sigma V^T\)</span></li>
+<li><span class="math-inline">\(AA^T = U \Sigma \Sigma^T U^T\)</span></li>
+</ul>
+
+<h2>Relationship to Eigendecomposition</h2>
+
+<p>For symmetric <span class="math-inline">\(A = A^T\)</span>:</p>
+<ul>
+<li>Singular values are absolute values of eigenvalues: <span class="math-inline">\(\sigma_{i} = |\lambda_{i}|\)</span></li>
+<li>Singular vectors are eigenvectors (up to sign)</li>
+<li>SVD: <span class="math-inline">\(A = U \Sigma U^T\)</span> (since <span class="math-inline">\(U = V\)</span> for symmetric matrices)</li>
+</ul>
+
+<h2>Relevance for Machine Learning</h2>
+
+<p><strong>Principal Component Analysis (PCA)</strong>: Instead of eigendecomposing the covariance matrix, apply SVD directly to the centered data matrix <span class="math-inline">\(X\)</span>:</p>
+
+<p><div class="math-display">\[X = U \Sigma V^T\]</div></p>
+
+<p>Principal components: columns of <span class="math-inline">\(V\)</span></p>
+<p>Variance explained: <span class="math-inline">\(\sigma_{i}^2 /(m-1)\)</span></p>
+<p>Reduced data: <span class="math-inline">\(XV_{k}\)</span> (project onto top k components)</p>
+
+<p><strong>Latent Semantic Analysis (LSA)</strong>: In text mining, create a term-document matrix <span class="math-inline">\(A\)</span> (rows = words, columns = documents). SVD decomposes <span class="math-inline">\(A\)</span> into:</p>
+<ul>
+<li><span class="math-inline">\(U\)</span>: word-topic relationships</li>
+<li><span class="math-inline">\(\Sigma\)</span>: topic strengths</li>
+<li><span class="math-inline">\(V\)</span>: document-topic relationships</li>
+</ul>
+
+<p><strong>Recommender Systems</strong>: Matrix factorization for collaborative filtering. User-item matrix <span class="math-inline">\(R \approx U \Sigma V^T\)</span>, where <span class="math-inline">\(U\)</span> contains user embeddings and <span class="math-inline">\(V\)</span> contains item embeddings.</p>
+
+<p><strong>Image Compression</strong>: Represent an image matrix <span class="math-inline">\(A\)</span> with low-rank approximation <span class="math-inline">\(A_k\)</span>. Keep only k largest singular values/vectors, reducing storage from mn to k(m+n+1).</p>
+
+<p><strong>Denoising</strong>: If signal is low-rank and noise is full-rank, truncated SVD removes noise by discarding small singular values.</p>
+
+<p><strong>Least Squares Regression</strong>: Solve <span class="math-inline">\(Xw = y\)</span> using pseudo-inverse: <span class="math-inline">\(w = X^+y\)</span>. More numerically stable than <span class="math-inline">\((X^TX)^{-1}X^Ty\)</span>.</p>
+
+<p><strong>Condition Number</strong>: <span class="math-inline">\(\text{cond}(A) = \sigma_{1}/\sigma_r\)</span> quantifies numerical stability. Large condition numbers indicate ill-conditioned problems requiring regularization.</p>
+
+<p><strong>Tensor Decomposition</strong>: Higher-order SVD (HOSVD) extends SVD to tensors, used in multiway data analysis and deep learning.</p>
+
+        </article>
     </main>
     <footer>
         <p>&copy; 2026 Varol Cagdas Tok</p>
     </footer>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const container = document.querySelector('[data-markdown-path]');
-            const path = container.getAttribute('data-markdown-path');
-            fetch(path)
-                .then(response => response.text())
-                .then(text => {
-                    container.innerHTML = renderMarkdownWithMath(text);
-                    renderMath();
+        document.addEventListener("DOMContentLoaded", function() {
+            if (window.renderMathInElement) {
+                renderMathInElement(document.getElementById('article-content'), {
+                    delimiters: [
+                        {left: '\\[', right: '\\]', display: true},
+                        {left: '\\(', right: '\\)', display: false}
+                    ],
+                    throwOnError: false
                 });
+            }
         });
     </script>
 </body>
-
 </html>

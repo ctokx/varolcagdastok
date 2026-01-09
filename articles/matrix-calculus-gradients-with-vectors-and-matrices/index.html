@@ -1,18 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matrix Calculus: Gradients with Vectors and Matrices - Varol Cagdas Tok</title>
+    <meta name="description" content="Machine learning optimization requires computing derivatives of scalar loss functions with respect to vector or matrix parameters. Matrix calculus provides notation and rules for these computations.">
+    <meta name="author" content="Tok Varol Cagdas">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ctokx.github.io/personalblog/articles/matrix-calculus-gradients-with-vectors-and-matrices/">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ctokx.github.io/personalblog/articles/matrix-calculus-gradients-with-vectors-and-matrices/">
+    <meta property="og:title" content="Matrix Calculus: Gradients with Vectors and Matrices">
+    <meta property="og:description" content="Machine learning optimization requires computing derivatives of scalar loss functions with respect to vector or matrix parameters. Matrix calculus provides notation and rules for these computations.">
+    <meta property="og:site_name" content="Varol Cagdas Tok">
+    <meta property="article:author" content="Varol Cagdas Tok">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="Matrix Calculus: Gradients with Vectors and Matrices">
+    <meta property="twitter:description" content="Machine learning optimization requires computing derivatives of scalar loss functions with respect to vector or matrix parameters. Matrix calculus provides notation and rules for these computations.">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Matrix Calculus: Gradients with Vectors and Matrices",
+    "description": "Machine learning optimization requires computing derivatives of scalar loss functions with respect to vector or matrix parameters. Matrix calculus provides notation and rules for these computations.",
+    "author": {
+        "@type": "Person",
+        "name": "Tok Varol Cagdas",
+        "url": "https://ctokx.github.io/personalblog/about.html"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "Varol Cagdas Tok"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ctokx.github.io/personalblog/articles/matrix-calculus-gradients-with-vectors-and-matrices/"
+    },
+    "datePublished": "2026-01-10",
+    "dateModified": "2026-01-10"
+}
+    </script>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-    <script src="../../js/math-renderer.js"></script>
 </head>
-
 <body>
     <header>
         <h1>Varol Cagdas Tok</h1>
@@ -23,24 +55,276 @@
         <a href="../../about.html">About</a>
         <a href="../../feed.xml" class="rss-link">RSS</a>
     </nav>
-    <main id="article-content">
-        <div data-markdown-path="../../posts/linear-algebra/post38.md"></div>
+    <main>
+        <article id="article-content">
+
+
+
+<h1>Matrix Calculus: Gradients with Vectors and Matrices</h1>
+
+<h2>Motivation</h2>
+
+<p>Machine learning optimization requires computing derivatives of scalar loss functions with respect to vector or matrix parameters. Matrix calculus provides notation and rules for these computations.</p>
+
+<h2>Scalar-by-Vector Derivative</h2>
+
+<p>Given a scalar function f: <span class="math-inline">\(\mathbb{R}^{n}\)</span> → <span class="math-inline">\(\mathbb{R}\)</span> and vector <span class="math-inline">\(x \in \mathbb{R}^{n}\)</span>, the gradient is:</p>
+
+<p><div class="math-display">\[\nabla_x f = \frac{\partial f}{\partial x} = \left[\frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x_2}, \dots, \frac{\partial f}{\partial x_n}\right]^T\]</div></p>
+
+<p>The gradient is a column vector in <span class="math-inline">\(\mathbb{R}^{n}\)</span>.</p>
+
+<h3>Example: Quadratic Function</h3>
+
+<p><div class="math-display">\[f(x) = x^Tx = \sum_{i=1}^n x_i^2\]</div></p>
+
+<p><div class="math-display">\[\frac{\partial f}{\partial x_i} = 2x_i\]</div></p>
+
+<p><div class="math-display">\[\nabla_x f = 2x\]</div></p>
+
+<h2>Linear Function</h2>
+
+<p><div class="math-display">\[f(x) = a^Tx = \sum_{i=1}^n a_i x_i\]</div></p>
+
+<p><div class="math-display">\[\frac{\partial f}{\partial x_i} = a_i\]</div></p>
+
+<p><div class="math-display">\[\nabla_x f = a\]</div></p>
+
+<h2>Quadratic Form</h2>
+
+<p><div class="math-display">\[f(x) = x^TAx\]</div></p>
+
+<p>where <span class="math-inline">\(A \in \mathbb{R}^{n \times n}\)</span> is symmetric.</p>
+
+<p><div class="math-display">\[\nabla_x f = 2Ax\]</div></p>
+
+<h3>Derivation</h3>
+
+<p><div class="math-display">\[f(x) = \sum_{i=1}^n \sum_{j=1}^n a_{ij}x_i x_j\]</div></p>
+
+<p><div class="math-display">\[\frac{\partial f}{\partial x_k} = \sum_{j=1}^n a_{kj}x_j + \sum_{i=1}^n a_{ik}x_i\]</div></p>
+
+<p>Since <span class="math-inline">\(A\)</span> is symmetric (<span class="math-inline">\(a_{ij} = a_{ji}\)</span>):</p>
+
+<p><div class="math-display">\[\frac{\partial f}{\partial x_k} = 2\sum_{j=1}^n a_{kj}x_j = 2(Ax)_k\]</div></p>
+
+<p>Thus <span class="math-inline">\(\nabla_x f = 2Ax\)</span>.</p>
+
+<h3>Example</h3>
+
+<p><span class="math-inline">\(A = \begin{bmatrix} 2 & 1 \\ 1 & 3 \end{bmatrix}\)</span>, <span class="math-inline">\(x = [x_1, x_2]^T\)</span></p>
+
+<p><div class="math-display">\[f(x) = \begin{bmatrix} x_1 & x_2 \end{bmatrix} \begin{bmatrix} 2 & 1 \\ 1 & 3 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}\]</div></p>
+
+<p><div class="math-display">\[= \begin{bmatrix} x_1 & x_2 \end{bmatrix} \begin{bmatrix} 2x_1 + x_2 \\ x_1 + 3x_2 \end{bmatrix}\]</div></p>
+
+<p><div class="math-display">\[= x_1(2x_1 + x_2) + x_2(x_1 + 3x_2)\]</div></p>
+<p><div class="math-display">\[= 2x_1^2 + 2x_1 x_2 + 3x_2^2\]</div></p>
+
+<p><div class="math-display">\[\nabla_x f = [4x_1 + 2x_2, 2x_1 + 6x_2]^T = 2 \begin{bmatrix} 2 & 1 \\ 1 & 3 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = 2Ax \quad \checkmark\]</div></p>
+
+<h2>Affine Function Squared Norm</h2>
+
+<p><div class="math-display">\[f(x) = \|Ax - b\|_2^2\]</div></p>
+
+<p>Expand:</p>
+<p><div class="math-display">\[f(x) = (Ax - b)^T (Ax - b)\]</div></p>
+<p><div class="math-display">\[= x^TA^TAx - 2b^TAx + b^Tb\]</div></p>
+
+<p><div class="math-display">\[\nabla_x f = 2A^TAx - 2A^Tb = 2A^T(Ax - b)\]</div></p>
+
+<p>This is used in linear regression: <span class="math-inline">\(f(w) = \|Xw - y\|_2^2\)</span></p>
+
+<p><div class="math-display">\[\nabla_w f = 2X^T(Xw - y)\]</div></p>
+
+<h2>Scalar-by-Matrix Derivative</h2>
+
+<p>Given <span class="math-inline">\(f: \mathbb{R}^{m \times n} \to \mathbb{R}\)</span> and matrix <span class="math-inline">\(X \in \mathbb{R}^{m \times n}\)</span>, the gradient is:</p>
+
+<p><div class="math-display">\[\frac{\partial f}{\partial X} = \left[\frac{\partial f}{\partial x_{ij}}\right]\]</div></p>
+
+<p>This is an <span class="math-inline">\(m \times n\)</span> matrix where each entry is the partial derivative with respect to that element.</p>
+
+<h3>Example: Frobenius Norm Squared</h3>
+
+<p><div class="math-display">\[f(X) = \|X\|_F^2 = \sum_{i=1}^m \sum_{j=1}^n x_{ij}^2\]</div></p>
+
+<p><div class="math-display">\[\frac{\partial f}{\partial x_{ij}} = 2x_{ij}\]</div></p>
+
+<p><div class="math-display">\[\frac{\partial f}{\partial X} = 2X\]</div></p>
+
+<h3>Example: Trace</h3>
+
+<p>For square <span class="math-inline">\(X \in \mathbb{R}^{n \times n}\)</span>:</p>
+
+<p><div class="math-display">\[f(X) = \text{tr}(X) = \sum_{i=1}^n x_{ii}\]</div></p>
+
+<p><div class="math-display">\[\frac{\partial f}{\partial x_{ij}} = \begin{cases} 1 & \text{if } i = j \\ 0 & \text{otherwise} \end{cases}\]</div></p>
+
+<p><div class="math-display">\[\frac{\partial f}{\partial X} = I\]</div></p>
+
+<h2>Matrix-Matrix Product</h2>
+
+<p><div class="math-display">\[f(X) = \text{tr}(AXB)\]</div></p>
+
+<p><div class="math-display">\[\frac{\partial f}{\partial X} = A^TB^T\]</div></p>
+
+<p>Special case: <span class="math-inline">\(f(X) = \text{tr}(AX)\)</span> gives <span class="math-inline">\(\frac{\partial f}{\partial X} = A^T\)</span></p>
+
+<h2>Chain Rule for Vectors</h2>
+
+<p>If <span class="math-inline">\(y\)</span> = g(<span class="math-inline">\(x\)</span>) and z = f(<span class="math-inline">\(y\)</span>), then:</p>
+
+<p><div class="math-display">\[\frac{\partial z}{\partial x} = \left(\frac{\partial y}{\partial x}\right)^T \frac{\partial z}{\partial y}\]</div></p>
+
+<p>where <span class="math-inline">\(\frac{\partial y}{\partial x}\)</span> is the Jacobian matrix:</p>
+
+<p><div class="math-display">\[J = \left[\frac{\partial y_i}{\partial x_j}\right] \in \mathbb{R}^{m \times n}\]</div></p>
+
+<h3>Example: Composition</h3>
+
+<p><span class="math-inline">\(y = Ax\)</span> (linear transformation)</p>
+<p><div class="math-display">\[z = \|y\|_2^2\]</div></p>
+
+<p><div class="math-display">\[\frac{\partial y}{\partial x} = A \quad (\text{Jacobian})\]</div></p>
+
+<p><div class="math-display">\[\frac{\partial z}{\partial y} = 2y\]</div></p>
+
+<p><div class="math-display">\[\frac{\partial z}{\partial x} = A^T(2y) = 2A^Ty = 2A^TAx\]</div></p>
+
+<p>Verify directly: <span class="math-inline">\(z = x^TA^TAx\)</span>, so <span class="math-inline">\(\nabla_x z = 2A^TAx\)</span> ✓</p>
+
+<h2>Denominator Layout vs. Numerator Layout</h2>
+
+<p>There are two conventions:</p>
+
+<p><strong>Numerator layout</strong> (used here): <span class="math-inline">\(\frac{\partial f}{\partial x}\)</span> is a column vector if <span class="math-inline">\(x\)</span> is a column vector.</p>
+
+<p><strong>Denominator layout</strong>: <span class="math-inline">\(\frac{\partial f}{\partial x}\)</span> is a row vector if <span class="math-inline">\(x\)</span> is a column vector.</p>
+
+<p>Always verify which convention is used. We use numerator layout throughout.</p>
+
+<h2>Common Derivatives</h2>
+
+<table>
+<tr><th>Function f(<span class="math-inline">\(x\)</span>)</th><th>Gradient ∇_x f</th></tr>
+<tr><td><span class="math-inline">\(a^Tx\)</span></td><td><span class="math-inline">\(a\)</span></td></tr>
+<tr><td><span class="math-inline">\(x^TAx\)</span> (symmetric <span class="math-inline">\(A\)</span>)</td><td><span class="math-inline">\(2Ax\)</span></td></tr>
+<tr><td><span class="math-inline">\(x^Tx\)</span></td><td><span class="math-inline">\(2x\)</span></td></tr>
+<tr><td><span class="math-inline">\(\|x\|_2\)</span></td><td><span class="math-inline">\(x/\|x\|_2\)</span></td></tr>
+<tr><td><span class="math-inline">\(\|Ax - b\|_2^2\)</span></td><td><span class="math-inline">\(2A^T(Ax - b)\)</span></td></tr>
+<tr><td><span class="math-inline">\(\log(\exp(x)^T \mathbf{1})\)</span></td><td><span class="math-inline">\(\text{softmax}(x)\)</span></td></tr>
+</table>
+
+<h2>Softmax Function</h2>
+
+<p>For <span class="math-inline">\(x \in \mathbb{R}^{n}\)</span>, the softmax is:</p>
+
+<p><div class="math-display">\[\text{softmax}(x)_i = \frac{\exp(x_i)}{\sum_{j=1}^n \exp(x_j)}\]</div></p>
+
+<p>The Jacobian is:</p>
+
+<p><div class="math-display">\[\frac{\partial \text{softmax}(x)_i}{\partial x_j} = \text{softmax}(x)_i(\delta_{ij} - \text{softmax}(x)_j)\]</div></p>
+
+<p>In matrix form:</p>
+
+<p><div class="math-display">\[J = \text{diag}(s) - ss^T\]</div></p>
+
+<p>where <span class="math-inline">\(s = \text{softmax}(x)\)</span>.</p>
+
+<h2>Logistic Loss</h2>
+
+<p><div class="math-display">\[f(w) = \log(1 + \exp(-yw^Tx))\]</div></p>
+
+<p>where <span class="math-inline">\(y \in \{-1, 1\}\)</span> is the label.</p>
+
+<p><div class="math-display">\[\nabla_w f = -yx\sigma(-yw^Tx)\]</div></p>
+
+<p>where <span class="math-inline">\(\sigma(z) = \frac{1}{1 + \exp(-z)}\)</span> is the sigmoid function.</p>
+
+<h2>Cross-Entropy Loss</h2>
+
+<p>For classification with softmax:</p>
+
+<p><div class="math-display">\[L = -\sum_{k=1}^K y_k \log(\hat{y}_k)\]</div></p>
+
+<p>where <span class="math-inline">\(y\)</span> is one-hot encoded and <span class="math-inline">\(\hat{y} = \text{softmax}(z)\)</span> with <span class="math-inline">\(z = W^Tx\)</span>.</p>
+
+<p><div class="math-display">\[\frac{\partial L}{\partial z} = \hat{y} - y\]</div></p>
+
+<p>This clean derivative is why softmax + cross-entropy is used together.</p>
+
+<h2>Backpropagation</h2>
+
+<p>In a neural network with layers <span class="math-inline">\(h_1 = \sigma_1(W_1 x)\)</span>, <span class="math-inline">\(h_2 = \sigma_2(W_2 h_1)\)</span>, ..., the gradient of loss <span class="math-inline">\(L\)</span> with respect to <span class="math-inline">\(W_1\)</span> is computed via the chain rule:</p>
+
+<p><div class="math-display">\[\frac{\partial L}{\partial W_1} = \left(\frac{\partial L}{\partial h_2}\right)\left(\frac{\partial h_2}{\partial h_1}\right)\left(\frac{\partial h_1}{\partial W_1}\right)\]</div></p>
+
+<p>Backpropagation efficiently computes these gradients by caching intermediate results.</p>
+
+<h2>Hessian Matrix</h2>
+
+<p>The Hessian of f: <span class="math-inline">\(\mathbb{R}^{n}\)</span> → <span class="math-inline">\(\mathbb{R}\)</span> is the matrix of second derivatives:</p>
+
+<p><div class="math-display">\[H = \left[\frac{\partial^2 f}{\partial x_i \partial x_j}\right] \in \mathbb{R}^{n \times n}\]</div></p>
+
+<p>If f is twice differentiable, <span class="math-inline">\(H\)</span> is symmetric.</p>
+
+<h3>Example</h3>
+
+<p><div class="math-display">\[f(x) = x^TAx \quad (\text{symmetric } A)\]</div></p>
+
+<p><div class="math-display">\[\nabla_x f = 2Ax\]</div></p>
+
+<p><div class="math-display">\[H = 2A\]</div> </p>
+
+<h2>Positive Definite Hessian</h2>
+
+<p>If <span class="math-inline">\(H\)</span> is positive definite at a critical point (<span class="math-inline">\(\nabla f = \mathbf{0}\)</span>), the point is a local minimum.</p>
+
+<p>Newton's method uses the Hessian to find minima:</p>
+
+<p><div class="math-display">\[x \leftarrow x - H^{-1}\nabla f\]</div></p>
+
+<h2>Relevance for Machine Learning</h2>
+
+<p><strong>Gradient Descent</strong>: Updates parameters via <span class="math-inline">\(w \leftarrow w - \alpha \nabla_w L\)</span>. Computing <span class="math-inline">\(\nabla_w L\)</span> requires matrix calculus.</p>
+
+<p><strong>Backpropagation</strong>: Efficiently computes gradients in neural networks using the chain rule.</p>
+
+<p><strong>Second-Order Optimization</strong>: Methods like Newton's method and L-BFGS use Hessian information for faster convergence.</p>
+
+<p><strong>Regularization Gradients</strong>: Ridge (<span class="math-inline">\(L_2\)</span>) adds <span class="math-inline">\(\lambda \|w\|_2^2\)</span> to the loss, contributing <span class="math-inline">\(2\lambda w\)</span> to the gradient. Lasso (<span class="math-inline">\(L_1\)</span>) adds <span class="math-inline">\(\lambda \|w\|_1\)</span>, contributing <span class="math-inline">\(\lambda \text{sign}(w)\)</span> (subgradient).</p>
+
+<p><strong>Batch Normalization</strong>: Gradients through normalization layers involve matrix derivatives.</p>
+
+<p><strong>Attention Mechanisms</strong>: Computing gradients of attention scores (softmax of <span class="math-inline">\(QK^T\)</span>) uses matrix calculus.</p>
+
+<p><strong>Variational Inference</strong>: Reparameterization trick requires gradients through sampling operations.</p>
+
+<p><strong>Adversarial Training</strong>: Computing adversarial perturbations uses gradients: <span class="math-inline">\(\delta = \epsilon \text{sign}(\nabla_x L)\)</span>.</p>
+
+<p><strong>Jacobian Regularization</strong>: Penalizing <span class="math-inline">\(\|A\|_F^2\)</span> encourages smooth functions, used in robust models.</p>
+
+<p><strong>Eigenvalue Gradient</strong>: Differentiating eigenvalues/eigenvectors (e.g., for spectral normalization) uses advanced matrix calculus.</p>
+
+        </article>
     </main>
     <footer>
         <p>&copy; 2026 Varol Cagdas Tok</p>
     </footer>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const container = document.querySelector('[data-markdown-path]');
-            const path = container.getAttribute('data-markdown-path');
-            fetch(path)
-                .then(response => response.text())
-                .then(text => {
-                    container.innerHTML = renderMarkdownWithMath(text);
-                    renderMath();
+        document.addEventListener("DOMContentLoaded", function() {
+            if (window.renderMathInElement) {
+                renderMathInElement(document.getElementById('article-content'), {
+                    delimiters: [
+                        {left: '\\[', right: '\\]', display: true},
+                        {left: '\\(', right: '\\)', display: false}
+                    ],
+                    throwOnError: false
                 });
+            }
         });
     </script>
 </body>
-
 </html>

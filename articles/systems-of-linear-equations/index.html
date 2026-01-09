@@ -1,18 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Systems of Linear Equations - Varol Cagdas Tok</title>
+    <meta name="description" content="A system of m linear equations in n unknowns has the form:">
+    <meta name="author" content="Tok Varol Cagdas">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ctokx.github.io/personalblog/articles/systems-of-linear-equations/">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ctokx.github.io/personalblog/articles/systems-of-linear-equations/">
+    <meta property="og:title" content="Systems of Linear Equations">
+    <meta property="og:description" content="A system of m linear equations in n unknowns has the form:">
+    <meta property="og:site_name" content="Varol Cagdas Tok">
+    <meta property="article:author" content="Varol Cagdas Tok">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="Systems of Linear Equations">
+    <meta property="twitter:description" content="A system of m linear equations in n unknowns has the form:">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Systems of Linear Equations",
+    "description": "A system of m linear equations in n unknowns has the form:",
+    "author": {
+        "@type": "Person",
+        "name": "Tok Varol Cagdas",
+        "url": "https://ctokx.github.io/personalblog/about.html"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "Varol Cagdas Tok"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ctokx.github.io/personalblog/articles/systems-of-linear-equations/"
+    },
+    "datePublished": "2026-01-10",
+    "dateModified": "2026-01-10"
+}
+    </script>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-    <script src="../../js/math-renderer.js"></script>
 </head>
-
 <body>
     <header>
         <h1>Varol Cagdas Tok</h1>
@@ -23,24 +55,211 @@
         <a href="../../about.html">About</a>
         <a href="../../feed.xml" class="rss-link">RSS</a>
     </nav>
-    <main id="article-content">
-        <div data-markdown-path="../../posts/linear-algebra/post30.md"></div>
+    <main>
+        <article id="article-content">
+
+
+
+<h1>Systems of Linear Equations</h1>
+
+<h2>Definition</h2>
+
+<p>A system of m linear equations in n unknowns has the form:</p>
+
+<pre><code class="language-text">a₁₁x₁ + a₁₂x₂ + ... + a₁ₙxₙ = b₁
+a₂₁x₁ + a₂₂x₂ + ... + a₂ₙxₙ = b₂
+...
+aₘ₁x₁ + aₘ₂x₂ + ... + aₘₙxₙ = bₘ</code></pre>
+
+<p>This can be written compactly as a matrix equation:</p>
+
+<p><div class="math-display">\[Ax = b\]</div> </p>
+
+<p>where:</p>
+<ul>
+<li><span class="math-inline">\(A \in \mathbb{R}^{m \times n}\)</span> is the coefficient matrix</li>
+<li><span class="math-inline">\(x \in \mathbb{R}^{n}\)</span> is the vector of unknowns</li>
+<li><span class="math-inline">\(b \in \mathbb{R}^{m}\)</span> is the vector of constants</li>
+</ul>
+
+<h2>Example: <span class="math-inline">\(2 \times 2\)</span> System</h2>
+
+<pre><code class="language-text">2x₁ + 3x₂ = 8
+4x₁ + 1x₂ = 10</code></pre>
+
+<p>Matrix form:</p>
+
+<pre><code class="language-text">[2  3][x₁]   [8 ]
+[4  1][x₂] = [10]</code></pre>
+
+<h2>Solution Types</h2>
+
+<p>A system <span class="math-inline">\(Ax = b\)</span> can have:</p>
+
+<ol>
+<li><strong>Unique solution</strong>: Exactly one <span class="math-inline">\(x\)</span> satisfies the equation</li>
+<li><strong>Infinite solutions</strong>: Multiple (infinitely many) <span class="math-inline">\(x\)</span> satisfy the equation</li>
+<li><strong>No solution</strong>: No <span class="math-inline">\(x\)</span> satisfies the equation (inconsistent system)</li>
+</ul>
+
+<h3>Example: Unique Solution</h3>
+
+<pre><code class="language-text">[2  1][x₁]   [5]
+[1  3][x₂] = [8]</code></pre>
+
+<p>From equation 1: <span class="math-inline">\(2x_1 + x_2 = 5 \implies x_2 = 5 - 2x_1\)</span></p>
+<p>Substitute into equation 2:</p>
+<p><div class="math-display">\[x_1 + 3(5 - 2x_1) = 8\]</div></p>
+<p><div class="math-display">\[x_1 + 15 - 6x_1 = 8\]</div></p>
+<p><div class="math-display">\[-5x_1 = -7 \implies x_1 = \frac{7}{5} = 1.4\]</div></p>
+
+<p>Then <span class="math-inline">\(x_2 = 5 - 2(1.4) = 5 - 2.8 = 2.2\)</span>.</p>
+
+<p>Solution: <span class="math-inline">\(x = [1.4, 2.2]^T\)</span></p>
+
+<h3>Example: Infinite Solutions</h3>
+
+<pre><code class="language-text">[1  2][x₁]   [3]
+[2  4][x₂] = [6]</code></pre>
+
+<p>The second equation is <span class="math-inline">\(2 \times\)</span> the first, so both equations represent the same constraint. Solutions: <span class="math-inline">\(x_2 = (3 - x_1)/2\)</span> for any <span class="math-inline">\(x_1\)</span>. Example solutions: <span class="math-inline">\([1, 1]^T\)</span>, <span class="math-inline">\([3, 0]^T\)</span>, <span class="math-inline">\([-1, 2]^T\)</span>.</p>
+
+<h3>Example: No Solution</h3>
+
+<pre><code class="language-text">[1  2][x₁]   [3]
+[2  4][x₂] = [7]</code></pre>
+
+<p>The second equation requires <span class="math-inline">\(2x_1\)</span> + <span class="math-inline">\(4x_2\)</span> = 7, but doubling the first gives <span class="math-inline">\(2x_1\)</span> + <span class="math-inline">\(4x_2\)</span> = 6. Contradiction: 6 <span class="math-inline">\(\neq\)</span> 7. No solution exists.</p>
+
+<h2>Gaussian Elimination</h2>
+
+<p>Gaussian elimination transforms <span class="math-inline">\(Ax = b\)</span> to row echelon form using elementary row operations:</p>
+
+<ol>
+<li>Swap two rows</li>
+<li>Multiply a row by a non-zero scalar</li>
+<li>Add a multiple of one row to another</li>
+</ul>
+
+<h3>Example</h3>
+
+<p>Solve:</p>
+<pre><code class="language-text">x₁ + 2x₂ + x₃ = 4
+2x₁ + x₂ + 3x₃ = 7
+x₁ - x₂ + 2x₃ = 3</code></pre>
+
+<p>Augmented matrix:</p>
+<pre><code class="language-text">[1   2   1 | 4]
+[2   1   3 | 7]
+[1  -1   2 | 3]</code></pre>
+
+<p>Step 1: Eliminate <span class="math-inline">\(x_{1}\)</span> from rows 2 and 3:</p>
+<ul>
+<li><span class="math-inline">\(R_{2}\)</span> ← <span class="math-inline">\(R_{2}\)</span> - <span class="math-inline">\(2R_1\)</span></li>
+<li><span class="math-inline">\(R_{3}\)</span> ← <span class="math-inline">\(R_{3}\)</span> - <span class="math-inline">\(R_{1}\)</span></li>
+</ul>
+
+<pre><code class="language-text">[1   2   1 | 4]
+[0  -3   1 |-1]
+[0  -3   1 |-1]</code></pre>
+
+<p>Step 2: Eliminate from row 3:</p>
+<ul>
+<li><span class="math-inline">\(R_{3}\)</span> ← <span class="math-inline">\(R_{3}\)</span> - <span class="math-inline">\(R_{2}\)</span></li>
+</ul>
+
+<pre><code class="language-text">[1   2   1 | 4]
+[0  -3   1 |-1]
+[0   0   0 | 0]</code></pre>
+
+<p>Step 3: Back substitution:</p>
+<ul>
+<li>From row 2: <span class="math-inline">\(-3x_2 + x_3 = -1 \implies x_3 = 3x_2 - 1\)</span></li>
+<li>From row 1: <span class="math-inline">\(x_1 + 2x_2 + x_3 = 4 \implies x_1 = 4 - 2x_2 - x_3 = 4 - 2x_2 - (3x_2 - 1) = 5 - 5x_2\)</span></li>
+</ul>
+
+<p>Solution (parametrized by <span class="math-inline">\(x_2 = t\)</span>):</p>
+<p><div class="math-display">\[x = [5 - 5t, t, 3t - 1]^T\]</div></p>
+
+<p>Example: <span class="math-inline">\(t = 1\)</span> gives <span class="math-inline">\(x = [0, 1, 2]^T\)</span>.</p>
+
+<h2>Row Echelon Form</h2>
+
+<p>A matrix is in row echelon form if:</p>
+<ol>
+<li>All zero rows are at the bottom</li>
+<li>The first non-zero entry (pivot) of each row is to the right of the pivot above it</li>
+<li>All entries below a pivot are zero</li>
+</ul>
+
+<h2>Reduced Row Echelon Form (RREF)</h2>
+
+<p>Additionally requires:</p>
+<ol>
+<li>All pivots equal 1</li>
+<li>All entries above and below pivots are zero</li>
+</ul>
+
+<p>Example RREF:</p>
+<pre><code class="language-text">[1  0  3 | 2]
+[0  1 -1 | 4]
+[0  0  0 | 0]</code></pre>
+
+<h2>Homogeneous Systems</h2>
+
+<p>A system is homogeneous if <span class="math-inline">\(b\)</span> = <strong>0</strong>:</p>
+
+<p><div class="math-display">\[Ax = \mathbf{0}\]</div></p>
+
+<p>Homogeneous systems always have at least one solution: <span class="math-inline">\(x = \mathbf{0}\)</span> (trivial solution).</p>
+
+<p>If <span class="math-inline">\(A\)</span> has more columns than rows (<span class="math-inline">\(n > m\)</span>), or if columns are linearly dependent, non-trivial solutions exist.</p>
+
+<h2>Relevance for Machine Learning</h2>
+
+<p><strong>Linear Regression (Normal Equation)</strong>: The optimal weights for linear regression satisfy:</p>
+
+<p><div class="math-display">\[X^TXw = X^Ty\]</div></p>
+
+<p>This is a system of linear equations. When <span class="math-inline">\(X^TX\)</span> is invertible, the solution is:</p>
+
+<p><div class="math-display">\[w = (X^TX)^{-1}X^Ty\]</div></p>
+
+<p><strong>Least Squares Problems</strong>: Many ML problems involve finding <span class="math-inline">\(x\)</span> that minimizes <span class="math-inline">\(\|Ax - b\|_2^2\)</span>. The solution satisfies the normal equation:</p>
+
+<p><div class="math-display">\[A^TAx = A^Tb\]</div></p>
+
+<p><strong>Solving Network Equations</strong>: In graph neural networks, node representations satisfy systems of equations based on message passing.</p>
+
+<p><strong>Kernel Ridge Regression</strong>: The prediction function involves solving:</p>
+
+<p><div class="math-display">\[(K + \lambda I)\alpha = y\]</div></p>
+
+<p>where <span class="math-inline">\(K\)</span> is the kernel matrix.</p>
+
+<p><strong>System Identification</strong>: Inferring system dynamics from observations leads to solving <span class="math-inline">\(Ax = b\)</span> where <span class="math-inline">\(A\)</span> contains observed states and <span class="math-inline">\(b\)</span> contains outcomes.</p>
+
+<p><strong>Interpolation</strong>: Fitting polynomials or splines through data points formulates as a linear system where coefficients are unknowns.</p>
+
+<p><strong>Computational Efficiency</strong>: Understanding when systems have unique solutions guides algorithm design. Iterative methods (conjugate gradient, GMRES) solve large systems efficiently when direct methods are infeasible.</p>
+
+        </article>
     </main>
     <footer>
         <p>&copy; 2026 Varol Cagdas Tok</p>
     </footer>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const container = document.querySelector('[data-markdown-path]');
-            const path = container.getAttribute('data-markdown-path');
-            fetch(path)
-                .then(response => response.text())
-                .then(text => {
-                    container.innerHTML = renderMarkdownWithMath(text);
-                    renderMath();
+        document.addEventListener("DOMContentLoaded", function() {
+            if (window.renderMathInElement) {
+                renderMathInElement(document.getElementById('article-content'), {
+                    delimiters: [
+                        {left: '\\[', right: '\\]', display: true},
+                        {left: '\\(', right: '\\)', display: false}
+                    ],
+                    throwOnError: false
                 });
+            }
         });
     </script>
 </body>
-
 </html>

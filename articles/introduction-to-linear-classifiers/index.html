@@ -1,18 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Introduction to Linear Classifiers - Varol Cagdas Tok</title>
+    <meta name="description" content="Classification is the task of assigning a class label to an object based on its features. The **linear classifier** is a foundational tool for this task. Its core principle is to separate classes usin...">
+    <meta name="author" content="Tok Varol Cagdas">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ctokx.github.io/personalblog/articles/introduction-to-linear-classifiers/">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ctokx.github.io/personalblog/articles/introduction-to-linear-classifiers/">
+    <meta property="og:title" content="Introduction to Linear Classifiers">
+    <meta property="og:description" content="Classification is the task of assigning a class label to an object based on its features. The **linear classifier** is a foundational tool for this task. Its core principle is to separate classes usin...">
+    <meta property="og:site_name" content="Varol Cagdas Tok">
+    <meta property="article:author" content="Varol Cagdas Tok">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="Introduction to Linear Classifiers">
+    <meta property="twitter:description" content="Classification is the task of assigning a class label to an object based on its features. The **linear classifier** is a foundational tool for this task. Its core principle is to separate classes usin...">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Introduction to Linear Classifiers",
+    "description": "Classification is the task of assigning a class label to an object based on its features. The **linear classifier** is a foundational tool for this task. Its core principle is to separate classes usin...",
+    "author": {
+        "@type": "Person",
+        "name": "Tok Varol Cagdas",
+        "url": "https://ctokx.github.io/personalblog/about.html"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "Varol Cagdas Tok"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ctokx.github.io/personalblog/articles/introduction-to-linear-classifiers/"
+    },
+    "datePublished": "2026-01-10",
+    "dateModified": "2026-01-10"
+}
+    </script>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-    <script src="../../js/math-renderer.js"></script>
 </head>
-
 <body>
     <header>
         <h1>Varol Cagdas Tok</h1>
@@ -23,24 +55,87 @@
         <a href="../../about.html">About</a>
         <a href="../../feed.xml" class="rss-link">RSS</a>
     </nav>
-    <main id="article-content">
-        <div data-markdown-path="../../posts/machine-learning/post18.md"></div>
+    <main>
+        <article id="article-content">
+
+
+
+<h1>Introduction to Linear Classifiers</h1>
+
+<p>Classification is the task of assigning a class label to an object based on its features. The <strong>linear classifier</strong> is a foundational tool for this task. Its core principle is to separate classes using a linear decision boundary—a line in two dimensions, a plane in three, and a hyperplane in higher dimensions.</p>
+
+<p>While they cannot solve inherently non-linear problems like the classic XOR puzzle on their own, linear classifiers are often surprisingly effective, especially in high-dimensional spaces. Furthermore, they form the fundamental building block for more complex models; when combined with non-linear transformations like basis functions, kernels, or the hidden layers of a neural network, they can produce highly flexible, non-linear decision boundaries.</p>
+
+<p>This article explores three fundamental approaches to building linear classifiers for binary classification problems.</p>
+
+<h2>1. The Generative Approach: Modeling the Data-Generating Process</h2>
+
+<p>A generative model for classification works by building a full probabilistic model of data generation. Instead of learning the decision boundary <span class="math-inline">\(P(y|x)\)</span> directly, it learns the class priors <span class="math-inline">\(P(y)\)</span> and the class-conditional distributions <span class="math-inline">\(P(x|y)\)</span>. From these, the desired posterior probability <span class="math-inline">\(P(y|x)\)</span> can be calculated using Bayes' theorem.</p>
+
+<p>A common and illustrative example is <strong>Linear Discriminant Analysis (LDA)</strong>, which assumes that the data for each class is generated from a Gaussian distribution. A key simplifying assumption in LDA is that while each class has its own mean (center), they all share the same covariance matrix.</p>
+
+<p>The process is as follows:</p>
+<ol>
+<li> <strong>Estimate Class Priors:</strong> The prior probability of each class, <span class="math-inline">\(P(y=k)\)</span>, is estimated from the proportion of each class in the training data.</li>
+<li> <strong>Estimate Class-Conditional Gaussians:</strong> The mean vector for each class, <span class="math-inline">\(\mu_k\)</span>, and the shared covariance matrix, <span class="math-inline">\(\Sigma\)</span>, are estimated from the training data.</li>
+<li> <strong>Apply Bayes' Theorem:</strong> For a new data point <code>x</code>, we use Bayes' theorem to calculate the posterior probability of it belonging to each class.</li>
+</ul>
+
+<p>A result of these assumptions (Gaussian distributions with a shared covariance matrix) is that the decision boundary is linear. The posterior probability <span class="math-inline">\(P(y=1|x)\)</span> takes the form of the logistic (sigmoid) function applied to a linear function of <span class="math-inline">\(x\)</span>: <span class="math-inline">\(\sigma(w^Tx + w_0)\)</span>. The weight vector <span class="math-inline">\(w\)</span> is determined by the difference in the class means and the inverse of the covariance matrix.</p>
+
+<p>This generative approach provides not just a hard classification but a full posterior probability, which can be valuable for understanding the model's confidence. A simplified version of this is the <strong>Naive Bayes classifier</strong>, which assumes that the features are conditionally independent given the class (i.e., the covariance matrix is diagonal). Despite this "naive" assumption, it often performs surprisingly well, especially in high-dimensional text classification tasks.</p>
+
+<h2>2. The Discriminative Approach: Logistic Regression</h2>
+
+<p>Instead of modeling the full data-generating process, a discriminative model focuses on learning the decision boundary <span class="math-inline">\(P(y|x)\)</span> directly. <strong>Logistic Regression</strong> is the quintessential discriminative linear classifier.</p>
+
+<p>It directly models the posterior probability of class 1 as the logistic function of a linear combination of the inputs:</p>
+
+<p><div class="math-display">\[P(y=1|x) = \sigma(w^Tx + w_0)\]</div></p>
+
+<p>The parameters <span class="math-inline">\(w\)</span> and <span class="math-inline">\(w_0\)</span> are not found by estimating means and covariances, but by directly maximizing the conditional likelihood of the observed data. This is equivalent to minimizing the <strong>cross-entropy loss function</strong>, which penalizes the model when it makes confident but incorrect predictions.</p>
+
+<p>Unlike the generative approach, logistic regression makes fewer assumptions about the underlying data distribution. It does not assume the data is Gaussian. This often makes it more robust and performant when the generative assumptions do not hold. The parameters are typically found using iterative optimization methods like gradient descent or Newton-Raphson.</p>
+
+<h2>3. Classification via Regression: A Simple Heuristic</h2>
+
+<p>A third, more heuristic approach is to treat the classification problem as a regression problem. The setup is simple:</p>
+<ol>
+<li> Assign numerical target values to the classes (e.g., <span class="math-inline">\(y=1\)</span> for the positive class and <span class="math-inline">\(y=0\)</span> or <span class="math-inline">\(y=-1\)</span> for the negative class).</li>
+<li> Train a standard linear regression model to predict these numerical values from the input features <span class="math-inline">\(x\)</span>, typically by minimizing the sum of squared errors.</li>
+<li> To classify a new point, compute the regression output <span class="math-inline">\(f(x) = w^Tx + w_0\)</span>. If the output is above a threshold, classify it as positive; otherwise, negative.</li>
+</ul>
+
+<p>While this approach seems overly simplistic and lacks the probabilistic grounding of the other two methods, it can perform surprisingly well in practice. Its main advantage is computational efficiency, as it can be solved using the fast, closed-form solution for least-squares regression. However, it can be sensitive to outliers and its output cannot be reliably interpreted as a probability.</p>
+
+<h2>Conclusion: Choosing the Right Tool</h2>
+
+<p>Linear classifiers are a fundamental tool in machine learning, and these three approaches—generative, discriminative, and regression-based—offer different perspectives on how to find the optimal linear boundary.</p>
+<ul>
+<li>  <strong>Generative models</strong> like LDA are powerful when their distributional assumptions are met and can be useful when the class priors are important.</li>
+<li>  <strong>Logistic Regression</strong> is often the preferred discriminative approach, offering a direct, robust, and probabilistic model of the decision boundary.</li>
+<li>  <strong>Classification via Regression</strong> provides a fast and simple, if less principled, alternative.</li>
+</ul>
+
+<p>Understanding these foundational models is crucial, as they solve many problems directly and serve as the final output layer for many advanced deep learning architectures.</p>
+
+        </article>
     </main>
     <footer>
         <p>&copy; 2026 Varol Cagdas Tok</p>
     </footer>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const container = document.querySelector('[data-markdown-path]');
-            const path = container.getAttribute('data-markdown-path');
-            fetch(path)
-                .then(response => response.text())
-                .then(text => {
-                    container.innerHTML = renderMarkdownWithMath(text);
-                    renderMath();
+        document.addEventListener("DOMContentLoaded", function() {
+            if (window.renderMathInElement) {
+                renderMathInElement(document.getElementById('article-content'), {
+                    delimiters: [
+                        {left: '\\[', right: '\\]', display: true},
+                        {left: '\\(', right: '\\)', display: false}
+                    ],
+                    throwOnError: false
                 });
+            }
         });
     </script>
 </body>
-
 </html>

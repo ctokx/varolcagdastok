@@ -1,18 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manifold Learning, Autoencoders, and Generative Models - Varol Cagdas Tok</title>
+    <meta name="description" content="In many real-world machine learning problems, the data we observe, despite being represented in a very high-dimensional space (e.g., the thousands of pixels in an image), does not actually fill that s...">
+    <meta name="author" content="Tok Varol Cagdas">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ctokx.github.io/personalblog/articles/manifold-learning-autoencoders-and-generative-models/">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ctokx.github.io/personalblog/articles/manifold-learning-autoencoders-and-generative-models/">
+    <meta property="og:title" content="Manifold Learning, Autoencoders, and Generative Models">
+    <meta property="og:description" content="In many real-world machine learning problems, the data we observe, despite being represented in a very high-dimensional space (e.g., the thousands of pixels in an image), does not actually fill that s...">
+    <meta property="og:site_name" content="Varol Cagdas Tok">
+    <meta property="article:author" content="Varol Cagdas Tok">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="Manifold Learning, Autoencoders, and Generative Models">
+    <meta property="twitter:description" content="In many real-world machine learning problems, the data we observe, despite being represented in a very high-dimensional space (e.g., the thousands of pixels in an image), does not actually fill that s...">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Manifold Learning, Autoencoders, and Generative Models",
+    "description": "In many real-world machine learning problems, the data we observe, despite being represented in a very high-dimensional space (e.g., the thousands of pixels in an image), does not actually fill that s...",
+    "author": {
+        "@type": "Person",
+        "name": "Tok Varol Cagdas",
+        "url": "https://ctokx.github.io/personalblog/about.html"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "Varol Cagdas Tok"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ctokx.github.io/personalblog/articles/manifold-learning-autoencoders-and-generative-models/"
+    },
+    "datePublished": "2026-01-10",
+    "dateModified": "2026-01-10"
+}
+    </script>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-    <script src="../../js/math-renderer.js"></script>
 </head>
-
 <body>
     <header>
         <h1>Varol Cagdas Tok</h1>
@@ -23,24 +55,89 @@
         <a href="../../about.html">About</a>
         <a href="../../feed.xml" class="rss-link">RSS</a>
     </nav>
-    <main id="article-content">
-        <div data-markdown-path="../../posts/machine-learning/post11.md"></div>
+    <main>
+        <article id="article-content">
+
+
+
+<h1>Manifold Learning, Autoencoders, and Generative Models</h1>
+
+<p>In many real-world machine learning problems, the data we observe, despite being represented in a very high-dimensional space (e.g., the thousands of pixels in an image), does not actually fill that space. Instead, it often lies on or near a much lower-dimensional, non-linear structure known as a <strong>manifold</strong>. The core idea of manifold learning is to discover and model this intrinsic, low-dimensional structure. This article explores the concept of data manifolds and introduces two powerful classes of models—autoencoders and generative models—that are designed to learn and exploit them.</p>
+
+<h2>The Manifold Hypothesis</h2>
+
+<p>The manifold hypothesis posits that many natural datasets, from images of faces to audio signals, are concentrated near a low-dimensional manifold. To build intuition, consider a set of images of a person's face. While each image is a point in a high-dimensional pixel space, the variations between the images can be described by a much smaller number of factors, such as the angle of the head, the lighting conditions, and the facial expression. These factors form the intrinsic coordinates of the "face manifold."</p>
+
+<p>Learning this manifold structure is incredibly valuable. It can be used for:</p>
+<ul>
+<li>  <strong>Dimensionality Reduction:</strong> By finding a low-dimensional representation (or embedding) of the data, we can simplify subsequent learning tasks and often improve performance.</li>
+<li>  <strong>Data Generation:</strong> If we can learn a model of the manifold, we can then sample new points from it, effectively generating new, realistic data samples (e.g., creating images of faces that have never existed).</li>
+<li>  <strong>Anomaly Detection:</strong> Points that lie far from the learned manifold can be identified as anomalies or outliers.</li>
+</ul>
+
+<h2>Autoencoders: Learning a Compressed Representation</h2>
+
+<p>An <strong>autoencoder</strong> is a type of neural network designed to learn a compressed, low-dimensional representation of data in an unsupervised manner. It consists of two main components:</p>
+
+<ol>
+<li> <strong>The Encoder (<span class="math-inline">\(g_e\)</span>):</strong> This part of the network takes a high-dimensional input <span class="math-inline">\(\mathbf{x}\)</span> and maps it to a low-dimensional latent vector <span class="math-inline">\(\mathbf{h}\)</span>. This latent vector is the compressed representation or embedding of the input.</li>
+</ul>
+<p>    <div class="math-display">\[\mathbf{h} = g_e(\mathbf{x})\]</div></p>
+
+<ol>
+<li> <strong>The Decoder (<span class="math-inline">\(g_d\)</span>):</strong> This part of the network takes the latent vector <span class="math-inline">\(\mathbf{h}\)</span> and attempts to reconstruct the original high-dimensional input <span class="math-inline">\(\mathbf{x}\)</span>.</li>
+</ul>
+<p>    <div class="math-display">\[\hat{\mathbf{x}} = g_d(\mathbf{h})\]</div></p>
+
+<p>The entire network is trained by minimizing the <strong>reconstruction error</strong>—the difference between the original input <span class="math-inline">\(\mathbf{x}\)</span> and the reconstructed output <span class="math-inline">\(\hat{\mathbf{x}}\)</span> (e.g., using mean squared error). The key architectural feature is a "bottleneck" layer in the middle of the network, where the dimensionality is much lower than the input and output layers. This bottleneck forces the network to learn a meaningful, compressed representation in the latent space <span class="math-inline">\(\mathbf{h}\)</span>, as it must retain enough information to reconstruct the original input.</p>
+
+<p>A simple linear autoencoder is closely related to Principal Component Analysis (PCA), a classical method for linear dimensionality reduction. However, by using non-linear activation functions in the encoder and decoder, neural network autoencoders can learn much more complex, non-linear manifolds.</p>
+
+<h2>Generative Models: Creating New Data</h2>
+
+<p>While a standard autoencoder learns to compress and decompress data, its primary goal is not to generate new data from scratch. The latent space it learns may not be structured in a way that makes it easy to sample from. <strong>Generative models</strong>, on the other hand, are explicitly designed for this purpose. They aim to learn the underlying probability distribution of the data, <span class="math-inline">\(P(\mathbf{x})\)</span>, so that they can generate new samples from that distribution. Two of the most prominent types of deep generative models are Variational Autoencoders (VAEs) and Generative Adversarial Networks (GANs).</p>
+
+<h3>Variational Autoencoders (VAEs)</h3>
+
+<p>A VAE is a probabilistic take on the autoencoder. Instead of mapping an input to a single point in the latent space, the VAE encoder maps it to the parameters (mean and variance) of a probability distribution. A point <span class="math-inline">\(\mathbf{h}\)</span> is then sampled from this distribution and fed to the decoder to reconstruct the input.</p>
+
+<p>This probabilistic approach has a crucial consequence: the training process encourages the latent space to be smooth and continuous. It forces the distributions learned for different inputs to overlap, which means that points that are close in the latent space will decode to similar, realistic outputs. After training, we can generate new data by simply sampling a random point <span class="math-inline">\(\mathbf{h}\)</span> from a standard Gaussian distribution and passing it through the decoder.</p>
+
+<h3>Generative Adversarial Networks (GANs)</h3>
+
+<p>GANs take a completely different approach based on a two-player game. A GAN consists of two networks that are trained in competition with each other:</p>
+
+<ol>
+<li> <strong>The Generator (<span class="math-inline">\(G\)</span>):</strong> This network takes a random noise vector <span class="math-inline">\(\mathbf{z}\)</span> as input and tries to generate a realistic data sample <span class="math-inline">\(G(\mathbf{z})\)</span> (e.g., an image). Its goal is to produce outputs that are indistinguishable from real data.</li>
+</ul>
+
+<ol>
+<li> <strong>The Discriminator (<span class="math-inline">\(D\)</span>):</strong> This network is a standard binary classifier. It takes a sample (either a real one from the training set or a fake one from the generator) and tries to determine whether it is real or fake.</li>
+</ul>
+
+<p>The training process is an adversarial game. The discriminator is trained to get better at telling real and fake samples apart. The generator is trained to get better at fooling the discriminator. This competition drives both networks to improve. Over time, the generator learns to produce increasingly realistic samples, and at equilibrium, the generated data distribution should be very close to the real data distribution. GANs are known for producing exceptionally sharp and high-quality images, though their training can be notoriously unstable.</p>
+
+<h2>Conclusion: From Representation to Creation</h2>
+
+<p>Manifold learning provides a powerful conceptual framework for understanding the structure of high-dimensional data. Autoencoders offer a practical tool for learning low-dimensional representations of this structure, which can be used for tasks like dimensionality reduction and anomaly detection. Generative models like VAEs and GANs take this a step further, not just learning to represent the data manifold, but learning to generate entirely new data points that lie on it. These models have revolutionized fields like computer vision and art, enabling the creation of photorealistic images, novel designs, and new forms of creative expression, all by learning the deep, intrinsic structure of the world as captured in data.</p>
+
+        </article>
     </main>
     <footer>
         <p>&copy; 2026 Varol Cagdas Tok</p>
     </footer>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const container = document.querySelector('[data-markdown-path]');
-            const path = container.getAttribute('data-markdown-path');
-            fetch(path)
-                .then(response => response.text())
-                .then(text => {
-                    container.innerHTML = renderMarkdownWithMath(text);
-                    renderMath();
+        document.addEventListener("DOMContentLoaded", function() {
+            if (window.renderMathInElement) {
+                renderMathInElement(document.getElementById('article-content'), {
+                    delimiters: [
+                        {left: '\\[', right: '\\]', display: true},
+                        {left: '\\(', right: '\\)', display: false}
+                    ],
+                    throwOnError: false
                 });
+            }
         });
     </script>
 </body>
-
 </html>

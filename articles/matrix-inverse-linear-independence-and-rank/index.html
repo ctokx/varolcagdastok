@@ -1,18 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matrix Inverse, Linear Independence, and Rank - Varol Cagdas Tok</title>
+    <meta name="description" content="For a square matrix $A \in \mathbb{R}^{n \times n}$, the inverse $A^{-1}$ (if it exists) satisfies:">
+    <meta name="author" content="Tok Varol Cagdas">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ctokx.github.io/personalblog/articles/matrix-inverse-linear-independence-and-rank/">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ctokx.github.io/personalblog/articles/matrix-inverse-linear-independence-and-rank/">
+    <meta property="og:title" content="Matrix Inverse, Linear Independence, and Rank">
+    <meta property="og:description" content="For a square matrix $A \in \mathbb{R}^{n \times n}$, the inverse $A^{-1}$ (if it exists) satisfies:">
+    <meta property="og:site_name" content="Varol Cagdas Tok">
+    <meta property="article:author" content="Varol Cagdas Tok">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="Matrix Inverse, Linear Independence, and Rank">
+    <meta property="twitter:description" content="For a square matrix $A \in \mathbb{R}^{n \times n}$, the inverse $A^{-1}$ (if it exists) satisfies:">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Matrix Inverse, Linear Independence, and Rank",
+    "description": "For a square matrix $A \\in \\mathbb{R}^{n \\times n}$, the inverse $A^{-1}$ (if it exists) satisfies:",
+    "author": {
+        "@type": "Person",
+        "name": "Tok Varol Cagdas",
+        "url": "https://ctokx.github.io/personalblog/about.html"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "Varol Cagdas Tok"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ctokx.github.io/personalblog/articles/matrix-inverse-linear-independence-and-rank/"
+    },
+    "datePublished": "2026-01-10",
+    "dateModified": "2026-01-10"
+}
+    </script>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-    <script src="../../js/math-renderer.js"></script>
 </head>
-
 <body>
     <header>
         <h1>Varol Cagdas Tok</h1>
@@ -23,24 +55,222 @@
         <a href="../../about.html">About</a>
         <a href="../../feed.xml" class="rss-link">RSS</a>
     </nav>
-    <main id="article-content">
-        <div data-markdown-path="../../posts/linear-algebra/post31.md"></div>
+    <main>
+        <article id="article-content">
+
+
+
+<h1>Matrix Inverse, Linear Independence, and Rank</h1>
+
+<h2>Matrix Inverse</h2>
+
+<p>For a square matrix <span class="math-inline">\(A \in \mathbb{R}^{n \times n}\)</span>, the inverse <span class="math-inline">\(A^{-1}\)</span> (if it exists) satisfies:</p>
+
+<p><div class="math-display">\[AA^{-1} = A^{-1}A = I\]</div></p>
+
+<p>where <span class="math-inline">\(I\)</span> is the identity matrix.</p>
+
+<h3>Existence</h3>
+
+<p>Not all matrices have inverses. A matrix <span class="math-inline">\(A\)</span> is <strong>invertible</strong> (or non-singular) if:</p>
+<ul>
+<li><span class="math-inline">\(A\)</span> is square (n <span class="math-inline">\(\times\)</span> n)</li>
+<li>The columns (or rows) of <span class="math-inline">\(A\)</span> are linearly independent</li>
+<li>det(<span class="math-inline">\(A\)</span>) <span class="math-inline">\(\neq\)</span> 0</li>
+</ul>
+
+<p>If <span class="math-inline">\(A\)</span> is not invertible, it is called <strong>singular</strong>.</p>
+
+<h3>Example: <span class="math-inline">\(2 \times 2\)</span> Inverse</h3>
+
+<p>For <span class="math-inline">\(A = \begin{bmatrix} a & b \\ c & d \end{bmatrix}\)</span>, the inverse is:</p>
+
+<p><div class="math-display">\[A^{-1} = \frac{1}{ad - bc} \begin{bmatrix} d & -b \\ -c & a \end{bmatrix}\]</div></p>
+
+<p>provided <span class="math-inline">\(ad - bc \neq 0\)</span>.</p>
+
+<p>Example:</p>
+<pre><code class="language-text">A = [4  7]
+    [2  6]
+
+ad - bc = (4)(6) - (7)(2) = 24 - 14 = 10
+
+A⁻¹ = (1/10)[6  -7]   [0.6  -0.7]
+            [-2   4] = [-0.2  0.4]</code></pre>
+
+<p>Verify:</p>
+<pre><code class="language-text">AA⁻¹ = [4  7][0.6  -0.7]   [(4)(0.6)+(7)(-0.2)  (4)(-0.7)+(7)(0.4)]
+       [2  6][-0.2  0.4] = [(2)(0.6)+(6)(-0.2)  (2)(-0.7)+(6)(0.4)]
+
+     = [2.4-1.4  -2.8+2.8]   [1  0]
+       [1.2-1.2  -1.4+2.4] = [0  1] ✓</code></pre>
+
+<h2>Properties of Matrix Inverse</h2>
+
+<ol>
+<li><span class="math-inline">\((A^{-1})^{-1} = A\)</span></li>
+<li><span class="math-inline">\((AB)^{-1} = B^{-1}A^{-1}\)</span> (order reverses)</li>
+<li><span class="math-inline">\((A^T)^{-1} = (A^{-1})^T\)</span></li>
+<li><span class="math-inline">\((\alpha A)^{-1} = (1/\alpha)A^{-1}\)</span> for <span class="math-inline">\(\alpha \neq 0\)</span></li>
+</ul>
+
+<h2>Solving Linear Systems with Inverses</h2>
+
+<p>If <span class="math-inline">\(A\)</span> is invertible, the system <span class="math-inline">\(Ax = b\)</span> has a unique solution:</p>
+
+<p><div class="math-display">\[x = A^{-1}b\]</div></p>
+
+<h3>Example</h3>
+
+<p>Solve:</p>
+<pre><code class="language-text">[4  7][x₁]   [3]
+[2  6][x₂] = [4]</code></pre>
+
+<p>Using $A^{-1}  from above:</p>
+<pre><code class="language-text">[x₁]     [0.6  -0.7][3]   [(0.6)(3)+(−0.7)(4)]   [1.8-2.8]   [-1]
+[x₂] =   [-0.2  0.4][4] = [(−0.2)(3)+(0.4)(4)] = [-0.6+1.6] = [1]</code></pre>
+
+<p>Solution: $x = [-1, 1]^T</p>
+
+<p>Verify: [4, 7]<span class="math-inline">\(\cdot[-1, 1]^T = -4 + 7 = 3 ✓ and [2, 6]\)</span>\cdot[-1, 1]^T = -2 + 6 = 4 ✓</p>
+
+<h2>Linear Independence</h2>
+
+<p>A set of vectors <span class="math-inline">\(\{v_1, v_2, \ldots, v_k\}\)</span> is <strong>linearly independent</strong> if the only solution to:</p>
+
+<p><div class="math-display">\[c_1 v_1 + c_2 v_2 + \cdots + c_k v_k = \mathbf{0}\]</div></p>
+
+<p>is <span class="math-inline">\(c_1 = c_2 = \cdots = c_k = 0\)</span> (trivial solution).</p>
+
+<p>If a non-trivial solution exists (some <span class="math-inline">\(c_i \neq 0\)</span>), the vectors are <strong>linearly dependent</strong>.</p>
+
+<h3>Example: Independent Vectors</h3>
+
+<p><span class="math-inline">\(v_1 = [1, 0]^T\)</span> and <span class="math-inline">\(v_2 = [0, 1]^T\)</span> are linearly independent because:</p>
+
+<p><div class="math-display">\[c_1[1, 0]^T + c_2[0, 1]^T = [0, 0]^T \implies [c_1, c_2]^T = [0, 0]^T\]</div></p>
+
+<p>Thus <span class="math-inline">\(c_1 = c_2 = 0\)</span>.</p>
+
+<h3>Example: Dependent Vectors</h3>
+
+<p><span class="math-inline">\(v_1 = [1, 2]^T\)</span>, <span class="math-inline">\(v_2 = [2, 4]^T\)</span> are linearly dependent because:</p>
+
+<p><div class="math-display">\[-2v_1 + 1v_2 = -2[1, 2]^T + [2, 4]^T = [-2, -4]^T + [2, 4]^T = [0, 0]^T\]</div></p>
+
+<p>Non-trivial coefficients: <span class="math-inline">\(c_1 = -2\)</span>, <span class="math-inline">\(c_2 = 1\)</span>.</p>
+
+<h2>Matrix Rank</h2>
+
+<p>The <strong>rank</strong> of a matrix <span class="math-inline">\(A\)</span>, denoted rank(<span class="math-inline">\(A\)</span>), is the maximum number of linearly independent columns (or rows—the two are equal).</p>
+
+<p>Equivalently:</p>
+<ul>
+<li>rank(<span class="math-inline">\(A\)</span>) = number of pivot positions in row echelon form</li>
+<li>rank(<span class="math-inline">\(A\)</span>) = dimension of the column space</li>
+</ul>
+
+<h3>Example</h3>
+
+<pre><code class="language-text">A = [1  2  3]
+    [2  4  6]
+    [1  1  2]</code></pre>
+
+<p>Row reduce:</p>
+<pre><code class="language-text">[1  2  3]
+[0  0  0]  (R₂ - 2R₁)
+[0 -1 -1]  (R₃ - R₁)
+
+[1  2  3]
+[0 -1 -1]  (swap R₂ and R₃)
+[0  0  0]</code></pre>
+
+<p>Two pivot positions → rank(<span class="math-inline">\(A\)</span>) = 2.</p>
+
+<h2>Full Rank</h2>
+
+<p>A matrix <span class="math-inline">\(A \in \mathbb{R}^{m \times n}\)</span> has:</p>
+<ul>
+<li><strong>Full column rank</strong> if rank(<span class="math-inline">\(A\)</span>) = n (columns are linearly independent)</li>
+<li><strong>Full row rank</strong> if rank(<span class="math-inline">\(A\)</span>) = m (rows are linearly independent)</li>
+<li><strong>Full rank</strong> if rank(<span class="math-inline">\(A\)</span>) = min(m, n)</li>
+</ul>
+
+<h3>Properties</h3>
+
+<ul>
+<li>If <span class="math-inline">\(A \in \mathbb{R}^{n \times n}\)</span> is invertible, then rank(<span class="math-inline">\(A\)</span>) = <span class="math-inline">\(n\)</span> (full rank)</li>
+<li>If rank(<span class="math-inline">\(A\)</span>) < <span class="math-inline">\(n\)</span>, then <span class="math-inline">\(A\)</span> is singular (not invertible)</li>
+<li>rank(<span class="math-inline">\(AB\)</span>) <span class="math-inline">\(\leq\)</span> min(rank(<span class="math-inline">\(A\)</span>), rank(<span class="math-inline">\(B\)</span>))</li>
+</ul>
+
+<h2>Null Space (Kernel)</h2>
+
+<p>The null space of <span class="math-inline">\(A \in \mathbb{R}^{m \times n}\)</span> is:</p>
+
+<p><div class="math-display">\[null(A) = \{x \in \mathbb{R}^{n} : Ax = \mathbf{0}\}\]</div></p>
+
+<p>The dimension of null(<span class="math-inline">\(A\)</span>) is the <strong>nullity</strong> of <span class="math-inline">\(A\)</span>.</p>
+
+<h3>Rank-Nullity Theorem</h3>
+
+<p>For <span class="math-inline">\(A \in \mathbb{R}^{m \times n}\)</span>:</p>
+
+<p> rank(A) + nullity(A) = n </p>
+
+<h3>Example</h3>
+
+<p>For <span class="math-inline">\(A\)</span> = [1, 2, 3; 2, 4, 6]:</p>
+
+<p>rank(<span class="math-inline">\(A\)</span>) = 1 (only one independent row)</p>
+
+<p>Find null space: solve <span class="math-inline">\(Ax\)</span> = <strong>0</strong>:</p>
+<pre><code class="language-text">x₁ + 2x₂ + 3x₃ = 0
+2x₁ + 4x₂ + 6x₃ = 0  (dependent, same as first)</code></pre>
+
+<p>Let <span class="math-inline">\(x_2 = s\)</span>, <span class="math-inline">\(x_3 = t\)</span>. Then <span class="math-inline">\(x_1 = -2s - 3t\)</span>.</p>
+
+<p><div class="math-display">\[null(A) = \{[-2s - 3t, s, t]^T : s, t \in \mathbb{R}\} = \text{span}\{[-2, 1, 0]^T, [-3, 0, 1]^T\}\]</div></p>
+
+<p><div class="math-display">\[nullity(A) = 2\]</div></p>
+
+<p>Verify: rank(<span class="math-inline">\(A\)</span>) + nullity(<span class="math-inline">\(A\)</span>) = 1 + 2 = 3 = n ✓</p>
+
+<h2>Relevance for Machine Learning</h2>
+
+<p><strong>Invertibility in Linear Regression</strong>: The normal equation <span class="math-inline">\(X^TXw = X^Ty\)</span> has a unique solution <span class="math-inline">\(w = (X^TX)^{-1}X^Ty\)</span> if <span class="math-inline">\(X\)</span> has full column rank (features are linearly independent). If rank(<span class="math-inline">\(X\)</span>) < number of features, regularization (ridge regression) is needed.</p>
+
+<p><strong>Multicollinearity</strong>: When features are linearly dependent (rank deficiency), <span class="math-inline">\(X^TX\)</span> is singular. This makes the solution unstable. Feature selection or regularization addresses this.</p>
+
+<p><strong>Dimensionality</strong>: rank(<span class="math-inline">\(X\)</span>) indicates the effective dimensionality of the data. If rank(<span class="math-inline">\(X\)</span>) << n, the data lies in a lower-dimensional subspace, motivating dimensionality reduction.</p>
+
+<p><strong>Pseudo-Inverse</strong>: For non-square or singular matrices, the Moore-Penrose pseudo-inverse <span class="math-inline">\(A^+\)</span> generalizes the inverse. Used in least squares: <span class="math-inline">\(w = X^+y\)</span>.</p>
+
+<p><strong>Singular Value Decomposition</strong>: rank(<span class="math-inline">\(A\)</span>) equals the number of non-zero singular values. SVD provides a numerically stable way to compute rank and pseudo-inverse.</p>
+
+<p><strong>Neural Network Expressiveness</strong>: The rank of weight matrices affects the expressive power of neural networks. Low-rank weight matrices create bottlenecks, limiting the transformations the network can learn.</p>
+
+<p><strong>Matrix Factorization</strong>: In recommendation systems, rank constraints (low-rank factorization) provide implicit regularization and reduce overfitting: <span class="math-inline">\(R \approx UV^T\)</span> where <span class="math-inline">\(U \in \mathbb{R}^{m \times k}\)</span>, <span class="math-inline">\(V \in \mathbb{R}^{n \times k}\)</span>, <span class="math-inline">\(k \ll \min(m, n)\)</span>.</p>
+
+<p><strong>Data Augmentation Validity</strong>: When augmenting data by linear combinations, ensuring linear independence prevents trivial transformations.</p>
+
+        </article>
     </main>
     <footer>
         <p>&copy; 2026 Varol Cagdas Tok</p>
     </footer>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const container = document.querySelector('[data-markdown-path]');
-            const path = container.getAttribute('data-markdown-path');
-            fetch(path)
-                .then(response => response.text())
-                .then(text => {
-                    container.innerHTML = renderMarkdownWithMath(text);
-                    renderMath();
+        document.addEventListener("DOMContentLoaded", function() {
+            if (window.renderMathInElement) {
+                renderMathInElement(document.getElementById('article-content'), {
+                    delimiters: [
+                        {left: '\\[', right: '\\]', display: true},
+                        {left: '\\(', right: '\\)', display: false}
+                    ],
+                    throwOnError: false
                 });
+            }
         });
     </script>
 </body>
-
 </html>

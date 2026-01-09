@@ -1,18 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Application: Linear Regression and the Normal Equation - Varol Cagdas Tok</title>
+    <meta name="description" content="Given $n$ training samples $\{(x_1, y_1), (x_2, y_2), \ldots, (x_n, y_n)\}$ where $x_i \in \mathbb{R}^d$ are feature vectors and $y_i \in \mathbb{R}$ are targets, find a linear function:">
+    <meta name="author" content="Tok Varol Cagdas">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ctokx.github.io/personalblog/articles/application-linear-regression-and-the-normal-equation/">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ctokx.github.io/personalblog/articles/application-linear-regression-and-the-normal-equation/">
+    <meta property="og:title" content="Application: Linear Regression and the Normal Equation">
+    <meta property="og:description" content="Given $n$ training samples $\{(x_1, y_1), (x_2, y_2), \ldots, (x_n, y_n)\}$ where $x_i \in \mathbb{R}^d$ are feature vectors and $y_i \in \mathbb{R}$ are targets, find a linear function:">
+    <meta property="og:site_name" content="Varol Cagdas Tok">
+    <meta property="article:author" content="Varol Cagdas Tok">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="Application: Linear Regression and the Normal Equation">
+    <meta property="twitter:description" content="Given $n$ training samples $\{(x_1, y_1), (x_2, y_2), \ldots, (x_n, y_n)\}$ where $x_i \in \mathbb{R}^d$ are feature vectors and $y_i \in \mathbb{R}$ are targets, find a linear function:">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Application: Linear Regression and the Normal Equation",
+    "description": "Given $n$ training samples $\\{(x_1, y_1), (x_2, y_2), \\ldots, (x_n, y_n)\\}$ where $x_i \\in \\mathbb{R}^d$ are feature vectors and $y_i \\in \\mathbb{R}$ are targets, find a linear function:",
+    "author": {
+        "@type": "Person",
+        "name": "Tok Varol Cagdas",
+        "url": "https://ctokx.github.io/personalblog/about.html"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "Varol Cagdas Tok"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ctokx.github.io/personalblog/articles/application-linear-regression-and-the-normal-equation/"
+    },
+    "datePublished": "2026-01-10",
+    "dateModified": "2026-01-10"
+}
+    </script>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-    <script src="../../js/math-renderer.js"></script>
 </head>
-
 <body>
     <header>
         <h1>Varol Cagdas Tok</h1>
@@ -23,24 +55,122 @@
         <a href="../../about.html">About</a>
         <a href="../../feed.xml" class="rss-link">RSS</a>
     </nav>
-    <main id="article-content">
-        <div data-markdown-path="../../posts/linear-algebra/post37.md"></div>
+    <main>
+        <article id="article-content">
+
+
+
+<h1>Application: Linear Regression and the Normal Equation</h1>
+
+<h2>Problem Formulation</h2>
+
+<p>Given <span class="math-inline">\(n\)</span> training samples <span class="math-inline">\(\{(x_1, y_1), (x_2, y_2), \ldots, (x_n, y_n)\}\)</span> where <span class="math-inline">\(x_i \in \mathbb{R}^d\)</span> are feature vectors and <span class="math-inline">\(y_i \in \mathbb{R}\)</span> are targets, find a linear function:</p>
+
+<p><div class="math-display">\[f(x) = w^Tx + b\]</div></p>
+
+<p>that best predicts <span class="math-inline">\(y\)</span> from <span class="math-inline">\(x\)</span>.</p>
+
+<p>Equivalently, augment <span class="math-inline">\(x\)</span> with a bias term: <span class="math-inline">\(x_{aug} = [1, x_{1}, x_{2}, \ldots, x^{d}]^T \in \mathbb{R}^{d+1}\)</span>, and learn:</p>
+
+<p><div class="math-display">\[f(x) = w^Tx_{\text{aug}}\]</div></p>
+
+<p>where <span class="math-inline">\(w = [b, w_1, w_2, \ldots, w_d]^T\)</span> includes the bias.</p>
+
+<h2>Matrix Formulation</h2>
+
+<p>Organize data into a matrix <span class="math-inline">\(X \in \mathbb{R}^{n \times d}\)</span> (or <span class="math-inline">\(\mathbb{R}^{n \times (d+1)}\)</span> if augmented) and vector <span class="math-inline">\(y \in \mathbb{R}^{n}\)</span>:</p>
+
+<pre><code class="language-text">X = [— x₁ᵀ —]     y = [y₁]
+    [— x₂ᵀ —]         [y₂]
+    [...    ]          [...]
+    [— xₙᵀ —]         [yₙ]</code></pre>
+
+<p>The predictions for all samples are:</p>
+
+<p> <strong>ŷ</strong> = Xw </p>
+
+<h2>Loss Function</h2>
+
+<p>Use mean squared error (MSE):</p>
+
+<p><div class="math-display">\[L(w) = \frac{1}{n}\|y - Xw\|_2^2 = \frac{1}{n}\sum_{i=1}^n (y_i - w^Tx_i)^2\]</div></p>
+
+<p>Goal: find <span class="math-inline">\(w\)</span> that minimizes <span class="math-inline">\(L(w)\)</span>.</p>
+
+<h2>Derivation of the Normal Equation</h2>
+
+<p>Expand the squared norm:</p>
+
+<p><div class="math-display">\[L(w) = \frac{1}{n}(y - Xw)^T(y - Xw) = \frac{1}{n}(y^Ty - y^TXw - w^TX^Ty + w^TX^TXw)\]</div></p>
+
+<p>Since <span class="math-inline">\(w^TX^Ty\)</span> is a scalar, it equals its transpose <span class="math-inline">\(y^TXw\)</span>:</p>
+
+<p><div class="math-display">\[L(w) = \frac{1}{n}(y^Ty - 2y^TXw + w^TX^TXw)\]</div></p>
+
+<p>Take the gradient with respect to <span class="math-inline">\(w\)</span>:</p>
+
+<p><div class="math-display">\[\nabla_w L(w) = \frac{1}{n}(-2X^Ty + 2X^TXw)\]</div></p>
+
+<p>Set the gradient to zero for a minimum:</p>
+
+<p><div class="math-display">\[-2X^Ty + 2X^TXw = 0\]</div></p>
+
+<p><div class="math-display">\[X^TXw = X^Ty\]</div></p>
+
+<p>This is the <strong>normal equation</strong>.</p>
+
+<h2>Solving the Normal Equation</h2>
+
+<p>If <span class="math-inline">\(X^TX\)</span> is invertible (full column rank), the unique solution is:</p>
+
+<p><div class="math-display">\[w = (X^TX)^{-1}X^Ty\]</div></p>
+
+<p>The matrix <span class="math-inline">\((X^TX)^{-1}X^T\)</span> is the <strong>pseudo-inverse</strong> of <span class="math-inline">\(X\)</span> (for full column rank).</p>
+
+<h2>Example</h2>
+
+<p>Dataset with n=3 samples, d=1 feature (plus bias):</p>
+
+<table>
+<tr><th>x</th><th>y</th></tr>
+<tr><td>1</td><td>2</td></tr>
+<tr><td>2</td><td>4</td></tr>
+<tr><td>3</td><td>5</td></tr>
+</table>
+
+<p>Augment with bias column:</p>
+<pre><code class="language-text">X = [1  1]     y = [2]
+    [1  2]         [4]
+    [1  3]         [5]</code></pre>
+
+<p>Compute <span class="math-inline">\(X^TX\)</span>:</p>
+<pre><code class="language-text">XᵀX = [1  1  1][1  1]   [3   6]
+      [1  2  3][1  2] = [6  14]
+                [1  3]</code></pre>
+
+<p>Compute <span class="math-inline">\(X^Ty\)</span>:</p>
+<pre><code class="language-text">Xᵀy = [1  1  1][2]   [1*2 + 1*4 + 1*5]   [11]
+      [1  2  3][4] = [1*2 + 2*4 + 3*5] = [25]
+                [5]</code></pre>
+
+<p>Solve for <span class="math-inline">\(w\)</span>:</p>
+        </article>
     </main>
     <footer>
         <p>&copy; 2026 Varol Cagdas Tok</p>
     </footer>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const container = document.querySelector('[data-markdown-path]');
-            const path = container.getAttribute('data-markdown-path');
-            fetch(path)
-                .then(response => response.text())
-                .then(text => {
-                    container.innerHTML = renderMarkdownWithMath(text);
-                    renderMath();
+        document.addEventListener("DOMContentLoaded", function() {
+            if (window.renderMathInElement) {
+                renderMathInElement(document.getElementById('article-content'), {
+                    delimiters: [
+                        {left: '\\[', right: '\\]', display: true},
+                        {left: '\\(', right: '\\)', display: false}
+                    ],
+                    throwOnError: false
                 });
+            }
         });
     </script>
 </body>
-
 </html>

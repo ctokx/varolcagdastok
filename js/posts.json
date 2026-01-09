@@ -11,7 +11,7 @@
           "url": "articles/black-box-testing-techniques/",
           "slug": "black-box-testing-techniques",
           "filename": "post1",
-          "summary": "",
+          "summary": "Black-box testing is a method of software testing that does not consider the internal structure of the system. Instead, test cases are derived from the external specification, which describes what the...",
           "category_folder": "software-engineering-testing",
           "md_path": "software-engineering-testing/post1.md"
         },
@@ -22,7 +22,7 @@
           "url": "articles/test-coverage-and-mutation-testing/",
           "slug": "test-coverage-and-mutation-testing",
           "filename": "post3",
-          "summary": "",
+          "summary": "After writing a large test suite, how do you assess its quality? How do you know if you are \"done testing\"? To answer this, we need **adequacy criteria**, which are metrics for measuring the quality a...",
           "category_folder": "software-engineering-testing",
           "md_path": "software-engineering-testing/post3.md"
         },
@@ -33,7 +33,7 @@
           "url": "articles/the-test-oracle-problem/",
           "slug": "the-test-oracle-problem",
           "filename": "post2",
-          "summary": "",
+          "summary": "In software testing, we dedicate significant effort to generating test inputs. However, a test input is only half of a test case. The other half is knowing what the **correct output** should be.",
           "category_folder": "software-engineering-testing",
           "md_path": "software-engineering-testing/post2.md"
         },
@@ -44,7 +44,7 @@
           "url": "articles/white-box-testing-symbolic-execution-and-search-based-testing/",
           "slug": "white-box-testing-symbolic-execution-and-search-based-testing",
           "filename": "post4",
-          "summary": "",
+          "summary": "**White-box testing** is a testing approach that derives test inputs from the internal structure of the program. Unlike black-box testing, which uses only the specification, this method uses the code ...",
           "category_folder": "software-engineering-testing",
           "md_path": "software-engineering-testing/post4.md"
         },
@@ -55,7 +55,7 @@
           "url": "articles/concolic-execution/",
           "slug": "concolic-execution",
           "filename": "post6",
-          "summary": "",
+          "summary": "**Symbolic Execution** is a powerful method for generating tests that cover all program paths. However, it has practical limitations. It struggles when code involves complex math, external library cal...",
           "category_folder": "software-engineering-testing",
           "md_path": "software-engineering-testing/post6.md"
         },
@@ -66,7 +66,7 @@
           "url": "articles/fuzzing-and-random-testing/",
           "slug": "fuzzing-and-random-testing",
           "filename": "post7",
-          "summary": "",
+          "summary": "While techniques like equivalence partitioning are systematic, another set of black-box techniques relies on a different approach: **randomness**. These methods are effective for finding unexpected bu...",
           "category_folder": "software-engineering-testing",
           "md_path": "software-engineering-testing/post7.md"
         },
@@ -77,7 +77,7 @@
           "url": "articles/regression-testing/",
           "slug": "regression-testing",
           "filename": "post5",
-          "summary": "",
+          "summary": "Software is not static; it changes constantly. Programmers fix bugs, add new features, and refactor code. Every time a change is made, there is a risk that it will unintentionally alter or break exist...",
           "category_folder": "software-engineering-testing",
           "md_path": "software-engineering-testing/post5.md"
         }
@@ -94,7 +94,7 @@
           "url": "articles/introduction-to-machine-learning/",
           "slug": "introduction-to-machine-learning",
           "filename": "post16",
-          "summary": "",
+          "summary": "Machine learning has become a central technology of the 21st century, yet the core ideas behind it are rooted in centuries of inquiry into knowledge, intelligence, and learning. This article provides ...",
           "category_folder": "machine-learning",
           "md_path": "machine-learning/post16.md"
         },
@@ -105,7 +105,7 @@
           "url": "articles/linear-algebra-for-machine-learning/",
           "slug": "linear-algebra-for-machine-learning",
           "filename": "post17",
-          "summary": "",
+          "summary": "Linear algebra is the mathematical language of machine learning. From data representation to the mechanics of deep neural networks, its concepts are ubiquitous. A solid understanding of vectors, matri...",
           "category_folder": "machine-learning",
           "md_path": "machine-learning/post17.md"
         },
@@ -116,7 +116,7 @@
           "url": "articles/the-perceptron-algorithm/",
           "slug": "the-perceptron-algorithm",
           "filename": "post21",
-          "summary": "",
+          "summary": "The Perceptron, invented by Frank Rosenblatt in 1957, is a foundational learning machine. Inspired by the biological neuron, it was one of the first algorithms to learn classification from data. While...",
           "category_folder": "machine-learning",
           "md_path": "machine-learning/post21.md"
         },
@@ -127,7 +127,7 @@
           "url": "articles/linear-regression/",
           "slug": "linear-regression",
           "filename": "post19",
-          "summary": "",
+          "summary": "Linear regression is a fundamental algorithm in machine learning and statistics. It serves as a building block for complex models and provides an interpretable starting point for predictive modeling. ...",
           "category_folder": "machine-learning",
           "md_path": "machine-learning/post19.md"
         },
@@ -138,7 +138,7 @@
           "url": "articles/basis-functions-for-non-linear-problems/",
           "slug": "basis-functions-for-non-linear-problems",
           "filename": "post14",
-          "summary": "",
+          "summary": "Many foundational models in machine learning, such as linear regression and the Perceptron, are fundamentally linear. They assume the relationship between inputs and outputs, or the class boundaries, ...",
           "category_folder": "machine-learning",
           "md_path": "machine-learning/post14.md"
         },
@@ -149,7 +149,7 @@
           "url": "articles/introduction-to-neural-networks/",
           "slug": "introduction-to-neural-networks",
           "filename": "post12",
-          "summary": "",
+          "summary": "While methods using fixed basis functions can be powerful, they often struggle with problems where the complexity of the underlying function is not uniform across the input space. For instance, a func...",
           "category_folder": "machine-learning",
           "md_path": "machine-learning/post12.md"
         },
@@ -160,7 +160,7 @@
           "url": "articles/function-approximation-and-the-curse-of-dimensionality/",
           "slug": "function-approximation-and-the-curse-of-dimensionality",
           "filename": "post8",
-          "summary": "",
+          "summary": "In the field of machine learning, one of the most fundamental challenges a data scientist faces is model selection. With a vast array of models available\u2014from linear classifiers and kernel methods to ...",
           "category_folder": "machine-learning",
           "md_path": "machine-learning/post8.md"
         },
@@ -171,7 +171,7 @@
           "url": "articles/introduction-to-deep-learning/",
           "slug": "introduction-to-deep-learning",
           "filename": "post9",
-          "summary": "",
+          "summary": "After a period often referred to as the \"AI winter,\" neural networks experienced a dramatic resurgence in the late 2000s, sparking the deep learning revolution that continues to shape technology today...",
           "category_folder": "machine-learning",
           "md_path": "machine-learning/post9.md"
         },
@@ -182,7 +182,7 @@
           "url": "articles/recurrent-neural-networks-and-attention-mechanisms/",
           "slug": "recurrent-neural-networks-and-attention-mechanisms",
           "filename": "post13",
-          "summary": "",
+          "summary": "Many of the most important and challenging problems in machine learning involve sequential data\u2014data where the order of elements is crucial. Examples are everywhere: time series like stock prices, sen...",
           "category_folder": "machine-learning",
           "md_path": "machine-learning/post13.md"
         },
@@ -193,7 +193,7 @@
           "url": "articles/manifold-learning-autoencoders-and-generative-models/",
           "slug": "manifold-learning-autoencoders-and-generative-models",
           "filename": "post11",
-          "summary": "",
+          "summary": "In many real-world machine learning problems, the data we observe, despite being represented in a very high-dimensional space (e.g., the thousands of pixels in an image), does not actually fill that s...",
           "category_folder": "machine-learning",
           "md_path": "machine-learning/post11.md"
         },
@@ -204,7 +204,7 @@
           "url": "articles/kernel-methods-and-the-kernel-trick/",
           "slug": "kernel-methods-and-the-kernel-trick",
           "filename": "post10",
-          "summary": "",
+          "summary": "In machine learning, a common approach to modeling complex, non-linear relationships is to transform the input data into a higher-dimensional feature space using a set of basis functions. In this new ...",
           "category_folder": "machine-learning",
           "md_path": "machine-learning/post10.md"
         },
@@ -215,7 +215,7 @@
           "url": "articles/probability-for-machine-learning/",
           "slug": "probability-for-machine-learning",
           "filename": "post22",
-          "summary": "",
+          "summary": "Probability theory is the mathematical framework for reasoning about uncertainty and is a foundation for machine learning. Most machine learning algorithms are built upon implicit or explicit probabil...",
           "category_folder": "machine-learning",
           "md_path": "machine-learning/post22.md"
         },
@@ -226,7 +226,7 @@
           "url": "articles/frequentist-vs-bayesian-statistics/",
           "slug": "frequentist-vs-bayesian-statistics",
           "filename": "post15",
-          "summary": "",
+          "summary": "Two dominant schools of thought provide the foundations for learning from data: the Frequentist and the Bayesian perspectives. While they often lead to similar practical results with large datasets, t...",
           "category_folder": "machine-learning",
           "md_path": "machine-learning/post15.md"
         },
@@ -237,7 +237,7 @@
           "url": "articles/introduction-to-linear-classifiers/",
           "slug": "introduction-to-linear-classifiers",
           "filename": "post18",
-          "summary": "",
+          "summary": "Classification is the task of assigning a class label to an object based on its features. The **linear classifier** is a foundational tool for this task. Its core principle is to separate classes usin...",
           "category_folder": "machine-learning",
           "md_path": "machine-learning/post18.md"
         },
@@ -248,7 +248,7 @@
           "url": "articles/support-vector-machines/",
           "slug": "support-vector-machines",
           "filename": "post23",
-          "summary": "",
+          "summary": "In the landscape of classification algorithms, the **Support Vector Machine (SVM)** holds a prominent place. Developed by Vladimir Vapnik and colleagues, the SVM is a linear classifier distinguished b...",
           "category_folder": "machine-learning",
           "md_path": "machine-learning/post23.md"
         },
@@ -259,7 +259,7 @@
           "url": "articles/model-selection-and-estimating-generalization-performance/",
           "slug": "model-selection-and-estimating-generalization-performance",
           "filename": "post20",
-          "summary": "",
+          "summary": "In machine learning, our primary goal is not to build a model that performs perfectly on the data it was trained on, but to build a model that **generalizes** well to new, unseen data. The ability to ...",
           "category_folder": "machine-learning",
           "md_path": "machine-learning/post20.md"
         }
@@ -276,7 +276,7 @@
           "url": "articles/the-linear-algebra-of-machine-learning-a-roadmap/",
           "slug": "the-linear-algebra-of-machine-learning-a-roadmap",
           "filename": "post25",
-          "summary": "",
+          "summary": "Machine learning algorithms, at their core, are transformation engines that convert input data into predictions, classifications, or generative outputs. These transformations operate on numerical data...",
           "category_folder": "linear-algebra",
           "md_path": "linear-algebra/post25.md"
         },
@@ -287,7 +287,7 @@
           "url": "articles/vectors-and-vector-spaces/",
           "slug": "vectors-and-vector-spaces",
           "filename": "post26",
-          "summary": "",
+          "summary": "A vector is an ordered list of numbers. Formally, a vector $v $ in $\\mathbb{R}^n$ is an element of n-dimensional Euclidean space:",
           "category_folder": "linear-algebra",
           "md_path": "linear-algebra/post26.md"
         },
@@ -298,7 +298,7 @@
           "url": "articles/matrices-and-data-representation/",
           "slug": "matrices-and-data-representation",
           "filename": "post27",
-          "summary": "",
+          "summary": "A matrix is a rectangular array of numbers arranged in rows and columns. A matrix $A$ with m rows and n columns is denoted $A \\in \\mathbb{R}^{m \\times n}$:",
           "category_folder": "linear-algebra",
           "md_path": "linear-algebra/post27.md"
         },
@@ -309,7 +309,7 @@
           "url": "articles/dot-products-and-vector-norms/",
           "slug": "dot-products-and-vector-norms",
           "filename": "post28",
-          "summary": "",
+          "summary": "The dot product (also called inner product or scalar product) of two vectors $u, v \\in \\mathbb{R}^n$ is:",
           "category_folder": "linear-algebra",
           "md_path": "linear-algebra/post28.md"
         },
@@ -320,7 +320,7 @@
           "url": "articles/matrix-multiplication-and-linear-transformations/",
           "slug": "matrix-multiplication-and-linear-transformations",
           "filename": "post29",
-          "summary": "",
+          "summary": "Given a matrix $A \\in \\mathbb{R}^{m \\times n}$ and a vector $x \\in \\mathbb{R}^n$, the product $Ax \\in \\mathbb{R}^m$ is defined as:",
           "category_folder": "linear-algebra",
           "md_path": "linear-algebra/post29.md"
         },
@@ -331,7 +331,7 @@
           "url": "articles/systems-of-linear-equations/",
           "slug": "systems-of-linear-equations",
           "filename": "post30",
-          "summary": "",
+          "summary": "A system of m linear equations in n unknowns has the form:",
           "category_folder": "linear-algebra",
           "md_path": "linear-algebra/post30.md"
         },
@@ -342,7 +342,7 @@
           "url": "articles/matrix-inverse-linear-independence-and-rank/",
           "slug": "matrix-inverse-linear-independence-and-rank",
           "filename": "post31",
-          "summary": "",
+          "summary": "For a square matrix $A \\in \\mathbb{R}^{n \\times n}$, the inverse $A^{-1}$ (if it exists) satisfies:",
           "category_folder": "linear-algebra",
           "md_path": "linear-algebra/post31.md"
         },
@@ -353,7 +353,7 @@
           "url": "articles/eigenvectors-and-eigenvalues/",
           "slug": "eigenvectors-and-eigenvalues",
           "filename": "post32",
-          "summary": "",
+          "summary": "For a square matrix $A \\in \\mathbb{R}^{n \\times n}$, a non-zero vector $v \\in \\mathbb{R}^{n}$ is an **eigenvector** with corresponding **eigenvalue** $\\lambda \\in \\mathbb{R}$ if:",
           "category_folder": "linear-algebra",
           "md_path": "linear-algebra/post32.md"
         },
@@ -364,7 +364,7 @@
           "url": "articles/eigendecomposition-of-a-matrix/",
           "slug": "eigendecomposition-of-a-matrix",
           "filename": "post33",
-          "summary": "",
+          "summary": "The eigendecomposition (or spectral decomposition) of a square matrix $A \\in \\mathbb{R}^{n \\times n}$ expresses $A$ as:",
           "category_folder": "linear-algebra",
           "md_path": "linear-algebra/post33.md"
         },
@@ -375,7 +375,7 @@
           "url": "articles/singular-value-decomposition-svd/",
           "slug": "singular-value-decomposition-svd",
           "filename": "post34",
-          "summary": "",
+          "summary": "The Singular Value Decomposition (SVD) of a matrix $A \\in \\mathbb{R}^{m \\times n}$ is:",
           "category_folder": "linear-algebra",
           "md_path": "linear-algebra/post34.md"
         },
@@ -386,7 +386,7 @@
           "url": "articles/application-principal-component-analysis-pca/",
           "slug": "application-principal-component-analysis-pca",
           "filename": "post35",
-          "summary": "",
+          "summary": "Given a dataset $X \\in \\mathbb{R}^{n \\times d}$ with n samples and d features, PCA finds a lower-dimensional representation that maximally preserves variance.",
           "category_folder": "linear-algebra",
           "md_path": "linear-algebra/post35.md"
         },
@@ -397,7 +397,7 @@
           "url": "articles/vector-projections-and-orthogonality/",
           "slug": "vector-projections-and-orthogonality",
           "filename": "post36",
-          "summary": "",
+          "summary": "Two vectors $u, v \\in \\mathbb{R}^n$ are **orthogonal** (perpendicular) if their dot product is zero:",
           "category_folder": "linear-algebra",
           "md_path": "linear-algebra/post36.md"
         },
@@ -408,7 +408,7 @@
           "url": "articles/application-linear-regression-and-the-normal-equation/",
           "slug": "application-linear-regression-and-the-normal-equation",
           "filename": "post37",
-          "summary": "",
+          "summary": "Given $n$ training samples $\\{(x_1, y_1), (x_2, y_2), \\ldots, (x_n, y_n)\\}$ where $x_i \\in \\mathbb{R}^d$ are feature vectors and $y_i \\in \\mathbb{R}$ are targets, find a linear function:",
           "category_folder": "linear-algebra",
           "md_path": "linear-algebra/post37.md"
         },
@@ -419,7 +419,7 @@
           "url": "articles/matrix-calculus-gradients-with-vectors-and-matrices/",
           "slug": "matrix-calculus-gradients-with-vectors-and-matrices",
           "filename": "post38",
-          "summary": "",
+          "summary": "Machine learning optimization requires computing derivatives of scalar loss functions with respect to vector or matrix parameters. Matrix calculus provides notation and rules for these computations.",
           "category_folder": "linear-algebra",
           "md_path": "linear-algebra/post38.md"
         },
@@ -430,7 +430,7 @@
           "url": "articles/conclusion-the-linear-algebra-foundation/",
           "slug": "conclusion-the-linear-algebra-foundation",
           "filename": "post39",
-          "summary": "",
+          "summary": "This series has explored the foundational linear algebra concepts required for understanding and implementing machine learning algorithms. The material was organized into four thematic units:",
           "category_folder": "linear-algebra",
           "md_path": "linear-algebra/post39.md"
         }

@@ -1,18 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Linear Algebra of Machine Learning: A Roadmap - Varol Cagdas Tok</title>
+    <meta name="description" content="Machine learning algorithms, at their core, are transformation engines that convert input data into predictions, classifications, or generative outputs. These transformations operate on numerical data...">
+    <meta name="author" content="Tok Varol Cagdas">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ctokx.github.io/personalblog/articles/the-linear-algebra-of-machine-learning-a-roadmap/">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ctokx.github.io/personalblog/articles/the-linear-algebra-of-machine-learning-a-roadmap/">
+    <meta property="og:title" content="The Linear Algebra of Machine Learning: A Roadmap">
+    <meta property="og:description" content="Machine learning algorithms, at their core, are transformation engines that convert input data into predictions, classifications, or generative outputs. These transformations operate on numerical data...">
+    <meta property="og:site_name" content="Varol Cagdas Tok">
+    <meta property="article:author" content="Varol Cagdas Tok">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="The Linear Algebra of Machine Learning: A Roadmap">
+    <meta property="twitter:description" content="Machine learning algorithms, at their core, are transformation engines that convert input data into predictions, classifications, or generative outputs. These transformations operate on numerical data...">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Linear Algebra of Machine Learning: A Roadmap",
+    "description": "Machine learning algorithms, at their core, are transformation engines that convert input data into predictions, classifications, or generative outputs. These transformations operate on numerical data...",
+    "author": {
+        "@type": "Person",
+        "name": "Tok Varol Cagdas",
+        "url": "https://ctokx.github.io/personalblog/about.html"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "Varol Cagdas Tok"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ctokx.github.io/personalblog/articles/the-linear-algebra-of-machine-learning-a-roadmap/"
+    },
+    "datePublished": "2026-01-10",
+    "dateModified": "2026-01-10"
+}
+    </script>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-    <script src="../../js/math-renderer.js"></script>
 </head>
-
 <body>
     <header>
         <h1>Varol Cagdas Tok</h1>
@@ -23,24 +55,106 @@
         <a href="../../about.html">About</a>
         <a href="../../feed.xml" class="rss-link">RSS</a>
     </nav>
-    <main id="article-content">
-        <div data-markdown-path="../../posts/linear-algebra/post25.md"></div>
+    <main>
+        <article id="article-content">
+
+
+
+<h1>The Linear Algebra of Machine Learning: A Roadmap</h1>
+
+<h2>The Computational Backbone of AI</h2>
+
+<p>Machine learning algorithms, at their core, are transformation engines that convert input data into predictions, classifications, or generative outputs. These transformations operate on numerical data structures—vectors, matrices, and tensors. The mathematical framework that describes these operations is linear algebra.</p>
+
+<p>For machine learning practitioners, linear algebra is not just a prerequisite; it is the language in which algorithms are written and understood. It provides the tools to represent complex data, manipulate high-dimensional spaces, and optimize model parameters. This article series explores the foundational concepts required to understand how modern machine learning algorithms function at a computational level, moving from basic structures to advanced decomposition methods.</p>
+
+<h2>Why Linear Algebra Matters for ML</h2>
+
+<p>Linear algebra appears in nearly every facet of machine learning. Consider the following key applications:</p>
+
+<p><strong>Neural Networks</strong></p>
+<p>A feedforward neural network layer computes <span class="math-inline">\(y = \sigma(Wx + b)\)</span>, where <span class="math-inline">\(W\)</span> is a weight matrix, <span class="math-inline">\(x\)</span> is an input vector, <span class="math-inline">\(b\)</span> is a bias vector, and <span class="math-inline">\(\sigma\)</span> is an activation function. Understanding matrix-vector multiplication is essential for grasping the mechanics of deep learning.</p>
+
+<p><strong>Dimensionality Reduction</strong></p>
+<p>Techniques like Principal Component Analysis (PCA) use eigendecomposition to identify directions of maximum variance in high-dimensional data. This enables compression and visualization, allowing us to understand the structure of complex datasets.</p>
+
+<p><strong>Linear Models</strong></p>
+<p>Linear regression, logistic regression, and Support Vector Machines (SVMs) formulate optimization problems using matrices and vectors. The closed-form solution for linear regression, for instance, is expressed entirely in matrix operations: <span class="math-inline">\(\theta = (X^T X)^{-1} X^T y\)</span>.</p>
+
+<p><strong>Gradient Descent</strong></p>
+<p>Optimization algorithms compute gradients of loss functions with respect to weight matrices. Matrix calculus provides the notation and rules to compute these gradients efficiently, which is critical for training neural networks.</p>
+
+<p><strong>Data Representation</strong></p>
+<p>A dataset with <span class="math-inline">\(n\)</span> samples and <span class="math-inline">\(d\)</span> features is naturally represented as an <span class="math-inline">\(n \times d\)</span> matrix, where each row is a sample and each column is a feature. This representation allows for efficient batch processing using vectorized operations.</p>
+
+<h2>Roadmap of Topics</h2>
+
+<p>This series is organized into four thematic units that build continuously upon one another.</p>
+
+<h3>1. Foundational Structures</h3>
+<p>We begin by defining the primary data structures:</p>
+<ul>
+<li><strong>Vectors and Vector Spaces</strong>: The definition of vectors, vector spaces, and linear combinations.</li>
+<li><strong>Matrices and Data Representation</strong>: How matrices store data and basic operations like transposition.</li>
+<li><strong>Dot Products and Vector Norms</strong>: Geometric concepts of length and angle in high-dimensional spaces.</li>
+</ul>
+
+<h3>2. Matrix Operations and Systems</h3>
+<p>Next, we explore how these structures interact:</p>
+<ul>
+<li><strong>Matrix Multiplication</strong>: The composition of linear transformations.</li>
+<li><strong>Systems of Linear Equations</strong>: Solving for variables, which bridges algebra and geometry.</li>
+<li><strong>Matrix Inverse and Rank</strong>: Concepts of invertibility and the informational content (rank) of a matrix.</li>
+</ul>
+
+<h3>3. Decomposition Methods</h3>
+<p>We then delve into factoring matrices to reveal their properties:</p>
+<ul>
+<li><strong>Eigenvectors and Eigenvalues</strong>: Identifying invariant directions under linear transformations.</li>
+<li><strong>Eigendecomposition</strong>: Diagonalizing matrices to simplify operations.</li>
+<li><strong>Singular Value Decomposition (SVD)</strong>: The general factorization applicable to any matrix, fundamental to compression and noise reduction.</li>
+</ul>
+
+<h3>4. Applications and Calculus</h3>
+<p>Finally, we apply these concepts to core ML tasks:</p>
+<ul>
+<li><strong>Principal Component Analysis (PCA)</strong>: A direct application of eigendecomposition for dimensionality reduction.</li>
+<li><strong>Vector Projections</strong>: The geometry behind Least Squares.</li>
+<li><strong>Linear Regression</strong>: Deriving the normal equation.</li>
+<li><strong>Matrix Calculus</strong>: The rules for differentiating with respect to vectors and matrices.</li>
+</ul>
+
+<h2>Mathematical Notation</h2>
+
+<p>To ensure clarity throughout this series, we adopt standard mathematical notation:</p>
+<ul>
+<li><strong>Scalars</strong>: Lowercase letters (e.g., <span class="math-inline">\(x\)</span>, <span class="math-inline">\(\alpha\)</span>)</li>
+<li><strong>Vectors</strong>: Lowercase letters (e.g., <span class="math-inline">\(v\)</span>, <span class="math-inline">\(x\)</span>)</li>
+<li><strong>Matrices</strong>: Uppercase letters (e.g., <span class="math-inline">\(A\)</span>, <span class="math-inline">\(X\)</span>)</li>
+<li><strong>Sets</strong>: Uppercase letters (e.g., <span class="math-inline">\(V\)</span>, <span class="math-inline">\(\mathbb{R}\)</span>)</li>
+<li><strong>Transpose</strong>: Superscript <span class="math-inline">\(T\)</span> (e.g., <span class="math-inline">\(A^T\)</span>)</li>
+<li><strong>Inverse</strong>: Superscript <span class="math-inline">\(-1\)</span> (e.g., <span class="math-inline">\(A^{-1}\)</span>)</li>
+</ul>
+
+<p>This roadmap serves as a guide for the subsequent articles, which will treat each topic with the rigorous detail necessary for a deep understanding of machine learning.</p>
+
+        </article>
     </main>
     <footer>
         <p>&copy; 2026 Varol Cagdas Tok</p>
     </footer>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const container = document.querySelector('[data-markdown-path]');
-            const path = container.getAttribute('data-markdown-path');
-            fetch(path)
-                .then(response => response.text())
-                .then(text => {
-                    container.innerHTML = renderMarkdownWithMath(text);
-                    renderMath();
+        document.addEventListener("DOMContentLoaded", function() {
+            if (window.renderMathInElement) {
+                renderMathInElement(document.getElementById('article-content'), {
+                    delimiters: [
+                        {left: '\\[', right: '\\]', display: true},
+                        {left: '\\(', right: '\\)', display: false}
+                    ],
+                    throwOnError: false
                 });
+            }
         });
     </script>
 </body>
-
 </html>

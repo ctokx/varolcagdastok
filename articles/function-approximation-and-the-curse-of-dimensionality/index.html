@@ -1,18 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Function Approximation and the Curse of Dimensionality - Varol Cagdas Tok</title>
+    <meta name="description" content="In the field of machine learning, one of the most fundamental challenges a data scientist faces is model selection. With a vast array of models available—from linear classifiers and kernel methods to ...">
+    <meta name="author" content="Tok Varol Cagdas">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ctokx.github.io/personalblog/articles/function-approximation-and-the-curse-of-dimensionality/">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ctokx.github.io/personalblog/articles/function-approximation-and-the-curse-of-dimensionality/">
+    <meta property="og:title" content="Function Approximation and the Curse of Dimensionality">
+    <meta property="og:description" content="In the field of machine learning, one of the most fundamental challenges a data scientist faces is model selection. With a vast array of models available—from linear classifiers and kernel methods to ...">
+    <meta property="og:site_name" content="Varol Cagdas Tok">
+    <meta property="article:author" content="Varol Cagdas Tok">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="Function Approximation and the Curse of Dimensionality">
+    <meta property="twitter:description" content="In the field of machine learning, one of the most fundamental challenges a data scientist faces is model selection. With a vast array of models available—from linear classifiers and kernel methods to ...">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Function Approximation and the Curse of Dimensionality",
+    "description": "In the field of machine learning, one of the most fundamental challenges a data scientist faces is model selection. With a vast array of models available\u2014from linear classifiers and kernel methods to ...",
+    "author": {
+        "@type": "Person",
+        "name": "Tok Varol Cagdas",
+        "url": "https://ctokx.github.io/personalblog/about.html"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "Varol Cagdas Tok"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ctokx.github.io/personalblog/articles/function-approximation-and-the-curse-of-dimensionality/"
+    },
+    "datePublished": "2026-01-10",
+    "dateModified": "2026-01-10"
+}
+    </script>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-    <script src="../../js/math-renderer.js"></script>
 </head>
-
 <body>
     <header>
         <h1>Varol Cagdas Tok</h1>
@@ -23,24 +55,100 @@
         <a href="../../about.html">About</a>
         <a href="../../feed.xml" class="rss-link">RSS</a>
     </nav>
-    <main id="article-content">
-        <div data-markdown-path="../../posts/machine-learning/post8.md"></div>
+    <main>
+        <article id="article-content">
+
+
+
+<h1>Function Approximation and the Curse of Dimensionality</h1>
+
+<p>In the field of machine learning, one of the most fundamental challenges a data scientist faces is model selection. With a vast array of models available—from linear classifiers and kernel methods to deep neural networks—how does one choose the most appropriate tool for a given problem? While empirical methods like cross-validation are indispensable for practical model assessment, theoretical analysis provides a deeper understanding of why certain models perform well on specific types of problems. This article explores the core concepts of function approximation, which frame machine learning as an effort to approximate an unknown target function, and delves into the critical challenge known as the "Curse of Dimensionality."</p>
+
+<h2>The Framework: Target and Model Function Classes</h2>
+
+<p>At its core, supervised machine learning can be viewed as a problem of function approximation. We assume that there is an unknown, underlying function that maps inputs to outputs. This is the function we want to learn.</p>
+
+<ul>
+<li>  <strong>Target Function Class (F):</strong> This represents the set of all possible functions that could have generated our data. For instance, in an image classification task, the target function is the "true" mapping from a grid of pixels to a class label (e.g., "cat" or "dog"). We often characterize this class by properties like smoothness or compositionality, which helps in theoretical analysis. The modern perspective is that for most real-world problems, the target functions occupy a very small, structured corner of the vast space of all possible functions.</li>
+</ul>
+
+<ul>
+<li>  <strong>Model Function Class (M):</strong> This is the set of functions that our chosen model can represent. For example, a linear regression model's function class consists of all possible linear functions. A neural network with a specific architecture represents a much more complex class of non-linear functions. Our goal during training is to search within this model class to find the function that best approximates the target function, guided by the available data.</li>
+</ul>
+
+<h2>Measuring the Gap: The Distance Between Functions</h2>
+
+<p>To understand how well our model approximates the target, we need a way to measure the "distance" between two functions. A common approach is to use a metric analogous to the squared Euclidean distance, but for functions. We can define the distance between a target function <span class="math-inline">\(f\)</span> and a model function <span class="math-inline">\(g\)</span> over a specific input domain <span class="math-inline">\(\mathcal{B}\)</span> (like a unit ball) as:</p>
+
+<p><div class="math-display">\[\|f - g\|^2_\mathcal{B} = \frac{1}{V_\mathcal{B}} \int_\mathcal{B} (f(\mathbf{x}) - g(\mathbf{x}))^2 d\mathbf{x}\]</div></p>
+
+<p>Here, <span class="math-inline">\(V_\mathcal{B}\)</span> is the volume of the domain. This formula calculates the average squared difference between the two functions across all possible inputs in that domain. The ultimate goal of approximation theory in this context is to find a model <span class="math-inline">\(f_w\)</span> from our model class <span class="math-inline">\(M\)</span> that minimizes this distance for the most difficult-to-approximate function in the target class <span class="math-inline">\(F\)</span>.</p>
+
+<p>In practice, we are more interested in performance on the data we actually encounter. Therefore, we often use a weighted distance that considers the probability distribution of the input data, <span class="math-inline">\(P(\mathbf{x})\)</span>. This focuses the measurement on regions of the input space where data is more likely to appear.</p>
+
+<h2>The Challenge: The Curse of Dimensionality</h2>
+
+<p>A crucial insight from approximation theory relates the number of parameters or components a model needs (e.g., the number of basis functions, <span class="math-inline">\(M_\phi\)</span>) to three key factors: the desired accuracy, the smoothness of the target function, and the dimensionality of the input space.</p>
+
+<p>Let's define the smoothness of a function class with the parameter <span class="math-inline">\(m\)</span>, where a larger <span class="math-inline">\(m\)</span> implies a smoother function (i.e., it has continuous partial derivatives up to order <span class="math-inline">\(m\)</span>). The number of basis functions required can be expressed as being proportional to:</p>
+
+<p><div class="math-display">\[(\text{accuracy})^{M \times \text{roughness}}\]</div></p>
+
+<p>Here, <code>accuracy</code> is the inverse of the desired error, <span class="math-inline">\(M\)</span> is the number of input dimensions, and <code>roughness</code> is the inverse of smoothness (<span class="math-inline">\(1/m\)</span>).</p>
+
+<p>This relationship reveals a significant problem. The number of required basis functions grows exponentially with the input dimension <span class="math-inline">\(M\)</span> and the roughness of the function. This exponential explosion is what Richard Bellman termed the <strong>"Curse of Dimensionality."</strong> If we are dealing with a high-dimensional problem (large <span class="math-inline">\(M\)</span>) where the underlying function is complex and non-smooth (large roughness), the number of basis functions needed to achieve a reasonable accuracy becomes computationally and practically infeasible.</p>
+
+<h2>Navigating the Curse: When and Why Models Work</h2>
+
+<p>Fortunately, the situation is not as hopeless as it seems, because real-world data and problems often have inherent structures that help mitigate the curse. Let's examine a few scenarios:</p>
+
+<ol>
+<li> <strong>The Blessing of Dimensionality:</strong> In some cases, a problem with low-dimensional input (<span class="math-inline">\(M\)</span> is small) but a complex structure (large roughness) can be solved by transforming the data into a very high-dimensional feature space. This is the principle behind kernel methods and fixed basis functions. In this new space, the problem might become much simpler, even linearly separable. Here, high dimensionality is a blessing, not a curse.</li>
+</ul>
+
+<ol>
+<li> <strong>Smooth Functions in High Dimensions:</strong> If the target function is very smooth (small roughness), the curse is less severe. A classic example is a linear function. For a linear target, the number of required parameters is just <span class="math-inline">\(M + 1\)</span>, which scales gracefully with the input dimension. This is why linear models can be effective even on very high-dimensional data, provided the underlying relationship is approximately linear.</li>
+</ul>
+
+<ol>
+<li> <strong>Structured Target Functions:</strong> The curse of dimensionality is most potent when we assume the target function could be <em>any</em> complex function. However, real-world functions are rarely so arbitrary.</li>
+</ul>
+<p>    -   <strong>Sparsity:</strong> The function's complexity might be localized. For example, a function might have high-frequency components only in a small region of the input space. This implies that out of a very large set of potential basis functions, only a few are actually needed. A model like a neural network is well-suited for this, as it can adaptively learn a "sparse" set of basis functions (the hidden units) during training.</p>
+<p>    -   <strong>Data on a Manifold:</strong> Often, high-dimensional data does not fill the entire input space. Instead, it lies on or near a lower-dimensional subspace called a manifold. For example, images of faces, while represented by thousands of pixels, can be described by a much smaller number of parameters (e.g., pose, lighting, expression). Models that can discover and exploit this manifold structure, such as neural networks and autoencoders, can effectively learn from the data without being overwhelmed by the ambient dimensionality of the space.</p>
+
+<h2>The Pitfall of Manifolds: Adversarial Examples</h2>
+
+<p>While learning on a manifold is powerful, it comes with a risk. A model might achieve excellent performance on data that lies on the manifold but fail catastrophically on inputs that are even slightly perturbed off of it. The model's approximation is only guaranteed to be good where it has seen data. This phenomenon is one of the leading explanations for the existence of <strong>adversarial examples</strong>—inputs that are imperceptibly modified to a human but cause a model to make a completely wrong prediction.</p>
+
+<h2>Conclusion: A Framework for Model Selection</h2>
+
+<p>Understanding function approximation and the curse of dimensionality provides a theoretical lens through which to view model selection. It helps explain why there is no one-size-fits-all model.</p>
+<ul>
+<li>  <strong>Linear models</strong> excel when the target function is smooth and the relationships are fundamentally additive.</li>
+<li>  <strong>Kernel methods and fixed basis functions</strong> are powerful when a complex, low-dimensional problem can be simplified by a high-dimensional transformation (the "blessing of dimensionality").</li>
+<li>  <strong>Neural networks</strong> shine when the solution is sparse or the data lies on a low-dimensional manifold, as they can adapt their internal representations to the structure of the data.</li>
+<li>  <strong>Deep neural networks</strong>, as we will see in a subsequent discussion, are particularly adept at modeling compositional functions, which is another crucial structure found in many real-world problems.</li>
+</ul>
+
+<p>This framework does not replace the need for empirical testing, but it provides a valuable guide for reasoning about which models are likely to succeed or fail based on the assumed properties of the problem at hand.</p>
+
+        </article>
     </main>
     <footer>
         <p>&copy; 2026 Varol Cagdas Tok</p>
     </footer>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const container = document.querySelector('[data-markdown-path]');
-            const path = container.getAttribute('data-markdown-path');
-            fetch(path)
-                .then(response => response.text())
-                .then(text => {
-                    container.innerHTML = renderMarkdownWithMath(text);
-                    renderMath();
+        document.addEventListener("DOMContentLoaded", function() {
+            if (window.renderMathInElement) {
+                renderMathInElement(document.getElementById('article-content'), {
+                    delimiters: [
+                        {left: '\\[', right: '\\]', display: true},
+                        {left: '\\(', right: '\\)', display: false}
+                    ],
+                    throwOnError: false
                 });
+            }
         });
     </script>
 </body>
-
 </html>

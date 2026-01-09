@@ -1,18 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matrix Multiplication and Linear Transformations - Varol Cagdas Tok</title>
+    <meta name="description" content="Given a matrix $A \in \mathbb{R}^{m \times n}$ and a vector $x \in \mathbb{R}^n$, the product $Ax \in \mathbb{R}^m$ is defined as:">
+    <meta name="author" content="Tok Varol Cagdas">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ctokx.github.io/personalblog/articles/matrix-multiplication-and-linear-transformations/">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ctokx.github.io/personalblog/articles/matrix-multiplication-and-linear-transformations/">
+    <meta property="og:title" content="Matrix Multiplication and Linear Transformations">
+    <meta property="og:description" content="Given a matrix $A \in \mathbb{R}^{m \times n}$ and a vector $x \in \mathbb{R}^n$, the product $Ax \in \mathbb{R}^m$ is defined as:">
+    <meta property="og:site_name" content="Varol Cagdas Tok">
+    <meta property="article:author" content="Varol Cagdas Tok">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="Matrix Multiplication and Linear Transformations">
+    <meta property="twitter:description" content="Given a matrix $A \in \mathbb{R}^{m \times n}$ and a vector $x \in \mathbb{R}^n$, the product $Ax \in \mathbb{R}^m$ is defined as:">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Matrix Multiplication and Linear Transformations",
+    "description": "Given a matrix $A \\in \\mathbb{R}^{m \\times n}$ and a vector $x \\in \\mathbb{R}^n$, the product $Ax \\in \\mathbb{R}^m$ is defined as:",
+    "author": {
+        "@type": "Person",
+        "name": "Tok Varol Cagdas",
+        "url": "https://ctokx.github.io/personalblog/about.html"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "Varol Cagdas Tok"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ctokx.github.io/personalblog/articles/matrix-multiplication-and-linear-transformations/"
+    },
+    "datePublished": "2026-01-10",
+    "dateModified": "2026-01-10"
+}
+    </script>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-    <script src="../../js/math-renderer.js"></script>
 </head>
-
 <body>
     <header>
         <h1>Varol Cagdas Tok</h1>
@@ -23,24 +55,241 @@
         <a href="../../about.html">About</a>
         <a href="../../feed.xml" class="rss-link">RSS</a>
     </nav>
-    <main id="article-content">
-        <div data-markdown-path="../../posts/linear-algebra/post29.md"></div>
+    <main>
+        <article id="article-content">
+
+
+
+<h1>Matrix Multiplication and Linear Transformations</h1>
+
+<h2>Matrix-Vector Multiplication</h2>
+
+<p>Given a matrix <span class="math-inline">\(A \in \mathbb{R}^{m \times n}\)</span> and a vector <span class="math-inline">\(x \in \mathbb{R}^n\)</span>, the product <span class="math-inline">\(Ax \in \mathbb{R}^m\)</span> is defined as:</p>
+
+<p><div class="math-display">\[(Ax)_i = \sum_{j=1}^{n} a_{ij}x_j\]</div></p>
+
+<p>Each entry of the result is the dot product of a row of <span class="math-inline">\(A\)</span> with <span class="math-inline">\(x\)</span>.</p>
+
+<h3>Example</h3>
+
+<pre><code class="language-text">A = [1  2  3]     x = [1]
+    [4  5  6]         [2]
+                      [3]
+
+Ax = [(1)(1) + (2)(2) + (3)(3)]   [1+4+9 ]   [14]
+     [(4)(1) + (5)(2) + (6)(3)] = [4+10+18] = [32]</code></pre>
+
+<h3>Dimensional Compatibility</h3>
+
+<p>For <span class="math-inline">\(Ax\)</span> to be defined:</p>
+<ul>
+<li><span class="math-inline">\(A\)</span> must have dimensions <span class="math-inline">\(m \times n\)</span></li>
+<li><span class="math-inline">\(x\)</span> must have dimension <span class="math-inline">\(n\)</span> (number of columns of <span class="math-inline">\(A\)</span>)</li>
+<li>Result <span class="math-inline">\(Ax\)</span> has dimension <span class="math-inline">\(m\)</span> (number of rows of <span class="math-inline">\(A\)</span>)</li>
+</ul>
+
+<h2>Column Perspective</h2>
+
+<p>Matrix-vector multiplication can be viewed as a linear combination of columns:</p>
+
+<p>If <span class="math-inline">\(A = [a_1 \; a_2 \; \ldots \; a_n]\)</span> (columns) and <span class="math-inline">\(x = [x_1, x_2, \ldots, x_n]^T\)</span>, then:</p>
+
+<p><div class="math-display">\[Ax = x_1 a_1 + x_2 a_2 + \cdots + x_n a_n\]</div></p>
+
+<h3>Example</h3>
+
+<pre><code class="language-text">A = [1  3]     x = [2]
+    [2  4]         [1]
+
+Ax = 2[1] + 1[3] = [2] + [3] = [5]
+      [2]     [4]   [4]   [4]   [8]</code></pre>
+
+<h2>Matrix-Matrix Multiplication</h2>
+
+<p>Given <span class="math-inline">\(A \in \mathbb{R}^{m \times n}\)</span> and <span class="math-inline">\(B \in \mathbb{R}^{n \times p}\)</span>, the product <span class="math-inline">\(C = AB \in \mathbb{R}^{m \times p}\)</span> is:</p>
+
+<p><div class="math-display">\[c_{ij} = \sum_{k=1}^{n} a_{ik}b_{kj}\]</div></p>
+
+<p>The (i,j)-th entry of <span class="math-inline">\(C\)</span> is the dot product of the i-th row of <span class="math-inline">\(A\)</span> with the j-th column of <span class="math-inline">\(B\)</span>.</p>
+
+<h3>Example</h3>
+
+<pre><code class="language-text">A = [1  2]     B = [5  6]
+    [3  4]         [7  8]
+
+C = AB = [(1)(5)+(2)(7)  (1)(6)+(2)(8)]   [19  22]
+         [(3)(5)+(4)(7)  (3)(6)+(4)(8)] = [43  50]</code></pre>
+
+<p>Calculation:</p>
+<ul>
+<li><span class="math-inline">\(c_{11} = (1)(5) + (2)(7) = 5 + 14 = 19\)</span></li>
+<li><span class="math-inline">\(c_{12} = (1)(6) + (2)(8) = 6 + 16 = 22\)</span></li>
+<li><span class="math-inline">\(c_{21} = (3)(5) + (4)(7) = 15 + 28 = 43\)</span></li>
+<li><span class="math-inline">\(c_{22} = (3)(6) + (4)(8) = 18 + 32 = 50\)</span></li>
+</ul>
+
+<h3>Dimensional Compatibility</h3>
+
+<p>For <span class="math-inline">\(AB\)</span> to be defined:</p>
+<ul>
+<li><span class="math-inline">\(A\)</span> must be <span class="math-inline">\(m \times n\)</span></li>
+<li><span class="math-inline">\(B\)</span> must be <span class="math-inline">\(n \times p\)</span> (columns of <span class="math-inline">\(A\)</span> = rows of <span class="math-inline">\(B\)</span>)</li>
+<li>Result <span class="math-inline">\(AB\)</span> is <span class="math-inline">\(m \times p\)</span></li>
+</ul>
+
+<h2>Properties of Matrix Multiplication</h2>
+
+<ol>
+<li><strong>Associativity</strong>: <span class="math-inline">\((AB)C = A(BC)\)</span></li>
+<li><strong>Distributivity</strong>: <span class="math-inline">\(A(B + C) = AB + AC\)</span></li>
+<li><strong>NOT commutative</strong>: Generally <span class="math-inline">\(AB \neq BA\)</span></li>
+<li><strong>Identity</strong>: <span class="math-inline">\(AI = IA = A\)</span></li>
+<li><strong>Transpose</strong>: <span class="math-inline">\((AB)^T = B^T A^T\)</span> (order reverses)</li>
+</ul>
+
+<h3>Non-Commutativity Example</h3>
+
+<pre><code class="language-text">A = [1  2]     B = [0  1]
+    [0  0]         [0  0]
+
+AB = [0  1]    BA = [0  0]
+     [0  0]         [0  0]
+
+AB ≠ BA</code></pre>
+
+<h2>Computational Complexity</h2>
+
+<p>Multiplying an <span class="math-inline">\(m \times n\)</span> matrix by an <span class="math-inline">\(n \times p\)</span> matrix requires:</p>
+<ul>
+<li><span class="math-inline">\(O(mnp)\)</span> scalar multiplications</li>
+<li><span class="math-inline">\(O(mnp)\)</span> scalar additions</li>
+</ul>
+
+<p>For square matrices (<span class="math-inline">\(n \times n\)</span>), this is <span class="math-inline">\(O(n^3)\)</span>.</p>
+
+<p>For matrix-vector multiplication (<span class="math-inline">\(n \times n\)</span> matrix, n-dimensional vector): <span class="math-inline">\(O(n^2)\)</span>.</p>
+
+<h2>Linear Transformations</h2>
+
+<p>A function <span class="math-inline">\(T: \mathbb{R}^n \to \mathbb{R}^m\)</span> is a linear transformation if:</p>
+
+<ol>
+<li><span class="math-inline">\(T(u + v) = T(u) + T(v)\)</span> (additivity)</li>
+<li><span class="math-inline">\(T(\alpha v) = \alpha T(v)\)</span> (homogeneity)</li>
+</ul>
+
+<p>Every linear transformation can be represented as matrix multiplication:</p>
+
+<p><div class="math-display">\[T(x) = Ax\]</div></p>
+
+<p>for some matrix <span class="math-inline">\(A \in \mathbb{R}^{m \times n}\)</span>.</p>
+
+<h3>Example: Rotation</h3>
+
+<p>A 2D rotation by angle <span class="math-inline">\(\theta\)</span> counterclockwise is:</p>
+
+<pre><code class="language-text">R(θ) = [cos(θ)  -sin(θ)]
+       [sin(θ)   cos(θ)]</code></pre>
+
+<p>Rotating <span class="math-inline">\(x = [1, 0]^T\)</span> by 90° (<span class="math-inline">\(\theta = \pi/2\)</span>):</p>
+
+<pre><code class="language-text">R(π/2) = [0  -1]
+         [1   0]
+
+R(π/2)[1] = [0]
+       [0]   [1]</code></pre>
+
+<h3>Example: Scaling</h3>
+
+<p>Scaling by factors <span class="math-inline">\(s_x\)</span> and <span class="math-inline">\(s_y\)</span>:</p>
+
+<pre><code class="language-text">S = [sₓ   0]
+    [0   sᵧ]</code></pre>
+
+<p>For <span class="math-inline">\(s_x = 2, s_y = 3\)</span>:</p>
+
+<pre><code class="language-text">S[1] = [2]
+ [1]   [3]</code></pre>
+
+<h3>Example: Projection</h3>
+
+<p>Projection onto the x-axis:</p>
+
+<pre><code class="language-text">P = [1  0]
+    [0  0]
+
+P[3] = [3]
+ [4]   [0]</code></pre>
+
+<h2>Composition of Transformations</h2>
+
+<p>Applying transformation <span class="math-inline">\(B\)</span> followed by <span class="math-inline">\(A\)</span> is:</p>
+
+<p><div class="math-display">\[T(x) = A(Bx) = (AB)x\]</div></p>
+
+<p>The composition is represented by the product <span class="math-inline">\(AB\)</span>.</p>
+
+<h3>Example</h3>
+
+<p>Rotate by 90° then scale by 2:</p>
+
+<pre><code class="language-text">R = [0  -1]    S = [2  0]
+    [1   0]        [0  2]
+
+SR = [2  0][0  -1]   [0  -2]
+     [0  2][1   0] = [2   0]</code></pre>
+
+<h2>Relevance for Machine Learning</h2>
+
+<p><strong>Neural Network Layers</strong>: A fully connected layer computes:</p>
+
+<p><div class="math-display">\[h = \sigma(Wx + b)\]</div></p>
+
+<p>where <span class="math-inline">\(W\)</span> is the weight matrix and <span class="math-inline">\(\sigma\)</span> is an activation function. The linear part <span class="math-inline">\(Wx\)</span> is matrix-vector multiplication.</p>
+
+<p><strong>Batch Processing</strong>: Processing n samples <span class="math-inline">\(X \in \mathbb{R}^{n \times d}\)</span> through a layer with weights <span class="math-inline">\(W \in \mathbb{R}^{d \times k}\)</span>:</p>
+
+<p><div class="math-display">\[H = XW\]</div></p>
+
+<p>Each row of <span class="math-inline">\(H\)</span> is the transformed feature vector for one sample.</p>
+
+<p><strong>Convolutional Layers</strong>: Though typically described using convolution, can be represented as matrix multiplication by constructing a Toeplitz matrix from the kernel.</p>
+
+<p><strong>Chain Rule in Backpropagation</strong>: Gradients propagate backward through layers using the chain rule, which corresponds to multiplying Jacobian matrices:</p>
+
+<p><div class="math-display">\[\frac{\partial L}{\partial W_1} = \left(\frac{\partial L}{\partial h_2}\right)\left(\frac{\partial h_2}{\partial h_1}\right)\left(\frac{\partial h_1}{\partial W_1}\right)\]</div></p>
+
+<p><strong>Data Transformations</strong>: Standardizing features (mean 0, variance 1) can be written as:</p>
+
+<p><div class="math-display">\[X_{\text{std}} = (X - \mu)D^{-1}\]</div></p>
+
+<p>where <span class="math-inline">\(D\)</span> is a diagonal matrix of standard deviations.</p>
+
+<p><strong>Dimensionality Reduction</strong>: PCA projects data onto principal components:</p>
+
+<p><div class="math-display">\[X_{\text{reduced}} = XW_{\text{pca}}\]</div></p>
+
+<p>where <span class="math-inline">\(W_{\text{pca}}\)</span> contains the top k eigenvectors as columns.</p>
+
+<p><strong>Recommendation Systems</strong>: Matrix factorization decomposes a user-item matrix <span class="math-inline">\(R \approx UV^T\)</span>, where <span class="math-inline">\(U\)</span> contains user embeddings and <span class="math-inline">\(V\)</span> contains item embeddings.</p>
+
+        </article>
     </main>
     <footer>
         <p>&copy; 2026 Varol Cagdas Tok</p>
     </footer>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const container = document.querySelector('[data-markdown-path]');
-            const path = container.getAttribute('data-markdown-path');
-            fetch(path)
-                .then(response => response.text())
-                .then(text => {
-                    container.innerHTML = renderMarkdownWithMath(text);
-                    renderMath();
+        document.addEventListener("DOMContentLoaded", function() {
+            if (window.renderMathInElement) {
+                renderMathInElement(document.getElementById('article-content'), {
+                    delimiters: [
+                        {left: '\\[', right: '\\]', display: true},
+                        {left: '\\(', right: '\\)', display: false}
+                    ],
+                    throwOnError: false
                 });
+            }
         });
     </script>
 </body>
-
 </html>

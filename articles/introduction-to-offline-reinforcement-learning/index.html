@@ -1,18 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Introduction to Offline Reinforcement Learning - Varol Cagdas Tok</title>
+    <meta name="description" content="An introduction to offline reinforcement learning, exploring how AI agents can learn optimal decision-making strategies from pre-collected data without ever interacting with the environment. This post defines the core challenge of distributional shift and introduces the primary algorithmic paradigms—BC, TD3+BC, IQL, and CQL—that our research evaluates.">
+    <meta name="author" content="Tok Varol Cagdas">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ctokx.github.io/personalblog/articles/introduction-to-offline-reinforcement-learning/">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ctokx.github.io/personalblog/articles/introduction-to-offline-reinforcement-learning/">
+    <meta property="og:title" content="Introduction to Offline Reinforcement Learning">
+    <meta property="og:description" content="An introduction to offline reinforcement learning, exploring how AI agents can learn optimal decision-making strategies from pre-collected data without ever interacting with the environment. This post defines the core challenge of distributional shift and introduces the primary algorithmic paradigms—BC, TD3+BC, IQL, and CQL—that our research evaluates.">
+    <meta property="og:site_name" content="Varol Cagdas Tok">
+    <meta property="article:author" content="Varol Cagdas Tok">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="Introduction to Offline Reinforcement Learning">
+    <meta property="twitter:description" content="An introduction to offline reinforcement learning, exploring how AI agents can learn optimal decision-making strategies from pre-collected data without ever interacting with the environment. This post defines the core challenge of distributional shift and introduces the primary algorithmic paradigms—BC, TD3+BC, IQL, and CQL—that our research evaluates.">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Introduction to Offline Reinforcement Learning",
+    "description": "An introduction to offline reinforcement learning, exploring how AI agents can learn optimal decision-making strategies from pre-collected data without ever interacting with the environment. This post defines the core challenge of distributional shift and introduces the primary algorithmic paradigms\u2014BC, TD3+BC, IQL, and CQL\u2014that our research evaluates.",
+    "author": {
+        "@type": "Person",
+        "name": "Tok Varol Cagdas",
+        "url": "https://ctokx.github.io/personalblog/about.html"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "Varol Cagdas Tok"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ctokx.github.io/personalblog/articles/introduction-to-offline-reinforcement-learning/"
+    },
+    "datePublished": "2026-01-10",
+    "dateModified": "2026-01-10"
+}
+    </script>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-    <script src="../../js/math-renderer.js"></script>
 </head>
-
 <body>
     <header>
         <h1>Varol Cagdas Tok</h1>
@@ -23,24 +55,76 @@
         <a href="../../about.html">About</a>
         <a href="../../feed.xml" class="rss-link">RSS</a>
     </nav>
-    <main id="article-content">
-        <div data-markdown-path="../../posts/reinforcement-learning/post40.md"></div>
+    <main>
+        <article id="article-content">
+
+
+
+<h1>Introduction to Offline Reinforcement Learning</h1>
+
+<h3>The Traditional RL Paradigm: Learning Through Interaction</h3>
+
+<p>To appreciate offline reinforcement learning, we must first understand the standard online framework. An agent operates within a Markov Decision Process (MDP), defined by the tuple <span class="math-inline">\((S, A, T, R, \gamma)\)</span>, where <span class="math-inline">\(S\)</span> is the state space, <span class="math-inline">\(A\)</span> is the action space, <span class="math-inline">\(T(s'|s, a)\)</span> is the transition dynamics, <span class="math-inline">\(R(s, a)\)</span> is the reward function, and <span class="math-inline">\(\gamma\)</span> is the discount factor. The agent's goal is to learn a policy <span class="math-inline">\(\pi(a|s)\)</span> that maximizes the expected discounted return: <span class="math-inline">\(J(\pi) = \mathbb{E}_{\pi}[\sum_{t=0}^{\infty} \gamma^t r(s_t, a_t)]\)</span>.</p>
+
+<p>Traditional algorithms achieve this by actively interacting with the environment, collecting data through trial and error. This process, however, can be costly, time-consuming, and unsafe in many real-world domains, such as robotics or healthcare.</p>
+
+<h3>The Offline RL Paradigm: Learning from a Fixed Dataset</h3>
+
+<p><strong>Offline Reinforcement Learning (Offline RL)</strong>, also known as batch RL, offers a solution by learning from a fixed, pre-collected dataset of experiences, <span class="math-inline">\(\mathcal{D} = \{(s_i, a_i, r_i, s'_i)\}\)</span>. This removes the need for live interaction, enabling agents to learn from historical data logs.</p>
+
+<p>While this approach solves the safety and cost issues of online collection, it introduces a unique and fundamental challenge: <strong>distributional shift</strong>.</p>
+
+<h3>The Central Challenge: Distributional Shift</h3>
+
+<p>Most RL algorithms, particularly actor-critic methods, learn a Q-function <span class="math-inline">\(Q(s, a)\)</span> to estimate the value of actions. They then improve the policy <span class="math-inline">\(\pi\)</span> by training it to select actions that maximize this Q-function.</p>
+
+<p>In an offline setting, the policy being trained, <span class="math-inline">\(\pi\)</span>, will invariably differ from the behavior policy <span class="math-inline">\(\pi_\beta\)</span> that collected the dataset. As <span class="math-inline">\(\pi\)</span> improves, it may suggest actions <span class="math-inline">\(a\)</span> for a state <span class="math-inline">\(s\)</span> that are "out-of-distribution" (OOD)—that is, actions that were rarely or never taken in that state within the dataset <span class="math-inline">\(\mathcal{D}\)</span>.</p>
+
+<p>Standard Q-learning is notoriously bad at evaluating these OOD actions. Lacking data, the function approximator (e.g., a neural network) extrapolates, often producing wildly optimistic and erroneous Q-values. The policy, seeking to maximize the Q-function, then learns to exploit these errors, leading to a catastrophic failure loop where the policy diverges and performance collapses.</p>
+
+<h3>Major Algorithmic Approaches</h3>
+
+<p>Our research investigates four prominent paradigms for tackling this distributional shift problem, each with a different philosophy:</p>
+
+<ol>
+<li> <strong>Behavioral Cloning (BC):</strong> The simplest approach. BC forgoes value-based learning and treats the problem as supervised learning. It trains a policy to directly mimic the actions in the dataset, optimizing the objective:</li>
+</ul>
+<p>    <div class="math-display">\[\pi = \operatorname*{arg\,min}_{\pi} \mathbb{E}_{(s,a)\sim\mathcal{D}}[||\pi(s) - a||^2]\]</div></p>
+<p>    This avoids OOD queries but is limited by the quality of the dataset; it cannot outperform the best behaviors it has seen.</p>
+
+<ol>
+<li> <strong>TD3+BC:</strong> A "minimalist" policy constraint method. This algorithm, proposed by Fujimoto and Gu, combines the standard TD3 actor-critic algorithm with a BC regularization term. The actor is trained to both maximize the learned Q-value and minimize its distance from dataset actions:</li>
+</ul>
+<p>    <div class="math-display">\[\pi = \operatorname*{arg\,max}_{\pi} \mathbb{E}_{(s,a)\sim\mathcal{D}}[Q(s, \pi(s)) - \alpha||\pi(s) - a||^2]\]</div></p>
+<p>    The hyperparameter <span class="math-inline">\(\alpha\)</span> balances exploitation against imitation.</p>
+
+<ol>
+<li> <strong>Conservative Q-Learning (CQL):</strong> A pessimistic value-based method. Proposed by Kumar et al., CQL learns a conservative Q-function that serves as a lower bound on the true policy value. It adds a regularizer to the Bellman error objective that penalizes Q-values for unseen actions while pushing up the Q-values for actions present in the dataset:</li>
+</ul>
+<p>    <div class="math-display">\[\mathcal{L}_{CQL}(Q) = \mathcal{L}_{TD}(Q) + \alpha\mathbb{E}_{s\sim\mathcal{D}}\left[\log\sum_{a}e^{Q(s,a)} - \mathbb{E}_{a\sim\mathcal{D}}[Q(s,a)]\right]\]</div></p>
+
+<ol>
+<li> <strong>Implicit Q-Learning (IQL):</strong> An implicit policy constraint method. Proposed by Kostrikov et al., IQL cleverly avoids ever querying OOD actions. It uses <strong>expectile regression</strong> to learn a state-value function <span class="math-inline">\(V(s)\)</span> that implicitly targets the higher Q-values in the dataset, and then learns a Q-function by bootstrapping off <span class="math-inline">\(V(s')\)</span>. The final policy is extracted using advantage-weighted behavioral cloning.</li>
+</ul>
+
+<p>Understanding these distinct philosophies is crucial for navigating the offline RL landscape. In our next posts, we will dive deeper into these algorithms, culminating in a detailed experimental comparison based on our research.</p>
+        </article>
     </main>
     <footer>
         <p>&copy; 2026 Varol Cagdas Tok</p>
     </footer>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const container = document.querySelector('[data-markdown-path]');
-            const path = container.getAttribute('data-markdown-path');
-            fetch(path)
-                .then(response => response.text())
-                .then(text => {
-                    container.innerHTML = renderMarkdownWithMath(text);
-                    renderMath();
+        document.addEventListener("DOMContentLoaded", function() {
+            if (window.renderMathInElement) {
+                renderMathInElement(document.getElementById('article-content'), {
+                    delimiters: [
+                        {left: '\\[', right: '\\]', display: true},
+                        {left: '\\(', right: '\\)', display: false}
+                    ],
+                    throwOnError: false
                 });
+            }
         });
     </script>
 </body>
-
 </html>

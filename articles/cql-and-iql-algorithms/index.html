@@ -1,18 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CQL and IQL Algorithms - Varol Cagdas Tok</title>
+    <meta name="description" content="Exploring Conservative Q-Learning (CQL) and Implicit Q-Learning (IQL), two sophisticated value-based methods that tackle offline RL&#x27;s distributional shift problem. We detail their core mechanisms—pessimistic value estimation for CQL and implicit policy constraints for IQL—and discuss their performance characteristics as observed in our comparative study.">
+    <meta name="author" content="Tok Varol Cagdas">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ctokx.github.io/personalblog/articles/cql-and-iql-algorithms/">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ctokx.github.io/personalblog/articles/cql-and-iql-algorithms/">
+    <meta property="og:title" content="CQL and IQL Algorithms">
+    <meta property="og:description" content="Exploring Conservative Q-Learning (CQL) and Implicit Q-Learning (IQL), two sophisticated value-based methods that tackle offline RL&#x27;s distributional shift problem. We detail their core mechanisms—pessimistic value estimation for CQL and implicit policy constraints for IQL—and discuss their performance characteristics as observed in our comparative study.">
+    <meta property="og:site_name" content="Varol Cagdas Tok">
+    <meta property="article:author" content="Varol Cagdas Tok">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="CQL and IQL Algorithms">
+    <meta property="twitter:description" content="Exploring Conservative Q-Learning (CQL) and Implicit Q-Learning (IQL), two sophisticated value-based methods that tackle offline RL&#x27;s distributional shift problem. We detail their core mechanisms—pessimistic value estimation for CQL and implicit policy constraints for IQL—and discuss their performance characteristics as observed in our comparative study.">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "CQL and IQL Algorithms",
+    "description": "Exploring Conservative Q-Learning (CQL) and Implicit Q-Learning (IQL), two sophisticated value-based methods that tackle offline RL's distributional shift problem. We detail their core mechanisms\u2014pessimistic value estimation for CQL and implicit policy constraints for IQL\u2014and discuss their performance characteristics as observed in our comparative study.",
+    "author": {
+        "@type": "Person",
+        "name": "Tok Varol Cagdas",
+        "url": "https://ctokx.github.io/personalblog/about.html"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "Varol Cagdas Tok"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ctokx.github.io/personalblog/articles/cql-and-iql-algorithms/"
+    },
+    "datePublished": "2026-01-10",
+    "dateModified": "2026-01-10"
+}
+    </script>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-    <script src="../../js/math-renderer.js"></script>
 </head>
-
 <body>
     <header>
         <h1>Varol Cagdas Tok</h1>
@@ -23,24 +55,80 @@
         <a href="../../about.html">About</a>
         <a href="../../feed.xml" class="rss-link">RSS</a>
     </nav>
-    <main id="article-content">
-        <div data-markdown-path="../../posts/reinforcement-learning/post42.md"></div>
+    <main>
+        <article id="article-content">
+
+
+
+<h1>CQL and IQL Algorithms</h1>
+
+<p>While TD3+BC constrains the <em>policy</em>, two other major schools of thought focus on modifying the <em>value function</em> learning itself. Our research also benchmarked <strong>Conservative Q-Learning (CQL)</strong> and <strong>Implicit Q-Learning (IQL)</strong> to provide a complete picture of the offline RL landscape.</p>
+
+<h3>Conservative Q-Learning (CQL): The Power of Pessimism</h3>
+
+<p>The core idea of CQL is to learn a Q-function that is a <em>lower bound</em> of the true value. It combats OOD action overestimation by being explicitly pessimistic.</p>
+
+<h4>The CQL Objective</h4>
+
+<p>CQL modifies the standard Bellman error objective (<span class="math-inline">\(\mathcal{L}_{TD}(Q)\)</span>) by adding a regularizer that penalizes Q-values for actions chosen by the current policy (especially OOD actions) and simultaneously pushes up the Q-values for actions found in the dataset.</p>
+
+<p>The full objective is:</p>
+<p><div class="math-display">\[\mathcal{L}_{CQL}(Q) = \mathcal{L}_{TD}(Q) + \alpha \cdot \left( \mathbb{E}_{s \sim \mathcal{D}}[\log\sum_a e^{Q(s,a)}] - \mathbb{E}_{(s,a) \sim \mathcal{D}}[Q(s,a)] \right)\]</div></p>
+
+<p>Here, <span class="math-inline">\(\alpha\)</span> controls the strength of the conservatism. This ensures that the policy, when maximizing <span class="math-inline">\(Q(s, a)\)</span>, will not be fooled by spuriously high values for OOD actions.</p>
+
+<h4>Performance in Practice</h4>
+
+<p>In our experiments, CQL's performance was mixed and highlighted its sensitivity.</p>
+<ul>
+<li>On <strong>expert datasets</strong>, CQL often underperformed. Its conservatism, which is designed to protect against bad data, became a hindrance when all the data was good. It prevents the policy from fully trusting the near-optimal trajectories, leading to underestimation bias. For example, on Walker2D-expert, CQL scored -0.61, while BC scored 3653.50.</li>
+<li>On <strong>medium datasets</strong>, its performance was inconsistent. While it achieved a perfect score on InvertedPendulum, it failed completely on HalfCheetah (-465.78) and Walker2D (2.36). This suggests that the <span class="math-inline">\(\alpha\)</span> hyperparameter is difficult to tune and must be carefully set for each specific task and dataset.</li>
+</ul>
+
+<h3>Implicit Q-Learning (IQL): Avoiding OOD Actions Entirely</h3>
+
+<p>IQL takes a different and highly elegant approach: it <em>never</em> evaluates the Q-function on OOD actions during the value-learning step.</p>
+
+<h4>The IQL Framework</h4>
+
+<p>IQL learns three separate functions:</p>
+<ol>
+<li> <strong>A Value Function <span class="math-inline">\(V_{\psi}(s)\)</span>:</strong> Instead of standard TD, <span class="math-inline">\(V\)</span> is learned using <strong>expectile regression</strong>. This asymmetrically weights errors to make <span class="math-inline">\(V(s)\)</span> estimate a high quantile (e.g., the 70th percentile) of the Q-values available in that state, rather than the mean.</li>
+<li> <strong>A Q-Function <span class="math-inline">\(Q_{\theta}(s, a)\)</span>:</strong> The Q-function is then learned using a standard TD update, but it uses the learned <span class="math-inline">\(V(s')\)</span> as the target, <em>not</em> a <span class="math-inline">\(\max_{a'} Q(s', a')\)</span> operation.</li>
+</ul>
+<p>    <div class="math-display">\[\mathcal{L}_Q(Q) = \mathbb{E}_{(s,a,r,s') \sim \mathcal{D}}\left[ \left( Q(s,a) - (r + \gamma V(s')) \right)^2 \right]\]</div></p>
+<p>    This completely sidesteps OOD queries.</p>
+<ol>
+<li> <strong>A Policy <span class="math-inline">\(\pi_{\phi}(a|s)\)</span>:</strong> The policy is extracted using <strong>Advantage-Weighted Regression (AWR)</strong>. It's trained to imitate dataset actions, but it <em>up-weights</em> actions that had a high advantage <span class="math-inline">\(A(s,a) = Q(s,a) - V(s)\)</span>.</li>
+</ul>
+
+<h4>Performance in Practice</h4>
+
+<p>IQL proved to be a very strong and stable performer, especially on mixed-quality data.</p>
+<ul>
+<li>On <strong>medium datasets</strong>, IQL excelled at distinguishing good trajectories from bad ones. It achieved near-perfect scores on InvertedDoublePendulum (9358.84) and InvertedPendulum (1000.00).</li>
+<li>It was also the top performer on Reacher-medium and highly competitive on Walker2D-medium.</li>
+<li>Its implicit constraint mechanism makes it robust to distribution shift without being overly pessimistic, striking a good balance between safety and performance.</li>
+</ul>
+
+<p>In our next and final post, we will synthesize these results, comparing all four algorithms side-by-side to draw practical lessons about algorithm selection in offline RL.</p>
+        </article>
     </main>
     <footer>
         <p>&copy; 2026 Varol Cagdas Tok</p>
     </footer>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const container = document.querySelector('[data-markdown-path]');
-            const path = container.getAttribute('data-markdown-path');
-            fetch(path)
-                .then(response => response.text())
-                .then(text => {
-                    container.innerHTML = renderMarkdownWithMath(text);
-                    renderMath();
+        document.addEventListener("DOMContentLoaded", function() {
+            if (window.renderMathInElement) {
+                renderMathInElement(document.getElementById('article-content'), {
+                    delimiters: [
+                        {left: '\\[', right: '\\]', display: true},
+                        {left: '\\(', right: '\\)', display: false}
+                    ],
+                    throwOnError: false
                 });
+            }
         });
     </script>
 </body>
-
 </html>

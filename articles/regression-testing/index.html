@@ -1,18 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Regression Testing - Varol Cagdas Tok</title>
+    <meta name="description" content="Software is not static; it changes constantly. Programmers fix bugs, add new features, and refactor code. Every time a change is made, there is a risk that it will unintentionally alter or break exist...">
+    <meta name="author" content="Tok Varol Cagdas">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ctokx.github.io/personalblog/articles/regression-testing/">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ctokx.github.io/personalblog/articles/regression-testing/">
+    <meta property="og:title" content="Regression Testing">
+    <meta property="og:description" content="Software is not static; it changes constantly. Programmers fix bugs, add new features, and refactor code. Every time a change is made, there is a risk that it will unintentionally alter or break exist...">
+    <meta property="og:site_name" content="Varol Cagdas Tok">
+    <meta property="article:author" content="Varol Cagdas Tok">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="Regression Testing">
+    <meta property="twitter:description" content="Software is not static; it changes constantly. Programmers fix bugs, add new features, and refactor code. Every time a change is made, there is a risk that it will unintentionally alter or break exist...">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Regression Testing",
+    "description": "Software is not static; it changes constantly. Programmers fix bugs, add new features, and refactor code. Every time a change is made, there is a risk that it will unintentionally alter or break exist...",
+    "author": {
+        "@type": "Person",
+        "name": "Tok Varol Cagdas",
+        "url": "https://ctokx.github.io/personalblog/about.html"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "Varol Cagdas Tok"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ctokx.github.io/personalblog/articles/regression-testing/"
+    },
+    "datePublished": "2026-01-10",
+    "dateModified": "2026-01-10"
+}
+    </script>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-    <script src="../../js/math-renderer.js"></script>
 </head>
-
 <body>
     <header>
         <h1>Varol Cagdas Tok</h1>
@@ -23,24 +55,72 @@
         <a href="../../about.html">About</a>
         <a href="../../feed.xml" class="rss-link">RSS</a>
     </nav>
-    <main id="article-content">
-        <div data-markdown-path="../../posts/software-engineering-testing/post5.md"></div>
+    <main>
+        <article id="article-content">
+
+
+
+<h1>Regression Testing</h1>
+
+
+<p>Software is not static; it changes constantly. Programmers fix bugs, add new features, and refactor code. Every time a change is made, there is a risk that it will unintentionally alter or break existing, previously-tested behavior.</p>
+
+<p><strong>Regression testing</strong> is the process of retesting already tested functionality after a change, with the goal of providing confidence that the new code does not have unexpected side effects.</p>
+
+<p>In an ideal world, you would simply "retest all" by running your entire existing test suite after every commit. However, as the number of tests grows, this approach quickly becomes unfeasible and too costly, especially in agile development cycles.</p>
+
+<p>Therefore, we must use techniques to optimize our regression testing. The three main approaches are minimization, selection, and prioritization.</p>
+
+<h2>1. Test Suite Minimization</h2>
+
+<ul>
+<li><strong>The Idea:</strong> To <em>permanently reduce</em> the size of the test suite by removing redundant tests.</li>
+<li><strong>The Goal:</strong> Find a minimal subset of tests <span class="math-inline">\(TS\)</span> that achieves the same <strong>adequacy criterion</strong> (e.g., 100% branch coverage) as the original full suite <span class="math-inline">\(T\)</span>.</li>
+<li><strong>Key Concepts:</strong></li>
+</ul>
+<p>    * <strong>Redundant Test:</strong> A test <span class="math-inline">\(t\)</span> is redundant if its removal does not reduce the adequacy of the test suite. For a metric <span class="math-inline">\(m\)</span>, <span class="math-inline">\(m(T) = m(T \setminus \{t\})\)</span>.</p>
+<p>    <em> <strong>Essential Test:</strong> A test <span class="math-inline">\(t\)</span> is essential if it is the </em>only* test that covers a specific test goal (like a particular branch).</p>
+<ul>
+<li><strong>The Risk:</strong> Minimization is a trade-off. A removed test might be "redundant" from a <em>coverage</em> perspective but may have been the only test that could find a <em>specific fault</em>.</li>
+</ul>
+
+<h2>2. Test Selection</h2>
+
+<ul>
+<li><strong>The Idea:</strong> To <em>temporarily select</em> a subset of tests from the full suite to run for a specific change.</li>
+<li><strong>The Goal:</strong> Instead of running all 10,000 tests, run only the tests that are <em>relevant</em> to the code that was just modified.</li>
+<li><strong>How it Works (CFA-based):</strong> One approach is to analyze the program's Control-Flow Automaton (CFA). The algorithm compares the CFA of the original program (<span class="math-inline">\(P\)</span>) with the CFA of the modified program (<span class="math-inline">\(P'\)</span>).</li>
+</ul>
+<p>    1.  It traces the paths of both versions simultaneously.</p>
+<p>    2.  If it finds an edge in the <em>original</em> program <span class="math-inline">\(P\)</span> that has been modified or deleted in <span class="math-inline">\(P'\)</span>, it adds all tests that covered that original edge to the "selected" test suite <span class="math-inline">\(TS\)</span>.</p>
+<p>    * This algorithm effectively selects all tests that would execute differently due to the code change.</p>
+
+<h2>3. Test Prioritization</h2>
+
+<ul>
+<li><strong>The Idea:</strong> To <em>re-order</em> the test suite so that the tests most likely to find faults are run first.</li>
+<li><strong>The Goal:</strong> To maximize the <strong>rate of fault detection</strong>. This provides faster feedback to developers, even if the full suite takes hours to run.</li>
+<li><strong>How it Works:</strong> Tests are sorted based on a heuristic.</li>
+</ul>
+<p>    * <strong>Greedy Prioritization:</strong> A simple approach is to sort the test suite by a previously computed metric, such as branch coverage. The test that covered the most branches runs first, then the test that covered the second most, and so on.</p>
+<p>    <em> <strong>Additional Greedy Prioritization:</strong> A more common strategy is to prioritize based on </em>new<em> information. The algorithm repeatedly selects the test that covers the most </em>not-yet-covered* goals. This ensures the first few tests in the run cover a wide breadth of the code as quickly as possible.</p>
+        </article>
     </main>
     <footer>
         <p>&copy; 2026 Varol Cagdas Tok</p>
     </footer>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const container = document.querySelector('[data-markdown-path]');
-            const path = container.getAttribute('data-markdown-path');
-            fetch(path)
-                .then(response => response.text())
-                .then(text => {
-                    container.innerHTML = renderMarkdownWithMath(text);
-                    renderMath();
+        document.addEventListener("DOMContentLoaded", function() {
+            if (window.renderMathInElement) {
+                renderMathInElement(document.getElementById('article-content'), {
+                    delimiters: [
+                        {left: '\\[', right: '\\]', display: true},
+                        {left: '\\(', right: '\\)', display: false}
+                    ],
+                    throwOnError: false
                 });
+            }
         });
     </script>
 </body>
-
 </html>

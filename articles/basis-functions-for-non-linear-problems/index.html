@@ -1,18 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Basis Functions for Non-Linear Problems - Varol Cagdas Tok</title>
+    <meta name="description" content="Many foundational models in machine learning, such as linear regression and the Perceptron, are fundamentally linear. They assume the relationship between inputs and outputs, or the class boundaries, ...">
+    <meta name="author" content="Tok Varol Cagdas">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ctokx.github.io/personalblog/articles/basis-functions-for-non-linear-problems/">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ctokx.github.io/personalblog/articles/basis-functions-for-non-linear-problems/">
+    <meta property="og:title" content="Basis Functions for Non-Linear Problems">
+    <meta property="og:description" content="Many foundational models in machine learning, such as linear regression and the Perceptron, are fundamentally linear. They assume the relationship between inputs and outputs, or the class boundaries, ...">
+    <meta property="og:site_name" content="Varol Cagdas Tok">
+    <meta property="article:author" content="Varol Cagdas Tok">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="Basis Functions for Non-Linear Problems">
+    <meta property="twitter:description" content="Many foundational models in machine learning, such as linear regression and the Perceptron, are fundamentally linear. They assume the relationship between inputs and outputs, or the class boundaries, ...">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Basis Functions for Non-Linear Problems",
+    "description": "Many foundational models in machine learning, such as linear regression and the Perceptron, are fundamentally linear. They assume the relationship between inputs and outputs, or the class boundaries, ...",
+    "author": {
+        "@type": "Person",
+        "name": "Tok Varol Cagdas",
+        "url": "https://ctokx.github.io/personalblog/about.html"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "Varol Cagdas Tok"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ctokx.github.io/personalblog/articles/basis-functions-for-non-linear-problems/"
+    },
+    "datePublished": "2026-01-10",
+    "dateModified": "2026-01-10"
+}
+    </script>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-    <script src="../../js/math-renderer.js"></script>
 </head>
-
 <body>
     <header>
         <h1>Varol Cagdas Tok</h1>
@@ -23,24 +55,83 @@
         <a href="../../about.html">About</a>
         <a href="../../feed.xml" class="rss-link">RSS</a>
     </nav>
-    <main id="article-content">
-        <div data-markdown-path="../../posts/machine-learning/post14.md"></div>
+    <main>
+        <article id="article-content">
+
+
+
+<h1>Basis Functions for Non-Linear Problems</h1>
+
+<p>Many foundational models in machine learning, such as linear regression and the Perceptron, are fundamentally linear. They assume the relationship between inputs and outputs, or the class boundaries, can be described by a hyperplane. While effective, many real-world problems are inherently non-linear. <strong>Basis functions</strong> address this by transforming the input data into a new, higher-dimensional feature space where the problem becomes linear.</p>
+
+<h2>Feature Space Transformation</h2>
+
+<p>Consider the classic XOR problem, a textbook example of a non-linearly separable classification task. No single straight line can separate the positive and negative examples. However, if we augment our original inputs, <span class="math-inline">\(x_1\)</span> and <span class="math-inline">\(x_2\)</span>, with a new, engineered feature—the product <span class="math-inline">\(x_1x_2\)</span>—the problem is transformed. In this new three-dimensional space (<span class="math-inline">\(x_1\)</span>, <span class="math-inline">\(x_2\)</span>, <span class="math-inline">\(x_1x_2\)</span>), the classes become linearly separable. A simple plane can now perfectly divide the data.</p>
+
+<p>This is the essence of the basis function approach. We define a set of functions, <span class="math-inline">\(\{\phi_m(x)\}\)</span>, that take the original input vector <span class="math-inline">\(x\)</span> and map it to a new set of features. Our model then becomes a linear combination of these new features:</p>
+
+<p><div class="math-display">\[f(x) = \sum_{m} w_m \phi_m(x)\]</div></p>
+
+<p>This model is still linear in the parameters <span class="math-inline">\(w_m\)</span>, which means we can use the same efficient and well-understood algorithms for training linear models, such as the penalized least-squares solution for regression or the Perceptron algorithm for classification. The non-linearity of the problem is entirely captured by the fixed, pre-defined basis functions.</p>
+
+<h2>Common Types of Basis Functions</h2>
+
+<p>The choice of basis functions is a form of feature engineering and injects prior knowledge into the model about the kind of non-linearity we expect to see. Two common choices are:</p>
+
+<ol>
+<li> <strong>Polynomial Basis Functions:</strong> This set includes powers and interaction terms of the original input variables. For example, for a two-dimensional input <span class="math-inline">\((x_1, x_2)\)</span>, a second-degree polynomial basis would include <span class="math-inline">\(\{1, x_1, x_2, x_1^2, x_2^2, x_1x_2\}\)</span>. These are well-suited for modeling smooth, global trends in the data.</li>
+</ul>
+
+<ol>
+<li> <strong>Radial Basis Functions (RBFs):</strong> These are functions that depend only on the distance from a central point. A typical choice is the Gaussian RBF:</li>
+</ul>
+<p>    <div class="math-display">\[\phi_j(x) = \exp\left(- \frac{\|x - c_j\|^2}{2s^2}\right)\]</div></p>
+<p>    Each RBF is centered at a point <span class="math-inline">\(c_j\)</span> and has a width <span class="math-inline">\(s\)</span>. It acts as a localized "bump," having a significant value only for inputs <span class="math-inline">\(x\)</span> that are close to its center. A linear combination of these localized bumps can be used to approximate any continuous function, much like building a complex landscape out of small hills.</p>
+
+<h2>The Challenge: The Curse of Dimensionality Revisited</h2>
+
+<p>While powerful, the fixed basis function approach has a drawback. The number of basis functions needed to cover the input space can grow exponentially with input dimensions. If we need 10 RBFs to model a function in one dimension, a similar resolution in a 10-dimensional space would require <span class="math-inline">\(10^{10}\)</span> RBFs—a computationally intractable number. This is a manifestation of the <strong>curse of dimensionality</strong>.</p>
+
+<p>This challenge highlights the critical trade-off in selecting basis functions:</p>
+<ul>
+<li>  <strong>Too few or unsuitable functions:</strong> The model may not be flexible enough to capture the true underlying relationship (underfitting).</li>
+<li>  <strong>Too many functions:</strong> The model may have too many parameters to be estimated reliably from the available data, leading to a high risk of overfitting. It also becomes computationally expensive.</li>
+</ul>
+
+<h2>Strategies for Selecting Basis Functions</h2>
+
+<p>Given the risk of an exponential explosion in the number of basis functions, practitioners often resort to strategies for selecting a smaller, more relevant subset.</p>
+
+<ul>
+<li>  <strong>Forward Selection:</strong> This is a greedy approach where one starts with a simple model (e.g., purely linear) and iteratively adds the single basis function from a candidate pool that provides the greatest improvement in performance.</li>
+<li>  <strong>Backward Selection (Pruning):</strong> This approach starts with a large, potentially overly complex set of basis functions and iteratively removes the one whose removal hurts performance the least.</li>
+</ul>
+
+<p>These stepwise methods are not guaranteed to find the globally optimal subset of basis functions (which is an NP-hard problem), but they are often effective heuristics in practice.</p>
+
+<h2>Conclusion: A Bridge to More Complex Models</h2>
+
+<p>The use of fixed basis functions is a fundamental concept in machine learning that provides a powerful bridge between linear models and non-linear problems. It frames the modeling process as a choice of representation. By transforming the input data into a suitable feature space, we can leverage the efficiency and mathematical elegance of linear methods to solve complex tasks.</p>
+
+<p>This approach is the conceptual foundation for more advanced techniques. Kernel methods can be viewed as working with an implicit, potentially infinite set of basis functions. Neural networks extend this concept by <em>learning</em> the optimal basis functions in their hidden layers. Understanding fixed basis functions is essential for grasping the broader landscape of non-linear modeling.</p>
+
+        </article>
     </main>
     <footer>
         <p>&copy; 2026 Varol Cagdas Tok</p>
     </footer>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const container = document.querySelector('[data-markdown-path]');
-            const path = container.getAttribute('data-markdown-path');
-            fetch(path)
-                .then(response => response.text())
-                .then(text => {
-                    container.innerHTML = renderMarkdownWithMath(text);
-                    renderMath();
+        document.addEventListener("DOMContentLoaded", function() {
+            if (window.renderMathInElement) {
+                renderMathInElement(document.getElementById('article-content'), {
+                    delimiters: [
+                        {left: '\\[', right: '\\]', display: true},
+                        {left: '\\(', right: '\\)', display: false}
+                    ],
+                    throwOnError: false
                 });
+            }
         });
     </script>
 </body>
-
 </html>

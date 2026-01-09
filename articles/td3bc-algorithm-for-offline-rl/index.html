@@ -1,18 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TD3+BC Algorithm for Offline RL - Varol Cagdas Tok</title>
+    <meta name="description" content="Exploring TD3+BC, a powerful yet simple approach to offline RL. We first detail the standard algorithm and then introduce our group&#x27;s customized variant, which incorporates four key enhancements: dynamic hyperparameter selection, BC-weight annealing, state normalization, and episode filtering. We present experimental results from our paper demonstrating that these enhancements yield substantial performance gains (up to 6300%) over the default implementation, particularly on noisy, medium-quality datasets.">
+    <meta name="author" content="Tok Varol Cagdas">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ctokx.github.io/personalblog/articles/td3bc-algorithm-for-offline-rl/">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ctokx.github.io/personalblog/articles/td3bc-algorithm-for-offline-rl/">
+    <meta property="og:title" content="TD3+BC Algorithm for Offline RL">
+    <meta property="og:description" content="Exploring TD3+BC, a powerful yet simple approach to offline RL. We first detail the standard algorithm and then introduce our group&#x27;s customized variant, which incorporates four key enhancements: dynamic hyperparameter selection, BC-weight annealing, state normalization, and episode filtering. We present experimental results from our paper demonstrating that these enhancements yield substantial performance gains (up to 6300%) over the default implementation, particularly on noisy, medium-quality datasets.">
+    <meta property="og:site_name" content="Varol Cagdas Tok">
+    <meta property="article:author" content="Varol Cagdas Tok">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="TD3+BC Algorithm for Offline RL">
+    <meta property="twitter:description" content="Exploring TD3+BC, a powerful yet simple approach to offline RL. We first detail the standard algorithm and then introduce our group&#x27;s customized variant, which incorporates four key enhancements: dynamic hyperparameter selection, BC-weight annealing, state normalization, and episode filtering. We present experimental results from our paper demonstrating that these enhancements yield substantial performance gains (up to 6300%) over the default implementation, particularly on noisy, medium-quality datasets.">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "TD3+BC Algorithm for Offline RL",
+    "description": "Exploring TD3+BC, a powerful yet simple approach to offline RL. We first detail the standard algorithm and then introduce our group's customized variant, which incorporates four key enhancements: dynamic hyperparameter selection, BC-weight annealing, state normalization, and episode filtering. We present experimental results from our paper demonstrating that these enhancements yield substantial performance gains (up to 6300%) over the default implementation, particularly on noisy, medium-quality datasets.",
+    "author": {
+        "@type": "Person",
+        "name": "Tok Varol Cagdas",
+        "url": "https://ctokx.github.io/personalblog/about.html"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "Varol Cagdas Tok"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ctokx.github.io/personalblog/articles/td3bc-algorithm-for-offline-rl/"
+    },
+    "datePublished": "2026-01-10",
+    "dateModified": "2026-01-10"
+}
+    </script>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-    <script src="../../js/math-renderer.js"></script>
 </head>
-
 <body>
     <header>
         <h1>Varol Cagdas Tok</h1>
@@ -23,24 +55,89 @@
         <a href="../../about.html">About</a>
         <a href="../../feed.xml" class="rss-link">RSS</a>
     </nav>
-    <main id="article-content">
-        <div data-markdown-path="../../posts/reinforcement-learning/post41.md"></div>
+    <main>
+        <article id="article-content">
+
+
+
+<h1>TD3+BC Algorithm for Offline RL</h1>
+
+<h3>The Foundation: Understanding Standard TD3+BC</h3>
+
+<p>TD3+BC, introduced by Fujimoto and Gu, is an elegant solution to the distributional shift problem. It starts with the <strong>Twin Delayed Deep Deterministic Policy Gradient (TD3)</strong> algorithm—a state-of-the-art online actor-critic method—and adds a simple behavioral cloning (BC) term.</p>
+
+<p>The actor (policy) is trained not only to maximize the Q-value (the "RL objective") but also to stay close to the actions in the dataset (the "imitation objective"). The resulting actor loss is a weighted combination:</p>
+<p><div class="math-display">\[\pi = \operatorname*{arg\,max}_{\pi} \mathbb{E}_{(s,a)\sim\mathcal{D}}[Q(s, \pi(s)) - \alpha||\pi(s) - a||^2]\]</div></p>
+
+<p>The hyperparameter <span class="math-inline">\(\alpha\)</span> is critical:</p>
+<ul>
+<li>If <span class="math-inline">\(\alpha\)</span> is too <strong>high</strong>, the algorithm reverts to pure BC and cannot improve upon the dataset.</li>
+<li>If <span class="math-inline">\(\alpha\)</span> is too <strong>low</strong>, the policy is free to exploit OOD actions, leading to the very distributional shift and value overestimation it was meant to solve.</li>
+</ul>
+
+<h3>Our Enhancements: A Customized TD3+BC Variant</h3>
+
+<p>While effective, the standard TD3+BC's performance is highly sensitive to the dataset quality and a fixed <span class="math-inline">\(\alpha\)</span>. In our research, we proposed and implemented a <strong>customized TD3+BC variant</strong> designed to be more robust and adaptive, especially to the noisy, mixed-quality trajectories found in "medium" datasets.</p>
+
+<p>Our implementation integrates four key enhancements, which are detailed in our codebase (<code>custom_TD3PlusBC.py</code>) and paper:</p>
+
+<ol>
+<li> <strong>Dynamic Hyperparameter Selection:</strong> We recognized that "expert" and "medium" datasets have fundamentally different properties. Our <code>choose_profile()</code> function automatically selects different hyperparameter sets based on the dataset name.</li>
+</ul>
+<p>    <em> <strong>Expert Datasets:</strong> Use a </em>lower* BC weight (<code>bc_weight=1.0</code>) and smaller batch size (<code>batch_size=256</code>), as the data is high-quality and needs less regularization.</p>
+<p>    <em> <strong>Medium Datasets:</strong> Use a </em>higher* BC weight (<code>bc_weight=4.0</code>), larger batch size (<code>batch_size=1024</code>) to average out noise, higher policy noise, and engage episode filtering.</p>
+
+<ol>
+<li> <strong>BC Weight Annealing:</strong> A fixed BC weight is suboptimal. Instead, we anneal the BC weight linearly during the first 5,000 training steps, reducing it to 50% of its initial value.</li>
+</ul>
+<p>    ```python</p>
+<p>    # From custom_TD3PlusBC.py</p>
+<p>    progress = min(1.0, self.total_it / 5000.0)</p>
+<p>    bc_w = self.bc_weight <em> (1.0 - 0.5 </em> progress)</p>
+<p>    ```</p>
+<p>    This acts as a curriculum: the policy starts by relying heavily on imitation (high <code>bc_w</code>) while the Q-function is unreliable, then gradually trusts the RL objective more as the value estimates stabilize.</p>
+
+<ol>
+<li> <strong>Explicit State Normalization:</strong> Neural networks are sensitive to input scale. We normalize all states and next_states using the dataset-wide mean and standard deviation <em>before</em> loading them into the replay buffer. This simple engineering step, implemented in <code>ReplayBuffer.normalize_states()</code>, proved crucial for stable learning.</li>
+</ul>
+
+<ol>
+<li> <strong>Episode Filtering for Medium Datasets:</strong> Medium datasets are noisy by definition, containing both good and bad trajectories. Training on the failed trajectories is harmful. Our <code>filter_topk_by_return()</code> function calculates the total return for every episode and discards the bottom 50% for all medium-quality datasets. This significantly improves the signal-to-noise ratio of the training data.</li>
+</ul>
+
+<h3>Experimental Results: Custom vs. Default TD3+BC</h3>
+
+<p>These enhancements were not just theoretical. We compared our customized implementation against a default <code>d3rlpy</code> implementation (<code>default.py</code>) that uses fixed hyperparameters. The results, presented in Table II of our paper, are striking.</p>
+
+<p>On medium-quality datasets, where robustness is most critical, our custom variant achieved massive performance gains:</p>
+
+<table>
+<tr><th>Environment</th><th>Default TD3+BC</th><th>Custom TD3+BC</th><th>Improvement</th></tr>
+<tr><td><strong>Swimmer-Medium</strong></td><td><span class="math-inline">\(3.63 \pm 16.82\)</span></td><td><span class="math-inline">\(\mathbf{235.21} \pm 5.60\)</span></td><td><strong>+6381%</strong></td></tr>
+<tr><td><strong>Walker2D-Medium</strong></td><td><span class="math-inline">\(273.30 \pm 6.36\)</span></td><td><span class="math-inline">\(\mathbf{1034.11} \pm 38.00\)</span></td><td><strong>+278%</strong></td></tr>
+<tr><td><strong>Pusher-Medium</strong></td><td><span class="math-inline">\(-46.51 \pm 2.05\)</span></td><td><span class="math-inline">\(\mathbf{-34.80} \pm 1.35\)</span></td><td><strong>+25%</strong></td></tr>
+<tr><td><strong>Reacher-Medium</strong></td><td><span class="math-inline">\(-11.24 \pm 0.93\)</span></td><td><span class="math-inline">\(\mathbf{-4.21} \pm 0.32\)</span></td><td><strong>+62%</strong></td></tr>
+</table>
+<p><em>(Results from Table II, <code>report_offline_RL.pdf</code>)</em></p>
+
+<p>These results objectively demonstrate that for TD3+BC, a "minimalist" algorithm, thoughtful engineering and data-adaptive design are not minor tweaks—they are the primary drivers of success, transforming a failing algorithm into a state-of-the-art performer.</p>
+        </article>
     </main>
     <footer>
         <p>&copy; 2026 Varol Cagdas Tok</p>
     </footer>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const container = document.querySelector('[data-markdown-path]');
-            const path = container.getAttribute('data-markdown-path');
-            fetch(path)
-                .then(response => response.text())
-                .then(text => {
-                    container.innerHTML = renderMarkdownWithMath(text);
-                    renderMath();
+        document.addEventListener("DOMContentLoaded", function() {
+            if (window.renderMathInElement) {
+                renderMathInElement(document.getElementById('article-content'), {
+                    delimiters: [
+                        {left: '\\[', right: '\\]', display: true},
+                        {left: '\\(', right: '\\)', display: false}
+                    ],
+                    throwOnError: false
                 });
+            }
         });
     </script>
 </body>
-
 </html>

@@ -1,18 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Linear Regression - Varol Cagdas Tok</title>
+    <meta name="description" content="Linear regression is a fundamental algorithm in machine learning and statistics. It serves as a building block for complex models and provides an interpretable starting point for predictive modeling. ...">
+    <meta name="author" content="Tok Varol Cagdas">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ctokx.github.io/personalblog/articles/linear-regression/">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ctokx.github.io/personalblog/articles/linear-regression/">
+    <meta property="og:title" content="Linear Regression">
+    <meta property="og:description" content="Linear regression is a fundamental algorithm in machine learning and statistics. It serves as a building block for complex models and provides an interpretable starting point for predictive modeling. ...">
+    <meta property="og:site_name" content="Varol Cagdas Tok">
+    <meta property="article:author" content="Varol Cagdas Tok">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="Linear Regression">
+    <meta property="twitter:description" content="Linear regression is a fundamental algorithm in machine learning and statistics. It serves as a building block for complex models and provides an interpretable starting point for predictive modeling. ...">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Linear Regression",
+    "description": "Linear regression is a fundamental algorithm in machine learning and statistics. It serves as a building block for complex models and provides an interpretable starting point for predictive modeling. ...",
+    "author": {
+        "@type": "Person",
+        "name": "Tok Varol Cagdas",
+        "url": "https://ctokx.github.io/personalblog/about.html"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "Varol Cagdas Tok"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ctokx.github.io/personalblog/articles/linear-regression/"
+    },
+    "datePublished": "2026-01-10",
+    "dateModified": "2026-01-10"
+}
+    </script>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-    <script src="../../js/math-renderer.js"></script>
 </head>
-
 <body>
     <header>
         <h1>Varol Cagdas Tok</h1>
@@ -23,24 +55,90 @@
         <a href="../../about.html">About</a>
         <a href="../../feed.xml" class="rss-link">RSS</a>
     </nav>
-    <main id="article-content">
-        <div data-markdown-path="../../posts/machine-learning/post19.md"></div>
+    <main>
+        <article id="article-content">
+
+
+
+<h1>Linear Regression</h1>
+
+<p>Linear regression is a fundamental algorithm in machine learning and statistics. It serves as a building block for complex models and provides an interpretable starting point for predictive modeling. The core idea is to model the relationship between a dependent (target) variable and one or more independent (input) variables by fitting a linear equation to the observed data.</p>
+
+<h2>The Linear Model</h2>
+
+<p>The linear model, also known as the ADALINE (Adaptive Linear Element) in early machine learning literature, assumes that the output <span class="math-inline">\(\hat{y}\)</span> is a linearly weighted sum of the inputs <span class="math-inline">\(x\)</span>. For a problem with <span class="math-inline">\(M\)</span> input features, the model is defined as:</p>
+
+<p><div class="math-display">\[\hat{y} = f(x) = w_0 + w_1x_1 + w_2x_2 + \dots + w_Mx_M = x^Tw\]</div></p>
+
+<p>Here, <span class="math-inline">\(w_1\)</span> through <span class="math-inline">\(w_M\)</span> are the weights assigned to each input feature, representing the feature's contribution to the output. The term <span class="math-inline">\(w_0\)</span> is the bias (or intercept), which represents the baseline value of the output when all input features are zero. By convention, we often augment the input vector <span class="math-inline">\(x\)</span> with a constant value of 1, allowing the bias to be treated as just another weight.</p>
+
+<p>A key property of the linear model is that the effect of changing a single input is independent of the context provided by the other inputs. If we increase the value of <span class="math-inline">\(x_j\)</span> by one unit, the output <span class="math-inline">\(\hat{y}\)</span> will always change by <span class="math-inline">\(w_j\)</span>, regardless of the values of the other features. This makes the model highly interpretable but also limits its ability to capture complex interactions.</p>
+
+<h2>Finding the Best Fit: The Method of Least Squares</h2>
+
+<p>Given a dataset of <code>N</code> input-output pairs, how do we find the optimal set of weights <code>w</code> that best describes the data? The most common approach is the <strong>method of least squares</strong>. This involves defining a cost function that measures the total error of the model's predictions. The standard choice is the <strong>sum of squared errors (SSE)</strong>, which is the sum of the squared differences between the true target values <code>y_i</code> and the model's predictions <code>ŷ_i</code>:</p>
+
+<p><div class="math-display">\[\text{cost}(w) = \sum_{i} (y_i - \hat{y}_i)^2 = \sum_{i} (y_i - x_i^T w)^2\]</div></p>
+
+<p>The goal is to find the set of weights, <span class="math-inline">\(w_{ls}\)</span>, that minimizes this cost function.</p>
+
+<h3>Solving for the Optimal Weights</h3>
+
+<p>There are two primary ways to find the optimal weights:</p>
+
+<ol>
+<li> <strong>Iterative Optimization (Gradient Descent):</strong> This approach starts with a random set of weights and iteratively adjusts them in the direction that most steeply decreases the cost function. The <strong>ADALINE learning rule</strong>, a form of stochastic gradient descent (SGD), updates the weights after each data point based on the prediction error for that point. This method is versatile and can be applied to a wide range of models, but it requires tuning a learning rate and can be slow to converge.</li>
+</ul>
+
+<ol>
+<li> <strong>Analytical Solution (The Normal Equation):</strong> For linear regression with a least-squares cost function, a unique, closed-form solution exists. By taking the derivative of the cost function with respect to the weights <span class="math-inline">\(w\)</span> and setting it to zero, we can directly solve for the optimal weights:</li>
+</ul>
+
+<p>    <div class="math-display">\[w_{ls} = (X^TX)^{-1}X^Ty\]</div></p>
+
+<p>    Here, <span class="math-inline">\(X\)</span> is the <span class="math-inline">\(N \times (M+1)\)</span> design matrix (where each row is a data point) and <span class="math-inline">\(y\)</span> is the vector of target values. This equation, known as the normal equation, provides an efficient, one-step solution, though it requires computing a matrix inverse, which can be computationally expensive if the number of features <span class="math-inline">\(M\)</span> is very large.</p>
+
+<h2>The Problem of Overfitting and the Need for Regularization</h2>
+
+<p>When the number of data points <code>N</code> is much larger than the number of features <code>M</code>, the least-squares solution is typically stable. However, if <code>N</code> is not significantly larger than <code>M</code>, or if some features are highly correlated, the model can become unstable and prone to <strong>overfitting</strong>. It may learn a complex set of weights that fits the training data perfectly but fails to generalize to new, unseen data.</p>
+
+<p><strong>Regularization</strong> is a technique used to combat overfitting by adding a penalty term to the cost function that discourages overly complex models. The most common form is <strong>L2 regularization</strong>, also known as <strong>Ridge Regression</strong> or <strong>weight decay</strong>:</p>
+
+<p><div class="math-display">\[\text{cost}_{\text{pen}}(w) = \sum_{i} (y_i - x_i^T w)^2 + \lambda \sum_{j} w_j^2\]</div></p>
+
+<p>The penalty term <span class="math-inline">\(\lambda \sum_{j} w_j^2\)</span> discourages large weight values. The hyperparameter <span class="math-inline">\(\lambda\)</span> controls the strength of the regularization: a larger <span class="math-inline">\(\lambda\)</span> forces the weights to be smaller, resulting in a simpler, smoother model that is less likely to overfit. The analytical solution for Ridge Regression is a slight modification of the normal equation:</p>
+
+<p><div class="math-display">\[w_{\text{pen}} = (X^TX + \lambda I)^{-1}X^Ty\]</div></p>
+
+<p>The addition of the <span class="math-inline">\(\lambda I\)</span> term makes the matrix inversion more stable and ensures a unique solution always exists, even when features are correlated.</p>
+
+<h2>Correlation vs. Causation: The Power of Multivariate Analysis</h2>
+
+<p>Linear regression is a powerful tool for moving beyond simple correlation to a more nuanced understanding of relationships in data. A simple one-dimensional analysis might show a strong correlation between a feature <code>x₂</code> and the output <code>y</code>. However, a multivariate regression that includes other relevant variables (confounders) might reveal that <code>x₂</code> has no direct causal effect on <code>y</code> at all, and the initial correlation was merely due to both <code>x₂</code> and <code>y</code> being correlated with a third variable, <code>x₁</code>.</p>
+
+<p>By including all relevant variables in the model, linear regression attempts to isolate the independent contribution of each feature, providing a much clearer picture of the potential causal relationships. This is why it is a critical tool in fields like medicine and epidemiology for evaluating treatment effects while controlling for confounding factors.</p>
+
+<h2>Conclusion</h2>
+
+<p>Linear regression is a foundational concept that introduces core ideas in machine learning: defining a model, choosing a cost function, finding optimal parameters, and controlling model complexity with regularization. Its interpretability and efficiency make it a standard tool in predictive modeling tasks and a basis for understanding more advanced methods.</p>
+
+        </article>
     </main>
     <footer>
         <p>&copy; 2026 Varol Cagdas Tok</p>
     </footer>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const container = document.querySelector('[data-markdown-path]');
-            const path = container.getAttribute('data-markdown-path');
-            fetch(path)
-                .then(response => response.text())
-                .then(text => {
-                    container.innerHTML = renderMarkdownWithMath(text);
-                    renderMath();
+        document.addEventListener("DOMContentLoaded", function() {
+            if (window.renderMathInElement) {
+                renderMathInElement(document.getElementById('article-content'), {
+                    delimiters: [
+                        {left: '\\[', right: '\\]', display: true},
+                        {left: '\\(', right: '\\)', display: false}
+                    ],
+                    throwOnError: false
                 });
+            }
         });
     </script>
 </body>
-
 </html>

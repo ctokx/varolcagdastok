@@ -1,18 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Perceptron Algorithm - Varol Cagdas Tok</title>
+    <meta name="description" content="The Perceptron, invented by Frank Rosenblatt in 1957, is a foundational learning machine. Inspired by the biological neuron, it was one of the first algorithms to learn classification from data. While...">
+    <meta name="author" content="Tok Varol Cagdas">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ctokx.github.io/personalblog/articles/the-perceptron-algorithm/">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ctokx.github.io/personalblog/articles/the-perceptron-algorithm/">
+    <meta property="og:title" content="The Perceptron Algorithm">
+    <meta property="og:description" content="The Perceptron, invented by Frank Rosenblatt in 1957, is a foundational learning machine. Inspired by the biological neuron, it was one of the first algorithms to learn classification from data. While...">
+    <meta property="og:site_name" content="Varol Cagdas Tok">
+    <meta property="article:author" content="Varol Cagdas Tok">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="The Perceptron Algorithm">
+    <meta property="twitter:description" content="The Perceptron, invented by Frank Rosenblatt in 1957, is a foundational learning machine. Inspired by the biological neuron, it was one of the first algorithms to learn classification from data. While...">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Perceptron Algorithm",
+    "description": "The Perceptron, invented by Frank Rosenblatt in 1957, is a foundational learning machine. Inspired by the biological neuron, it was one of the first algorithms to learn classification from data. While...",
+    "author": {
+        "@type": "Person",
+        "name": "Tok Varol Cagdas",
+        "url": "https://ctokx.github.io/personalblog/about.html"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "Varol Cagdas Tok"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ctokx.github.io/personalblog/articles/the-perceptron-algorithm/"
+    },
+    "datePublished": "2026-01-10",
+    "dateModified": "2026-01-10"
+}
+    </script>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-    <script src="../../js/math-renderer.js"></script>
 </head>
-
 <body>
     <header>
         <h1>Varol Cagdas Tok</h1>
@@ -23,24 +55,93 @@
         <a href="../../about.html">About</a>
         <a href="../../feed.xml" class="rss-link">RSS</a>
     </nav>
-    <main id="article-content">
-        <div data-markdown-path="../../posts/machine-learning/post21.md"></div>
+    <main>
+        <article id="article-content">
+
+
+
+<h1>The Perceptron Algorithm</h1>
+
+<p>The Perceptron, invented by Frank Rosenblatt in 1957, is a foundational learning machine. Inspired by the biological neuron, it was one of the first algorithms to learn classification from data. While simple, the Perceptron introduced fundamental concepts of supervised learning: a model, a cost function, and a learning rule.</p>
+
+<h2>The Model: A Formalized Neuron</h2>
+
+<p>The Perceptron is a linear classifier for binary classification tasks. It takes a set of inputs, <span class="math-inline">\(x\)</span>, and produces a binary output, <span class="math-inline">\(\hat{y}\)</span>, which is typically either +1 or -1. The model operation mimics a simplified neuron:</p>
+
+<ol>
+<li> <strong>Compute the Net Input (Activation):</strong> The model calculates a weighted sum of its inputs, a linear function <span class="math-inline">\(h(x)\)</span>:</li>
+</ul>
+<p>    <div class="math-display">\[h(x) = w_0 + w_1x_1 + w_2x_2 + \dots + w_M x_M = w^T x\]</div></p>
+<p>    The weights <span class="math-inline">\(w\)</span> are learned parameters. The term <span class="math-inline">\(w_0\)</span> is a bias, shifting the decision boundary. (Note: <span class="math-inline">\(x\)</span> is often augmented to include a 1 for the bias term).</p>
+
+<ol>
+<li> <strong>Apply an Activation Function:</strong> The net input is passed through a step function, the <span class="math-inline">\(\text{sign}\)</span> function:</li>
+</ul>
+<p>    <div class="math-display">\[\hat{y} = \text{sign}(h(x))\]</div></p>
+<p>    If <span class="math-inline">\(h(x)\)</span> is positive, the output is +1; if negative, -1.</p>
+
+<p>Geometrically, the equation <span class="math-inline">\(h(x) = 0\)</span> defines a hyperplane in the input space. This hyperplane is the <strong>decision boundary</strong> of the Perceptron. All points on one side are classified as +1, and all on the other as -1. The goal is to find weights <span class="math-inline">\(w\)</span> that position this hyperplane to correctly separate the data points.</p>
+
+<h2>The Learning Process: The Perceptron Learning Rule</h2>
+
+<p>The Perceptron learns its weights from a set of labeled training data. The process is driven by a simple and intuitive idea: if the model misclassifies a data point, adjust the weights to make the correct classification more likely in the future. This is formalized by the <strong>Perceptron learning rule</strong>, which is derived by minimizing a specific cost function.</p>
+
+<p>The <strong>Perceptron cost function</strong> is defined as:</p>
+<p><div class="math-display">\[J(w) = - \sum_{i \in \mathcal{M}} y_i h(x_i)\]</div></p>
+<p>where <span class="math-inline">\(\mathcal{M}\)</span> is the set of misclassified points.</p>
+
+<p>This cost is positive only for misclassified points (where the sign of the true label <span class="math-inline">\(y_i\)</span> and the net input <span class="math-inline">\(h(x_i)\)</span> differ) and zero for correctly classified points. To minimize this cost, we use <strong>stochastic gradient descent (SGD)</strong>:</p>
+
+<p>For a randomly chosen misclassified data point <span class="math-inline">\((x_t, y_t)\)</span>:</p>
+<p><div class="math-display">\[w \leftarrow w + \eta y_t x_t\]</div></p>
+
+<p>Here, <span class="math-inline">\(\eta\)</span> is the <strong>learning rate</strong>, a small positive constant. Intuition:</p>
+<ul>
+<li>  If a positive-class point (<span class="math-inline">\(y_t = +1\)</span>) is misclassified, <span class="math-inline">\(h(x_t)\)</span> was negative. The update adds a fraction of <span class="math-inline">\(x_t\)</span> to <span class="math-inline">\(w\)</span>, pushing <span class="math-inline">\(w\)</span> to be more aligned with <span class="math-inline">\(x_t\)</span>, making <span class="math-inline">\(h(x_t) = w^T x_t\)</span> more positive.</li>
+<li>  If a negative-class point (<span class="math-inline">\(y_t = -1\)</span>) is misclassified, <span class="math-inline">\(h(x_t)\)</span> was positive. The update subtracts a fraction of <span class="math-inline">\(x_t\)</span> from <span class="math-inline">\(w\)</span>, making <span class="math-inline">\(w\)</span> less aligned with <span class="math-inline">\(x_t\)</span>, pushing <span class="math-inline">\(h(x_t)\)</span> to be more negative.</li>
+</ul>
+
+<p>This process is repeated, iterating through the misclassified points, until all points are correctly classified.</p>
+
+<h2>The Power and Limitations of the Perceptron</h2>
+
+<p>The Perceptron was a groundbreaking invention, and it comes with a powerful theoretical guarantee. The <strong>Perceptron convergence theorem</strong> proves that if the training data is <strong>linearly separable</strong> (meaning a hyperplane exists that can perfectly separate the two classes), the Perceptron learning algorithm is guaranteed to find such a separating hyperplane in a finite number of steps.</p>
+
+<p>However, the Perceptron also has significant limitations that were famously highlighted by Marvin Minsky and Seymour Papert in their 1969 book, <em>Perceptrons</em>:</p>
+
+<ol>
+<li> <strong>Linear Separability:</strong> The most critical limitation is that the Perceptron can only solve problems that are linearly separable. It is fundamentally incapable of learning non-linear decision boundaries, such as the one required for the classic XOR problem.</li>
+</ul>
+
+<ol>
+<li> <strong>Non-Convergence for Non-Separable Data:</strong> If the data is not linearly separable, the learning algorithm will never converge. The weights will continue to be updated indefinitely as the algorithm cycles through the misclassified points.</li>
+</ul>
+
+<ol>
+<li> <strong>Non-Unique Solution:</strong> Even for linearly separable data, the algorithm does not guarantee finding the "best" separating hyperplane. The solution it finds depends on the initial weights and the order in which the data points are presented.</li>
+</ul>
+
+<h2>The Legacy of the Perceptron</h2>
+
+<p>Despite its limitations, the Perceptron was a significant step in artificial intelligence history. It introduced the paradigm of supervised learning: define a model, specify a cost function, and iterate to optimize parameters. The challenge of non-linearity motivated the development of the <strong>Multilayer Perceptron (MLP)</strong>. By stacking Perceptron-like units with non-linear activation functions, these networks can solve complex, non-linear problems.</p>
+
+        </article>
     </main>
     <footer>
         <p>&copy; 2026 Varol Cagdas Tok</p>
     </footer>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const container = document.querySelector('[data-markdown-path]');
-            const path = container.getAttribute('data-markdown-path');
-            fetch(path)
-                .then(response => response.text())
-                .then(text => {
-                    container.innerHTML = renderMarkdownWithMath(text);
-                    renderMath();
+        document.addEventListener("DOMContentLoaded", function() {
+            if (window.renderMathInElement) {
+                renderMathInElement(document.getElementById('article-content'), {
+                    delimiters: [
+                        {left: '\\[', right: '\\]', display: true},
+                        {left: '\\(', right: '\\)', display: false}
+                    ],
+                    throwOnError: false
                 });
+            }
         });
     </script>
 </body>
-
 </html>

@@ -1,18 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vector Projections and Orthogonality - Varol Cagdas Tok</title>
+    <meta name="description" content="Two vectors $u, v \in \mathbb{R}^n$ are **orthogonal** (perpendicular) if their dot product is zero:">
+    <meta name="author" content="Tok Varol Cagdas">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ctokx.github.io/personalblog/articles/vector-projections-and-orthogonality/">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ctokx.github.io/personalblog/articles/vector-projections-and-orthogonality/">
+    <meta property="og:title" content="Vector Projections and Orthogonality">
+    <meta property="og:description" content="Two vectors $u, v \in \mathbb{R}^n$ are **orthogonal** (perpendicular) if their dot product is zero:">
+    <meta property="og:site_name" content="Varol Cagdas Tok">
+    <meta property="article:author" content="Varol Cagdas Tok">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="Vector Projections and Orthogonality">
+    <meta property="twitter:description" content="Two vectors $u, v \in \mathbb{R}^n$ are **orthogonal** (perpendicular) if their dot product is zero:">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Vector Projections and Orthogonality",
+    "description": "Two vectors $u, v \\in \\mathbb{R}^n$ are **orthogonal** (perpendicular) if their dot product is zero:",
+    "author": {
+        "@type": "Person",
+        "name": "Tok Varol Cagdas",
+        "url": "https://ctokx.github.io/personalblog/about.html"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "Varol Cagdas Tok"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ctokx.github.io/personalblog/articles/vector-projections-and-orthogonality/"
+    },
+    "datePublished": "2026-01-10",
+    "dateModified": "2026-01-10"
+}
+    </script>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-    <script src="../../js/math-renderer.js"></script>
 </head>
-
 <body>
     <header>
         <h1>Varol Cagdas Tok</h1>
@@ -23,24 +55,252 @@
         <a href="../../about.html">About</a>
         <a href="../../feed.xml" class="rss-link">RSS</a>
     </nav>
-    <main id="article-content">
-        <div data-markdown-path="../../posts/linear-algebra/post36.md"></div>
+    <main>
+        <article id="article-content">
+
+
+
+<h1>Vector Projections and Orthogonality</h1>
+
+<h2>Orthogonality</h2>
+
+<p>Two vectors <span class="math-inline">\(u, v \in \mathbb{R}^n\)</span> are <strong>orthogonal</strong> (perpendicular) if their dot product is zero:</p>
+
+<p><div class="math-display">\[u \cdot v = 0\]</div></p>
+
+<p>Geometric interpretation: the angle between <span class="math-inline">\(u\)</span> and <span class="math-inline">\(v\)</span> is 90°.</p>
+
+<h3>Example</h3>
+
+<p><span class="math-inline">\(u = [1, 0, 0]^T and\)</span> v = [0, 1, 0]^T</p>
+
+<p><span class="math-inline">\(u \cdot v\)</span> = (1)(0) + (0)(1) + (0)(0) = 0 ✓</p>
+
+<p><span class="math-inline">\(u\)</span> and <span class="math-inline">\(v\)</span> are orthogonal.</p>
+
+<h2>Orthonormal Vectors</h2>
+
+<p>A set of vectors {<span class="math-inline">\(q_{1}, q_{2}, \ldots, q_{k}\)</span>} is <strong>orthonormal</strong> if:</p>
+<ol>
+<li>Each vector has unit length: <span class="math-inline">\(\|q_i\|_2 = 1\)</span></li>
+<li>Vectors are pairwise orthogonal: <span class="math-inline">\(q_i \cdot q_j = 0\)</span> for <span class="math-inline">\(i \neq j\)</span></li>
+</ul>
+
+<p>Equivalently, <span class="math-inline">\(q_i \cdot q_j = \delta_{ij}\)</span> where <span class="math-inline">\(\delta_{ij}\)</span> is the Kronecker delta:</p>
+
+<p><div class="math-display">\[\delta_{ij} = \begin{cases} 1 & \text{if } i = j \\ 0 & \text{if } i \neq j \end{cases}\]</div></p>
+
+<h3>Example</h3>
+
+<pre><code class="language-text">q₁ = [1, 0, 0]ᵀ
+q₂ = [0, 1, 0]ᵀ
+q₃ = [0, 0, 1]ᵀ</code></pre>
+
+<p>These are orthonormal (standard basis vectors in <span class="math-inline">\(\mathbb{R}^{3}\)</span>).</p>
+
+<h2>Orthogonal Matrices</h2>
+
+<p>A square matrix <span class="math-inline">\(Q \in \mathbb{R}^{n \times n}\)</span> is <strong>orthogonal</strong> if its columns are orthonormal:</p>
+
+<p><div class="math-display">\[Q^TQ = I\]</div></p>
+
+<p>Equivalently, <span class="math-inline">\(Q^T = Q^{-1}\)</span>.</p>
+
+<h3>Properties</h3>
+
+<ol>
+<li><span class="math-inline">\(QQ^T = I\)</span> (rows are also orthonormal)</li>
+<li>Preserves lengths: <span class="math-inline">\(\|Qv\|_2 = \|v\|_2\)</span></li>
+<li>Preserves dot products: <span class="math-inline">\((Qu) \cdot (Qv) = u \cdot v\)</span></li>
+<li><span class="math-inline">\(\det(Q) = \pm 1\)</span></li>
+</ul>
+
+<h3>Example</h3>
+
+<p>Rotation matrix by angle <span class="math-inline">\(\theta\)</span>:</p>
+
+<pre><code class="language-text">Q = [cos(θ)  -sin(θ)]
+    [sin(θ)   cos(θ)]
+
+QᵀQ = [cos(θ)   sin(θ)][ cos(θ)  -sin(θ)]
+      [-sin(θ)  cos(θ)][ sin(θ)   cos(θ)]
+
+    = [cos²(θ)+sin²(θ)   -cos(θ)sin(θ)+sin(θ)cos(θ)]   [1  0]
+      [sin(θ)cos(θ)-cos(θ)sin(θ)   sin²(θ)+cos²(θ)  ] = [0  1] ✓</code></pre>
+
+<h2>Scalar Projection</h2>
+
+<p>The <strong>scalar projection</strong> of <span class="math-inline">\(v\)</span> onto <span class="math-inline">\(u\)</span> is the length of the component of <span class="math-inline">\(v\)</span> in the direction of <span class="math-inline">\(u\)</span>:</p>
+
+<p><div class="math-display">\[\text{comp}_u(v) = \frac{u \cdot v}{\|u\|_2}\]</div></p>
+
+<p>This is a scalar (can be negative if <span class="math-inline">\(v\)</span> points opposite to <span class="math-inline">\(u\)</span>).</p>
+
+<h3>Example</h3>
+
+<p><span class="math-inline">\(u = [3, 0]^T,\)</span> v = [2, 2]^T</p>
+
+<p>comp_u(<span class="math-inline">\(v\)</span>) = ((3)(2) + (0)(2)) / <span class="math-inline">\(\sqrt\)</span>(3<span class="math-inline">\(^2\)</span> + 0<span class="math-inline">\(^2\)</span>) = 6 / 3 = 2</p>
+
+<h2>Vector Projection</h2>
+
+<p><div class="math-display">\[\text{proj}_u(v) = \left(\frac{u \cdot v}{u \cdot u}\right)u = \left(\frac{u \cdot v}{\|u\|_2^2}\right)u\]</div></p>
+
+<p>This is a vector in the direction of <span class="math-inline">\(u\)</span>.</p>
+
+<p>If <span class="math-inline">\(u\)</span> is a unit vector (<span class="math-inline">\(\|u\|_2 = 1\)</span>):</p>
+
+<p><div class="math-display">\[\text{proj}_u(v) = (u \cdot v)u\]</div></p>
+
+<h3>Example</h3>
+
+<p><span class="math-inline">\(u = [1, 0]^T,\)</span> v = [3, 4]^T</p>
+
+<p>proj_u(<span class="math-inline">\(v\)</span>) = ((<span class="math-inline">\(u \cdot v\)</span>) / (<span class="math-inline">\(u \cdot u\)</span>)) <span class="math-inline">\(u\)</span> = ((3)(1) + (4)(0)) / (1<span class="math-inline">\(^2\)</span> + 0<span class="math-inline">\(^2\)</span>) <span class="math-inline">\([1, 0]^T = 3\)</span>[1, 0]^T = $[3, 0]^T</p>
+
+<p>Interpretation: The projection of <span class="math-inline">\([3, 4]^T onto the x-axis is\)</span>[3, 0]^T.</p>
+
+<h2>Projection onto a Subspace</h2>
+
+<p>Given an orthonormal basis {<span class="math-inline">\(q_{1}, q_{2}, \ldots, q_{k}\)</span>} for a subspace S, the projection of <span class="math-inline">\(v\)</span> onto S is:</p>
+
+<p><span class="math-inline">\(\text{proj}_S(v) = (q_1 \cdot v)q_{1} + (q_2 \cdot v)q_{2} + \cdots + (q_k \cdot v)q_{k}\)</span></p>
+
+<p>In matrix form, if <span class="math-inline">\(Q = [q_1\, q_{2}\, \cdots\, q_{k}] \in \mathbb{R}^{n \times k}\)</span>:</p>
+
+<p><div class="math-display">\[\text{proj}_S(v) = QQ^Tv\]</div></p>
+
+<p>The matrix <span class="math-inline">\(P = QQ^T\)</span> is the <strong>projection matrix</strong> onto S.</p>
+
+<h3>Example</h3>
+
+<p>Project <span class="math-inline">\(v = [1, 2, 3]^T onto the plane spanned by\)</span> q_{1} = [1, 0, 0]^T and $q_{2} = [0, 1, 0]^T (the xy-plane):</p>
+
+<p>$\text{proj}_S(v) = (q_1 \cdot v)q_{1} + (q_2 \cdot v)q_{2} = (1)[1, 0, 0]^T + (2)[0, 1, 0]^T = [1, 2, 0]^T</p>
+
+<p>The z-component is removed.</p>
+
+<h2>Orthogonal Complement</h2>
+
+<p>The <strong>orthogonal complement</strong> of a subspace S, denoted S⊥, is the set of all vectors orthogonal to every vector in S:</p>
+
+<p>S⊥ = {<span class="math-inline">\(w\)</span> : <span class="math-inline">\(w \cdot v\)</span> = 0 for all <span class="math-inline">\(v \in\)</span> S}</p>
+
+<p>Every vector <span class="math-inline">\(v\)</span> can be uniquely decomposed:</p>
+
+<p><div class="math-display">\[v = v_{\parallel} + v_{\perp}\]</div></p>
+
+<p>where <span class="math-inline">\(v_{\parallel} \in S\)</span> and <span class="math-inline">\(v_{\perp} \in S^{\perp}\)</span>.</p>
+
+<p><div class="math-display">\[v_{\parallel} = \text{proj}_S(v)\]</div></p>
+<p><div class="math-display">\[v_{\perp} = v - \text{proj}_S(v)\]</div></p>
+
+<h2>Projection Matrix Properties</h2>
+
+<p>A projection matrix <span class="math-inline">\(P\)</span> satisfies:</p>
+<ol>
+<li><span class="math-inline">\(P^2\)</span> = P$ (idempotent: projecting twice is the same as once)</li>
+<li><span class="math-inline">\(P^T = P\)</span> (symmetric, for orthogonal projections)</li>
+<li>Eigenvalues are 0 or 1</li>
+</ul>
+
+<p>The matrix <span class="math-inline">\(I - P\)</span> projects onto the orthogonal complement.</p>
+
+<h3>Example</h3>
+
+<p>Projection onto the x-axis in <span class="math-inline">\(\mathbb{R}^{2}\)</span>:</p>
+
+<pre><code class="language-text">P = [1  0]
+    [0  0]
+
+P² = [1  0][1  0]   [1  0]
+     [0  0][0  0] = [0  0] = P ✓
+
+Pᵀ = [1  0]
+     [0  0] = P ✓</code></pre>
+
+<p>Projection onto orthogonal complement (y-axis):</p>
+
+<pre><code class="language-text">I - P = [0  0]
+        [0  1]</code></pre>
+
+<h2>Gram-Schmidt Orthogonalization</h2>
+
+<p>Given linearly independent vectors {<span class="math-inline">\(v_{1}\)</span>, <span class="math-inline">\(v_{2}\)</span>, ..., <span class="math-inline">\(v_{k}\)</span>}, construct orthonormal vectors {<span class="math-inline">\(q_{1}\)</span>, <span class="math-inline">\(q_{2}\)</span>, ..., <span class="math-inline">\(q_{k}\)</span>} spanning the same subspace:</p>
+
+<ol>
+<li><span class="math-inline">\(u_1 = v_1\)</span></li>
+<li><span class="math-inline">\(u_2 = v_2 - \text{proj}_{u_1}(v_2)\)</span></li>
+<li><span class="math-inline">\(u_3 = v_3 - \text{proj}_{u_1}(v_3) - \text{proj}_{u_2}(v_3)\)</span></li>
+<li>...</li>
+<li><span class="math-inline">\(q_i = u_i / \|u_i\|_2\)</span> (normalize)</li>
+</ul>
+
+<h3>Example</h3>
+
+<p>Orthogonalize <span class="math-inline">\(v_{1}\)</span> = <span class="math-inline">\([1, 1, 0]^T,\)</span> v_{2}<span class="math-inline">\(=\)</span>[1, 0, 1]^T:</p>
+
+<p>Step 1:</p>
+<pre><code class="language-text">u₁ = v₁ = [1, 1, 0]ᵀ</code></pre>
+
+<p>Step 2:</p>
+<pre><code class="language-text"><div class="math-display">\[proj_u₁(v₂) = ((u₁ · v₂) / (u₁ · u₁)) u₁\]</div>
+            = ((1)(1) + (1)(0) + (0)(1)) / ((1)² + (1)² + (0)²) [1, 1, 0]ᵀ
+            = (1/2)[1, 1, 0]ᵀ
+            = [1/2, 1/2, 0]ᵀ
+
+<div class="math-display">\[u₂ = v₂ - proj_u₁(v₂)\]</div>
+   = [1, 0, 1]ᵀ - [1/2, 1/2, 0]ᵀ
+   = [1/2, -1/2, 1]ᵀ</code></pre>
+
+<p>Step 3: Normalize:</p>
+<pre><code class="language-text">\|u₁\|₂ = √(1² + 1² + 0²) = √2
+q₁ = [1/√2, 1/√2, 0]ᵀ
+
+\|u₂\|₂ = √((1/2)² + (-1/2)² + 1²) = √(1/4 + 1/4 + 1) = √(3/2) = √6/2
+q₂ = [1/√6, -1/√6, 2/√6]ᵀ</code></pre>
+
+<p>Verify orthogonality: <span class="math-inline">\(q_1\)</span> \cdot <span class="math-inline">\(q_{2}\)</span> = (1/<span class="math-inline">\(\sqrt{2})(1/ \sqrt{6}\)</span>) + (1/<span class="math-inline">\(\sqrt{2})(-1/ \sqrt{6}\)</span>) + (0)(2/$\sqrt{6}) = 0 ✓</p>
+
+<h2>Relevance for Machine Learning</h2>
+
+<p><strong>QR Decomposition</strong>: Gram-Schmidt is used to compute the QR decomposition <span class="math-inline">\(A = QR\)</span>, where <span class="math-inline">\(Q\)</span> is orthogonal and <span class="math-inline">\(R\)</span> is upper triangular. Used in solving least squares problems and computing eigenvalues.</p>
+
+<p><strong>Orthogonal Initialization</strong>: Initializing neural network weights with orthogonal matrices helps gradient flow and prevents vanishing/exploding gradients.</p>
+
+<p><strong>Attention Mechanisms</strong>: Multi-head attention in transformers uses orthogonal projections to create independent attention heads.</p>
+
+<p><strong>Residual Connections</strong>: In ResNets, skip connections can be viewed as orthogonal complements to learned transformations, enabling easier optimization.</p>
+
+<p><strong>Least Squares Regression</strong>: The solution <span class="math-inline">\(w\)</span> = (<span class="math-inline">\(X^TX\)</span>)<span class="math-inline">\(^{-1}\)</span> X^Ty <span class="math-inline">\(can be interpreted as projecting\)</span> y <span class="math-inline">\(onto the column space of\)</span> X <span class="math-inline">\(. The residual\)</span> y - Xw$ is orthogonal to the column space.</p>
+
+<p><strong>Kernel Methods</strong>: Kernel ridge regression finds the solution in the span of training samples. The projection onto this space is computed using the kernel matrix.</p>
+
+<p><strong>Feature Orthogonalization</strong>: Decorrelating features (e.g., via PCA) creates orthogonal features, simplifying interpretation and improving numerical stability.</p>
+
+<p><strong>Gram Matrix</strong>: In style transfer and kernel methods, the Gram matrix <span class="math-inline">\(G = X^T\)</span> X<span class="math-inline">\(captures feature correlations. Diagonal\)</span> G$ indicates orthogonal features.</p>
+
+<p><strong>Distance Metrics</strong>: Mahalanobis distance accounts for feature correlations by transforming data into an orthogonal basis.</p>
+
+<p><strong>Manifold Learning</strong>: Locally Linear Embedding (LLE) and other methods project high-dimensional data onto low-dimensional manifolds using orthogonal projections.</p>
+
+        </article>
     </main>
     <footer>
         <p>&copy; 2026 Varol Cagdas Tok</p>
     </footer>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const container = document.querySelector('[data-markdown-path]');
-            const path = container.getAttribute('data-markdown-path');
-            fetch(path)
-                .then(response => response.text())
-                .then(text => {
-                    container.innerHTML = renderMarkdownWithMath(text);
-                    renderMath();
+        document.addEventListener("DOMContentLoaded", function() {
+            if (window.renderMathInElement) {
+                renderMathInElement(document.getElementById('article-content'), {
+                    delimiters: [
+                        {left: '\\[', right: '\\]', display: true},
+                        {left: '\\(', right: '\\)', display: false}
+                    ],
+                    throwOnError: false
                 });
+            }
         });
     </script>
 </body>
-
 </html>

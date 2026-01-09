@@ -1,18 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matrices and Data Representation - Varol Cagdas Tok</title>
+    <meta name="description" content="A matrix is a rectangular array of numbers arranged in rows and columns. A matrix $A$ with m rows and n columns is denoted $A \in \mathbb{R}^{m \times n}$:">
+    <meta name="author" content="Tok Varol Cagdas">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ctokx.github.io/personalblog/articles/matrices-and-data-representation/">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ctokx.github.io/personalblog/articles/matrices-and-data-representation/">
+    <meta property="og:title" content="Matrices and Data Representation">
+    <meta property="og:description" content="A matrix is a rectangular array of numbers arranged in rows and columns. A matrix $A$ with m rows and n columns is denoted $A \in \mathbb{R}^{m \times n}$:">
+    <meta property="og:site_name" content="Varol Cagdas Tok">
+    <meta property="article:author" content="Varol Cagdas Tok">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="Matrices and Data Representation">
+    <meta property="twitter:description" content="A matrix is a rectangular array of numbers arranged in rows and columns. A matrix $A$ with m rows and n columns is denoted $A \in \mathbb{R}^{m \times n}$:">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Matrices and Data Representation",
+    "description": "A matrix is a rectangular array of numbers arranged in rows and columns. A matrix $A$ with m rows and n columns is denoted $A \\in \\mathbb{R}^{m \\times n}$:",
+    "author": {
+        "@type": "Person",
+        "name": "Tok Varol Cagdas",
+        "url": "https://ctokx.github.io/personalblog/about.html"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "Varol Cagdas Tok"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ctokx.github.io/personalblog/articles/matrices-and-data-representation/"
+    },
+    "datePublished": "2026-01-10",
+    "dateModified": "2026-01-10"
+}
+    </script>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-    <script src="../../js/math-renderer.js"></script>
 </head>
-
 <body>
     <header>
         <h1>Varol Cagdas Tok</h1>
@@ -23,24 +55,201 @@
         <a href="../../about.html">About</a>
         <a href="../../feed.xml" class="rss-link">RSS</a>
     </nav>
-    <main id="article-content">
-        <div data-markdown-path="../../posts/linear-algebra/post27.md"></div>
+    <main>
+        <article id="article-content">
+
+
+
+<h1>Matrices and Data Representation</h1>
+
+<h2>Definition of a Matrix</h2>
+
+<p>A matrix is a rectangular array of numbers arranged in rows and columns. A matrix <span class="math-inline">\(A\)</span> with m rows and n columns is denoted <span class="math-inline">\(A \in \mathbb{R}^{m \times n}\)</span>:</p>
+
+<pre><code class="language-text">     [a₁₁  a₁₂  ...  a₁ₙ]
+A =  [a₂₁  a₂₂  ...  a₂ₙ]
+     [...  ...  ...  ...]
+     [aₘ₁  aₘ₂  ...  aₘₙ]</code></pre>
+
+<p>The element in the i-th row and j-th column is denoted <span class="math-inline">\(a_{ij}\)</span> or <span class="math-inline">\(A_{ij}\)</span>.</p>
+
+<h3>Example</h3>
+
+<p>A <span class="math-inline">\(2 \times 3\)</span> matrix:</p>
+
+<pre><code class="language-text">A = [1   2   3]
+    [4   5   6]</code></pre>
+
+<p>Here, <span class="math-inline">\(a_{12} = 2\)</span> and <span class="math-inline">\(a_{23} = 6\)</span>.</p>
+
+<h2>Matrix Dimensions</h2>
+
+<p>A matrix <span class="math-inline">\(A \in \mathbb{R}^{m \times n}\)</span> has:</p>
+<ul>
+<li>m rows (first dimension)</li>
+<li>n columns (second dimension)</li>
+<li>mn total elements</li>
+</ul>
+
+<p>Special cases:</p>
+<ul>
+<li><strong>Square matrix</strong>: <span class="math-inline">\(m = n\)</span> (e.g., <span class="math-inline">\(3 \times 3\)</span>)</li>
+<li><strong>Row vector</strong>: <span class="math-inline">\(m = 1\)</span> (e.g., <span class="math-inline">\(1 \times n\)</span>)</li>
+<li><strong>Column vector</strong>: <span class="math-inline">\(n = 1\)</span> (e.g., <span class="math-inline">\(m \times 1\)</span>)</li>
+</ul>
+
+<h2>Matrix Transpose</h2>
+
+<p>The transpose of a matrix <span class="math-inline">\(A \in \mathbb{R}^{m \times n}\)</span>, denoted <span class="math-inline">\(A^T \in \mathbb{R}^{n \times m}\)</span>, is obtained by swapping rows and columns:</p>
+
+<p> <div class="math-display">\[(A^T)_{ij} = a_{ji}\]</div></p>
+
+<h3>Example</h3>
+
+<pre><code class="language-text">A = [1  2  3]      Aᵀ = [1  4]
+    [4  5  6]           [2  5]
+                        [3  6]</code></pre>
+
+<h3>Properties</h3>
+
+<ol>
+<li><span class="math-inline">\((A^T)^T = A\)</span></li>
+<li><span class="math-inline">\((A + B)^T = A^T + B^T\)</span></li>
+<li><span class="math-inline">\((AB)^T = B^T A^T\)</span> (order reverses)</li>
+<li><span class="math-inline">\((\alpha A)^T = \alpha A^T\)</span></li>
+</ul>
+
+<h2>Special Matrices</h2>
+
+<h3>Symmetric Matrix</h3>
+
+<p>A matrix <span class="math-inline">\(A \in \mathbb{R}^{n \times n}\)</span> is symmetric if <span class="math-inline">\(A = A^T\)</span>.</p>
+
+<p>Example:</p>
+<pre><code class="language-text">A = [2   1   3]
+    [1   4   0]
+    [3   0   5]</code></pre>
+
+<p>Here, <span class="math-inline">\(a_{12} = a_{21} = 1\)</span>, <span class="math-inline">\(a_{13} = a_{31} = 3\)</span>, etc.</p>
+
+<h3>Diagonal Matrix</h3>
+
+<p>A matrix <span class="math-inline">\(D \in \mathbb{R}^{n \times n}\)</span> is diagonal if <span class="math-inline">\(d_{ij} = 0\)</span> for all <span class="math-inline">\(i \neq j\)</span>.</p>
+
+<p>Example:</p>
+<pre><code class="language-text">D = [3   0   0]
+    [0   7   0]
+    [0   0  -2]</code></pre>
+
+<p> <div class="math-display">\[Notation: D = \text{diag}(d_1, d_2, \ldots, d_n)\]</div></p>
+
+<h3>Identity Matrix</h3>
+
+<p>The identity matrix <span class="math-inline">\(I_n \in \mathbb{R}^{n \times n}\)</span> is a diagonal matrix with all diagonal entries equal to 1:</p>
+
+<pre><code class="language-text">I₃ = [1  0  0]
+     [0  1  0]
+     [0  0  1]</code></pre>
+
+<p>Property: <span class="math-inline">\(AI = IA = A\)</span> for any compatible matrix <span class="math-inline">\(A\)</span>.</p>
+
+<h3>Zero Matrix</h3>
+
+<p>The zero matrix <span class="math-inline">\(\mathbf{0}\)</span> has all entries equal to 0:</p>
+
+<pre><code class="language-text">0₂ₓ₃ = [0  0  0]
+       [0  0  0]</code></pre>
+
+<p>Property: <span class="math-inline">\(A + \mathbf{0} = A\)</span> </p>
+
+<h2>Matrix Addition</h2>
+
+<p>Two matrices <span class="math-inline">\(A, B \in \mathbb{R}^{m \times n}\)</span> can be added component-wise:</p>
+
+<p><div class="math-display">\[C = A + B \text{ where } c_{ij} = a_{ij} + b_{ij}\]</div></p>
+
+<h3>Example</h3>
+
+<pre><code class="language-text">[1  2]   [5  6]   [6   8]
+[3  4] + [7  8] = [10  12]</code></pre>
+
+<p>Matrices must have the same dimensions for addition.</p>
+
+<h2>Scalar Multiplication</h2>
+
+<p>Given <span class="math-inline">\(\alpha \in \mathbb{R}\)</span> and <span class="math-inline">\(A \in \mathbb{R}^{m \times n}\)</span>:</p>
+
+<p><div class="math-display">\[\alpha A \text{ has entries } (\alpha A)_{ij} = \alpha a_{ij}\]</div></p>
+
+<h3>Example</h3>
+
+<pre><code class="language-text">    [1  2]   [3   6]
+3 · [3  4] = [9  12]</code></pre>
+
+<h2>Matrices as Data Tables</h2>
+
+<p>A dataset with n samples and d features can be represented as a matrix <span class="math-inline">\(X \in \mathbb{R}^{n \times d}\)</span>:</p>
+
+<pre><code class="language-text">       [— x₁ᵀ —]     [x₁₁  x₁₂  ...  x₁ₐ]
+X =    [— x₂ᵀ —]  =  [x₂₁  x₂₂  ...  x₂ₐ]
+       [...    ]      [...  ...  ...  ...]
+       [— xₙᵀ —]     [xₙ₁  xₙ₂  ...  xₙₐ]</code></pre>
+
+<p>Each row <span class="math-inline">\(x_i \in \mathbb{R}^d\)</span> is a sample (data point).</p>
+<p>Each column contains values for a single feature across all samples.</p>
+
+<h3>Example: House Price Dataset</h3>
+
+<table>
+<tr><th>Area (sq ft)</th><th>Bedrooms</th><th>Price ($k)</th></tr>
+<tr><td>1500</td><td>3</td><td>300</td></tr>
+<tr><td>2000</td><td>4</td><td>400</td></tr>
+<tr><td>1200</td><td>2</td><td>250</td></tr>
+</table>
+
+<p>As a matrix <span class="math-inline">\(X \in \mathbb{R}^{3 \times 2}\)</span>:</p>
+
+<pre><code class="language-text">X = [1500  3]
+    [2000  4]
+    [1200  2]</code></pre>
+
+<p>The labels (prices) form a vector <span class="math-inline">\(y \in \mathbb{R}^3\)</span>: <span class="math-inline">\(y = [300, 400, 250]^T\)</span></p>
+
+<h2>Relevance for Machine Learning</h2>
+
+<p><strong>Dataset Representation</strong>: The fundamental data structure in machine learning is the design matrix <span class="math-inline">\(X\)</span> where rows are samples and columns are features. This representation enables vectorized operations.</p>
+
+<p><strong>Batch Processing</strong>: Modern machine learning frameworks process multiple samples simultaneously. Given a weight matrix <span class="math-inline">\(W\)</span> and input batch <span class="math-inline">\(X\)</span>, computing predictions for all samples is a single matrix multiplication: <span class="math-inline">\(XW\)</span>.</p>
+
+<p><strong>Image Data</strong>: A grayscale image with height h and width w is stored as a matrix <span class="math-inline">\(I \in \mathbb{R}^{h \times w}\)</span> where each entry represents pixel intensity. Color images use a 3D tensor (<span class="math-inline">\(h \times w \times 3\)</span>).</p>
+
+<p><strong>Covariance Matrices</strong>: The covariance matrix <span class="math-inline">\(C \in \mathbb{R}^{d \times d}\)</span> of a dataset <span class="math-inline">\(X\)</span> captures relationships between features:</p>
+
+<p><div class="math-display">\[C = \frac{1}{n}X^T X\]</div></p>
+
+<p>(Assuming the data <span class="math-inline">\(X\)</span> is centered, i.e., each feature has zero mean). Covariance matrices are symmetric and used in PCA.</p>
+
+<p><strong>Weight Matrices</strong>: In neural networks, each layer has a weight matrix <span class="math-inline">\(W\)</span> that transforms inputs. A layer mapping from <span class="math-inline">\(d_1\)</span> to <span class="math-inline">\(d_2\)</span> dimensions uses <span class="math-inline">\(W \in \mathbb{R}^{d_1 \times d_2}\)</span>.</p>
+
+<p><strong>Kernel Matrices</strong>: In kernel methods (e.g., kernel SVM), the kernel matrix <span class="math-inline">\(K \in \mathbb{R}^{n \times n}\)</span> stores pairwise similarities: <span class="math-inline">\(k_{ij} = k(x_i, x_j)\)</span>. Kernel matrices are symmetric.</p>
+
+        </article>
     </main>
     <footer>
         <p>&copy; 2026 Varol Cagdas Tok</p>
     </footer>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const container = document.querySelector('[data-markdown-path]');
-            const path = container.getAttribute('data-markdown-path');
-            fetch(path)
-                .then(response => response.text())
-                .then(text => {
-                    container.innerHTML = renderMarkdownWithMath(text);
-                    renderMath();
+        document.addEventListener("DOMContentLoaded", function() {
+            if (window.renderMathInElement) {
+                renderMathInElement(document.getElementById('article-content'), {
+                    delimiters: [
+                        {left: '\\[', right: '\\]', display: true},
+                        {left: '\\(', right: '\\)', display: false}
+                    ],
+                    throwOnError: false
                 });
+            }
         });
     </script>
 </body>
-
 </html>

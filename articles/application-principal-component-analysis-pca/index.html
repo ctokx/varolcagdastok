@@ -1,18 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Application: Principal Component Analysis (PCA) - Varol Cagdas Tok</title>
+    <meta name="description" content="Given a dataset $X \in \mathbb{R}^{n \times d}$ with n samples and d features, PCA finds a lower-dimensional representation that maximally preserves variance.">
+    <meta name="author" content="Tok Varol Cagdas">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ctokx.github.io/personalblog/articles/application-principal-component-analysis-pca/">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ctokx.github.io/personalblog/articles/application-principal-component-analysis-pca/">
+    <meta property="og:title" content="Application: Principal Component Analysis (PCA)">
+    <meta property="og:description" content="Given a dataset $X \in \mathbb{R}^{n \times d}$ with n samples and d features, PCA finds a lower-dimensional representation that maximally preserves variance.">
+    <meta property="og:site_name" content="Varol Cagdas Tok">
+    <meta property="article:author" content="Varol Cagdas Tok">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="Application: Principal Component Analysis (PCA)">
+    <meta property="twitter:description" content="Given a dataset $X \in \mathbb{R}^{n \times d}$ with n samples and d features, PCA finds a lower-dimensional representation that maximally preserves variance.">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Application: Principal Component Analysis (PCA)",
+    "description": "Given a dataset $X \\in \\mathbb{R}^{n \\times d}$ with n samples and d features, PCA finds a lower-dimensional representation that maximally preserves variance.",
+    "author": {
+        "@type": "Person",
+        "name": "Tok Varol Cagdas",
+        "url": "https://ctokx.github.io/personalblog/about.html"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "Varol Cagdas Tok"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ctokx.github.io/personalblog/articles/application-principal-component-analysis-pca/"
+    },
+    "datePublished": "2026-01-10",
+    "dateModified": "2026-01-10"
+}
+    </script>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-    <script src="../../js/math-renderer.js"></script>
 </head>
-
 <body>
     <header>
         <h1>Varol Cagdas Tok</h1>
@@ -23,24 +55,258 @@
         <a href="../../about.html">About</a>
         <a href="../../feed.xml" class="rss-link">RSS</a>
     </nav>
-    <main id="article-content">
-        <div data-markdown-path="../../posts/linear-algebra/post35.md"></div>
+    <main>
+        <article id="article-content">
+
+
+
+<h1>Application: Principal Component Analysis (PCA)</h1>
+
+<h2>Problem Statement</h2>
+
+<p>Given a dataset <span class="math-inline">\(X \in \mathbb{R}^{n \times d}\)</span> with n samples and d features, PCA finds a lower-dimensional representation that maximally preserves variance.</p>
+
+<p>Goals:</p>
+<ol>
+<li>Reduce dimensionality from d to k < d</li>
+<li>Retain as much information (variance) as possible</li>
+<li>Identify uncorrelated directions of maximum variance</li>
+</ul>
+
+<h2>Motivation</h2>
+
+<p>High-dimensional data often contains redundancy. Features may be correlated, or the data may lie near a lower-dimensional subspace. PCA discovers this structure.</p>
+
+<p>Applications:</p>
+<ul>
+<li>Visualization (reduce to 2 or 3 dimensions)</li>
+<li>Noise reduction</li>
+<li>Feature extraction</li>
+<li>Preprocessing for other algorithms</li>
+</ul>
+
+<h2>Mathematical Formulation</h2>
+
+<h3>Step 1: Center the Data</h3>
+
+<p>Subtract the mean from each feature:</p>
+
+<p><div class="math-display">\[X_{\text{centered}} = X - \mu\]</div></p>
+
+<p>where <span class="math-inline">\(\mu = (1/n)\sum_{i=1}^n x_i\)</span> is the mean vector (computed column-wise).</p>
+
+<p>Centering ensures the first principal component captures the direction of maximum variance, not just the mean offset.</p>
+
+<h3>Step 2: Compute the Covariance Matrix</h3>
+
+<p>The covariance matrix <span class="math-inline">\(C \in \mathbb{R}^{d \times d}\)</span> is:</p>
+
+<p><div class="math-display">\[C = \frac{1}{n-1}X_{\text{centered}}^T X_{\text{centered}}\]</div></p>
+
+<p>The (i,j)-th entry is the covariance between features i and j:</p>
+
+<p><div class="math-display">\[c_{ij} = \frac{1}{n-1}\sum_{m=1}^n (x_{mi} - \mu_i)(x_{mj} - \mu_j)\]</div></p>
+
+<p>The diagonal entries are variances: $c_{i}_i  = var(feature i).</p>
+
+<p><span class="math-inline">\(C\)</span> is symmetric and positive semi-definite.</p>
+
+<h3>Step 3: Eigendecomposition</h3>
+
+<p>Compute the eigendecomposition of <span class="math-inline">\(C\)</span>:</p>
+
+<p><div class="math-display">\[C = Q\Lambda Q^T\]</div></p>
+
+<p>where:</p>
+<ul>
+<li><span class="math-inline">\(Q = [q_1, q_2, \ldots, q_d]\)</span> contains orthonormal eigenvectors (principal components)</li>
+<li><span class="math-inline">\(\Lambda = \text{diag}(\lambda_1, \lambda_2, \ldots, \lambda_d)\)</span> contains eigenvalues (variance along each component)</li>
+</ul>
+
+<p>Order eigenvalues: <span class="math-inline">\(\lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_d \geq 0\)</span>.</p>
+
+<h3>Step 4: Select Top k Components</h3>
+
+<p>Choose k principal components with largest eigenvalues:</p>
+
+<p><div class="math-display">\[Q_{k} = [q_1 q_{2} ... q_{k}] \in \mathbb{R}^dx^k\]</div></p>
+
+<p>These directions capture the most variance.</p>
+
+<h3>Step 5: Project Data</h3>
+
+<p>Transform data to the k-dimensional subspace:</p>
+
+<p><div class="math-display">\[X_{\text{reduced}} = X_{\text{centered}} Q_k \in \mathbb{R}^{n \times k}\]</div></p>
+
+<p>Each sample <span class="math-inline">\(x_i\)</span> is projected: <span class="math-inline">\(z_i = Q_k^T(x_i - \mu) \in \mathbb{R}^k\)</span>.</p>
+
+<h2>Example</h2>
+
+<p>Dataset with 3 samples in <span class="math-inline">\(\mathbb{R}^{2}\)</span>:</p>
+
+<pre><code class="language-text">X = [1  2]
+    [3  4]
+    [5  6]</code></pre>
+
+<p>Step 1: Center the data:</p>
+<pre><code class="language-text">μ = (1/3)[(1+3+5), (2+4+6)]ᵀ = [3, 4]ᵀ
+
+<div class="math-display">\[X_centered = [1-3  2-4]   [-2  -2]\]</div>
+             [3-3  4-4] = [0   0]
+             [5-3  6-4]   [2   2]</code></pre>
+
+<p>Step 2: Compute covariance matrix:</p>
+<pre><code class="language-text">C = (1/2)[-2  0  2][-2  -2]   (1/2)[8   8]   [4  4]
+         [-2  0  2][0   0] = (1/2)[8   8] = [4  4]
+                   [2   2]</code></pre>
+
+<p>Step 3: Eigendecomposition:</p>
+<pre><code class="language-text">det(C - λI) = det([4-λ   4 ])
+                  [4    4-λ]
+            = (4-λ)² - 16
+            = λ² - 8λ + 16 - 16
+            = λ(λ - 8)</code></pre>
+
+<p>Eigenvalues: \lambda_{1} = 8, \lambda_{2} = 0</p>
+
+<p>For <span class="math-inline">\(\lambda_1 = 8\)</span>:</p>
+<pre><code class="language-text">(C - 8I)v = [-4  4][v₁]   [0]
+            [4  -4][v₂] = [0]
+
+-v₁ + v₂ = 0  →  v₁ = v₂</code></pre>
+
+<p>Normalized: <span class="math-inline">\(q_1 = [1/\sqrt{2}, 1/\sqrt{2}]^T\)</span> </p>
+
+<p>For <span class="math-inline">\(\lambda_2 = 0\)</span>:</p>
+<pre><code class="language-text">Cv = [4  4][v₁]   [0]
+     [4  4][v₂] = [0]
+
+v₁ + v₂ = 0  →  v₂ = -v₁</code></pre>
+
+<p>Normalized: <span class="math-inline">\(q_2 = [1/\sqrt{2}, -1/\sqrt{2}]^T\)</span> </p>
+
+<p>Step 4: Select k=1 component:</p>
+
+<p><span class="math-inline">\(Q_1 = [1/\sqrt{2}, 1/\sqrt{2}]^T\)</span> (first column only) </p>
+
+<p>Step 5: Project:</p>
+<pre><code class="language-text"><div class="math-display">\[X_reduced = [-2  -2][1/√2]   [-4/√2]   [-2√2]\]</div>
+            [0   0][1/√2] = [0    ] = [0   ]
+            [2   2]         [4/√2]    [2√2 ]</code></pre>
+
+<p>The data is now 1-dimensional, aligned with the direction [1, 1].</p>
+
+<h2>Variance Explained</h2>
+
+<p>The fraction of variance explained by the first k components is:</p>
+
+<p><div class="math-display">\[\text{variance explained} = \frac{\sum_{i=1}^k \lambda_i}{\sum_{j=1}^d \lambda_j}\]</div></p>
+
+<p>In the example: <span class="math-inline">\(\lambda_{1}\)</span> = 8, <span class="math-inline">\(\lambda_{2}\)</span> = 0, so the first component explains 8/(8+0) = 100% of variance.</p>
+
+<h2>SVD-Based PCA</h2>
+
+<p>Instead of computing the covariance matrix, apply SVD directly to <span class="math-inline">\(X_centered\)</span>:</p>
+
+<p><div class="math-display">\[X_{\text{centered}} = U \Sigma V^T\]</div></p>
+
+<p>Then:</p>
+<ul>
+<li>Principal components: columns of <span class="math-inline">\(V\)</span></li>
+<li>Variance along component i: <span class="math-inline">\(\sigma_i^2 /(n-1)\)</span></li>
+<li>Projection: <span class="math-inline">\(X_{\text{reduced}} = U \Sigma_k\)</span> or <span class="math-inline">\(X_{\text{reduced}} = X_{\text{centered}} V_k\)</span></li>
+</ul>
+
+<p>This is numerically more stable and efficient for large d.</p>
+
+<h2>Reconstruction</h2>
+
+<p>To reconstruct approximate original data from reduced representation:</p>
+
+<p><div class="math-display">\[X_{\text{reconstructed}} = X_{\text{reduced}} Q_k^T + \mu\]</div></p>
+
+<p>Reconstruction error: <span class="math-inline">\(\|X - X_{\text{reconstructed}}\|_F\)</span></p>
+
+<h2>Choosing k</h2>
+
+<p>Methods to select the number of components:</p>
+
+<ol>
+<li><strong>Variance threshold</strong>: Choose k such that variance explained $\geq threshold (e.g., 95%)</li>
+<li><strong>Scree plot</strong>: Plot eigenvalues; look for "elbow" where <span class="math-inline">\(\lambda_{i}\)</span> drops sharply</li>
+<li><strong>Cross-validation</strong>: Use validation performance on downstream task</li>
+<li><strong>Fixed target</strong>: Choose k = 2 or 3 for visualization</li>
+</ul>
+
+<h2>Assumptions and Limitations</h2>
+
+<p>PCA assumes:</p>
+<ul>
+<li>Linear relationships between features</li>
+<li>Variance = information (high variance directions are most informative)</li>
+<li>Data is centered</li>
+</ul>
+
+<p>Limitations:</p>
+<ul>
+<li>Sensitive to feature scaling (standardize features first)</li>
+<li>Does not preserve distances (orthogonal projection distorts geometry)</li>
+<li>Cannot capture nonlinear structure (use kernel PCA or autoencoders)</li>
+<li>Interpretability: principal components are linear combinations of original features</li>
+</ul>
+
+<h2>Preprocessing: Standardization</h2>
+
+<p>If features have different scales, standardize before PCA:</p>
+
+<p><div class="math-display">\[X_{\text{std}} = (X - \mu) / \sigma\]</div></p>
+
+<p>where <span class="math-inline">\(\sigma\)</span> is the vector of standard deviations (computed column-wise).</p>
+
+<p>This ensures each feature contributes equally.</p>
+
+<h2>Relevance for Machine Learning</h2>
+
+<p><strong>Dimensionality Reduction for Training</strong>: High-dimensional data can cause overfitting and slow training. PCA reduces features while retaining information.</p>
+
+<p><strong>Visualization</strong>: Reduce data to 2D or 3D for plotting. Example: project 784-dimensional MNIST images to 2D to visualize digit clusters.</p>
+
+<p><strong>Feature Extraction</strong>: Use principal components as features for downstream models (e.g., logistic regression, SVM).</p>
+
+<p><strong>Noise Reduction</strong>: Small eigenvalues often correspond to noise. Discarding them improves signal quality.</p>
+
+<p><strong>Multicollinearity Removal</strong>: PCA produces uncorrelated features, addressing multicollinearity in regression.</p>
+
+<p><strong>Compression</strong>: Store reduced representation instead of full data. Reconstruction approximates the original.</p>
+
+<p><strong>Anomaly Detection</strong>: Data far from the principal subspace (large reconstruction error) may be anomalous.</p>
+
+<p><strong>Initialization</strong>: Use PCA to initialize embeddings in deep learning (e.g., autoencoders).</p>
+
+<p><strong>Image Processing</strong>: Eigenfaces (PCA on face images) were historically used for face recognition.</p>
+
+<p><strong>Genomics</strong>: Reduce thousands of gene expression measurements to a few principal components representing biological pathways.</p>
+
+<p><strong>Natural Language Processing</strong>: Latent Semantic Analysis (LSA) applies SVD (similar to PCA) to term-document matrices to discover topics.</p>
+
+        </article>
     </main>
     <footer>
         <p>&copy; 2026 Varol Cagdas Tok</p>
     </footer>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const container = document.querySelector('[data-markdown-path]');
-            const path = container.getAttribute('data-markdown-path');
-            fetch(path)
-                .then(response => response.text())
-                .then(text => {
-                    container.innerHTML = renderMarkdownWithMath(text);
-                    renderMath();
+        document.addEventListener("DOMContentLoaded", function() {
+            if (window.renderMathInElement) {
+                renderMathInElement(document.getElementById('article-content'), {
+                    delimiters: [
+                        {left: '\\[', right: '\\]', display: true},
+                        {left: '\\(', right: '\\)', display: false}
+                    ],
+                    throwOnError: false
                 });
+            }
         });
     </script>
 </body>
-
 </html>
