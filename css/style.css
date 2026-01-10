@@ -276,3 +276,38 @@ pre code {
         grid-template-columns: 1fr;
     }
 }
+
+@media (max-width: 700px) {
+    body {
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    main,
+    .article-list,
+    .article-list li,
+    .article-list h3,
+    article {
+        text-align: left;
+    }
+
+    .article-list h3 {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        white-space: normal;
+    }
+
+    .category-description {
+        text-align: left;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    nav a {
+        margin-right: 0;
+    }
+}
