@@ -5,7 +5,7 @@
     <link>https://ctokx.github.io/varolcagdastok/</link>
     <description>Notes on cybersecurity, machine learning, software testing, and related topics.</description>
     <language>en</language>
-    <lastBuildDate>Sat, 10 Jan 2026 19:49:20 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 11 Jan 2026 19:55:08 GMT</lastBuildDate>
     <atom:link href="https://ctokx.github.io/varolcagdastok/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Black-Box Testing Techniques</title>
@@ -13,7 +13,7 @@
       <description>Black-box testing is a method of software testing that does not consider the internal structure of the system. Instead, test cases are derived from the external specification, which describes what the...</description>
       <category>Software Engineering &amp; Testing</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/black-box-testing-techniques/</guid>
-      <pubDate>Sat, 10 Jan 2026 00:00:00 GMT</pubDate>
+      <pubDate>Sun, 11 Jan 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Test Coverage and Mutation Testing</title>
@@ -21,7 +21,7 @@
       <description>After writing a large test suite, how do you assess its quality? How do you know if you are "done testing"? To answer this, we need **adequacy criteria**, which are metrics for measuring the quality a...</description>
       <category>Software Engineering &amp; Testing</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/test-coverage-and-mutation-testing/</guid>
-      <pubDate>Fri, 09 Jan 2026 00:00:00 GMT</pubDate>
+      <pubDate>Sat, 10 Jan 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>The Test Oracle Problem</title>
@@ -29,7 +29,7 @@
       <description>In software testing, we dedicate significant effort to generating test inputs. However, a test input is only half of a test case. The other half is knowing what the **correct output** should be.</description>
       <category>Software Engineering &amp; Testing</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/the-test-oracle-problem/</guid>
-      <pubDate>Thu, 08 Jan 2026 00:00:00 GMT</pubDate>
+      <pubDate>Fri, 09 Jan 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>White-Box Testing: Symbolic Execution and Search-Based Testing</title>
@@ -37,7 +37,7 @@
       <description>**White-box testing** is a testing approach that derives test inputs from the internal structure of the program. Unlike black-box testing, which uses only the specification, this method uses the code ...</description>
       <category>Software Engineering &amp; Testing</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/white-box-testing-symbolic-execution-and-search-based-testing/</guid>
-      <pubDate>Wed, 07 Jan 2026 00:00:00 GMT</pubDate>
+      <pubDate>Thu, 08 Jan 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Concolic Execution</title>
@@ -45,7 +45,7 @@
       <description>**Symbolic Execution** is a powerful method for generating tests that cover all program paths. However, it has practical limitations. It struggles when code involves complex math, external library cal...</description>
       <category>Software Engineering &amp; Testing</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/concolic-execution/</guid>
-      <pubDate>Tue, 06 Jan 2026 00:00:00 GMT</pubDate>
+      <pubDate>Wed, 07 Jan 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Fuzzing and Random Testing</title>
@@ -53,7 +53,7 @@
       <description>While techniques like equivalence partitioning are systematic, another set of black-box techniques relies on a different approach: **randomness**. These methods are effective for finding unexpected bu...</description>
       <category>Software Engineering &amp; Testing</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/fuzzing-and-random-testing/</guid>
-      <pubDate>Mon, 05 Jan 2026 00:00:00 GMT</pubDate>
+      <pubDate>Tue, 06 Jan 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Regression Testing</title>
@@ -61,7 +61,7 @@
       <description>Software is not static; it changes constantly. Programmers fix bugs, add new features, and refactor code. Every time a change is made, there is a risk that it will unintentionally alter or break exist...</description>
       <category>Software Engineering &amp; Testing</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/regression-testing/</guid>
-      <pubDate>Sun, 04 Jan 2026 00:00:00 GMT</pubDate>
+      <pubDate>Mon, 05 Jan 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Introduction to Machine Learning</title>
@@ -69,7 +69,7 @@
       <description>Machine learning has become a central technology of the 21st century, yet the core ideas behind it are rooted in centuries of inquiry into knowledge, intelligence, and learning. This article provides ...</description>
       <category>Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/introduction-to-machine-learning/</guid>
-      <pubDate>Sat, 03 Jan 2026 00:00:00 GMT</pubDate>
+      <pubDate>Sun, 04 Jan 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Linear Algebra for Machine Learning</title>
@@ -77,7 +77,7 @@
       <description>Linear algebra is the mathematical language of machine learning. From data representation to the mechanics of deep neural networks, its concepts are ubiquitous. A solid understanding of vectors, matri...</description>
       <category>Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/linear-algebra-for-machine-learning/</guid>
-      <pubDate>Fri, 02 Jan 2026 00:00:00 GMT</pubDate>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>The Perceptron Algorithm</title>
@@ -85,7 +85,7 @@
       <description>The Perceptron, invented by Frank Rosenblatt in 1957, is a foundational learning machine. Inspired by the biological neuron, it was one of the first algorithms to learn classification from data. While...</description>
       <category>Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/the-perceptron-algorithm/</guid>
-      <pubDate>Thu, 01 Jan 2026 00:00:00 GMT</pubDate>
+      <pubDate>Fri, 02 Jan 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Linear Regression</title>
@@ -93,7 +93,7 @@
       <description>Linear regression is a fundamental algorithm in machine learning and statistics. It serves as a building block for complex models and provides an interpretable starting point for predictive modeling. ...</description>
       <category>Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/linear-regression/</guid>
-      <pubDate>Wed, 31 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Thu, 01 Jan 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Basis Functions for Non-Linear Problems</title>
@@ -101,7 +101,7 @@
       <description>Many foundational models in machine learning, such as linear regression and the Perceptron, are fundamentally linear. They assume the relationship between inputs and outputs, or the class boundaries, ...</description>
       <category>Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/basis-functions-for-non-linear-problems/</guid>
-      <pubDate>Tue, 30 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Wed, 31 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Introduction to Neural Networks</title>
@@ -109,7 +109,7 @@
       <description>While methods using fixed basis functions can be powerful, they often struggle with problems where the complexity of the underlying function is not uniform across the input space. For instance, a func...</description>
       <category>Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/introduction-to-neural-networks/</guid>
-      <pubDate>Mon, 29 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Tue, 30 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Function Approximation and the Curse of Dimensionality</title>
@@ -117,7 +117,7 @@
       <description>In the field of machine learning, one of the most fundamental challenges a data scientist faces is model selection. With a vast array of models available—from linear classifiers and kernel methods to ...</description>
       <category>Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/function-approximation-and-the-curse-of-dimensionality/</guid>
-      <pubDate>Sun, 28 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Mon, 29 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Introduction to Deep Learning</title>
@@ -125,7 +125,7 @@
       <description>After a period often referred to as the "AI winter," neural networks experienced a dramatic resurgence in the late 2000s, sparking the deep learning revolution that continues to shape technology today...</description>
       <category>Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/introduction-to-deep-learning/</guid>
-      <pubDate>Sat, 27 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Sun, 28 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Recurrent Neural Networks and Attention Mechanisms</title>
@@ -133,7 +133,7 @@
       <description>Many of the most important and challenging problems in machine learning involve sequential data—data where the order of elements is crucial. Examples are everywhere: time series like stock prices, sen...</description>
       <category>Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/recurrent-neural-networks-and-attention-mechanisms/</guid>
-      <pubDate>Fri, 26 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Sat, 27 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Manifold Learning, Autoencoders, and Generative Models</title>
@@ -141,7 +141,7 @@
       <description>In many real-world machine learning problems, the data we observe, despite being represented in a very high-dimensional space (e.g., the thousands of pixels in an image), does not actually fill that s...</description>
       <category>Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/manifold-learning-autoencoders-and-generative-models/</guid>
-      <pubDate>Thu, 25 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Fri, 26 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Kernel Methods and the Kernel Trick</title>
@@ -149,7 +149,7 @@
       <description>In machine learning, a common approach to modeling complex, non-linear relationships is to transform the input data into a higher-dimensional feature space using a set of basis functions. In this new ...</description>
       <category>Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/kernel-methods-and-the-kernel-trick/</guid>
-      <pubDate>Wed, 24 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Thu, 25 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Probability for Machine Learning</title>
@@ -157,7 +157,7 @@
       <description>Probability theory is the mathematical framework for reasoning about uncertainty and is a foundation for machine learning. Most machine learning algorithms are built upon implicit or explicit probabil...</description>
       <category>Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/probability-for-machine-learning/</guid>
-      <pubDate>Tue, 23 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Wed, 24 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Frequentist vs. Bayesian Statistics</title>
@@ -165,7 +165,7 @@
       <description>Two dominant schools of thought provide the foundations for learning from data: the Frequentist and the Bayesian perspectives. While they often lead to similar practical results with large datasets, t...</description>
       <category>Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/frequentist-vs-bayesian-statistics/</guid>
-      <pubDate>Mon, 22 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Tue, 23 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Introduction to Linear Classifiers</title>
@@ -173,7 +173,7 @@
       <description>Classification is the task of assigning a class label to an object based on its features. The **linear classifier** is a foundational tool for this task. Its core principle is to separate classes usin...</description>
       <category>Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/introduction-to-linear-classifiers/</guid>
-      <pubDate>Sun, 21 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Mon, 22 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Support Vector Machines</title>
@@ -181,7 +181,7 @@
       <description>In the landscape of classification algorithms, the **Support Vector Machine (SVM)** holds a prominent place. Developed by Vladimir Vapnik and colleagues, the SVM is a linear classifier distinguished b...</description>
       <category>Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/support-vector-machines/</guid>
-      <pubDate>Sat, 20 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Sun, 21 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Model Selection and Estimating Generalization Performance</title>
@@ -189,7 +189,7 @@
       <description>In machine learning, our primary goal is not to build a model that performs perfectly on the data it was trained on, but to build a model that **generalizes** well to new, unseen data. The ability to ...</description>
       <category>Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/model-selection-and-estimating-generalization-performance/</guid>
-      <pubDate>Fri, 19 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>The Linear Algebra of Machine Learning: A Roadmap</title>
@@ -197,7 +197,7 @@
       <description>Machine learning algorithms, at their core, are transformation engines that convert input data into predictions, classifications, or generative outputs. These transformations operate on numerical data...</description>
       <category>Linear Algebra for Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/the-linear-algebra-of-machine-learning-a-roadmap/</guid>
-      <pubDate>Thu, 18 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Fri, 19 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Vectors and Vector Spaces</title>
@@ -205,7 +205,7 @@
       <description>A vector is an ordered list of numbers. Formally, a vector $v $ in $\mathbb{R}^n$ is an element of n-dimensional Euclidean space:</description>
       <category>Linear Algebra for Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/vectors-and-vector-spaces/</guid>
-      <pubDate>Wed, 17 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Thu, 18 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Matrices and Data Representation</title>
@@ -213,7 +213,7 @@
       <description>A matrix is a rectangular array of numbers arranged in rows and columns. A matrix $A$ with m rows and n columns is denoted $A \in \mathbb{R}^{m \times n}$:</description>
       <category>Linear Algebra for Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/matrices-and-data-representation/</guid>
-      <pubDate>Tue, 16 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Wed, 17 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Dot Products and Vector Norms</title>
@@ -221,7 +221,7 @@
       <description>The dot product (also called inner product or scalar product) of two vectors $u, v \in \mathbb{R}^n$ is:</description>
       <category>Linear Algebra for Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/dot-products-and-vector-norms/</guid>
-      <pubDate>Mon, 15 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Tue, 16 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Matrix Multiplication and Linear Transformations</title>
@@ -229,7 +229,7 @@
       <description>Given a matrix $A \in \mathbb{R}^{m \times n}$ and a vector $x \in \mathbb{R}^n$, the product $Ax \in \mathbb{R}^m$ is defined as:</description>
       <category>Linear Algebra for Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/matrix-multiplication-and-linear-transformations/</guid>
-      <pubDate>Sun, 14 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Mon, 15 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Systems of Linear Equations</title>
@@ -237,7 +237,7 @@
       <description>A system of m linear equations in n unknowns has the form:</description>
       <category>Linear Algebra for Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/systems-of-linear-equations/</guid>
-      <pubDate>Sat, 13 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Sun, 14 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Matrix Inverse, Linear Independence, and Rank</title>
@@ -245,7 +245,7 @@
       <description>For a square matrix $A \in \mathbb{R}^{n \times n}$, the inverse $A^{-1}$ (if it exists) satisfies:</description>
       <category>Linear Algebra for Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/matrix-inverse-linear-independence-and-rank/</guid>
-      <pubDate>Fri, 12 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Sat, 13 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Eigenvectors and Eigenvalues</title>
@@ -253,7 +253,7 @@
       <description>For a square matrix $A \in \mathbb{R}^{n \times n}$, a non-zero vector $v \in \mathbb{R}^{n}$ is an **eigenvector** with corresponding **eigenvalue** $\lambda \in \mathbb{R}$ if:</description>
       <category>Linear Algebra for Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/eigenvectors-and-eigenvalues/</guid>
-      <pubDate>Thu, 11 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Fri, 12 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Eigendecomposition of a Matrix</title>
@@ -261,7 +261,7 @@
       <description>The eigendecomposition (or spectral decomposition) of a square matrix $A \in \mathbb{R}^{n \times n}$ expresses $A$ as:</description>
       <category>Linear Algebra for Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/eigendecomposition-of-a-matrix/</guid>
-      <pubDate>Wed, 10 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Thu, 11 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Singular Value Decomposition (SVD)</title>
@@ -269,7 +269,7 @@
       <description>The Singular Value Decomposition (SVD) of a matrix $A \in \mathbb{R}^{m \times n}$ is:</description>
       <category>Linear Algebra for Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/singular-value-decomposition-svd/</guid>
-      <pubDate>Tue, 09 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Wed, 10 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Application: Principal Component Analysis (PCA)</title>
@@ -277,7 +277,7 @@
       <description>Given a dataset $X \in \mathbb{R}^{n \times d}$ with n samples and d features, PCA finds a lower-dimensional representation that maximally preserves variance.</description>
       <category>Linear Algebra for Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/application-principal-component-analysis-pca/</guid>
-      <pubDate>Mon, 08 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Tue, 09 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Vector Projections and Orthogonality</title>
@@ -285,7 +285,7 @@
       <description>Two vectors $u, v \in \mathbb{R}^n$ are **orthogonal** (perpendicular) if their dot product is zero:</description>
       <category>Linear Algebra for Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/vector-projections-and-orthogonality/</guid>
-      <pubDate>Sun, 07 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Mon, 08 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Application: Linear Regression and the Normal Equation</title>
@@ -293,7 +293,7 @@
       <description>Given $n$ training samples $\{(x_1, y_1), (x_2, y_2), \ldots, (x_n, y_n)\}$ where $x_i \in \mathbb{R}^d$ are feature vectors and $y_i \in \mathbb{R}$ are targets, find a linear function:</description>
       <category>Linear Algebra for Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/application-linear-regression-and-the-normal-equation/</guid>
-      <pubDate>Sat, 06 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Sun, 07 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Matrix Calculus: Gradients with Vectors and Matrices</title>
@@ -301,7 +301,7 @@
       <description>Machine learning optimization requires computing derivatives of scalar loss functions with respect to vector or matrix parameters. Matrix calculus provides notation and rules for these computations.</description>
       <category>Linear Algebra for Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/matrix-calculus-gradients-with-vectors-and-matrices/</guid>
-      <pubDate>Fri, 05 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Sat, 06 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Conclusion: The Linear Algebra Foundation</title>
@@ -309,7 +309,7 @@
       <description>This series has explored the foundational linear algebra concepts required for understanding and implementing machine learning algorithms. The material was organized into four thematic units:</description>
       <category>Linear Algebra for Machine Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/conclusion-the-linear-algebra-foundation/</guid>
-      <pubDate>Thu, 04 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Fri, 05 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Introduction to Offline Reinforcement Learning</title>
@@ -317,7 +317,7 @@
       <description>An introduction to offline reinforcement learning, exploring how AI agents can learn optimal decision-making strategies from pre-collected data without ever interacting with the environment. This post defines the core challenge of distributional shift and introduces the primary algorithmic paradigms—BC, TD3+BC, IQL, and CQL—that our research evaluates.</description>
       <category>Reinforcement Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/introduction-to-offline-reinforcement-learning/</guid>
-      <pubDate>Wed, 03 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Thu, 04 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>TD3+BC Algorithm for Offline RL</title>
@@ -325,7 +325,7 @@
       <description>Exploring TD3+BC, a powerful yet simple approach to offline RL. We first detail the standard algorithm and then introduce our group's customized variant, which incorporates four key enhancements: dynamic hyperparameter selection, BC-weight annealing, state normalization, and episode filtering. We present experimental results from our paper demonstrating that these enhancements yield substantial performance gains (up to 6300%) over the default implementation, particularly on noisy, medium-quality datasets.</description>
       <category>Reinforcement Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/td3bc-algorithm-for-offline-rl/</guid>
-      <pubDate>Tue, 02 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Wed, 03 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>CQL and IQL Algorithms</title>
@@ -333,7 +333,7 @@
       <description>Exploring Conservative Q-Learning (CQL) and Implicit Q-Learning (IQL), two sophisticated value-based methods that tackle offline RL's distributional shift problem. We detail their core mechanisms—pessimistic value estimation for CQL and implicit policy constraints for IQL—and discuss their performance characteristics as observed in our comparative study.</description>
       <category>Reinforcement Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/cql-and-iql-algorithms/</guid>
-      <pubDate>Mon, 01 Dec 2025 00:00:00 GMT</pubDate>
+      <pubDate>Tue, 02 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Benchmarking Offline RL Algorithms</title>
@@ -341,7 +341,7 @@
       <description>Synthesizing insights from our extensive experimentation with BC, TD3+BC, IQL, and CQL across MuJoCo tasks. We present a quantitative comparison that reveals a clear conclusion: no single algorithm wins. The "best" method is highly dependent on dataset quality. We find that BC excels on expert data, while our enhanced TD3+BC and IQL show the strongest performance on noisy, medium-quality data.</description>
       <category>Reinforcement Learning</category>
       <guid isPermaLink="true">https://ctokx.github.io/varolcagdastok/articles/benchmarking-offline-rl-algorithms/</guid>
-      <pubDate>Sun, 30 Nov 2025 00:00:00 GMT</pubDate>
+      <pubDate>Mon, 01 Dec 2025 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
