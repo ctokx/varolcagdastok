@@ -1,222 +1,222 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/</loc>
+    <loc>https://ctokx.github.io/personalblog/</loc>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/about.html</loc>
+    <loc>https://ctokx.github.io/personalblog/about.html</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/black-box-testing-techniques/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/black-box-testing-techniques/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/the-test-oracle-problem/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/the-test-oracle-problem/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/test-coverage-and-mutation-testing/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/test-coverage-and-mutation-testing/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/white-box-testing-symbolic-execution-and-search-based-testing/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/white-box-testing-symbolic-execution-and-search-based-testing/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/regression-testing/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/regression-testing/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/concolic-execution/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/concolic-execution/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/fuzzing-and-random-testing/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/fuzzing-and-random-testing/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/kernel-methods-and-the-kernel-trick/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/kernel-methods-and-the-kernel-trick/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/manifold-learning-autoencoders-and-generative-models/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/manifold-learning-autoencoders-and-generative-models/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/introduction-to-neural-networks/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/introduction-to-neural-networks/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/recurrent-neural-networks-and-attention-mechanisms/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/recurrent-neural-networks-and-attention-mechanisms/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/basis-functions-for-non-linear-problems/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/basis-functions-for-non-linear-problems/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/frequentist-vs-bayesian-statistics/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/frequentist-vs-bayesian-statistics/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/introduction-to-machine-learning/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/introduction-to-machine-learning/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/linear-algebra-for-machine-learning/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/linear-algebra-for-machine-learning/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/introduction-to-linear-classifiers/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/introduction-to-linear-classifiers/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/linear-regression/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/linear-regression/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/model-selection-and-estimating-generalization-performance/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/model-selection-and-estimating-generalization-performance/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/the-perceptron-algorithm/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/the-perceptron-algorithm/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/probability-for-machine-learning/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/probability-for-machine-learning/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/support-vector-machines/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/support-vector-machines/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/function-approximation-and-the-curse-of-dimensionality/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/function-approximation-and-the-curse-of-dimensionality/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/introduction-to-deep-learning/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/introduction-to-deep-learning/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/the-linear-algebra-of-machine-learning-a-roadmap/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/the-linear-algebra-of-machine-learning-a-roadmap/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/vectors-and-vector-spaces/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/vectors-and-vector-spaces/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/matrices-and-data-representation/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/matrices-and-data-representation/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/dot-products-and-vector-norms/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/dot-products-and-vector-norms/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/matrix-multiplication-and-linear-transformations/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/matrix-multiplication-and-linear-transformations/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/systems-of-linear-equations/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/systems-of-linear-equations/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/matrix-inverse-linear-independence-and-rank/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/matrix-inverse-linear-independence-and-rank/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/eigenvectors-and-eigenvalues/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/eigenvectors-and-eigenvalues/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/eigendecomposition-of-a-matrix/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/eigendecomposition-of-a-matrix/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/singular-value-decomposition-svd/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/singular-value-decomposition-svd/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/application-principal-component-analysis-pca/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/application-principal-component-analysis-pca/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/vector-projections-and-orthogonality/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/vector-projections-and-orthogonality/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/application-linear-regression-and-the-normal-equation/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/application-linear-regression-and-the-normal-equation/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/matrix-calculus-gradients-with-vectors-and-matrices/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/matrix-calculus-gradients-with-vectors-and-matrices/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/conclusion-the-linear-algebra-foundation/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/conclusion-the-linear-algebra-foundation/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/introduction-to-offline-reinforcement-learning/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/introduction-to-offline-reinforcement-learning/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/td3bc-algorithm-for-offline-rl/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/td3bc-algorithm-for-offline-rl/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/cql-and-iql-algorithms/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/cql-and-iql-algorithms/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ctokx.github.io/varolcagdastok/articles/benchmarking-offline-rl-algorithms/</loc>
+    <loc>https://ctokx.github.io/personalblog/articles/benchmarking-offline-rl-algorithms/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>

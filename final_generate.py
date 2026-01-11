@@ -289,7 +289,7 @@ def generate_all():
     posts_dir = base_dir / 'posts'
     posts_json_path = base_dir / 'js' / 'posts.json'
     output_dir = base_dir / 'articles'
-    base_url = "https://ctokx.github.io/varolcagdastok"
+    base_url = "https://ctokx.github.io/personalblog"
 
     categories = {
         "Software Engineering & Testing": {
