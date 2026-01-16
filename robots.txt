@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ctokx.github.io/personalblog/sitemap.xml
+Sitemap: https://ctokx.github.io/varolcagdastok/sitemap.xml
