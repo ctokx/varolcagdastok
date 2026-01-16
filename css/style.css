@@ -103,6 +103,14 @@ main ul {
     padding-left: 40px;
 }
 
+main ol ol,
+main ol ul,
+main ul ol,
+main ul ul {
+    padding-left: 0;
+    margin-left: 0;
+}
+
 main table {
     width: 100%;
     border-collapse: collapse;
